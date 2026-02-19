@@ -1,0 +1,1748 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>StartSuite — Built to Make You Investable</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Epilogue:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #09090C;
+    --bg2: #0F0F14;
+    --surface: #14141B;
+    --surface2: #1A1A24;
+    --border: rgba(255,255,255,0.07);
+    --purple: #7B5EA7;
+    --purple-light: #A07CC5;
+    --purple-glow: rgba(123,94,167,0.25);
+    --purple-dim: rgba(123,94,167,0.12);
+    --text: #F0EEF8;
+    --text-muted: rgba(240,238,248,0.5);
+    --text-dim: rgba(240,238,248,0.3);
+    --accent: #C4A9E0;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Epilogue', sans-serif;
+    font-weight: 400;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, h5 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 40px;
+    height: 68px;
+    background: rgba(9,9,12,0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 18px;
+    letter-spacing: -0.01em;
+    color: var(--text);
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+  }
+
+  .nav-logo span {
+    display: inline-block;
+    width: 28px;
+    height: 28px;
+    background: linear-gradient(135deg, var(--purple), var(--accent));
+    border-radius: 7px;
+  }
+
+  .nav-links {
+    display: flex;
+    align-items: center;
+    gap: 36px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    transition: color 0.2s;
+    cursor: pointer;
+  }
+
+  .nav-links a:hover, .nav-links a.active { color: var(--text); }
+
+  .nav-cta {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 22px;
+    border-radius: 8px;
+    font-family: 'Syne', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.2s;
+    border: none;
+  }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--text-muted);
+    border: 1px solid var(--border);
+  }
+  .btn-ghost:hover { color: var(--text); border-color: rgba(255,255,255,0.18); }
+
+  .btn-primary {
+    background: var(--purple);
+    color: #fff;
+    box-shadow: 0 0 24px var(--purple-glow);
+  }
+  .btn-primary:hover { background: var(--purple-light); box-shadow: 0 0 36px rgba(123,94,167,0.4); }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--text);
+    border: 1px solid rgba(255,255,255,0.18);
+  }
+  .btn-outline:hover { background: var(--surface); }
+
+  .btn-large {
+    padding: 14px 28px;
+    font-size: 15px;
+    border-radius: 10px;
+  }
+
+  /* ─── PAGE SYSTEM ─── */
+  .page { display: none; }
+  .page.active { display: block; }
+
+  /* ─── SECTION UTILITIES ─── */
+  .section { padding: 120px 40px; max-width: 1200px; margin: 0 auto; }
+  .section-sm { padding: 80px 40px; max-width: 1200px; margin: 0 auto; }
+  .section-full { padding: 120px 40px; }
+
+  .label {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--purple-light);
+    background: var(--purple-dim);
+    padding: 5px 12px;
+    border-radius: 100px;
+    border: 1px solid rgba(123,94,167,0.2);
+    margin-bottom: 24px;
+  }
+
+  .label::before {
+    content: '';
+    display: inline-block;
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--purple-light);
+  }
+
+  .divider {
+    width: 100%;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* ─── HOMEPAGE: HERO ─── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 140px 40px 100px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -200px; left: 50%; transform: translateX(-50%);
+    width: 900px; height: 600px;
+    background: radial-gradient(ellipse, rgba(123,94,167,0.18) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .hero-eyebrow {
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 28px;
+  }
+
+  .hero-eyebrow span {
+    color: var(--purple-light);
+    font-weight: 600;
+  }
+
+  .hero h1 {
+    font-size: clamp(52px, 7vw, 88px);
+    font-weight: 800;
+    max-width: 820px;
+    background: linear-gradient(170deg, #FFFFFF 30%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 28px;
+  }
+
+  .hero-sub {
+    font-size: 18px;
+    color: var(--text-muted);
+    max-width: 500px;
+    margin: 0 auto 48px;
+    line-height: 1.7;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 80px;
+  }
+
+  .hero-stats {
+    display: flex;
+    gap: 60px;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .stat-number {
+    font-family: 'Syne', sans-serif;
+    font-size: 32px;
+    font-weight: 800;
+    color: var(--text);
+    display: block;
+  }
+
+  .stat-label {
+    font-size: 13px;
+    color: var(--text-dim);
+    margin-top: 4px;
+  }
+
+  .stat-divider {
+    width: 1px;
+    background: var(--border);
+    align-self: stretch;
+  }
+
+  /* ─── HOMEPAGE: PROBLEM ─── */
+  .problem-section {
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    background: var(--bg2);
+    padding: 100px 40px;
+  }
+
+  .problem-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .problem-left h2 {
+    font-size: clamp(32px, 4vw, 50px);
+    margin-bottom: 24px;
+    color: var(--text);
+  }
+
+  .problem-left p {
+    font-size: 16px;
+    color: var(--text-muted);
+    line-height: 1.75;
+  }
+
+  .problem-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .problem-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 20px 24px;
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+  }
+
+  .problem-icon {
+    width: 36px; height: 36px;
+    border-radius: 8px;
+    background: rgba(239,68,68,0.1);
+    border: 1px solid rgba(239,68,68,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 16px;
+  }
+
+  .problem-card h4 {
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 4px;
+    color: var(--text);
+  }
+
+  .problem-card p {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  /* ─── HOMEPAGE: VALUE ─── */
+  .value-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 64px;
+  }
+
+  .value-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 32px;
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.3s;
+  }
+
+  .value-card:hover { border-color: rgba(123,94,167,0.35); }
+
+  .value-card::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--purple), transparent);
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .value-card:hover::after { opacity: 1; }
+
+  .value-number {
+    font-family: 'Syne', sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    color: var(--purple-light);
+    margin-bottom: 16px;
+  }
+
+  .value-card h3 {
+    font-size: 20px;
+    margin-bottom: 12px;
+    color: var(--text);
+  }
+
+  .value-card p {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+
+  /* ─── HOMEPAGE: WHAT WE DO ─── */
+  .deliverables-section {
+    background: var(--bg2);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 100px 40px;
+  }
+
+  .deliverables-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .deliverables-header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: end;
+    margin-bottom: 60px;
+  }
+
+  .deliverables-header h2 {
+    font-size: clamp(32px, 4vw, 48px);
+  }
+
+  .deliverables-header p {
+    color: var(--text-muted);
+    font-size: 16px;
+    line-height: 1.75;
+  }
+
+  .deliverables-list {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+  }
+
+  .deliverable-item {
+    background: var(--surface);
+    padding: 32px 24px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    transition: background 0.2s;
+  }
+
+  .deliverable-item:hover { background: var(--surface2); }
+
+  .deliverable-icon {
+    font-size: 22px;
+  }
+
+  .deliverable-item h4 {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text);
+  }
+
+  .deliverable-item p {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  /* ─── HOMEPAGE: WHY DIFFERENT ─── */
+  .why-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 64px;
+  }
+
+  .why-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 32px;
+    display: flex;
+    gap: 20px;
+    align-items: flex-start;
+    transition: border-color 0.25s;
+  }
+
+  .why-card:hover { border-color: rgba(123,94,167,0.3); }
+
+  .why-check {
+    width: 32px; height: 32px;
+    border-radius: 8px;
+    background: var(--purple-dim);
+    border: 1px solid rgba(123,94,167,0.25);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    color: var(--purple-light);
+    font-size: 14px;
+    font-weight: 700;
+  }
+
+  .why-card h4 {
+    font-size: 15px;
+    margin-bottom: 6px;
+    color: var(--text);
+  }
+
+  .why-card p {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  /* ─── HOMEPAGE: PARTNER TEASER ─── */
+  .partner-teaser {
+    background: linear-gradient(135deg, var(--surface) 0%, rgba(123,94,167,0.08) 100%);
+    border: 1px solid rgba(123,94,167,0.2);
+    border-radius: 20px;
+    padding: 64px;
+    display: grid;
+    grid-template-columns: 1fr auto;
+    align-items: center;
+    gap: 48px;
+    margin-top: 80px;
+  }
+
+  .partner-teaser h2 {
+    font-size: clamp(28px, 3vw, 40px);
+    margin-bottom: 16px;
+  }
+
+  .partner-teaser p {
+    font-size: 16px;
+    color: var(--text-muted);
+    max-width: 520px;
+    line-height: 1.75;
+  }
+
+  /* ─── HOMEPAGE: FINAL CTA ─── */
+  .final-cta {
+    text-align: center;
+    padding: 140px 40px;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .final-cta h2 {
+    font-size: clamp(38px, 5vw, 64px);
+    margin-bottom: 24px;
+    background: linear-gradient(170deg, #FFFFFF 30%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .final-cta p {
+    font-size: 16px;
+    color: var(--text-muted);
+    margin-bottom: 40px;
+    line-height: 1.75;
+  }
+
+  /* ─── FOUNDATIONS PAGE ─── */
+  .foundations-hero {
+    padding: 160px 40px 100px;
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .foundations-hero h1 {
+    font-size: clamp(42px, 5vw, 68px);
+    margin-bottom: 24px;
+    background: linear-gradient(170deg, #FFFFFF 30%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .foundations-hero p {
+    font-size: 17px;
+    color: var(--text-muted);
+    line-height: 1.75;
+    margin-bottom: 36px;
+  }
+
+  .price-card {
+    background: var(--surface);
+    border: 1px solid rgba(123,94,167,0.3);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 0 60px var(--purple-glow);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .price-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--purple), var(--accent));
+  }
+
+  .price-badge {
+    display: inline-block;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--purple-light);
+    background: var(--purple-dim);
+    padding: 4px 10px;
+    border-radius: 100px;
+    margin-bottom: 20px;
+  }
+
+  .price-amount {
+    font-family: 'Syne', sans-serif;
+    font-size: 52px;
+    font-weight: 800;
+    color: var(--text);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .price-period {
+    font-size: 14px;
+    color: var(--text-dim);
+    margin-bottom: 28px;
+  }
+
+  .price-features {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 32px;
+  }
+
+  .price-features li {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 14px;
+    color: var(--text-muted);
+  }
+
+  .price-features li::before {
+    content: '✓';
+    color: var(--purple-light);
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .price-note {
+    font-size: 12px;
+    color: var(--text-dim);
+    text-align: center;
+    margin-top: 16px;
+    line-height: 1.5;
+  }
+
+  /* ─── FOUNDATIONS: DELIVERABLE DETAIL ─── */
+  .deliverable-detail-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+    margin-top: 64px;
+  }
+
+  .detail-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 36px;
+    transition: border-color 0.25s;
+  }
+
+  .detail-card:hover { border-color: rgba(123,94,167,0.3); }
+
+  .detail-card-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+
+  .detail-icon {
+    width: 44px; height: 44px;
+    border-radius: 11px;
+    background: var(--purple-dim);
+    border: 1px solid rgba(123,94,167,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+  }
+
+  .detail-card h3 {
+    font-size: 18px;
+    color: var(--text);
+  }
+
+  .detail-card p {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+
+  .detail-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .tag {
+    font-size: 12px;
+    color: var(--text-dim);
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    padding: 4px 10px;
+    border-radius: 6px;
+  }
+
+  /* ─── FOUNDATIONS: TIMELINE ─── */
+  .timeline {
+    margin-top: 64px;
+    position: relative;
+  }
+
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 24px; top: 0; bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--purple), transparent);
+  }
+
+  .timeline-item {
+    display: flex;
+    gap: 32px;
+    padding-bottom: 48px;
+    padding-left: 0;
+  }
+
+  .timeline-dot {
+    width: 48px; height: 48px;
+    border-radius: 50%;
+    background: var(--surface);
+    border: 2px solid rgba(123,94,167,0.4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Syne', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--purple-light);
+    flex-shrink: 0;
+  }
+
+  .timeline-content {
+    padding-top: 10px;
+  }
+
+  .timeline-content h4 {
+    font-size: 17px;
+    margin-bottom: 8px;
+    color: var(--text);
+  }
+
+  .timeline-content p {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.65;
+  }
+
+  /* ─── PARTNER PAGE ─── */
+  .partner-hero {
+    padding: 160px 40px 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .partner-hero h1 {
+    font-size: clamp(42px, 6vw, 72px);
+    max-width: 800px;
+    margin: 0 auto 28px;
+    background: linear-gradient(170deg, #FFFFFF 30%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .partner-hero p {
+    font-size: 18px;
+    color: var(--text-muted);
+    max-width: 580px;
+    margin: 0 auto 48px;
+    line-height: 1.75;
+  }
+
+  /* ─── PARTNER: MODELS ─── */
+  .models-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 64px;
+  }
+
+  .model-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 36px 32px;
+    transition: all 0.25s;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .model-card.featured {
+    border-color: rgba(123,94,167,0.4);
+    background: linear-gradient(160deg, var(--surface) 0%, rgba(123,94,167,0.08) 100%);
+    box-shadow: 0 0 40px var(--purple-glow);
+  }
+
+  .model-card h3 {
+    font-size: 20px;
+    margin-bottom: 12px;
+    color: var(--text);
+  }
+
+  .model-card p {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+
+  .model-includes {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .model-includes li {
+    font-size: 13px;
+    color: var(--text-muted);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .model-includes li::before {
+    content: '→';
+    color: var(--purple-light);
+    font-size: 12px;
+  }
+
+  /* ─── PARTNER: TRUST ─── */
+  .trust-section {
+    background: var(--bg2);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 100px 40px;
+  }
+
+  .trust-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .trust-points {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-top: 32px;
+  }
+
+  .trust-point {
+    display: flex;
+    gap: 16px;
+    align-items: flex-start;
+  }
+
+  .trust-number {
+    font-family: 'Syne', sans-serif;
+    font-size: 13px;
+    font-weight: 800;
+    color: var(--purple-light);
+    width: 28px;
+    flex-shrink: 0;
+    padding-top: 2px;
+  }
+
+  .trust-point h4 {
+    font-size: 15px;
+    margin-bottom: 4px;
+    color: var(--text);
+  }
+
+  .trust-point p {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.6;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 60px 40px 40px;
+  }
+
+  .footer-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 48px;
+    gap: 40px;
+  }
+
+  .footer-brand p {
+    font-size: 14px;
+    color: var(--text-muted);
+    margin-top: 12px;
+    max-width: 280px;
+    line-height: 1.65;
+  }
+
+  .footer-links {
+    display: flex;
+    gap: 64px;
+  }
+
+  .footer-col h5 {
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--text-dim);
+    margin-bottom: 16px;
+  }
+
+  .footer-col ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .footer-col a {
+    font-size: 14px;
+    color: var(--text-muted);
+    text-decoration: none;
+    cursor: pointer;
+    transition: color 0.2s;
+  }
+
+  .footer-col a:hover { color: var(--text); }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 32px;
+    border-top: 1px solid var(--border);
+  }
+
+  .footer-bottom p {
+    font-size: 13px;
+    color: var(--text-dim);
+  }
+
+  .powered-by {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 13px;
+    color: var(--text-dim);
+  }
+
+  .powered-by span {
+    color: var(--purple-light);
+    font-weight: 600;
+  }
+
+  /* ─── SECTION HEADINGS ─── */
+  .section-header {
+    margin-bottom: 16px;
+  }
+
+  .section-header h2 {
+    font-size: clamp(32px, 4vw, 52px);
+    margin-bottom: 16px;
+  }
+
+  .section-header p {
+    font-size: 16px;
+    color: var(--text-muted);
+    max-width: 560px;
+    line-height: 1.75;
+  }
+
+  /* ─── PARTNER: PHILOSOPHY CALLOUT ─── */
+  .callout-bar {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 36px 48px;
+    display: flex;
+    align-items: center;
+    gap: 48px;
+    margin-top: 64px;
+  }
+
+  .callout-bar p {
+    font-size: 17px;
+    color: var(--text-muted);
+    line-height: 1.7;
+  }
+
+  .callout-bar p strong {
+    color: var(--text);
+    font-weight: 600;
+  }
+
+  .callout-divider {
+    width: 1px;
+    height: 60px;
+    background: var(--border);
+    flex-shrink: 0;
+  }
+
+  /* animations */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(24px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .page.active .hero h1,
+  .page.active .foundations-hero h1,
+  .page.active .partner-hero h1 {
+    animation: fadeUp 0.7s ease both;
+  }
+
+  .page.active .hero-sub,
+  .page.active .foundations-hero p,
+  .page.active .partner-hero p {
+    animation: fadeUp 0.7s 0.12s ease both;
+  }
+
+  .page.active .hero-ctas,
+  .page.active .partner-hero .btn {
+    animation: fadeUp 0.7s 0.22s ease both;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" onclick="showPage('home')">
+    <span></span>
+    StartSuite
+  </a>
+  <ul class="nav-links">
+    <li><a onclick="showPage('home')" id="nav-home" class="active">Home</a></li>
+    <li><a onclick="showPage('foundations')" id="nav-foundations">Foundations</a></li>
+    <li><a onclick="showPage('partners')" id="nav-partners">For Partners</a></li>
+  </ul>
+  <div class="nav-cta">
+    <a class="btn btn-ghost" onclick="showPage('partners')">For Partners</a>
+    <a class="btn btn-primary" onclick="showPage('foundations')">Book Intro</a>
+  </div>
+</nav>
+
+<!-- ══════════════════════════════════════════
+     PAGE: HOME
+══════════════════════════════════════════ -->
+<div id="page-home" class="page active">
+
+  <!-- HERO -->
+  <section class="hero">
+    <p class="hero-eyebrow">Powered by <span>46</span> &nbsp;·&nbsp; Independent</p>
+    <h1>Built to Make You Investable.</h1>
+    <p class="hero-sub">Creative and brand infrastructure for startups before Series A. One partner. Everything you need to look real, raise confidently, and move fast.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-primary btn-large" onclick="showPage('foundations')">View Foundations</a>
+      <a class="btn btn-outline btn-large" onclick="showPage('foundations')">Book Intro</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="stat-number">$17M+</span>
+        <p class="stat-label">Capital raised by clients</p>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-number">12+</span>
+        <p class="stat-label">Startups across B2B, B2C & VC</p>
+      </div>
+      <div class="stat-divider"></div>
+      <div class="stat">
+        <span class="stat-number">4.95</span>
+        <p class="stat-label">Client satisfaction</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROBLEM -->
+  <section class="problem-section">
+    <div class="problem-inner">
+      <div class="problem-left">
+        <div class="label">The reality</div>
+        <h2>Your product is ready. Your brand isn't.</h2>
+        <p>Investors make snap judgments. So do customers, recruits, and partners. Founders with great products lose credibility every day because their brand signals "side project" instead of "category winner." That gap is fixable — but only if you treat brand as infrastructure, not decoration.</p>
+      </div>
+      <div class="problem-cards">
+        <div class="problem-card">
+          <div class="problem-icon">⚡</div>
+          <div>
+            <h4>Inconsistent visual identity</h4>
+            <p>Deck doesn't match the site. Site doesn't match the LinkedIn. Investors notice before you do.</p>
+          </div>
+        </div>
+        <div class="problem-card">
+          <div class="problem-icon">🔄</div>
+          <div>
+            <h4>Constant scramble for assets</h4>
+            <p>Every pitch, press op, or hire triggers an emergency design request with no system backing it.</p>
+          </div>
+        </div>
+        <div class="problem-card">
+          <div class="problem-icon">🏚️</div>
+          <div>
+            <h4>The freelancer loop</h4>
+            <p>Slow turnarounds. No strategic context. Assets delivered in a vacuum. The cycle repeats.</p>
+          </div>
+        </div>
+        <div class="problem-card">
+          <div class="problem-icon">📉</div>
+          <div>
+            <h4>Weak pitch decks</h4>
+            <p>Content might be solid. But design that doesn't earn trust undermines the whole narrative.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- VALUE -->
+  <section class="section">
+    <div class="label">Why it matters</div>
+    <div class="section-header">
+      <h2>Momentum starts with clarity.</h2>
+      <p>When your brand infrastructure is solid, everything else compounds. Faster decisions. Stronger pitches. Consistent execution across every touchpoint.</p>
+    </div>
+    <div class="value-grid">
+      <div class="value-card">
+        <div class="value-number">01</div>
+        <h3>Instant credibility</h3>
+        <p>A brand system that signals maturity from the first impression. Investors and customers make faster, more confident decisions when you look like the real thing.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-number">02</div>
+        <h3>Clarity that aligns teams</h3>
+        <p>Everyone on your team knows who you are, what you say, and how you show up. No more off-brand decks from a well-meaning co-founder at 2am.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-number">03</div>
+        <h3>Build faster</h3>
+        <p>A live brand HQ means assets are ready when you need them. No briefing from scratch every time. No waiting. Just execution.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-number">04</div>
+        <h3>Fundraise with confidence</h3>
+        <p>Your pitch materials will match the ambition of your vision. Walk into your next investor meeting knowing your brand is as strong as your story.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-number">05</div>
+        <h3>A partner, not a vendor</h3>
+        <p>We're embedded in your growth. Two office hours a month, strategic input, and a team that understands the startup context as well as you do.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-number">06</div>
+        <h3>Infrastructure that compounds</h3>
+        <p>Month one is the foundation. By month six, your system is running. By month twelve, your brand is one of your strongest assets.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE DO -->
+  <section class="deliverables-section">
+    <div class="deliverables-inner">
+      <div class="deliverables-header">
+        <div>
+          <div class="label">What we deliver</div>
+          <h2>Everything you need. Nothing you don't.</h2>
+        </div>
+        <p>Foundations covers brand, web, pitch materials, and strategic support — all in a single monthly subscription. Built specifically for the pre-Series A stage, not retrofitted from an agency playbook.</p>
+      </div>
+      <div class="deliverables-list">
+        <div class="deliverable-item">
+          <div class="deliverable-icon">🎨</div>
+          <h4>Brand Foundation</h4>
+          <p>Logo suite, color system, typography, and brand guidelines that actually get used.</p>
+        </div>
+        <div class="deliverable-item">
+          <div class="deliverable-icon">🌐</div>
+          <h4>Website</h4>
+          <p>A 1–2 page site built for credibility and conversion. Not a template — a positioning tool.</p>
+        </div>
+        <div class="deliverable-item">
+          <div class="deliverable-icon">📊</div>
+          <h4>Pitch Decks</h4>
+          <p>Custom pitch deck template and one-pager. Designed to reinforce your narrative, not distract from it.</p>
+        </div>
+        <div class="deliverable-item">
+          <div class="deliverable-icon">⚙️</div>
+          <h4>Asset Infrastructure</h4>
+          <p>A Live Brand HQ — your centralized system of truth for every visual asset and template.</p>
+        </div>
+        <div class="deliverable-item">
+          <div class="deliverable-icon">🤝</div>
+          <h4>Strategic Support</h4>
+          <p>Two office hours a month. Real input from people who've been in the startup trenches.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY DIFFERENT -->
+  <section class="section">
+    <div class="label">Why StartSuite</div>
+    <div class="section-header">
+      <h2>Not a design subscription. A creative operating system.</h2>
+      <p>Most creative services hand you assets and disappear. We build the system that keeps generating them — and we're invested in how your company actually grows.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="why-check">✓</div>
+        <div>
+          <h4>Built by investors and operators</h4>
+          <p>Powered by 46 — which means we understand what investors are actually looking for, not just what looks nice.</p>
+        </div>
+      </div>
+      <div class="why-card">
+        <div class="why-check">✓</div>
+        <div>
+          <h4>Startup-native by design</h4>
+          <p>We're not adapting an enterprise agency model. Every process, timeline, and format is built for early-stage speed and constraints.</p>
+        </div>
+      </div>
+      <div class="why-card">
+        <div class="why-check">✓</div>
+        <div>
+          <h4>One flat subscription</h4>
+          <p>$2,000/month. No project billing, no scope creep, no surprise invoices. Your creative partner is always on.</p>
+        </div>
+      </div>
+      <div class="why-card">
+        <div class="why-check">✓</div>
+        <div>
+          <h4>Partner mindset</h4>
+          <p>We get embedded in your company. Strategic input, creative execution, and a team that knows your brand as well as you do.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARTNER TEASER -->
+  <div style="padding: 0 40px; max-width:1200px; margin: 0 auto 0;">
+    <div class="partner-teaser">
+      <div>
+        <div class="label">For accelerators & funds</div>
+        <h2>Creative infrastructure for your founders.</h2>
+        <p>Your portfolio companies are building incredible things. They shouldn't lose momentum because they look like they're still in a dorm room. We plug directly into your ecosystem as a trusted creative resource.</p>
+      </div>
+      <div style="flex-shrink:0;">
+        <a class="btn btn-outline btn-large" onclick="showPage('partners')" style="white-space:nowrap;">View Partner Options →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta">
+    <h2>Stop scrambling. Start building.</h2>
+    <p>Foundations is a 12-month creative partnership. We build infrastructure that compounds. If you're serious about what comes next, this is where it starts.</p>
+    <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+      <a class="btn btn-primary btn-large" onclick="showPage('foundations')">View Foundations</a>
+      <a class="btn btn-outline btn-large" onclick="showPage('foundations')">Book Intro Call</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="nav-logo" style="cursor:default;">
+            <span></span> StartSuite
+          </div>
+          <p>Creative and brand infrastructure for startups before Series A. Built to make you investable.</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <h5>Product</h5>
+            <ul>
+              <li><a onclick="showPage('foundations')">Foundations</a></li>
+              <li><a onclick="showPage('foundations')">Deliverables</a></li>
+              <li><a onclick="showPage('foundations')">How it works</a></li>
+              <li><a onclick="showPage('foundations')">Pricing</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h5>Partners</h5>
+            <ul>
+              <li><a onclick="showPage('partners')">Overview</a></li>
+              <li><a onclick="showPage('partners')">Partnership models</a></li>
+              <li><a onclick="showPage('partners')">Pilot program</a></li>
+              <li><a onclick="showPage('partners')">Get in touch</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h5>Company</h5>
+            <ul>
+              <li><a>About</a></li>
+              <li><a>Contact</a></li>
+              <li><a>Powered by 46</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 StartSuite. All rights reserved.</p>
+        <div class="powered-by">Powered by <span>46</span></div>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<!-- ══════════════════════════════════════════
+     PAGE: FOUNDATIONS
+══════════════════════════════════════════ -->
+<div id="page-foundations" class="page">
+
+  <!-- HERO -->
+  <div class="foundations-hero">
+    <div>
+      <div class="label">Foundations</div>
+      <h1>The infrastructure your startup actually needs.</h1>
+      <p>Foundations is a 12-month creative partnership. We build your brand system, website, pitch materials, and asset infrastructure — then stay embedded as your creative team throughout the year.</p>
+      <div style="display:flex; gap:14px; flex-wrap:wrap;">
+        <a class="btn btn-primary btn-large">Book Intro Call</a>
+        <a class="btn btn-outline btn-large">See Deliverables</a>
+      </div>
+    </div>
+    <div>
+      <div class="price-card">
+        <div class="price-badge">Foundations</div>
+        <div class="price-amount">$2,000</div>
+        <div class="price-period">per month &nbsp;·&nbsp; 12-month partnership</div>
+        <ul class="price-features">
+          <li>Up to 3 founder seats</li>
+          <li>Brand foundation + logo suite</li>
+          <li>Live Brand HQ (asset system)</li>
+          <li>1–2 page positioning-led website</li>
+          <li>Custom pitch deck template</li>
+          <li>One-pager design</li>
+          <li>1–2 design pieces/month (from Month 3)</li>
+          <li>2 office hours/month with strategic input</li>
+        </ul>
+        <a class="btn btn-primary" style="width:100%; justify-content:center;">Book Intro Call</a>
+        <p class="price-note">1 month free with annual upfront payment. 12-month commitment expected. Flexible on a case-by-case basis.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="divider" style="max-width:1200px; margin: 0 auto;"></div>
+
+  <!-- DELIVERABLE DETAIL -->
+  <section class="section">
+    <div class="label">What's included</div>
+    <div class="section-header">
+      <h2>Infrastructure, not one-off assets.</h2>
+      <p>Foundations isn't a task queue. Every deliverable is designed to build on the last, creating a system that compounds over time.</p>
+    </div>
+    <div class="deliverable-detail-grid">
+      <div class="detail-card">
+        <div class="detail-card-header">
+          <div class="detail-icon">🎨</div>
+          <h3>Brand Foundation</h3>
+        </div>
+        <p>Your brand's system of truth. We build a logo suite, color palette, typography, and messaging alignment that your whole team can operate from — then house it all in a Live Brand HQ accessible to everyone.</p>
+        <div class="detail-tags">
+          <span class="tag">Logo suite</span>
+          <span class="tag">Color palette</span>
+          <span class="tag">Typography</span>
+          <span class="tag">Brand guidelines</span>
+          <span class="tag">Messaging framework</span>
+          <span class="tag">Live Brand HQ</span>
+        </div>
+      </div>
+      <div class="detail-card">
+        <div class="detail-card-header">
+          <div class="detail-icon">🌐</div>
+          <h3>Website</h3>
+        </div>
+        <p>A 1–2 page site built for credibility and conversion. Not a template you customize — a positioning-led website designed around your narrative. Includes basic analytics setup so you know what's landing.</p>
+        <div class="detail-tags">
+          <span class="tag">1–2 page site</span>
+          <span class="tag">Positioning-led design</span>
+          <span class="tag">Mobile responsive</span>
+          <span class="tag">Analytics setup</span>
+        </div>
+      </div>
+      <div class="detail-card">
+        <div class="detail-card-header">
+          <div class="detail-icon">📊</div>
+          <h3>Investor & Sales Enablement</h3>
+        </div>
+        <p>The materials you'll use in every meeting. Custom pitch deck template, one-pager design, and from month three, 1–2 additional design pieces per month — sales sheets, hiring assets, partner decks, campaign visuals.</p>
+        <div class="detail-tags">
+          <span class="tag">Pitch deck template</span>
+          <span class="tag">One-pager</span>
+          <span class="tag">Sales sheets</span>
+          <span class="tag">Hiring assets</span>
+          <span class="tag">Partner decks</span>
+        </div>
+      </div>
+      <div class="detail-card">
+        <div class="detail-card-header">
+          <div class="detail-icon">🤝</div>
+          <h3>Strategic Support</h3>
+        </div>
+        <p>Two office hours per month with people who've been inside startups and funds. Not just design feedback — real strategic input on positioning, fundraising narrative, and brand decisions that matter.</p>
+        <div class="detail-tags">
+          <span class="tag">2 office hours/month</span>
+          <span class="tag">Strategic guidance</span>
+          <span class="tag">Monthly alignment</span>
+          <span class="tag">Founder-level input</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="divider" style="max-width:1200px; margin: 0 auto;"></div>
+
+  <!-- HOW IT WORKS -->
+  <section class="section">
+    <div class="label">How it works</div>
+    <div class="section-header">
+      <h2>Twelve months. Real momentum.</h2>
+      <p>Brand infrastructure takes time to build — and compound. Here's what the Foundations partnership looks like in practice.</p>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-dot">M1</div>
+        <div class="timeline-content">
+          <h4>Kickoff &amp; Brand Foundation</h4>
+          <p>30-day kickoff sprint. We align on positioning, build your brand system, and deliver your logo suite, brand guidelines, and Live Brand HQ. Your foundation is live.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">M2</div>
+        <div class="timeline-content">
+          <h4>Website &amp; Pitch Materials</h4>
+          <p>Your positioning-led website goes live. Custom pitch deck template and one-pager delivered. You're ready to walk into investor meetings looking like the company you're building.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">M3</div>
+        <div class="timeline-content">
+          <h4>Ongoing Design &amp; Strategic Rhythm</h4>
+          <p>1–2 design pieces per month kick in. Sales sheets, hiring assets, campaign visuals — whatever the business needs. Monthly office hours keep strategy aligned with execution.</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-dot">M12</div>
+        <div class="timeline-content">
+          <h4>A Brand That's Actually an Asset</h4>
+          <p>By month twelve, your brand system is running. Consistent. Scalable. A competitive advantage — not a liability you're managing around.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="final-cta">
+    <h2>Serious founders only.</h2>
+    <p>Foundations is a 12-month partnership, and we mean it. We build infrastructure — brand systems compound, and that requires continuity. If you're ready to treat brand as seriously as your product, let's talk.</p>
+    <div style="display:flex; gap:14px; justify-content:center; flex-wrap:wrap;">
+      <a class="btn btn-primary btn-large">Book Intro Call</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="nav-logo" style="cursor:default;">
+            <span></span> StartSuite
+          </div>
+          <p>Creative and brand infrastructure for startups before Series A. Built to make you investable.</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <h5>Product</h5>
+            <ul>
+              <li><a onclick="showPage('foundations')">Foundations</a></li>
+              <li><a onclick="showPage('foundations')">Deliverables</a></li>
+              <li><a onclick="showPage('foundations')">How it works</a></li>
+              <li><a onclick="showPage('foundations')">Pricing</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h5>Partners</h5>
+            <ul>
+              <li><a onclick="showPage('partners')">Overview</a></li>
+              <li><a onclick="showPage('partners')">Partnership models</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 StartSuite. All rights reserved.</p>
+        <div class="powered-by">Powered by <span>46</span></div>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<!-- ══════════════════════════════════════════
+     PAGE: PARTNERS
+══════════════════════════════════════════ -->
+<div id="page-partners" class="page">
+
+  <!-- HERO -->
+  <div class="partner-hero">
+    <div class="label">For ecosystem partners</div>
+    <h1>Creative infrastructure for your founders.</h1>
+    <p>Your portfolio companies are building real things. They shouldn't lose credibility — or momentum — because their brand doesn't match their ambition. We become the creative partner your ecosystem can trust.</p>
+    <a class="btn btn-primary btn-large">Get in Touch</a>
+  </div>
+
+  <div class="divider" style="max-width:1200px; margin: 0 auto;"></div>
+
+  <!-- WHY FOUNDERS STRUGGLE -->
+  <section class="section">
+    <div class="label">The problem</div>
+    <div class="section-header">
+      <h2>Early-stage founders have a brand problem they don't have time to fix.</h2>
+      <p>Most pre-Series A founders know their brand is a gap. They just don't have the bandwidth, budget transparency, or strategic guidance to close it — so they patch it with freelancers and move on. The result compounds quietly: inconsistent identity, weak materials, missed credibility at the worst possible time.</p>
+    </div>
+    <div class="callout-bar">
+      <p><strong>The gap isn't design skills.</strong> It's the absence of a creative operating system. Founders need a partner who understands the startup context and can build infrastructure that scales with them — not just hand them a logo and walk away.</p>
+      <div class="callout-divider"></div>
+      <p>That's where StartSuite comes in. We integrate directly into your ecosystem as a trusted, ready-to-refer creative resource your founders will actually use.</p>
+    </div>
+  </section>
+
+  <!-- PARTNERSHIP MODELS -->
+  <section class="trust-section">
+    <div class="trust-inner">
+      <div>
+        <div class="label">Partnership models</div>
+        <h2>Flexible by design. Committed to outcomes.</h2>
+        <p style="color:var(--text-muted); font-size:15px; margin-top:16px; line-height:1.75;">We don't require a complex integration to start. The first step is a referral relationship — you send founders our way and we take care of the rest. From there, we can build something more structured together.</p>
+        <ul class="trust-points">
+          <li class="trust-point">
+            <span class="trust-number">01</span>
+            <div>
+              <h4>Referred Resource Model</h4>
+              <p>The simplest place to start. You refer founders directly. We handle intake, onboarding, and delivery. No integration required — just a trusted creative partner in your back pocket.</p>
+            </div>
+          </li>
+          <li class="trust-point">
+            <span class="trust-number">02</span>
+            <div>
+              <h4>Subsidized Seats</h4>
+              <p>Your program covers part of the Foundations cost. Founders pay the remainder. Positions you as an organization that invests in founder success beyond capital.</p>
+            </div>
+          </li>
+          <li class="trust-point">
+            <span class="trust-number">03</span>
+            <div>
+              <h4>Cohort Partner</h4>
+              <p>We run a brand workshop for your cohort, hold office hours, and offer discounted Foundations seats. Built around your program calendar and timeline.</p>
+            </div>
+          </li>
+          <li class="trust-point">
+            <span class="trust-number">04</span>
+            <div>
+              <h4>Prize Model</h4>
+              <p>A Foundations seat (or 3-month package) as a competition prize. High perceived value, strong signal that your program is serious about founder outcomes.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div>
+        <div class="models-grid" style="grid-template-columns: 1fr; gap:16px;">
+          <div class="model-card featured">
+            <h3>Start with a pilot</h3>
+            <p>The fastest way to prove the model is to run it. We work with 3–5 of your founders at an introductory rate, deliver real results, and build the case for a deeper partnership together.</p>
+            <ul class="model-includes">
+              <li>3–5 founders onboarded</li>
+              <li>Full Foundations delivery</li>
+              <li>Outcome reporting for your team</li>
+              <li>Strategic integration discussion at 90 days</li>
+            </ul>
+          </div>
+          <div class="model-card" style="margin-top: 0;">
+            <h3>Who we work with</h3>
+            <p>We partner with organizations that are invested in founder outcomes beyond check size.</p>
+            <ul class="model-includes">
+              <li>VC platform teams</li>
+              <li>Accelerators and incubators</li>
+              <li>University entrepreneurship programs</li>
+              <li>Economic development organizations</li>
+              <li>Corporate innovation programs</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW WE INTEGRATE -->
+  <section class="section">
+    <div class="label">How it works</div>
+    <div class="section-header">
+      <h2>Low lift for you. High impact for your founders.</h2>
+      <p>We're designed to integrate without adding work to your plate. No complex onboarding. No oversight required. You refer, we deliver, your founders benefit.</p>
+    </div>
+    <div class="value-grid">
+      <div class="value-card">
+        <div class="value-number">Step 1</div>
+        <h3>20-minute intro call</h3>
+        <p>We learn about your program, your founders' stage, and where brand typically shows up as a gap. No deck required.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-number">Step 2</div>
+        <h3>Share a one-pager</h3>
+        <p>We give you one clean resource your team can share with founders. Clear, direct, no fluff. Founders know exactly what Foundations is and whether it's right for them.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-number">Step 3</div>
+        <h3>We handle the rest</h3>
+        <p>Founders book directly. We onboard, execute, and deliver. You get periodic outcome updates without needing to manage the relationship.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FINAL CTA -->
+  <div style="background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 100px 40px; text-align:center;">
+    <div style="max-width:600px; margin: 0 auto;">
+      <div class="label" style="justify-content:center;">Ready to partner?</div>
+      <h2 style="font-size:clamp(32px, 4vw, 52px); margin-bottom:20px;">Let's talk about your founders.</h2>
+      <p style="color:var(--text-muted); font-size:16px; margin-bottom:40px; line-height:1.75;">A 20-minute call is all it takes to figure out whether there's a fit. We'll come ready with questions — and so should you.</p>
+      <a class="btn btn-primary btn-large">Book Intro Call</a>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-brand">
+          <div class="nav-logo" style="cursor:default;">
+            <span></span> StartSuite
+          </div>
+          <p>Creative and brand infrastructure for startups before Series A. Built to make you investable.</p>
+        </div>
+        <div class="footer-links">
+          <div class="footer-col">
+            <h5>Product</h5>
+            <ul>
+              <li><a onclick="showPage('foundations')">Foundations</a></li>
+              <li><a onclick="showPage('foundations')">Deliverables</a></li>
+              <li><a onclick="showPage('foundations')">Pricing</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h5>Partners</h5>
+            <ul>
+              <li><a onclick="showPage('partners')">Overview</a></li>
+              <li><a onclick="showPage('partners')">Partnership models</a></li>
+              <li><a onclick="showPage('partners')">Get in touch</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h5>Company</h5>
+            <ul>
+              <li><a>About</a></li>
+              <li><a>Contact</a></li>
+              <li><a>Powered by 46</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>© 2025 StartSuite. All rights reserved.</p>
+        <div class="powered-by">Powered by <span>46</span></div>
+      </div>
+    </div>
+  </footer>
+
+</div>
+
+<script>
+  function showPage(name) {
+    // hide all pages
+    document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+    // show target
+    document.getElementById('page-' + name).classList.add('active');
+    // update nav
+    document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+    const nav = document.getElementById('nav-' + name);
+    if (nav) nav.classList.add('active');
+    // scroll to top
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }
+</script>
+</body>
+</html>
