@@ -43,7 +43,8 @@ exports.handler = async function (event) {
     // Build enriched record
     const record = {
       // Form fields
-      name: payload.data.name || '',
+      first_name: payload.data.first_name || '',
+      last_name: payload.data.last_name || '',
       email: payload.data.email || '',
       company: payload.data.company || '',
       stage: payload.data.stage || '',

@@ -121,6 +121,7 @@ nav.nav-scrolled{background:rgba(8,8,11,0.92);border-color:rgba(255,255,255,0.08
 .form-group select{appearance:none;cursor:pointer}
 .form-group select option{background:var(--bg)}
 .form-required{display:flex;flex-direction:column;gap:12px;margin-bottom:12px}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
 .blind-date-message{background:rgba(123,94,167,0.07);border:1px solid rgba(123,94,167,0.2);border-radius:10px;padding:14px 16px;margin-bottom:12px;font-size:13px;color:var(--text-muted);line-height:1.6;display:none}
 .blind-date-message.show{display:block}
 .blind-date-message strong{color:var(--text)}
