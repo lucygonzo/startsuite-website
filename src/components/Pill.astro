@@ -1,0 +1,9 @@
+---
+interface Props {
+  text: string;
+  class?: string;
+  style?: string;
+}
+const { text, class: className = '', style = '' } = Astro.props;
+---
+<div class={`pill scroll-reveal ${className}`.trim()} style={style}>{text}</div>

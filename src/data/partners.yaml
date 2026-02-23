@@ -1,0 +1,113 @@
+# ──────────────────────────────────────────────
+#  Partners page — structured content
+# ──────────────────────────────────────────────
+
+hero:
+  pill: "For ecosystem partners"
+  headline: 'Capital is table stakes. What sets programs apart is what happens <em>after the check.</em>'
+  description: "Most programs give founders capital, connections, and coaching. The gap is creative infrastructure. It costs founders credibility at the exact moment they can't afford it. We close that gap without adding anything to your plate."
+  cta_primary: "Get in Touch"
+  cta_secondary: "See Partnership Models"
+  proof_label: "Verified · Q1 2026"
+  stats_row_1:
+    - value: "100%"
+      label: "Delivery rate"
+    - value: "0"
+      label: "Hours from your team"
+    - value: "$2k"
+      label: "Per founder / month"
+  stats_row_2:
+    - value: "12"
+      label: "Month engagement"
+    - value: "5"
+      label: "Pillars delivered"
+    - value: "1:1"
+      label: "Dedicated team"
+
+the_gap:
+  dim_line_label: "The problem"
+  pill: "The problem we solve"
+  headline: 'The gap isn''t design skills. It''s the absence of a creative <span class="sketch-underline">operating system.<svg viewBox="0 0 200 8"><path d="M2 6 C50 2, 100 2, 198 5"/></svg></span>'
+  description: "Founders can find a freelancer. What they can't find is a creative partner who understands the startup context, moves at startup speed, and builds infrastructure that scales with their raise. Your program can solve this without adding a single thing to your team's plate."
+  hero_card:
+    title: "Credibility compounds. So does the lack of it."
+    body: "Investors make pattern decisions fast. A brand that looks inconsistent, amateur, or misaligned signals operational immaturity before a founder says a word."
+    right_body: "Getting in the room is hard enough. StartSuite makes sure the brand doesn't cost them the meeting. We give founders the creative infrastructure that matches the ambition they're pitching."
+    right_footnote: "The pitch that doesn't land, the hire that passes, the partner that ghosts the follow-up — it all traces back to the same gap."
+  cards:
+    - num: "02"
+      title: "It shows up in your program's outcomes, not just theirs."
+      body: "Stronger founder brands mean more compelling pitches, higher raise rates, and higher-quality top talent walking in the door. That reflects directly on your program. We make that case easy to make."
+    - num: "03"
+      title: "We require nothing from your team to run."
+      body: "The fastest path is a warm intro and a one-pager. Founders book directly. We handle intake, onboarding, delivery, and outcomes reporting. You get the signal without managing the relationship."
+
+how_we_integrate:
+  pill: "How we work together"
+  headline: 'Three steps. Then it <span class="sketch-underline">runs itself.<svg viewBox="0 0 200 8"><path d="M2 6 C50 2, 100 2, 198 5"/></svg></span>'
+  description: "We designed the integration to be as lightweight as possible because the last thing a program manager needs is more to manage. A 20-minute call is enough to get started. From there, it's entirely on us."
+  steps:
+    - num: "01"
+      title: "20-minute intro call"
+      body: "We learn about your program, your founders' stage, and where creative shows up as a gap. No deck required, no commitment."
+    - num: "02"
+      title: "You share a one-pager"
+      body: "One clean resource your team can send founders directly. Clear, direct, no friction to book a call with us."
+    - num: "03"
+      title: "We handle the rest"
+      body: "Founders book directly. We onboard, execute, and deliver. You get outcome updates without managing the relationship."
+
+partnership_models:
+  dim_line_label: "Models"
+  pill: "Partnership models"
+  headline: 'Four ways to plug us in. One commitment <span class="sketch-underline">regardless of model.<svg viewBox="0 0 200 8"><path d="M2 6 C50 2, 100 2, 198 5"/></svg></span>'
+  description: "Every model gets founders the same quality of creative partnership. The structure just adapts to what makes sense for your program's resources, timeline, and goals."
+  cards:
+    - num: "01"
+      title: "Referred Resource"
+      body: "The simplest entry point. You point founders our way with a warm intro or a one-pager. We handle intake, onboarding, and delivery. No overhead for your team, strong outcome for your founders."
+      tag: "Best for: getting started quickly"
+      highlighted: false
+    - num: "02"
+      title: "Subsidized Seats"
+      body: "Your program covers part of the Foundations cost. Founders pay the remainder. Positions you as deeply invested in their success beyond the check and differentiates your program from others."
+      tag: "Best for: cohort programs"
+      highlighted: false
+    - num: "03"
+      title: "Cohort Partner"
+      body: "A brand workshop, strategic office hours, and discounted Foundations seats built around your program calendar. We show up as a resource your whole cohort can access throughout the program."
+      tag: "Best for: structured programs"
+      highlighted: false
+    - num: "04"
+      title: "Prize Model"
+      body: "A Foundations seat as a competition or pitch day prize. High perceived value typically $24,000 over 12 months and a strong signal that your program is serious about founder outcomes, not just awareness."
+      tag: "Best for: pitch competitions"
+      highlighted: true
+
+pilot_cta:
+  pill: "Start small"
+  headline: "Start with a pilot. Let the work make the case."
+  description: "We onboard 3 to 5 of your founders, deliver full Foundations results, and give your team an outcome summary at the close. No heavy integration required. You'll see exactly what it does for your founders before committing to anything deeper."
+  list:
+    - "3–5 founders onboarded through Foundations"
+    - "Full delivery over 60–90 days"
+    - "Outcome summary for your team at close"
+    - "Partnership conversation once proof exists"
+  cta_box:
+    eyebrow: "PILOT"
+    title: "20 minutes is all it takes."
+    body: "Tell us about your program and your founders. We'll tell you exactly how we'd fit in and what to expect from a pilot."
+    button: "Book a 20-min Call"
+
+who_we_work_with:
+  dim_line_label: "StartSuite · 2026"
+  pill: "Who we partner with"
+  headline: 'We work with organizations that measure themselves by what happens to founders <em>after.</em>'
+  description: "If founder outcomes are your metric, we should probably talk."
+  items:
+    - "VC platform teams"
+    - "Accelerators and incubators"
+    - "University entrepreneurship programs"
+    - "Economic development organizations"
+    - "Corporate innovation programs"
+    - "Community builder funds"

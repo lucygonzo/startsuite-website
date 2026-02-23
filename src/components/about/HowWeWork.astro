@@ -1,0 +1,40 @@
+---
+import aboutData from '@/data/about.yaml';
+const { how_we_work } = aboutData;
+---
+
+<div class="a-how-wrap">
+  <div class="a-how-inner">
+    <!-- Split header -->
+    <div class="a-how-header">
+      <div>
+        <div class="pill scroll-reveal">{how_we_work.pill}</div>
+        <h2 class="scroll-reveal" style="transition-delay:0.06s" set:html={how_we_work.headline} />
+      </div>
+      <p class="scroll-reveal" style="transition-delay:0.12s" set:html={how_we_work.description} />
+    </div>
+
+    <!-- Hero card -->
+    <div class="a-how-hero scroll-reveal" style="transition-delay:0.1s">
+      <div>
+        <h3>{how_we_work.hero_card.title}</h3>
+        <p>{how_we_work.hero_card.body_left}</p>
+      </div>
+      <div>
+        <p>{how_we_work.hero_card.body_right}</p>
+        <p style="font-size:12px;color:var(--text-dim);font-weight:600;letter-spacing:0.02em;margin-top:16px">{how_we_work.hero_card.tagline}</p>
+      </div>
+    </div>
+
+    <!-- 3 supporting cards -->
+    <div class="a-how-row">
+      {how_we_work.cards.map((card) => (
+        <div class="a-how-card scroll-reveal" style={`transition-delay:${0.10 + parseInt(card.num) * 0.04}s`}>
+          <div class="a-how-card-num">{card.num}</div>
+          <h4>{card.title}</h4>
+          <p>{card.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>

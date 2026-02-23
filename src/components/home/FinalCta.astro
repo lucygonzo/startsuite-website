@@ -1,0 +1,19 @@
+---
+import homeData from '@/data/home.yaml';
+
+const { finalCta } = homeData;
+---
+
+<div class="final-cta">
+  <div class="pill scroll-reveal" style="margin:0 auto 28px">{ finalCta.pill }</div>
+  <h2 class="scroll-reveal" set:html={finalCta.headline} />
+  <p class="scroll-reveal">{ finalCta.description }</p>
+  <div class="final-cta-btns scroll-reveal">
+    <a class="btn btn-primary btn-lg" onclick="openModal()">{ finalCta.cta_primary }</a>
+    <a class="btn btn-ghost btn-lg" onclick="openModal()">{ finalCta.cta_secondary }</a>
+  </div>
+</div>
+
+<div style="max-width:1200px;margin:0 auto;padding:0 48px">
+  <div class="dim-line"><div class="dim-line-label" set:html={finalCta.dim_line_label} /></div>
+</div>

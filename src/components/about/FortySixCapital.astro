@@ -1,0 +1,40 @@
+---
+import aboutData from '@/data/about.yaml';
+const { forty_six_capital } = aboutData;
+---
+
+<div class="a-capital-wrap">
+  <div class="a-capital-inner">
+    <!-- Split header -->
+    <div class="a-capital-header">
+      <div>
+        <div class="pill scroll-reveal">{forty_six_capital.pill}</div>
+        <h2 class="scroll-reveal" style="transition-delay:0.06s" set:html={forty_six_capital.headline} />
+      </div>
+      <p class="scroll-reveal" style="transition-delay:0.12s">{forty_six_capital.description}</p>
+    </div>
+
+    <!-- Hero card -->
+    <div class="a-capital-hero scroll-reveal" style="transition-delay:0.1s">
+      <div>
+        <h3>{forty_six_capital.hero_card.title}</h3>
+        <p>{forty_six_capital.hero_card.body_left}</p>
+      </div>
+      <div>
+        <p>{forty_six_capital.hero_card.body_right}</p>
+        <a class="btn btn-outline btn-lg" style="margin-top:20px" href={forty_six_capital.hero_card.cta_href}>{forty_six_capital.hero_card.cta_label}</a>
+      </div>
+    </div>
+
+    <!-- 3 point cards -->
+    <div class="capital-points">
+      {forty_six_capital.points.map((point) => (
+        <div class="capital-point scroll-reveal" style={`transition-delay:${0.10 + parseInt(point.num) * 0.04}s`}>
+          <div class="capital-point-num">{point.num}</div>
+          <h4>{point.title}</h4>
+          <p>{point.description}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,189 @@
+# ──────────────────────────────────────────────
+# About page — all text content
+# ──────────────────────────────────────────────
+
+hero:
+  pill: "About StartSuite"
+  headline: 'We built the creative team we always <em>wished existed.</em>'
+  description: "We started this because we were tired of watching great companies lose to worse ones that just looked better. That has a fix. We built it."
+  cta_primary:
+    label: "See Foundations"
+    href: "/services"
+  cta_outline:
+    label: "Book Intro Call"
+    action: "openModal()"
+  marginalia: "The mission"
+  quotes:
+    - text: "\"Lean, serious companies deserve creative infrastructure that used to require a full in-house team or a bloated agency retainer.\""
+      attribution: "— StartSuite founding thesis"
+    - text: "\"The judgment is ours. The AI is a production tool. Every engagement is senior-led.\""
+      attribution: "— How we work"
+
+dim_line_1:
+  label: "Why we exist"
+
+manifesto:
+  pill: "Why we exist"
+  headline: 'Great companies keep losing to worse ones that just <span class="sketch-underline">look better.<svg viewBox="0 0 200 8"><path d="M2 6 C50 2, 100 2, 198 5"/></svg></span> That ends with us.'
+  description: "We've been in the rooms. We know what it costs when a company with real traction and a founder who genuinely cares loses a deal because the brand didn't match what they were building."
+  body:
+    col_1:
+      - "It's not a talent problem. It's an infrastructure problem. Briefing a freelancer from scratch every time something comes up is expensive in ways that don't show up on an invoice: founder time, context lost, momentum broken."
+      - "<strong>We built StartSuite because we wanted something better to exist.</strong>"
+    col_2:
+      - "Lean, serious companies deserve creative infrastructure that used to require a full in-house team or a bloated agency retainer. We built a leaner model powered by smarter processes, so founders can have a real creative partner without the overhead that kills the economics."
+  stats_marginalia: "Verified · Q1 2026"
+  stats:
+    - num: "$17M+"
+      label: "Capital raised by clients"
+    - num: "12+"
+      label: "Startups across B2B, B2C, VC"
+    - num: "4.95"
+      label: "Avg. satisfaction score"
+    - num: "100%"
+      label: "Delivery rate"
+
+how_we_work:
+  pill: "How we work"
+  headline: 'AI is not the point. It''s what makes the <span class="sketch-underline">point possible.<svg viewBox="0 0 200 8"><path d="M2 6 C50 2, 100 2, 198 5"/></svg></span>'
+  description: '<strong>We are not an AI service.</strong> We are a creative team with real taste, real context, and real investment in your outcomes. Every engagement is senior-led. The AI is a production tool. The judgment is ours.'
+  hero_card:
+    title: "AI handles production. That frees us for what actually matters."
+    body_left: "Strategy, taste, judgment, and knowing your company well enough to make decisions you'd make yourself. You get more of what matters and less of what agencies charge ten times as much for."
+    body_right: "The work is senior from day one. No handoff to juniors, no context lost between teams. The people who understand your company are the same people making creative decisions about it."
+    tagline: "Senior-led · AI-accelerated · Context-compounding"
+  cards:
+    - num: "01"
+      title: "No account managers between you and the work"
+      description: "The people with the best judgment are in the room from day one. What you experience in the intro call is what you get in month one and month twelve."
+    - num: "02"
+      title: "You don't manage us. That's the point."
+      description: "We embed in your company's context from the start. When something comes up, we already know the brand, the voice, and what good looks like. You don't start from zero every time."
+    - num: "03"
+      title: "Everything we build makes the next thing faster"
+      description: "The brand system in month one is the reason assets in month six take half the time. Creative infrastructure compounds. That's the whole model."
+
+dim_line_2:
+  label: "The people"
+
+team:
+  pill: "The people"
+  headline: 'We show up for founders because we''ve been in those rooms and we know <em>what''s at stake.</em>'
+  description: "StartSuite was built by two people who spent their careers at the intersection of creative, strategy, and startup culture. They got tired of watching founder potential get capped by avoidable creative gaps. So they built something to fix it."
+  members:
+    - initials: "LG"
+      name: "Lucy González"
+      title: "Co-Founder"
+      bio:
+        - "Lucy has spent her career doing something most people can't: holding strategy, creative, and product in the same hand without dropping any of them. She has launched six SaaS products, built over a dozen brands from the ground up, and directed the debut of three professional sports teams and an entire league. Her work spans AI, SaaS, and professional sports and the throughline across all of it is the same: turning complex ideas into stories that actually land."
+        - "She started StartSuite because she kept seeing the same problem from every angle. Great companies, great products, great founders undermined by creative that didn't match what they were building. She knew what it would take to fix it, and she knew the old model wasn't the answer."
+        - "At StartSuite, Lucy leads strategy, client relationships, and the creative direction that makes the work feel like it was built specifically for your company. Because it was."
+      creds:
+        - "6 SaaS launches"
+        - "12+ brands built"
+        - "3 pro sports teams"
+        - "1 sports league"
+    - initials: "RR"
+      name: "Reagan Renfroe"
+      title: "Co-Founder"
+      bio:
+        - "Reagan has spent his career behind the lens and in front of the strategy building visual stories that actually move people. He came up through agency life, where he learned what great creative production looks like at scale, before founding his own company and proving he could deliver it without the bloat. That path agency discipline, entrepreneurial ownership is the combination StartSuite was built on."
+        - "As a videographer and creative director, Reagan understands something most people in marketing don't: that the best creative isn't just seen, it's felt. He knows how to translate a company's mission into something visual and visceral the kind of work that makes people stop, pay attention, and want in."
+        - "At StartSuite, Reagan is the face of the mission. He leads sales, carries the vision externally, and is most likely to be the first person you meet. The energy and intention he brings to every conversation is exactly what you can expect from the work."
+      creds:
+        - "Videographer"
+        - "Creative Director"
+        - "Agency background"
+        - "Founder"
+  org_card:
+    initials: "46"
+    name: "46Capital"
+    title: "Venture Capital · Growth Fund"
+    bio:
+      - "StartSuite is powered by 46Capital, a VC firm with a growth fund and deep roots in the startup ecosystem. This isn't a branding exercise. It's a structural advantage. We sit in the rooms where fundraising decisions get made, and that perspective shapes every creative decision we make for our clients."
+      - "The investor lens is built into every engagement. We know what makes investors lean in and what makes them check their phone. That context compounds across every brand system, pitch deck, and narrative we build."
+    points:
+      - num: "01"
+        title: "Investor perspective built in"
+        description: "We design creative around what the other side of the table is actually looking for."
+      - num: "02"
+        title: "Pattern recognition across the ecosystem"
+        description: "Dozens of companies at similar stages. You benefit from what we've seen work and what we've seen cost people deals."
+      - num: "03"
+        title: "Connections beyond creative"
+        description: "For the right companies, StartSuite opens doors that sit well outside the creative relationship."
+
+for_creatives:
+  pill: "For creatives"
+  trigger_headline: 'We don''t teach. We give sharp people room to <em>run.</em>'
+  hero_card:
+    title: "Own the work. Skip the overhead."
+    body_left:
+      - "StartSuite gives experienced creatives the infrastructure, the clients, and the context to do the best work of their careers without building their own agency, chasing their own leads, or managing their own back office."
+      - "You get real client relationships with founders who are heading places. You own projects end to end. The strategy, the creative direction, and the delivery are yours."
+    body_right:
+      - "We handle everything else: business development, contracts, invoicing, project management infrastructure, and the AI-accelerated production pipeline that lets you move at a speed you couldn't match solo."
+    tagline: "No overhead · No politics · Real ownership"
+    cta_label: "Start a Conversation"
+    cta_action: "openModal()"
+  cards:
+    - num: "01"
+      title: "You've done the work before"
+      description: "You've led projects, made creative decisions under pressure, and shipped work that mattered. You don't need someone looking over your shoulder. You need someone to clear the path."
+    - num: "02"
+      title: "You want clients worth caring about"
+      description: "The founders we work with are building real companies. They're not looking for pixel pushers. They need a creative partner who gets the stakes and brings judgment, not just execution."
+    - num: "03"
+      title: "You want to run, not be managed"
+      description: "We don't do layers. No creative directors reviewing your work for the sake of process. You own your projects. The judgment call is yours. The client relationship is yours."
+  honesty_strip:
+    col_1:
+      title: "This isn't for everyone."
+      text: "We're not building an academy. We're not a stepping stone. If you're early in your career and looking for mentorship and structure, that's a great instinct but this isn't the place for it. We respect that path. It's just not what we offer."
+    col_2:
+      text: "This is for people who already have the taste, the skill, and the judgment and want to do the work without the tax that usually comes with it. If that's you, we should talk."
+      tags:
+        - "Brand strategists"
+        - "Visual designers"
+        - "Copywriters"
+        - "Art directors"
+        - "Motion designers"
+        - "Web developers"
+
+dim_line_3:
+  label: "Our advantage"
+
+forty_six_capital:
+  pill: "Our advantage"
+  headline: 'Most creative partners aren''t in the room when fundraising decisions get made. <span class="sketch-underline">We are.<svg viewBox="0 0 200 8"><path d="M2 6 C50 2, 100 2, 198 5"/></svg></span>'
+  description: "StartSuite is independent, powered by 46Capital, a VC firm with a growth fund and deep roots in the startup ecosystem. That's not a logo on the footer. It changes the work we do."
+  hero_card:
+    title: "The investor perspective is already in the room with us."
+    body_left: "We know what investors are looking for because we're in those conversations. We know which slides make investors lean in and which ones make them check their phone."
+    body_right: "When we build your creative foundation, that perspective shapes every decision. A traditional creative partner can't offer that because they've never sat on the other side of the table."
+    cta_label: "See Foundations"
+    cta_href: "/services"
+  points:
+    - num: "01"
+      title: "Investor perspective built in"
+      description: "We know what the other side of the table is actually looking for and we design your creative around that reality from the start."
+    - num: "02"
+      title: "Pattern recognition across the ecosystem"
+      description: "46Capital's network of founders, operators, and funds gives us a view across dozens of companies at similar stages. You benefit from what we've seen work."
+    - num: "03"
+      title: "Connections a creative partner normally can't make"
+      description: "For the right companies, StartSuite opens doors that sit well outside the creative relationship. We don't lead with it. But it's real, and it's happened."
+
+dim_line_4:
+  label: "StartSuite · 2026"
+
+final_cta:
+  pill: "Let's talk"
+  headline: 'Limited spots. Real partnership. <em>If it fits, it fits.</em>'
+  description: "We take on a limited number of clients at a time because we can't be genuinely embedded in a hundred companies at once. We're selective not to be exclusive, but because the model only works when we're fully present. If you're building something real and you're ready for creative that matches it, let's talk."
+  cta_primary:
+    label: "View Foundations"
+    href: "/services"
+  cta_outline:
+    label: "Book Intro Call"
+    action: "openModal()"

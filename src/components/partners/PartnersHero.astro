@@ -1,0 +1,36 @@
+---
+import partnersData from '@/data/partners.yaml';
+
+const { hero } = partnersData;
+---
+
+<div class="p-hero">
+  <div class="p-hero-left">
+    <div class="pill scroll-reveal" style="margin-bottom:20px">{hero.pill}</div>
+    <h1 class="scroll-reveal" style="transition-delay:0.06s" set:html={hero.headline} />
+    <p class="scroll-reveal" style="transition-delay:0.12s">{hero.description}</p>
+    <div class="scroll-reveal" style="display:flex;gap:12px;flex-wrap:wrap;transition-delay:0.18s">
+      <a class="btn btn-primary btn-lg" onclick="openModal()">{hero.cta_primary}</a>
+      <a class="btn btn-outline btn-lg" onclick="document.getElementById('p-models').scrollIntoView({behavior:'smooth'})">{hero.cta_secondary}</a>
+    </div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:20px">
+    <div class="marginalia scroll-reveal" style="transition-delay:0.1s">{hero.proof_label}</div>
+    <div class="p-hero-proof scroll-reveal" style="transition-delay:0.15s">
+      {hero.stats_row_1.map((stat: { value: string; label: string }) => (
+        <div class="p-hero-stat">
+          <div class="p-hero-stat-val">{stat.value}</div>
+          <div class="p-hero-stat-label">{stat.label}</div>
+        </div>
+      ))}
+    </div>
+    <div class="p-hero-proof scroll-reveal" style="transition-delay:0.2s">
+      {hero.stats_row_2.map((stat: { value: string; label: string }) => (
+        <div class="p-hero-stat">
+          <div class="p-hero-stat-val">{stat.value}</div>
+          <div class="p-hero-stat-label">{stat.label}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>

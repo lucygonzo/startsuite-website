@@ -1,0 +1,31 @@
+---
+import partnersData from '@/data/partners.yaml';
+
+const { how_we_integrate } = partnersData;
+---
+
+<div class="p-integrate-wrap">
+  <div class="p-integrate-inner">
+    <div class="p-integrate-header">
+      <div>
+        <div class="pill scroll-reveal">{how_we_integrate.pill}</div>
+        <h2 class="scroll-reveal" style="transition-delay:0.06s" set:html={how_we_integrate.headline} />
+      </div>
+      <p class="scroll-reveal" style="transition-delay:0.12s">{how_we_integrate.description}</p>
+    </div>
+    <div class="p-steps">
+      {how_we_integrate.steps.map((step: { num: string; title: string; body: string }, i: number) => (
+        <>
+          {i > 0 && <div class="p-step-arrow">&rarr;</div>}
+          <div class="p-step scroll-reveal" style={`transition-delay:${0.06 + i * 0.06}s`}>
+            <div class="p-step-num">{step.num}</div>
+            <div class="p-step-body">
+              <h4>{step.title}</h4>
+              <p>{step.body}</p>
+            </div>
+          </div>
+        </>
+      ))}
+    </div>
+  </div>
+</div>

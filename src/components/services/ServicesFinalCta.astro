@@ -1,0 +1,21 @@
+---
+import servicesData from '@/data/services.yaml';
+
+const { finalCta } = servicesData;
+---
+
+<div class="f-final">
+  <div class="f-final-inner">
+    <div class="pill scroll-reveal" style="margin:0 auto 20px">{finalCta.pill}</div>
+    <h2 class="scroll-reveal" set:html={finalCta.headline} />
+    <p class="scroll-reveal">{finalCta.description}</p>
+    <a class="btn btn-primary btn-lg scroll-reveal" onclick="openModal()">{finalCta.cta}</a>
+    <div class="f-final-meta scroll-reveal">
+      {finalCta.notes.map((note: string) => (
+        <span class="f-final-note">{note}</span>
+      ))}
+    </div>
+  </div>
+</div>
+
+<div class="dim-line"><span class="dim-line-label">{finalCta.dimLineLabel}</span></div>

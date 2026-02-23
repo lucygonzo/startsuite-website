@@ -1,0 +1,24 @@
+---
+import partnersData from '@/data/partners.yaml';
+
+const { who_we_work_with } = partnersData;
+---
+
+<div class="section-alt">
+  <div class="p-who-wrap">
+    <div class="p-who-header">
+      <div>
+        <div class="pill scroll-reveal">{who_we_work_with.pill}</div>
+        <h2 class="scroll-reveal" style="transition-delay:0.06s" set:html={who_we_work_with.headline} />
+      </div>
+      <p class="scroll-reveal" style="transition-delay:0.12s">{who_we_work_with.description}</p>
+    </div>
+    <div class="p-who-grid">
+      {who_we_work_with.items.map((item: string, i: number) => (
+        <div class="p-who-item scroll-reveal" style={`transition-delay:${0.04 + i * 0.03}s`}>
+          <span>&rarr;</span><span>{item}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,991 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  # ────────────────────────────────────────────
+  #  Pages  (file collections)
+  # ────────────────────────────────────────────
+  - name: "pages"
+    label: "Pages"
+    files:
+
+      # ── Home ────────────────────────────────
+      - name: "home"
+        label: "Home"
+        file: "src/data/home.yaml"
+        fields:
+
+          # hero
+          - label: "Hero"
+            name: "hero"
+            widget: "object"
+            fields:
+              - label: "Eyebrow"
+                name: "eyebrow"
+                widget: "text"
+                hint: "HTML supported (e.g. &nbsp; &middot; <span>)"
+              - label: "Headline"
+                name: "headline"
+                widget: "text"
+                hint: "HTML supported (<br>, <em> tags allowed)"
+              - label: "Sub-headline"
+                name: "subheadline"
+                widget: "text"
+              - label: "Primary CTA"
+                name: "cta_primary"
+                widget: "string"
+              - label: "Secondary CTA"
+                name: "cta_secondary"
+                widget: "string"
+              - label: "Stats Marginalia"
+                name: "stats_marginalia"
+                widget: "text"
+                hint: "HTML entities supported (e.g. &middot;)"
+              - label: "Stats"
+                name: "stats"
+                widget: "list"
+                fields:
+                  - { label: "Display Number", name: "num", widget: "string" }
+                  - { label: "Target", name: "target", widget: "number", value_type: "float" }
+                  - { label: "Prefix", name: "prefix", widget: "string", required: false }
+                  - { label: "Suffix", name: "suffix", widget: "string", required: false }
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "Decimal", name: "decimal", widget: "boolean", required: false, default: false }
+
+          # marquee
+          - label: "Marquee"
+            name: "marquee"
+            widget: "object"
+            fields:
+              - label: "Items"
+                name: "items"
+                widget: "list"
+                field: { label: "Item", name: "item", widget: "string" }
+
+          # creativeEdge
+          - label: "Creative Edge"
+            name: "creativeEdge"
+            widget: "object"
+            fields:
+              - { label: "Pill", name: "pill", widget: "string" }
+              - label: "Headline"
+                name: "headline"
+                widget: "text"
+                hint: "HTML supported (<span class=\"sketch-underline\">, <svg>, <em> tags allowed)"
+              - { label: "Sub-headline", name: "subheadline", widget: "text" }
+              - label: "Stats Marginalia"
+                name: "stats_marginalia"
+                widget: "text"
+                hint: "HTML entities supported (e.g. &middot;)"
+              - label: "Stats"
+                name: "stats"
+                widget: "list"
+                fields:
+                  - label: "Number"
+                    name: "num"
+                    widget: "string"
+                    hint: "HTML entities allowed (e.g. &ndash; &times;)"
+                  - { label: "Text", name: "text", widget: "string" }
+                  - { label: "Source", name: "source", widget: "string" }
+              - label: "Dim Line Label"
+                name: "dim_line_label"
+                widget: "string"
+              - label: "Cards"
+                name: "cards"
+                widget: "list"
+                fields:
+                  - { label: "Number", name: "num", widget: "string" }
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "desc", widget: "text" }
+
+          # howItWorks
+          - label: "How It Works"
+            name: "howItWorks"
+            widget: "object"
+            fields:
+              - { label: "Pill", name: "pill", widget: "string" }
+              - label: "Headline"
+                name: "headline"
+                widget: "text"
+                hint: "HTML supported (<span class=\"sketch-underline\">, <svg> tags allowed)"
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Primary CTA", name: "cta_primary", widget: "string" }
+              - { label: "Secondary CTA", name: "cta_secondary", widget: "string" }
+              - label: "Steps Marginalia"
+                name: "steps_marginalia"
+                widget: "text"
+                hint: "HTML entities supported (e.g. &middot;)"
+              - label: "Steps"
+                name: "steps"
+                widget: "list"
+                fields:
+                  - { label: "Number", name: "num", widget: "string" }
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "desc", widget: "text" }
+                  - { label: "Tag", name: "tag", widget: "string" }
+
+          # deliverGrid
+          - label: "Deliver Grid"
+            name: "deliverGrid"
+            widget: "object"
+            fields:
+              - { label: "Pill", name: "pill", widget: "string" }
+              - label: "Headline"
+                name: "headline"
+                widget: "text"
+                hint: "HTML supported (<span class=\"sketch-underline\">, <svg> tags allowed)"
+              - { label: "Sub-headline", name: "subheadline", widget: "text" }
+              - label: "Grid Marginalia"
+                name: "grid_marginalia"
+                widget: "text"
+                hint: "HTML entities supported (e.g. &middot;)"
+              - label: "Cards"
+                name: "cards"
+                widget: "list"
+                fields:
+                  - { label: "Category", name: "cat", widget: "string" }
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Copy", name: "copy", widget: "text" }
+                  - { label: "Reveal Sub", name: "reveal_sub", widget: "string", hint: "HTML entities allowed (e.g. &middot;)" }
+                  - { label: "Reveal Title", name: "reveal_title", widget: "string" }
+                  - { label: "Reveal Description", name: "reveal_desc", widget: "text" }
+                  - label: "Reveal Bullets"
+                    name: "reveal_bullets"
+                    widget: "list"
+                    field: { label: "Bullet", name: "bullet", widget: "string" }
+                  - { label: "Reveal Why", name: "reveal_why", widget: "text" }
+                  - { label: "Tall", name: "tall", widget: "boolean" }
+                  - { label: "Column", name: "col", widget: "number", value_type: "int" }
+                  - label: "Sketch SVG"
+                    name: "sketch_svg"
+                    widget: "text"
+                    hint: "Raw SVG markup for the card illustration"
+              - label: "CTA Block"
+                name: "ctaBlock"
+                widget: "object"
+                fields:
+                  - { label: "Tag", name: "tag", widget: "string" }
+                  - label: "Note"
+                    name: "note"
+                    widget: "text"
+                    hint: "HTML supported (<strong> tags allowed)"
+                  - { label: "Primary CTA", name: "cta_primary", widget: "string" }
+                  - { label: "Secondary CTA", name: "cta_secondary", widget: "string" }
+
+          # whyStartSuite
+          - label: "Why StartSuite"
+            name: "whyStartSuite"
+            widget: "object"
+            fields:
+              - { label: "Pill", name: "pill", widget: "string" }
+              - label: "Headline"
+                name: "headline"
+                widget: "text"
+                hint: "HTML supported (<span class=\"sketch-underline\">, <svg> tags allowed)"
+              - { label: "Sub-headline", name: "subheadline", widget: "text" }
+              - label: "Layout Marginalia"
+                name: "layout_marginalia"
+                widget: "text"
+                hint: "HTML entities supported"
+              - label: "Hero Card"
+                name: "heroCard"
+                widget: "object"
+                fields:
+                  - { label: "Number", name: "num", widget: "string" }
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "desc", widget: "text" }
+                  - label: "Team"
+                    name: "team"
+                    widget: "list"
+                    fields:
+                      - { label: "Name", name: "name", widget: "string" }
+                      - label: "Role"
+                        name: "role"
+                        widget: "string"
+                        hint: "HTML entities allowed (e.g. &middot;)"
+                      - { label: "Tag", name: "tag", widget: "string" }
+              - label: "Right Cards"
+                name: "rightCards"
+                widget: "list"
+                fields:
+                  - { label: "Number", name: "num", widget: "string" }
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "desc", widget: "text" }
+                  - { label: "Accent", name: "accent", widget: "string" }
+
+          # partnerTeaser
+          - label: "Partner Teaser"
+            name: "partnerTeaser"
+            widget: "object"
+            fields:
+              - label: "Pill"
+                name: "pill"
+                widget: "text"
+                hint: "HTML entities allowed (e.g. &amp;)"
+              - { label: "Headline", name: "headline", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - label: "CTA"
+                name: "cta"
+                widget: "text"
+                hint: "HTML entities allowed (e.g. &rarr;)"
+
+          # finalCta
+          - label: "Final CTA"
+            name: "finalCta"
+            widget: "object"
+            fields:
+              - { label: "Pill", name: "pill", widget: "string" }
+              - label: "Headline"
+                name: "headline"
+                widget: "text"
+                hint: "HTML supported (<em> tags allowed)"
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Primary CTA", name: "cta_primary", widget: "string" }
+              - { label: "Secondary CTA", name: "cta_secondary", widget: "string" }
+              - label: "Dim Line Label"
+                name: "dim_line_label"
+                widget: "text"
+                hint: "HTML entities supported (e.g. &middot;)"
+
+      # ── Services ────────────────────────────
+      - name: "services"
+        label: "Services"
+        file: "src/data/services.yaml"
+        fields:
+
+          # hero
+          - label: "Hero"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Pill", name: "pill", widget: "string" }
+              - label: "Headline"
+                name: "headline"
+                widget: "text"
+                hint: "HTML supported (<em> tags allowed)"
+              - { label: "Sub-headline", name: "subheadline", widget: "text" }
+              - label: "Marginalia"
+                name: "marginalia"
+                widget: "string"
+              - label: "Proof"
+                name: "proof"
+                widget: "list"
+                fields:
+                  - { label: "Number", name: "num", widget: "string" }
+                  - { label: "Label", name: "label", widget: "string" }
+              - { label: "Primary CTA", name: "primaryCta", widget: "string" }
+              - { label: "Secondary CTA", name: "secondaryCta", widget: "string" }
+
+          # priceCard
+          - label: "Price Card"
+            name: "priceCard"
+            widget: "object"
+            fields:
+              - { label: "Badge", name: "badge", widget: "string" }
+              - { label: "Amount", name: "amount", widget: "string" }
+              - label: "Period"
+                name: "period"
+                widget: "text"
+                hint: "HTML entities allowed (e.g. &nbsp; &middot;)"
+              - label: "Features"
+                name: "features"
+                widget: "list"
+                field: { label: "Feature", name: "feature", widget: "string" }
+              - { label: "CTA", name: "cta", widget: "string" }
+              - { label: "Note", name: "note", widget: "text" }
+
+          # priceCompare
+          - label: "Price Compare"
+            name: "priceCompare"
+            widget: "object"
+            fields:
+              - { label: "Dim Line Label", name: "dimLineLabel", widget: "string" }
+              - { label: "Pill", name: "pill", widget: "string" }
+              - label: "Headline"
+                name: "headline"
+                widget: "text"
+                hint: "HTML supported (<span class=\"sketch-underline\">, <svg> tags allowed)"
+              - { label: "Description", name: "description", widget: "text" }
+              - label: "Rows"
+                name: "rows"
+                widget: "list"
+                fields:
+                  - { label: "Who", name: "who", widget: "string" }
+                  - label: "Cost"
+                    name: "cost"
+                    widget: "string"
+                    hint: "HTML entities allowed (e.g. &ndash;)"
+                  - { label: "Description", name: "desc", widget: "text" }
+                  - { label: "Highlight", name: "highlight", widget: "boolean" }
+              - label: "Tags"
+                name: "tags"
+                widget: "list"
+                field: { label: "Tag", name: "tag", widget: "string" }
+
+          # bentoGrid
+          - label: "Bento Grid"
+            name: "bentoGrid"
+            widget: "object"
+            fields:
+              - label: "Marginalia"
+                name: "marginalia"
+                widget: "string"
+              - { label: "Pill", name: "pill", widget: "string" }
+              - label: "Headline"
+                name: "headline"
+                widget: "text"
+                hint: "HTML supported (<span class=\"sketch-underline\">, <svg> tags allowed)"
+              - { label: "Description", name: "description", widget: "text" }
+
+              # brand
+              - label: "Brand"
+                name: "brand"
+                widget: "object"
+                fields:
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text" }
+                  - label: "Tags"
+                    name: "tags"
+                    widget: "list"
+                    field: { label: "Tag", name: "tag", widget: "string" }
+                  - label: "Milestones"
+                    name: "milestones"
+                    widget: "list"
+                    fields:
+                      - { label: "Label", name: "label", widget: "string" }
+                      - { label: "Tag", name: "tag", widget: "string" }
+                  - { label: "Insight", name: "insight", widget: "text" }
+
+              # trio
+              - label: "Trio"
+                name: "trio"
+                widget: "list"
+                fields:
+                  - { label: "Number", name: "num", widget: "string" }
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text" }
+                  - label: "Tags"
+                    name: "tags"
+                    widget: "list"
+                    field: { label: "Tag", name: "tag", widget: "string" }
+
+              # strip
+              - label: "Strip"
+                name: "strip"
+                widget: "object"
+                fields:
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text" }
+                  - label: "Stats"
+                    name: "stats"
+                    widget: "list"
+                    fields:
+                      - { label: "Value", name: "val", widget: "string" }
+                      - { label: "Label", name: "label", widget: "string" }
+
+          # timeline
+          - label: "Timeline"
+            name: "timeline"
+            widget: "object"
+            fields:
+              - { label: "Pill", name: "pill", widget: "string" }
+              - { label: "Headline", name: "headline", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Dim Line Label", name: "dimLineLabel", widget: "string" }
+              - label: "Milestones"
+                name: "milestones"
+                widget: "list"
+                fields:
+                  - { label: "Dot", name: "dot", widget: "string" }
+                  - { label: "Month", name: "month", widget: "string" }
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "desc", widget: "text" }
+
+          # finalCta
+          - label: "Final CTA"
+            name: "finalCta"
+            widget: "object"
+            fields:
+              - { label: "Pill", name: "pill", widget: "string" }
+              - label: "Headline"
+                name: "headline"
+                widget: "text"
+                hint: "HTML supported (<em> tags allowed)"
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "CTA", name: "cta", widget: "string" }
+              - label: "Notes"
+                name: "notes"
+                widget: "list"
+                field: { label: "Note", name: "note", widget: "string" }
+              - label: "Dim Line Label"
+                name: "dimLineLabel"
+                widget: "text"
+                hint: "HTML entities supported (e.g. &middot;)"
+
+      # ── Partners ────────────────────────────
+      - name: "partners"
+        label: "Partners"
+        file: "src/data/partners.yaml"
+        fields:
+
+          # hero
+          - label: "Hero"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Pill", name: "pill", widget: "string" }
+              - label: "Headline"
+                name: "headline"
+                widget: "text"
+                hint: "HTML supported (<em> tags allowed)"
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Primary CTA", name: "cta_primary", widget: "string" }
+              - { label: "Secondary CTA", name: "cta_secondary", widget: "string" }
+              - label: "Proof Label"
+                name: "proof_label"
+                widget: "string"
+              - label: "Stats Row 1"
+                name: "stats_row_1"
+                widget: "list"
+                fields:
+                  - { label: "Value", name: "value", widget: "string" }
+                  - { label: "Label", name: "label", widget: "string" }
+              - label: "Stats Row 2"
+                name: "stats_row_2"
+                widget: "list"
+                fields:
+                  - { label: "Value", name: "value", widget: "string" }
+                  - { label: "Label", name: "label", widget: "string" }
+
+          # the_gap
+          - label: "The Gap"
+            name: "the_gap"
+            widget: "object"
+            fields:
+              - { label: "Dim Line Label", name: "dim_line_label", widget: "string" }
+              - { label: "Pill", name: "pill", widget: "string" }
+              - label: "Headline"
+                name: "headline"
+                widget: "text"
+                hint: "HTML supported (<span class=\"sketch-underline\">, <svg> tags allowed)"
+              - { label: "Description", name: "description", widget: "text" }
+              - label: "Hero Card"
+                name: "hero_card"
+                widget: "object"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Body", name: "body", widget: "text" }
+                  - { label: "Right Body", name: "right_body", widget: "text" }
+                  - { label: "Right Footnote", name: "right_footnote", widget: "text" }
+              - label: "Cards"
+                name: "cards"
+                widget: "list"
+                fields:
+                  - { label: "Number", name: "num", widget: "string" }
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Body", name: "body", widget: "text" }
+
+          # how_we_integrate
+          - label: "How We Integrate"
+            name: "how_we_integrate"
+            widget: "object"
+            fields:
+              - { label: "Pill", name: "pill", widget: "string" }
+              - label: "Headline"
+                name: "headline"
+                widget: "text"
+                hint: "HTML supported (<span class=\"sketch-underline\">, <svg> tags allowed)"
+              - { label: "Description", name: "description", widget: "text" }
+              - label: "Steps"
+                name: "steps"
+                widget: "list"
+                fields:
+                  - { label: "Number", name: "num", widget: "string" }
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Body", name: "body", widget: "text" }
+
+          # partnership_models
+          - label: "Partnership Models"
+            name: "partnership_models"
+            widget: "object"
+            fields:
+              - { label: "Dim Line Label", name: "dim_line_label", widget: "string" }
+              - { label: "Pill", name: "pill", widget: "string" }
+              - label: "Headline"
+                name: "headline"
+                widget: "text"
+                hint: "HTML supported (<span class=\"sketch-underline\">, <svg> tags allowed)"
+              - { label: "Description", name: "description", widget: "text" }
+              - label: "Cards"
+                name: "cards"
+                widget: "list"
+                fields:
+                  - { label: "Number", name: "num", widget: "string" }
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Body", name: "body", widget: "text" }
+                  - { label: "Tag", name: "tag", widget: "string" }
+                  - { label: "Highlighted", name: "highlighted", widget: "boolean" }
+
+          # pilot_cta
+          - label: "Pilot CTA"
+            name: "pilot_cta"
+            widget: "object"
+            fields:
+              - { label: "Pill", name: "pill", widget: "string" }
+              - { label: "Headline", name: "headline", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - label: "List"
+                name: "list"
+                widget: "list"
+                field: { label: "Item", name: "item", widget: "string" }
+              - label: "CTA Box"
+                name: "cta_box"
+                widget: "object"
+                fields:
+                  - { label: "Eyebrow", name: "eyebrow", widget: "string" }
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Body", name: "body", widget: "text" }
+                  - { label: "Button", name: "button", widget: "string" }
+
+          # who_we_work_with
+          - label: "Who We Work With"
+            name: "who_we_work_with"
+            widget: "object"
+            fields:
+              - label: "Dim Line Label"
+                name: "dim_line_label"
+                widget: "text"
+                hint: "HTML entities supported (e.g. &middot;)"
+              - { label: "Pill", name: "pill", widget: "string" }
+              - label: "Headline"
+                name: "headline"
+                widget: "text"
+                hint: "HTML supported (<em> tags allowed)"
+              - { label: "Description", name: "description", widget: "text" }
+              - label: "Items"
+                name: "items"
+                widget: "list"
+                field: { label: "Item", name: "item", widget: "string" }
+
+      # ── About ───────────────────────────────
+      - name: "about"
+        label: "About"
+        file: "src/data/about.yaml"
+        fields:
+
+          # hero
+          - label: "Hero"
+            name: "hero"
+            widget: "object"
+            fields:
+              - { label: "Pill", name: "pill", widget: "string" }
+              - label: "Headline"
+                name: "headline"
+                widget: "text"
+                hint: "HTML supported (<em> tags allowed)"
+              - { label: "Description", name: "description", widget: "text" }
+              - label: "Primary CTA"
+                name: "cta_primary"
+                widget: "object"
+                fields:
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "Href", name: "href", widget: "string" }
+              - label: "Outline CTA"
+                name: "cta_outline"
+                widget: "object"
+                fields:
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "Action", name: "action", widget: "string" }
+              - { label: "Marginalia", name: "marginalia", widget: "string" }
+              - label: "Quotes"
+                name: "quotes"
+                widget: "list"
+                fields:
+                  - { label: "Text", name: "text", widget: "text" }
+                  - { label: "Attribution", name: "attribution", widget: "string" }
+
+          # dim_line_1
+          - label: "Dim Line 1"
+            name: "dim_line_1"
+            widget: "object"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+
+          # manifesto
+          - label: "Manifesto"
+            name: "manifesto"
+            widget: "object"
+            fields:
+              - { label: "Pill", name: "pill", widget: "string" }
+              - label: "Headline"
+                name: "headline"
+                widget: "text"
+                hint: "HTML supported (<span class=\"sketch-underline\">, <svg> tags allowed)"
+              - { label: "Description", name: "description", widget: "text" }
+              - label: "Body"
+                name: "body"
+                widget: "object"
+                fields:
+                  - label: "Column 1"
+                    name: "col_1"
+                    widget: "list"
+                    field:
+                      label: "Paragraph"
+                      name: "paragraph"
+                      widget: "text"
+                      hint: "HTML supported (<strong> tags allowed)"
+                  - label: "Column 2"
+                    name: "col_2"
+                    widget: "list"
+                    field:
+                      label: "Paragraph"
+                      name: "paragraph"
+                      widget: "text"
+              - label: "Stats Marginalia"
+                name: "stats_marginalia"
+                widget: "string"
+              - label: "Stats"
+                name: "stats"
+                widget: "list"
+                fields:
+                  - { label: "Number", name: "num", widget: "string" }
+                  - { label: "Label", name: "label", widget: "string" }
+
+          # how_we_work
+          - label: "How We Work"
+            name: "how_we_work"
+            widget: "object"
+            fields:
+              - { label: "Pill", name: "pill", widget: "string" }
+              - label: "Headline"
+                name: "headline"
+                widget: "text"
+                hint: "HTML supported (<span class=\"sketch-underline\">, <svg> tags allowed)"
+              - label: "Description"
+                name: "description"
+                widget: "text"
+                hint: "HTML supported (<strong> tags allowed)"
+              - label: "Hero Card"
+                name: "hero_card"
+                widget: "object"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Body Left", name: "body_left", widget: "text" }
+                  - { label: "Body Right", name: "body_right", widget: "text" }
+                  - label: "Tagline"
+                    name: "tagline"
+                    widget: "string"
+                    hint: "Use &middot; for separator dots"
+              - label: "Cards"
+                name: "cards"
+                widget: "list"
+                fields:
+                  - { label: "Number", name: "num", widget: "string" }
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text" }
+
+          # dim_line_2
+          - label: "Dim Line 2"
+            name: "dim_line_2"
+            widget: "object"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+
+          # team
+          - label: "Team"
+            name: "team"
+            widget: "object"
+            fields:
+              - { label: "Pill", name: "pill", widget: "string" }
+              - label: "Headline"
+                name: "headline"
+                widget: "text"
+                hint: "HTML supported (<em> tags allowed)"
+              - { label: "Description", name: "description", widget: "text" }
+              - label: "Members"
+                name: "members"
+                widget: "list"
+                fields:
+                  - { label: "Initials", name: "initials", widget: "string" }
+                  - { label: "Name", name: "name", widget: "string" }
+                  - { label: "Title", name: "title", widget: "string" }
+                  - label: "Bio"
+                    name: "bio"
+                    widget: "list"
+                    field: { label: "Paragraph", name: "paragraph", widget: "text" }
+                  - label: "Credentials"
+                    name: "creds"
+                    widget: "list"
+                    field: { label: "Credential", name: "credential", widget: "string" }
+              - label: "Org Card"
+                name: "org_card"
+                widget: "object"
+                fields:
+                  - { label: "Initials", name: "initials", widget: "string" }
+                  - { label: "Name", name: "name", widget: "string" }
+                  - label: "Title"
+                    name: "title"
+                    widget: "string"
+                    hint: "Use &middot; for separator dots"
+                  - label: "Bio"
+                    name: "bio"
+                    widget: "list"
+                    field: { label: "Paragraph", name: "paragraph", widget: "text" }
+                  - label: "Points"
+                    name: "points"
+                    widget: "list"
+                    fields:
+                      - { label: "Number", name: "num", widget: "string" }
+                      - { label: "Title", name: "title", widget: "string" }
+                      - { label: "Description", name: "description", widget: "text" }
+
+          # for_creatives
+          - label: "For Creatives"
+            name: "for_creatives"
+            widget: "object"
+            fields:
+              - { label: "Pill", name: "pill", widget: "string" }
+              - label: "Trigger Headline"
+                name: "trigger_headline"
+                widget: "text"
+                hint: "HTML supported (<em> tags allowed)"
+              - label: "Hero Card"
+                name: "hero_card"
+                widget: "object"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - label: "Body Left"
+                    name: "body_left"
+                    widget: "list"
+                    field: { label: "Paragraph", name: "paragraph", widget: "text" }
+                  - label: "Body Right"
+                    name: "body_right"
+                    widget: "list"
+                    field: { label: "Paragraph", name: "paragraph", widget: "text" }
+                  - label: "Tagline"
+                    name: "tagline"
+                    widget: "string"
+                    hint: "Use &middot; for separator dots"
+                  - { label: "CTA Label", name: "cta_label", widget: "string" }
+                  - { label: "CTA Action", name: "cta_action", widget: "string" }
+              - label: "Cards"
+                name: "cards"
+                widget: "list"
+                fields:
+                  - { label: "Number", name: "num", widget: "string" }
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text" }
+              - label: "Honesty Strip"
+                name: "honesty_strip"
+                widget: "object"
+                fields:
+                  - label: "Column 1"
+                    name: "col_1"
+                    widget: "object"
+                    fields:
+                      - { label: "Title", name: "title", widget: "string" }
+                      - { label: "Text", name: "text", widget: "text" }
+                  - label: "Column 2"
+                    name: "col_2"
+                    widget: "object"
+                    fields:
+                      - { label: "Text", name: "text", widget: "text" }
+                      - label: "Tags"
+                        name: "tags"
+                        widget: "list"
+                        field: { label: "Tag", name: "tag", widget: "string" }
+
+          # dim_line_3
+          - label: "Dim Line 3"
+            name: "dim_line_3"
+            widget: "object"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+
+          # forty_six_capital
+          - label: "46Capital"
+            name: "forty_six_capital"
+            widget: "object"
+            fields:
+              - { label: "Pill", name: "pill", widget: "string" }
+              - label: "Headline"
+                name: "headline"
+                widget: "text"
+                hint: "HTML supported (<span class=\"sketch-underline\">, <svg> tags allowed)"
+              - { label: "Description", name: "description", widget: "text" }
+              - label: "Hero Card"
+                name: "hero_card"
+                widget: "object"
+                fields:
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Body Left", name: "body_left", widget: "text" }
+                  - { label: "Body Right", name: "body_right", widget: "text" }
+                  - { label: "CTA Label", name: "cta_label", widget: "string" }
+                  - { label: "CTA Href", name: "cta_href", widget: "string" }
+              - label: "Points"
+                name: "points"
+                widget: "list"
+                fields:
+                  - { label: "Number", name: "num", widget: "string" }
+                  - { label: "Title", name: "title", widget: "string" }
+                  - { label: "Description", name: "description", widget: "text" }
+
+          # dim_line_4
+          - label: "Dim Line 4"
+            name: "dim_line_4"
+            widget: "object"
+            fields:
+              - label: "Label"
+                name: "label"
+                widget: "text"
+                hint: "HTML entities supported (e.g. &middot;)"
+
+          # final_cta
+          - label: "Final CTA"
+            name: "final_cta"
+            widget: "object"
+            fields:
+              - { label: "Pill", name: "pill", widget: "string" }
+              - label: "Headline"
+                name: "headline"
+                widget: "text"
+                hint: "HTML supported (<em> tags allowed)"
+              - { label: "Description", name: "description", widget: "text" }
+              - label: "Primary CTA"
+                name: "cta_primary"
+                widget: "object"
+                fields:
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "Href", name: "href", widget: "string" }
+              - label: "Outline CTA"
+                name: "cta_outline"
+                widget: "object"
+                fields:
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "Action", name: "action", widget: "string" }
+
+  # ────────────────────────────────────────────
+  #  Settings  (file collections)
+  # ────────────────────────────────────────────
+  - name: "settings"
+    label: "Settings"
+    files:
+
+      # ── Navigation ──────────────────────────
+      - name: "nav"
+        label: "Navigation"
+        file: "src/data/nav.yaml"
+        fields:
+          - label: "Logo"
+            name: "logo"
+            widget: "object"
+            fields:
+              - { label: "Mark", name: "mark", widget: "string" }
+              - { label: "Text", name: "text", widget: "string" }
+              - { label: "Powered By", name: "powered_by", widget: "string" }
+          - label: "Links"
+            name: "links"
+            widget: "list"
+            fields:
+              - { label: "Href", name: "href", widget: "string" }
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "ID", name: "id", widget: "string" }
+          - label: "CTA"
+            name: "cta"
+            widget: "object"
+            fields:
+              - { label: "Label", name: "label", widget: "string" }
+              - { label: "Action", name: "action", widget: "string" }
+
+      # ── Footer ──────────────────────────────
+      - name: "footer"
+        label: "Footer"
+        file: "src/data/footer.yaml"
+        fields:
+          - label: "Brand"
+            name: "brand"
+            widget: "object"
+            fields:
+              - { label: "Description", name: "description", widget: "text" }
+          - label: "Columns"
+            name: "columns"
+            widget: "list"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - label: "Links"
+                name: "links"
+                widget: "list"
+                fields:
+                  - { label: "Label", name: "label", widget: "string" }
+                  - { label: "Href", name: "href", widget: "string", required: false }
+                  - { label: "Action", name: "action", widget: "string", required: false }
+          - label: "Bottom"
+            name: "bottom"
+            widget: "object"
+            fields:
+              - { label: "Copyright", name: "copyright", widget: "string" }
+              - { label: "Powered By", name: "powered_by", widget: "string" }
+
+  # ────────────────────────────────────────────
+  #  Case Studies  (folder collection)
+  # ────────────────────────────────────────────
+  - name: "case-studies"
+    label: "Case Studies"
+    folder: "src/content/case-studies"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Client", name: "client", widget: "string" }
+      - { label: "Industry", name: "industry", widget: "string" }
+      - { label: "Thumbnail", name: "thumbnail", widget: "image", required: false }
+      - { label: "Summary", name: "summary", widget: "text" }
+      - label: "Stats"
+        name: "stats"
+        widget: "list"
+        required: false
+        fields:
+          - { label: "Label", name: "label", widget: "string" }
+          - { label: "Value", name: "value", widget: "string" }
+      - label: "Testimonial"
+        name: "testimonial"
+        widget: "object"
+        required: false
+        fields:
+          - { label: "Quote", name: "quote", widget: "text" }
+          - { label: "Name", name: "name", widget: "string" }
+          - { label: "Role", name: "role", widget: "string" }
+      - { label: "Published", name: "published", widget: "boolean", default: false }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Body", name: "body", widget: "markdown" }
+
+  # ────────────────────────────────────────────
+  #  Resources  (folder collection)
+  # ────────────────────────────────────────────
+  - name: "resources"
+    label: "Resources"
+    folder: "src/content/resources"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        options:
+          - { label: "Guide", value: "guide" }
+          - { label: "Template", value: "template" }
+          - { label: "Insight", value: "insight" }
+          - { label: "Toolkit", value: "toolkit" }
+      - { label: "Summary", name: "summary", widget: "text" }
+      - { label: "Thumbnail", name: "thumbnail", widget: "image", required: false }
+      - { label: "Published", name: "published", widget: "boolean", default: false }
+      - { label: "Date", name: "date", widget: "datetime" }
+      - { label: "Body", name: "body", widget: "markdown" }

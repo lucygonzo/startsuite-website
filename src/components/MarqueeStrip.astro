@@ -1,0 +1,13 @@
+---
+interface Props {
+  items: string[];
+}
+const { items } = Astro.props;
+// Repeat items 4x for seamless scroll
+const repeated = [...items, ...items, ...items, ...items];
+---
+<div class="marquee-strip">
+  <div class="marquee-strip-inner">
+    {repeated.map(item => <span>{item}</span>)}
+  </div>
+</div>

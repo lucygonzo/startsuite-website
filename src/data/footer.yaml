@@ -1,0 +1,24 @@
+brand:
+  description: "Creative strategy, design, and storytelling for companies that can't afford to be overlooked."
+
+columns:
+  - title: "Product"
+    links:
+      - label: "Services"
+        href: "/services"
+  - title: "Partners"
+    links:
+      - label: "Overview"
+        href: "/partners"
+      - label: "Get in touch"
+        action: "openModal()"
+  - title: "Company"
+    links:
+      - label: "About"
+        href: "/about"
+      - label: "Contact"
+        action: "openModal()"
+
+bottom:
+  copyright: "© 2026 StartSuite. All rights reserved."
+  powered_by: "Powered by 46Capital"

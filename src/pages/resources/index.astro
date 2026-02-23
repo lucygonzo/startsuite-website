@@ -1,0 +1,47 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const resources = (await getCollection('resources'))
+  .filter(r => r.data.published)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+
+const categoryLabels: Record<string, string> = {
+  guide: 'Guide',
+  template: 'Template',
+  insight: 'Insight',
+  toolkit: 'Toolkit',
+};
+---
+
+<BaseLayout title="Resources — StartSuite">
+
+<section style="padding:180px 40px 80px;max-width:1200px;margin:0 auto">
+  <div class="pill scroll-reveal">Resources</div>
+  <h2 class="scroll-reveal" style="font-size:clamp(32px,4vw,52px);margin-bottom:16px">
+    Tools, guides, and <em>real talk.</em>
+  </h2>
+  <p class="scroll-reveal" style="color:var(--text-muted);max-width:600px;margin-bottom:60px">
+    Practical resources for founders building brands that punch above their weight.
+  </p>
+
+  {resources.length === 0 && (
+    <div class="scroll-reveal" style="padding:80px 40px;text-align:center;border:1px dashed var(--border);border-radius:var(--radius-lg)">
+      <p style="color:var(--text-muted);font-size:15px">Resources coming soon. We're putting together guides, templates, and insights for founders.</p>
+    </div>
+  )}
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(340px,1fr));gap:24px">
+    {resources.map((resource, i) => (
+      <a href={`/resources/${resource.slug}`} class="scroll-reveal" style={`text-decoration:none;transition-delay:${i * 0.06}s`}>
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:32px;transition:all var(--duration) var(--ease)">
+          <div style="font-size:10px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--purple-light);margin-bottom:14px;font-family:var(--mono)">{categoryLabels[resource.data.category]}</div>
+          <h3 style="font-size:19px;font-weight:700;color:var(--text);margin-bottom:10px;line-height:1.3">{resource.data.title}</h3>
+          <p style="color:var(--text-muted);font-size:14px;line-height:1.7">{resource.data.summary}</p>
+        </div>
+      </a>
+    ))}
+  </div>
+</section>
+
+</BaseLayout>

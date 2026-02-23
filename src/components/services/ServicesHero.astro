@@ -1,0 +1,28 @@
+---
+import servicesData from '@/data/services.yaml';
+
+const { hero } = servicesData;
+---
+
+<div class="f-hero">
+  <div>
+    <div class="pill scroll-reveal">{hero.pill}</div>
+    <h1 class="scroll-reveal" set:html={hero.headline} />
+    <p class="f-hero-sub scroll-reveal">{hero.subheadline}</p>
+    <div class="marginalia scroll-reveal" style="margin-bottom:16px">{hero.marginalia}</div>
+    <div class="f-hero-proof scroll-reveal" style="margin-bottom:32px">
+      {hero.proof.map((item: any, i: number) => (
+        <>
+          {i > 0 && <div class="f-proof-div"></div>}
+          <div class="f-proof-item">
+            <span class="f-proof-num">{item.num}</span>
+            <span class="f-proof-label">{item.label}</span>
+          </div>
+        </>
+      ))}
+    </div>
+    <div class="scroll-reveal" style="display:flex;gap:12px;flex-wrap:wrap">
+      <a class="btn btn-primary btn-lg" onclick="openModal()">{hero.primaryCta}</a>
+      <a class="btn btn-outline btn-lg" onclick="document.getElementById('f-included').scrollIntoView({behavior:'smooth'})">{hero.secondaryCta}</a>
+    </div>
+  </div>

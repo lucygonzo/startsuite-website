@@ -1,0 +1,24 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import AboutHero from '@/components/about/AboutHero.astro';
+import DimLine from '@/components/DimLine.astro';
+import Manifesto from '@/components/about/Manifesto.astro';
+import HowWeWork from '@/components/about/HowWeWork.astro';
+import TeamSection from '@/components/about/TeamSection.astro';
+import ForCreatives from '@/components/about/ForCreatives.astro';
+import FortySixCapital from '@/components/about/FortySixCapital.astro';
+import AboutFinalCta from '@/components/about/AboutFinalCta.astro';
+---
+
+<BaseLayout title="About — StartSuite">
+  <AboutHero />
+  <DimLine label="What we believe" />
+  <Manifesto />
+  <HowWeWork />
+  <DimLine label="The team" />
+  <TeamSection />
+  <ForCreatives />
+  <FortySixCapital />
+  <DimLine label="StartSuite · 2026" />
+  <AboutFinalCta />
+</BaseLayout>

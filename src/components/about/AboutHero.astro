@@ -1,0 +1,25 @@
+---
+import aboutData from '@/data/about.yaml';
+const { hero } = aboutData;
+---
+
+<div class="a-hero">
+  <div class="a-hero-left">
+    <div class="pill scroll-reveal" style="margin-bottom:20px">{hero.pill}</div>
+    <h1 class="scroll-reveal" style="transition-delay:0.06s" set:html={hero.headline} />
+    <p class="scroll-reveal" style="transition-delay:0.12s">{hero.description}</p>
+    <div class="scroll-reveal" style="display:flex;gap:12px;flex-wrap:wrap;transition-delay:0.18s">
+      <a class="btn btn-primary btn-lg" href={hero.cta_primary.href}>{hero.cta_primary.label}</a>
+      <a class="btn btn-outline btn-lg" onclick="openModal()">{hero.cta_outline.label}</a>
+    </div>
+  </div>
+  <div class="a-hero-right">
+    <div class="marginalia scroll-reveal" style="transition-delay:0.1s">{hero.marginalia}</div>
+    {hero.quotes.map((quote, i) => (
+      <div class="a-hero-quote scroll-reveal" style={`transition-delay:${0.14 + i * 0.04}s`}>
+        <p>{quote.text}</p>
+        <span>{quote.attribution}</span>
+      </div>
+    ))}
+  </div>
+</div>

@@ -1,0 +1,27 @@
+---
+import partnersData from '@/data/partners.yaml';
+
+const { partnership_models } = partnersData;
+---
+
+<div class="section-alt">
+  <div class="p-models-wrap" id="p-models">
+    <div class="p-models-header">
+      <div>
+        <div class="pill scroll-reveal">{partnership_models.pill}</div>
+        <h2 class="scroll-reveal" style="transition-delay:0.06s" set:html={partnership_models.headline} />
+      </div>
+      <p class="scroll-reveal" style="transition-delay:0.12s">{partnership_models.description}</p>
+    </div>
+    <div class="p-models-grid">
+      {partnership_models.cards.map((card: { num: string; title: string; body: string; tag: string; highlighted: boolean }, i: number) => (
+        <div class={`p-model-card${card.highlighted ? ' p-model-card-hi' : ''} scroll-reveal`} style={`transition-delay:${0.04 + i * 0.04}s`}>
+          <div class="p-model-num">{card.num}</div>
+          <h3>{card.title}</h3>
+          <p>{card.body}</p>
+          <div class="p-model-tag">{card.tag}</div>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>

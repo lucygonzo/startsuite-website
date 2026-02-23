@@ -1,0 +1,109 @@
+---
+import homeData from '@/data/home.yaml';
+
+const { deliverGrid } = homeData;
+
+const col1Cards = deliverGrid.cards.filter((c: any) => c.col === 1);
+const col2Cards = deliverGrid.cards.filter((c: any) => c.col === 2);
+const col3Cards = deliverGrid.cards.filter((c: any) => c.col === 3);
+---
+
+<div class="section-alt">
+<div class="deliver-wrap">
+<div class="deliver-inner">
+  <div class="deliver-header scroll-reveal" style="margin-bottom:48px">
+    <div><div class="pill">{ deliverGrid.pill }</div><h2 set:html={deliverGrid.headline} /></div>
+    <p>{ deliverGrid.subheadline }</p>
+  </div>
+  <div style="position:relative">
+    <div class="marginalia" style="position:absolute;top:-18px;right:0" set:html={deliverGrid.grid_marginalia} />
+  </div>
+
+  <div class="del-grid">
+    {/* Column 1 */}
+    <div class="del-grid-col">
+      {col1Cards.map((card: any) => (
+        <div class={`del-card${card.tall ? ' del-card-tall' : ''} scroll-reveal`}>
+          <div class="del-card-front">
+            <div class="del-card-sketch" set:html={card.sketch_svg} />
+            <div class="del-card-cat">{card.cat}</div>
+            <div class="del-card-title">{card.title}</div>
+            <div class="del-card-copy">{card.copy}</div>
+          </div>
+          <div class="del-card-reveal">
+            <div class="del-card-reveal-sub" set:html={card.reveal_sub} />
+            <div class="del-card-reveal-title">{card.reveal_title}</div>
+            <p class="del-card-reveal-desc">{card.reveal_desc}</p>
+            <div class="del-card-reveal-bullets">
+              {card.reveal_bullets.map((bullet: string) => (
+                <span class="del-card-reveal-bullet" set:html={bullet} />
+              ))}
+            </div>
+            <div class="del-card-reveal-why">&rarr; {card.reveal_why}</div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    {/* Column 2 (offset down) */}
+    <div class="del-grid-col">
+      {col2Cards.map((card: any) => (
+        <div class={`del-card${card.tall ? ' del-card-tall' : ''} scroll-reveal`}>
+          <div class="del-card-front">
+            <div class="del-card-sketch" set:html={card.sketch_svg} />
+            <div class="del-card-cat">{card.cat}</div>
+            <div class="del-card-title">{card.title}</div>
+            <div class="del-card-copy">{card.copy}</div>
+          </div>
+          <div class="del-card-reveal">
+            <div class="del-card-reveal-sub" set:html={card.reveal_sub} />
+            <div class="del-card-reveal-title">{card.reveal_title}</div>
+            <p class="del-card-reveal-desc">{card.reveal_desc}</p>
+            <div class="del-card-reveal-bullets">
+              {card.reveal_bullets.map((bullet: string) => (
+                <span class="del-card-reveal-bullet" set:html={bullet} />
+              ))}
+            </div>
+            <div class="del-card-reveal-why">&rarr; {card.reveal_why}</div>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    {/* Column 3 (slight offset) */}
+    <div class="del-grid-col">
+      {col3Cards.map((card: any) => (
+        <div class={`del-card${card.tall ? ' del-card-tall' : ''} scroll-reveal`}>
+          <div class="del-card-front">
+            <div class="del-card-sketch" set:html={card.sketch_svg} />
+            <div class="del-card-cat">{card.cat}</div>
+            <div class="del-card-title">{card.title}</div>
+            <div class="del-card-copy">{card.copy}</div>
+          </div>
+          <div class="del-card-reveal">
+            <div class="del-card-reveal-sub" set:html={card.reveal_sub} />
+            <div class="del-card-reveal-title">{card.reveal_title}</div>
+            <p class="del-card-reveal-desc">{card.reveal_desc}</p>
+            <div class="del-card-reveal-bullets">
+              {card.reveal_bullets.map((bullet: string) => (
+                <span class="del-card-reveal-bullet" set:html={bullet} />
+              ))}
+            </div>
+            <div class="del-card-reveal-why">&rarr; {card.reveal_why}</div>
+          </div>
+        </div>
+      ))}
+
+      <div class="del-cta-block scroll-reveal">
+        <div class="del-cta-block-tag">{ deliverGrid.ctaBlock.tag }</div>
+        <div class="del-cta-block-note" set:html={deliverGrid.ctaBlock.note} />
+        <div class="del-cta-block-btns">
+          <a class="btn btn-primary btn-lg btn-full" onclick="openModal()">{ deliverGrid.ctaBlock.cta_primary }</a>
+          <a class="btn btn-outline btn-lg btn-full" href="/services">{ deliverGrid.ctaBlock.cta_secondary }</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>

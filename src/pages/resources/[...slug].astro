@@ -1,0 +1,41 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const resources = await getCollection('resources');
+  return resources.map(resource => ({
+    params: { slug: resource.slug },
+    props: { resource },
+  }));
+}
+
+const { resource } = Astro.props;
+const { Content } = await resource.render();
+
+const categoryLabels: Record<string, string> = {
+  guide: 'Guide',
+  template: 'Template',
+  insight: 'Insight',
+  toolkit: 'Toolkit',
+};
+---
+
+<BaseLayout title={`${resource.data.title} — StartSuite`}>
+
+<article style="padding:180px 40px 80px;max-width:800px;margin:0 auto">
+  <a href="/resources" style="display:inline-flex;align-items:center;gap:6px;color:var(--text-muted);text-decoration:none;font-size:13px;font-weight:500;margin-bottom:40px;transition:color 0.3s var(--ease)">
+    &larr; All Resources
+  </a>
+
+  <div style="font-size:10px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--purple-light);margin-bottom:16px;font-family:var(--mono)">{categoryLabels[resource.data.category]}</div>
+
+  <h1 style="font-size:clamp(32px,4vw,48px);margin-bottom:20px;line-height:1.1">{resource.data.title}</h1>
+  <p style="color:var(--text-muted);font-size:17px;line-height:1.8;margin-bottom:48px">{resource.data.summary}</p>
+
+  <div class="prose" style="color:var(--text-muted);font-size:16px;line-height:1.85">
+    <Content />
+  </div>
+</article>
+
+</BaseLayout>

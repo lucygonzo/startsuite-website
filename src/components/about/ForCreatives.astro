@@ -1,0 +1,66 @@
+---
+import aboutData from '@/data/about.yaml';
+const { for_creatives } = aboutData;
+---
+
+<div class="a-creatives-wrap">
+  <div class="a-creatives-toggle" id="creatives-toggle">
+    <!-- Trigger bar -->
+    <div class="a-creatives-trigger" onclick="document.getElementById('creatives-toggle').classList.toggle('open')">
+      <div class="a-creatives-trigger-left">
+        <div class="pill">{for_creatives.pill}</div>
+        <h3 set:html={for_creatives.trigger_headline} />
+      </div>
+      <div class="a-creatives-trigger-icon"><svg viewBox="0 0 14 14"><line x1="7" y1="1" x2="7" y2="13"/><line x1="1" y1="7" x2="13" y2="7"/></svg></div>
+    </div>
+
+    <!-- Collapsible body -->
+    <div class="a-creatives-body">
+      <div class="a-creatives-content">
+        <!-- Hero card -->
+        <div class="a-creatives-hero">
+          <div>
+            <h4>{for_creatives.hero_card.title}</h4>
+            {for_creatives.hero_card.body_left.map((text) => (
+              <p>{text}</p>
+            ))}
+          </div>
+          <div>
+            {for_creatives.hero_card.body_right.map((text) => (
+              <p>{text}</p>
+            ))}
+            <p style="font-size:11px;color:var(--text-dim);font-weight:600;letter-spacing:0.02em;margin-top:14px">{for_creatives.hero_card.tagline}</p>
+            <a class="btn btn-outline btn-lg" style="margin-top:18px" onclick="event.stopPropagation();openModal()">{for_creatives.hero_card.cta_label}</a>
+          </div>
+        </div>
+
+        <!-- What we look for -->
+        <div class="a-creatives-row">
+          {for_creatives.cards.map((card) => (
+            <div class="a-creatives-card">
+              <div class="a-creatives-card-num">{card.num}</div>
+              <h4>{card.title}</h4>
+              <p>{card.description}</p>
+            </div>
+          ))}
+        </div>
+
+        <!-- Honesty strip -->
+        <div class="a-creatives-strip">
+          <div>
+            <h4>{for_creatives.honesty_strip.col_1.title}</h4>
+            <p>{for_creatives.honesty_strip.col_1.text}</p>
+          </div>
+          <div>
+            <p>{for_creatives.honesty_strip.col_2.text}</p>
+            <div class="a-creatives-strip-tags">
+              {for_creatives.honesty_strip.col_2.tags.map((tag) => (
+                <span class="a-creatives-strip-tag">{tag}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

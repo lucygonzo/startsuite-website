@@ -1,0 +1,44 @@
+---
+import homeData from '@/data/home.yaml';
+
+const { creativeEdge } = homeData;
+---
+
+<div class="section-alt">
+<div class="reality-wrap">
+
+  <div class="ce-header scroll-reveal">
+    <div class="pill">{ creativeEdge.pill }</div>
+    <h2 set:html={creativeEdge.headline} />
+    <p>{ creativeEdge.subheadline }</p>
+  </div>
+
+  <div style="position:relative">
+    <div class="marginalia" style="position:absolute;top:-18px;left:0" set:html={creativeEdge.stats_marginalia} />
+  </div>
+  <div class="ce-stats">
+    {creativeEdge.stats.map((stat: any) => (
+      <div class="ce-stat scroll-reveal">
+        <span class="ce-stat-num" set:html={stat.num} />
+        <div class="ce-stat-text">{stat.text}</div>
+        <div class="ce-stat-source" set:html={stat.source} />
+      </div>
+    ))}
+  </div>
+
+  <div class="dim-line"><div class="dim-line-label">{ creativeEdge.dim_line_label }</div></div>
+
+  <div class="ce-cards">
+    {creativeEdge.cards.map((card: any) => (
+      <div class="rc-card scroll-reveal">
+        <div class="rc-num">{card.num}</div>
+        <div class="rc-content">
+          <h4>{card.title}</h4>
+          <p class="rc-desc">{card.desc}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+
+</div>
+</div>

@@ -1,0 +1,9 @@
+---
+interface Props {
+  label: string;
+}
+const { label } = Astro.props;
+---
+<div style="max-width:1200px;margin:0 auto;padding:0 40px">
+  <div class="dim-line"><div class="dim-line-label">{label}</div></div>
+</div>

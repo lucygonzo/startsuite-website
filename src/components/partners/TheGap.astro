@@ -1,0 +1,41 @@
+---
+import partnersData from '@/data/partners.yaml';
+
+const { the_gap } = partnersData;
+---
+
+<div class="section-alt">
+  <div class="p-gap-wrap">
+    <!-- Split header -->
+    <div class="p-gap-header">
+      <div>
+        <div class="pill scroll-reveal">{the_gap.pill}</div>
+        <h2 class="scroll-reveal" style="transition-delay:0.06s" set:html={the_gap.headline} />
+      </div>
+      <p class="scroll-reveal" style="transition-delay:0.12s">{the_gap.description}</p>
+    </div>
+
+    <!-- Hero card — full width, prominent -->
+    <div class="p-gap-hero scroll-reveal" style="transition-delay:0.1s">
+      <div>
+        <h3>{the_gap.hero_card.title}</h3>
+        <p>{the_gap.hero_card.body}</p>
+      </div>
+      <div class="p-gap-hero-right">
+        <p>{the_gap.hero_card.right_body}</p>
+        <p style="font-size:12px;color:var(--text-dim);font-weight:600;letter-spacing:0.02em">{the_gap.hero_card.right_footnote}</p>
+      </div>
+    </div>
+
+    <!-- Two supporting cards -->
+    <div class="p-gap-row">
+      {the_gap.cards.map((card: { num: string; title: string; body: string }, i: number) => (
+        <div class="p-gap-card scroll-reveal" style={`transition-delay:${0.14 + i * 0.04}s`}>
+          <div class="p-gap-card-num">{card.num}</div>
+          <h4>{card.title}</h4>
+          <p>{card.body}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>

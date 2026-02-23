@@ -1,0 +1,56 @@
+---
+import aboutData from '@/data/about.yaml';
+const { team } = aboutData;
+---
+
+<div class="section-alt">
+  <div class="a-team-wrap">
+    <div class="a-team-header">
+      <div>
+        <div class="pill scroll-reveal">{team.pill}</div>
+        <h2 class="scroll-reveal" style="transition-delay:0.06s" set:html={team.headline} />
+      </div>
+      <p class="scroll-reveal" style="transition-delay:0.12s">{team.description}</p>
+    </div>
+    <div class="team-grid">
+      {team.members.map((member, i) => (
+        <div class="team-card scroll-reveal" style={`transition-delay:${0.1 + i * 0.06}s`}>
+          <div class="team-photo" style="font-size:18px;font-weight:800;color:var(--purple-light);letter-spacing:-0.02em">{member.initials}</div>
+          <div class="team-name">{member.name}</div>
+          <div class="team-title">{member.title}</div>
+          {member.bio.map((paragraph) => (
+            <p>{paragraph}</p>
+          ))}
+          <div class="team-creds">
+            {member.creds.map((cred) => (
+              <span class="team-cred">{cred}</span>
+            ))}
+          </div>
+        </div>
+      ))}
+
+      <!-- 46Capital org card — full width -->
+      <div class="team-card team-card-org scroll-reveal" style="transition-delay:0.22s">
+        <div>
+          <div class="team-photo" style="font-size:16px;font-weight:800;color:var(--purple-light);letter-spacing:-0.02em">{team.org_card.initials}</div>
+          <div class="team-name">{team.org_card.name}</div>
+          <div class="team-title">{team.org_card.title}</div>
+          {team.org_card.bio.map((paragraph) => (
+            <p>{paragraph}</p>
+          ))}
+        </div>
+        <div class="team-card-org-points">
+          {team.org_card.points.map((point) => (
+            <div class="team-card-org-point">
+              <div class="team-card-org-point-num">{point.num}</div>
+              <div>
+                <h4>{point.title}</h4>
+                <p>{point.description}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

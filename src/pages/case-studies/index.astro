@@ -1,0 +1,50 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getCollection } from 'astro:content';
+
+const studies = (await getCollection('case-studies'))
+  .filter(s => s.data.published)
+  .sort((a, b) => b.data.date.valueOf() - a.data.date.valueOf());
+---
+
+<BaseLayout title="Case Studies — StartSuite">
+
+<section style="padding:180px 40px 80px;max-width:1200px;margin:0 auto">
+  <div class="pill scroll-reveal">Case studies</div>
+  <h2 class="scroll-reveal" style="font-size:clamp(32px,4vw,52px);margin-bottom:16px">
+    Real work. <em>Real results.</em>
+  </h2>
+  <p class="scroll-reveal" style="color:var(--text-muted);max-width:600px;margin-bottom:60px">
+    A look at how we've helped founders build brands that move as fast as they do.
+  </p>
+
+  {studies.length === 0 && (
+    <div class="scroll-reveal" style="padding:80px 40px;text-align:center;border:1px dashed var(--border);border-radius:var(--radius-lg)">
+      <p style="color:var(--text-muted);font-size:15px">Case studies coming soon. We're documenting our best work.</p>
+    </div>
+  )}
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:24px">
+    {studies.map((study, i) => (
+      <a href={`/case-studies/${study.slug}`} class="scroll-reveal" style={`text-decoration:none;transition-delay:${i * 0.06}s`}>
+        <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius-lg);padding:36px;transition:all var(--duration) var(--ease);position:relative;overflow:hidden">
+          <div style="font-size:10px;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--purple-light);margin-bottom:16px;font-family:var(--mono)">{study.data.industry}</div>
+          <h3 style="font-size:20px;font-weight:700;color:var(--text);margin-bottom:10px;line-height:1.3">{study.data.title}</h3>
+          <p style="color:var(--text-muted);font-size:14px;line-height:1.7">{study.data.summary}</p>
+          {study.data.stats && (
+            <div style="display:flex;gap:24px;margin-top:20px;padding-top:20px;border-top:1px solid var(--border)">
+              {study.data.stats.map(stat => (
+                <div>
+                  <div style="font-size:18px;font-weight:800;color:var(--purple-light)">{stat.value}</div>
+                  <div style="font-size:11px;color:var(--text-dim);text-transform:uppercase;letter-spacing:0.08em">{stat.label}</div>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
+      </a>
+    ))}
+  </div>
+</section>
+
+</BaseLayout>

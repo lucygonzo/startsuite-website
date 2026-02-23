@@ -1,0 +1,39 @@
+---
+import homeData from '@/data/home.yaml';
+import GlobeCanvas from '@/components/GlobeCanvas.astro';
+
+const { hero } = homeData;
+---
+
+<section class="hero">
+  <div class="hero-bg-glow"></div>
+  <div class="hero-inner">
+    <div>
+      <p class="hero-eyebrow" set:html={hero.eyebrow} />
+      <h1 set:html={hero.headline} />
+      <p class="hero-sub">{hero.subheadline}</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary btn-lg" onclick="openModal()">{hero.cta_primary}</a>
+        <a class="btn btn-outline btn-lg" href="/services">{hero.cta_secondary}</a>
+      </div>
+      <div style="position:relative">
+        <div class="marginalia" style="position:absolute;top:-18px;right:0" set:html={hero.stats_marginalia} />
+        <div class="hero-stats">
+          {hero.stats.map((stat: any) => (
+            <div class="stat-item">
+              <span
+                class="stat-num"
+                data-target={stat.target}
+                {...(stat.prefix ? { 'data-prefix': stat.prefix } : {})}
+                {...(stat.suffix ? { 'data-suffix': stat.suffix } : {})}
+                {...(stat.decimal ? { 'data-decimal': 'true' } : {})}
+              >{stat.num}</span>
+              <div class="stat-lbl">{stat.label}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+    <GlobeCanvas />
+  </div>
+</section>

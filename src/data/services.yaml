@@ -1,0 +1,167 @@
+hero:
+  pill: "Services"
+  headline: "A creative <em>operating system</em> for your company. Not a vendor. Not a queue."
+  subheadline: "We build your brand system, website, and pitch materials in the first 60 days. Then we stay embedded as your creative team for everything that follows. One price. Real partnership. Infrastructure that compounds."
+  marginalia: "Verified · Q1 2026"
+  proof:
+    - num: "$17M+"
+      label: "raised by clients"
+    - num: "12+"
+      label: "startups supported"
+    - num: "4.95"
+      label: "avg. satisfaction"
+  primaryCta: "Book Intro Call"
+  secondaryCta: "See What's Included"
+
+priceCard:
+  badge: "The Foundations Package"
+  amount: "$2,000"
+  period: "per month &nbsp;&middot;&nbsp; 12-month partnership &nbsp;&middot;&nbsp; Up to 3 seats"
+  features:
+    - "Brand system + full logo suite"
+    - "Live Brand HQ, centralized system of truth"
+    - "1&ndash;2 page positioning-led website"
+    - "Custom pitch deck template"
+    - "One-pager design"
+    - "1&ndash;2 design pieces/month from Month 3"
+    - "2 strategic office hours/month"
+    - "A team embedded in your company context"
+  cta: "Book Intro Call"
+  note: "1 month free with annual upfront payment. The 12-month commitment is infrastructure, not a lock-in. It's how compounding works."
+
+priceCompare:
+  dimLineLabel: "The math"
+  pill: "Why $2,000/month"
+  headline: "Senior creative talent at a price that<span class=\"sketch-underline\"> makes sense<svg viewBox=\"0 0 200 12\" preserveAspectRatio=\"none\"><path d=\"M2,8 Q40,2 80,7 T160,5 T198,8\"/></svg></span> for where you are."
+  description: "AI handles the production work on our end. That frees our senior team for the parts that actually require a human: strategy, taste, judgment, and knowing your company well enough to make decisions you'd make yourself."
+  rows:
+    - who: "Agency retainer"
+      cost: "$8k&ndash;$20k"
+      desc: "Overhead, account managers, work that takes weeks to start"
+      highlight: false
+    - who: "Freelancer loop"
+      cost: "$3k&ndash;$8k"
+      desc: "Briefing from zero every time, no continuity, no strategy"
+      highlight: false
+    - who: "In-house junior hire"
+      cost: "$5k&ndash;$9k"
+      desc: "One skill set, no strategic layer, still needs managing"
+      highlight: false
+    - who: "StartSuite Foundations"
+      cost: "$2,000/mo"
+      desc: "Senior team, embedded context, infrastructure that compounds"
+      highlight: true
+  tags:
+    - "Brand system"
+    - "Website"
+    - "Pitch deck"
+    - "One-pager"
+    - "Ongoing design"
+    - "Strategy hours"
+    - "All included"
+
+bentoGrid:
+  marginalia: "5 pillars · Month 1 through 12"
+  pill: "What's included"
+  headline: "Every deliverable is designed to<span class=\"sketch-underline\"> compound<svg viewBox=\"0 0 200 12\" preserveAspectRatio=\"none\"><path d=\"M2,8 Q40,2 80,7 T160,5 T198,8\"/></svg></span> on the last."
+  description: "The brand informs the website. The website informs the deck. The deck reflects the brand. None of it is decorative. Each piece makes the next one sharper."
+
+  brand:
+    label: "01. Brand Foundation"
+    title: "The system everything else runs from."
+    description: "Visual and verbal identity built from the ground up, then housed in a Live Brand HQ your whole team can access. This is the foundation every future asset compounds from."
+    tags:
+      - "Primary + secondary logo"
+      - "Color palette"
+      - "Typography system"
+      - "Messaging framework"
+      - "Brand guidelines"
+      - "Live Brand HQ"
+    milestones:
+      - label: "Logo suite delivered"
+        tag: "Week 2"
+      - label: "Color + type system"
+        tag: "Week 2"
+      - label: "Messaging framework"
+        tag: "Week 3"
+      - label: "Live Brand HQ live"
+        tag: "Week 4"
+    insight: "The foundation that makes everything else faster. Future assets take hours, not days."
+
+  trio:
+    - num: "02"
+      label: "Website"
+      title: "Positioning-led. Built for credibility."
+      description: "Designed, written, and developed around your narrative so investors and customers understand you in seconds. Not a template you fill in."
+      tags:
+        - "Design + dev"
+        - "Copywriting"
+        - "Analytics"
+        - "SEO"
+        - "Responsive"
+    - num: "03"
+      label: "Pitch Materials"
+      title: "The materials you reach for in every important room."
+      description: "Custom pitch deck built on your brand and story. One-pager for speed. From month three, 1&ndash;2 design pieces wherever the business needs them."
+      tags:
+        - "Pitch deck"
+        - "One-pager"
+        - "Sales sheets"
+        - "Partner decks"
+    - num: "04"
+      label: "Asset Infrastructure"
+      title: "A system of truth for every asset your company generates."
+      description: "Centralized, organized, and built so your whole team can find, use, and update files without pinging a designer every time."
+      tags:
+        - "File structure"
+        - "Templates"
+        - "Team access"
+        - "Versioning"
+
+  strip:
+    label: "05. Strategic Support"
+    title: "Two hours a month with people who've been in those rooms."
+    description: "Real input on positioning, fundraising narrative, and the creative decisions that shift outcomes. Not just design feedback. We help you figure out what to ask for in the first place."
+    stats:
+      - val: "2"
+        label: "Sessions / month"
+      - val: "1:1"
+        label: "With senior team"
+      - val: "GTM"
+        label: "Strategy included"
+      - val: "VC"
+        label: "Positioning lens"
+
+timeline:
+  pill: "Why 12 months"
+  headline: "The 12-month commitment is a feature, not a clause."
+  description: "Brand systems compound. The first 60 days build the infrastructure. Months three through six are when it pays off. By month twelve your creative foundation is doing real work in investor meetings, hiring conversations, and pitches you haven't had yet. A 30-day sprint can't build that."
+  dimLineLabel: "The compounding timeline"
+  milestones:
+    - dot: "M1"
+      month: "Month 1"
+      title: "Foundation is live"
+      desc: "Brand system, logo suite, Brand HQ, and messaging alignment delivered. Your team has a creative home base for the first time."
+    - dot: "M2"
+      month: "Month 2"
+      title: "Website and decks ship"
+      desc: "Positioning-led site is live. Pitch deck template and one-pager delivered. Walk into your next meeting looking like the company you're building toward."
+    - dot: "M3+"
+      month: "Month 3 onward"
+      title: "Creative rhythm takes over"
+      desc: "1 to 2 design pieces per month, strategic office hours, ongoing alignment. The system keeps running while you keep building."
+    - dot: "M12"
+      month: "Month 12"
+      title: "Brand is a real asset"
+      desc: "Consistent, scalable, working for you. Not a liability to manage around. A competitive advantage built with intention over a year."
+
+finalCta:
+  pill: "Limited availability"
+  headline: "We cap our client list <em>intentionally.</em>"
+  description: "Real partnership requires real attention. We take on a limited number of Foundations clients at a time so we can be genuinely present for each one. If you're ready to treat your brand as seriously as your product, let's see if there's a fit."
+  cta: "Book Intro Call"
+  notes:
+    - "No commitment on the call"
+    - "30 minutes"
+    - "We come prepared"
+  dimLineLabel: "StartSuite · 2026"

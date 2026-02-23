@@ -1,0 +1,28 @@
+---
+import partnersData from '@/data/partners.yaml';
+
+const { pilot_cta } = partnersData;
+---
+
+<div class="p-pilot-wrap">
+  <div class="p-pilot">
+    <div class="p-pilot-left">
+      <div class="pill scroll-reveal">{pilot_cta.pill}</div>
+      <h2 class="scroll-reveal" style="transition-delay:0.06s">{pilot_cta.headline}</h2>
+      <p class="scroll-reveal" style="transition-delay:0.12s">{pilot_cta.description}</p>
+      <ul class="p-pilot-list scroll-reveal" style="transition-delay:0.18s">
+        {pilot_cta.list.map((item: string) => (
+          <li>{item}</li>
+        ))}
+      </ul>
+    </div>
+    <div class="scroll-reveal" style="transition-delay:0.12s">
+      <div class="p-pilot-cta-box">
+        <div style="font-size:11px;font-weight:800;color:var(--purple-light);letter-spacing:0.1em;margin-bottom:14px;font-family:var(--mono)">{pilot_cta.cta_box.eyebrow}</div>
+        <h3>{pilot_cta.cta_box.title}</h3>
+        <p>{pilot_cta.cta_box.body}</p>
+        <a class="btn btn-primary btn-full btn-lg" style="margin-top:20px" onclick="openModal()">{pilot_cta.cta_box.button}</a>
+      </div>
+    </div>
+  </div>
+</div>

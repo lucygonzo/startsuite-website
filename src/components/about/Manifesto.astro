@@ -1,0 +1,42 @@
+---
+import aboutData from '@/data/about.yaml';
+const { manifesto } = aboutData;
+---
+
+<div class="section-alt">
+  <div class="a-manifesto-wrap">
+    <!-- Split header -->
+    <div class="a-manifesto-header">
+      <div>
+        <div class="pill scroll-reveal">{manifesto.pill}</div>
+        <h2 class="scroll-reveal" style="transition-delay:0.06s" set:html={manifesto.headline} />
+      </div>
+      <p class="scroll-reveal" style="transition-delay:0.12s">{manifesto.description}</p>
+    </div>
+
+    <!-- 2-col body -->
+    <div class="a-manifesto-body scroll-reveal" style="transition-delay:0.16s">
+      <div class="a-manifesto-col">
+        {manifesto.body.col_1.map((text) => (
+          <p set:html={text} />
+        ))}
+      </div>
+      <div class="a-manifesto-col">
+        {manifesto.body.col_2.map((text) => (
+          <p set:html={text} />
+        ))}
+      </div>
+    </div>
+
+    <!-- Stat strip — 4 across -->
+    <div class="marginalia scroll-reveal" style="transition-delay:0.2s;margin-bottom:14px">{manifesto.stats_marginalia}</div>
+    <div class="a-manifesto-stats">
+      {manifesto.stats.map((stat, i) => (
+        <div class="a-stat-card scroll-reveal" style={`transition-delay:${0.22 + i * 0.03}s`}>
+          <span class="a-stat-num">{stat.num}</span>
+          <span class="a-stat-label">{stat.label}</span>
+        </div>
+      ))}
+    </div>
+  </div>
+</div>
