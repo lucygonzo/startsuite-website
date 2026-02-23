@@ -1,5 +1,6 @@
 ---
 // Contact modal — used site-wide
+// Uses Netlify Forms + JS submit handler for data enrichment
 ---
 
 <div class="modal-overlay" id="modal" onclick="closeModal(event)">
@@ -7,43 +8,69 @@
     <button class="modal-close" onclick="closeModalDirect()">&#10005;</button>
     <h2>Let's figure out what you need.</h2>
     <p class="modal-sub">Tell us a little about where you're at or skip it entirely. Either way, we'll show up ready.</p>
-    <div class="blind-date-toggle" id="bdToggle" onclick="toggleBlindDate()">
-      <div class="bdt-icon" style="font-size:12px;font-weight:800;color:var(--purple-light);letter-spacing:0.06em;font-family:var(--mono)">BD</div>
-      <div class="bdt-text">
-        <div class="bdt-title">Make it a blind date</div>
-        <div class="bdt-sub" id="bdSubText">Skip the questions. We'll come prepared either way.</div>
+    <form id="contact-form" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <!-- Honeypot for spam -->
+      <p class="hidden-field"><label>Don't fill this out: <input name="bot-field" /></label></p>
+      <!-- Hidden enrichment fields (populated by JS on submit) -->
+      <input type="hidden" name="form-name" value="contact" />
+      <input type="hidden" name="submitted_at" id="f-submitted-at" />
+      <input type="hidden" name="page_url" id="f-page-url" />
+      <input type="hidden" name="referrer" id="f-referrer" />
+      <input type="hidden" name="utm_source" id="f-utm-source" />
+      <input type="hidden" name="utm_medium" id="f-utm-medium" />
+      <input type="hidden" name="utm_campaign" id="f-utm-campaign" />
+      <input type="hidden" name="utm_term" id="f-utm-term" />
+      <input type="hidden" name="utm_content" id="f-utm-content" />
+      <input type="hidden" name="user_agent" id="f-user-agent" />
+      <input type="hidden" name="screen_resolution" id="f-screen-res" />
+      <input type="hidden" name="timezone" id="f-timezone" />
+      <input type="hidden" name="language" id="f-language" />
+      <input type="hidden" name="blind_date_mode" id="f-blind-date" value="off" />
+
+      <div class="blind-date-toggle" id="bdToggle" onclick="toggleBlindDate()">
+        <div class="bdt-icon" style="font-size:12px;font-weight:800;color:var(--purple-light);letter-spacing:0.06em;font-family:var(--mono)">BD</div>
+        <div class="bdt-text">
+          <div class="bdt-title">Make it a blind date</div>
+          <div class="bdt-sub" id="bdSubText">Skip the questions. We'll come prepared either way.</div>
+        </div>
+        <div class="bdt-switch"></div>
       </div>
-      <div class="bdt-switch"></div>
-    </div>
-    <div class="form-required">
-      <div class="form-group"><label>Your Name</label><input type="text" placeholder="First and last name"/></div>
-      <div class="form-group"><label>Work Email</label><input type="email" placeholder="you@company.com"/></div>
-    </div>
-    <div class="form-fields" id="extraFields">
-      <div class="form-group"><label>Company</label><input type="text" placeholder="Your company name"/></div>
-      <div class="form-group"><label>Where are you right now?</label>
-        <select>
-          <option value="">Select your stage...</option>
-          <option>Pre-seed just getting started</option>
-          <option>Seed building and raising</option>
-          <option>Series A prep getting investor-ready</option>
-          <option>Post-funding scaling up</option>
-          <option>Something else entirely</option>
-        </select>
+      <div class="form-required">
+        <div class="form-group"><label>Your Name</label><input type="text" name="name" placeholder="First and last name" required /></div>
+        <div class="form-group"><label>Work Email</label><input type="email" name="email" placeholder="you@company.com" required /></div>
       </div>
-      <div class="form-group"><label>What's the biggest creative headache right now?</label>
-        <select>
-          <option value="">Pick the one that hits hardest...</option>
-          <option>No consistent brand identity</option>
-          <option>Weak or outdated website</option>
-          <option>Pitch deck doesn't match our ambition</option>
-          <option>Scrambling for assets every time something comes up</option>
-          <option>Everything we're starting from scratch</option>
-        </select>
+      <div class="form-fields" id="extraFields">
+        <div class="form-group"><label>Company</label><input type="text" name="company" placeholder="Your company name" /></div>
+        <div class="form-group"><label>Where are you right now?</label>
+          <select name="stage">
+            <option value="">Select your stage...</option>
+            <option value="Pre-seed">Pre-seed just getting started</option>
+            <option value="Seed">Seed building and raising</option>
+            <option value="Series A prep">Series A prep getting investor-ready</option>
+            <option value="Post-funding">Post-funding scaling up</option>
+            <option value="Other">Something else entirely</option>
+          </select>
+        </div>
+        <div class="form-group"><label>What's the biggest creative headache right now?</label>
+          <select name="pain_point">
+            <option value="">Pick the one that hits hardest...</option>
+            <option value="No brand identity">No consistent brand identity</option>
+            <option value="Weak website">Weak or outdated website</option>
+            <option value="Pitch deck">Pitch deck doesn't match our ambition</option>
+            <option value="Scrambling for assets">Scrambling for assets every time something comes up</option>
+            <option value="Starting from scratch">Everything we're starting from scratch</option>
+          </select>
+        </div>
       </div>
+      <div class="blind-date-message" id="bdMessage"><strong>Blind date mode: on.</strong> We love the mystery. Just bring yourself we do our homework too and will show up with everything you need to make a real decision.</div>
+      <button type="submit" class="btn btn-primary btn-full btn-lg" style="margin-top:6px;" id="contact-submit">Book the Intro Call</button>
+      <p class="modal-note">No commitment. A 30-minute call that's all.</p>
+    </form>
+    <!-- Success state -->
+    <div id="form-success" class="form-success" style="display:none;">
+      <div class="form-success-icon">&#10003;</div>
+      <h3>You're on the list.</h3>
+      <p>We'll be in touch within 24 hours to lock in a time. Check your inbox.</p>
     </div>
-    <div class="blind-date-message" id="bdMessage"><strong>Blind date mode: on.</strong> We love the mystery. Just bring yourself we do our homework too and will show up with everything you need to make a real decision.</div>
-    <button class="btn btn-primary btn-full btn-lg" style="margin-top:6px;">Book the Intro Call</button>
-    <p class="modal-note">No commitment. A 30-minute call that's all.</p>
   </div>
 </div>

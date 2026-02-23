@@ -37,6 +37,58 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
+  // ── FORM SUBMISSION ────────────────────────────────────────────
+  (function () {
+    var form = document.getElementById('contact-form');
+    if (!form) return;
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+
+      // Populate hidden enrichment fields
+      var params = new URLSearchParams(window.location.search);
+      document.getElementById('f-submitted-at').value = new Date().toISOString();
+      document.getElementById('f-page-url').value = window.location.href;
+      document.getElementById('f-referrer').value = document.referrer || '';
+      document.getElementById('f-utm-source').value = params.get('utm_source') || '';
+      document.getElementById('f-utm-medium').value = params.get('utm_medium') || '';
+      document.getElementById('f-utm-campaign').value = params.get('utm_campaign') || '';
+      document.getElementById('f-utm-term').value = params.get('utm_term') || '';
+      document.getElementById('f-utm-content').value = params.get('utm_content') || '';
+      document.getElementById('f-user-agent').value = navigator.userAgent || '';
+      document.getElementById('f-screen-res').value = screen.width + 'x' + screen.height;
+      document.getElementById('f-timezone').value = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+      document.getElementById('f-language').value = navigator.language || '';
+      document.getElementById('f-blind-date').value = blindDateOn ? 'on' : 'off';
+
+      var submitBtn = document.getElementById('contact-submit');
+      submitBtn.textContent = 'Sending...';
+      submitBtn.disabled = true;
+
+      // Submit to Netlify Forms
+      var formData = new FormData(form);
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: new URLSearchParams(formData).toString()
+      })
+      .then(function (res) {
+        if (res.ok) {
+          // Show success state
+          form.style.display = 'none';
+          document.getElementById('form-success').style.display = 'block';
+        } else {
+          submitBtn.textContent = 'Something went wrong — try again';
+          submitBtn.disabled = false;
+        }
+      })
+      .catch(function () {
+        submitBtn.textContent = 'Connection error — try again';
+        submitBtn.disabled = false;
+      });
+    });
+  })();
+
   // ── ACCORDION (Services page) ──────────────────────────────────
   window.toggleAcc = function toggleAcc(btn) {
     const item = btn.closest('.acc-item');
