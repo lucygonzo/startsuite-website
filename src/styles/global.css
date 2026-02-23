@@ -45,7 +45,10 @@ nav{position:fixed;top:16px;left:50%;transform:translateX(-50%);z-index:200;disp
 .nav-left{display:flex;flex-direction:column;gap:1px}
 .nav-logo{font-weight:800;font-size:15px;letter-spacing:-0.02em;color:var(--text);display:flex;align-items:center;gap:8px;cursor:pointer}
 .nav-mark{width:26px;height:26px;border-radius:8px;flex-shrink:0;background:linear-gradient(135deg,var(--purple),var(--accent));display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:#fff;transition:box-shadow var(--duration) var(--ease)}
+.nav-mark-img{width:28px;height:28px;flex-shrink:0;object-fit:contain;transition:filter var(--duration) var(--ease)}
 nav.nav-scrolled .nav-mark{box-shadow:0 0 12px rgba(139,109,181,0.35)}
+nav.nav-scrolled .nav-mark-img{filter:drop-shadow(0 0 8px rgba(139,109,181,0.35))}
+.footer-logo-img{height:28px;width:auto;object-fit:contain}
 .nav-powered{display:none}
 .nav-links{display:flex;align-items:center;gap:6px;list-style:none}
 .nav-links a{color:var(--text-muted);text-decoration:none;font-size:13px;font-weight:500;transition:all 0.4s var(--ease);cursor:pointer;padding:6px 14px;border-radius:100px}
