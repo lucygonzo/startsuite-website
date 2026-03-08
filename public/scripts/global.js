@@ -15,6 +15,39 @@ document.addEventListener('DOMContentLoaded', () => {
     if (e.target === document.getElementById('modal')) closeModalDirect();
   };
 
+  // ── MOBILE NAV ────────────────────────────────────────────────
+  window.toggleMobileNav = function toggleMobileNav() {
+    const menu = document.querySelector('.nav-mobile-menu');
+    const overlay = document.querySelector('.nav-mobile-overlay');
+    const hamburger = document.querySelector('.nav-hamburger');
+    const isOpen = menu.classList.contains('open');
+    if (isOpen) {
+      menu.classList.remove('open');
+      overlay.classList.remove('open');
+      hamburger.classList.remove('open');
+      document.body.style.overflow = '';
+    } else {
+      menu.classList.add('open');
+      overlay.classList.add('open');
+      hamburger.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+  };
+
+  // Close mobile nav on resize past breakpoint or Escape key
+  window.addEventListener('resize', () => {
+    if (window.innerWidth > 1024) {
+      const menu = document.querySelector('.nav-mobile-menu');
+      if (menu && menu.classList.contains('open')) toggleMobileNav();
+    }
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      const menu = document.querySelector('.nav-mobile-menu');
+      if (menu && menu.classList.contains('open')) toggleMobileNav();
+    }
+  });
+
   // ── BLIND DATE TOGGLE ──────────────────────────────────────────
   let blindDateOn = false;
 

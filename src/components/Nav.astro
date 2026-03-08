@@ -34,4 +34,20 @@ function isActive(href: string): boolean {
   <div class="nav-cta">
     <a class="btn btn-primary" onclick="openModal()">Book Intro</a>
   </div>
+  <button class="nav-hamburger" onclick="toggleMobileNav()" aria-label="Toggle menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+<div class="nav-mobile-overlay" onclick="toggleMobileNav()"></div>
+<div class="nav-mobile-menu">
+  <ul>
+    {links.map(link => (
+      <li>
+        <a href={link.href} class={isActive(link.href) ? 'active' : ''}>
+          {link.label}
+        </a>
+      </li>
+    ))}
+  </ul>
+  <a class="btn btn-primary btn-full" onclick="openModal();toggleMobileNav()">Book Intro</a>
+</div>

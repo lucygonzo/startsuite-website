@@ -15,7 +15,7 @@ hero:
     - value: "0"
       label: "Hours from your team"
     - value: "$2k"
-      label: "Per founder / month"
+      label: "Value each month per company"
   stats_row_2:
     - value: "12"
       label: "Month engagement"
