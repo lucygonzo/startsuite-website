@@ -811,9 +811,75 @@ footer{border-top:1px solid var(--border);padding:64px 48px 36px}
   /* Home hero */
   .hero{padding:130px 28px 80px;min-height:auto}
   .hero-inner{grid-template-columns:1fr;gap:40px}
-  .hero-visual{height:320px;transform:none}
-  .eco-node{display:none}
+  .hero-visual{height:320px;transform:none;overflow:visible}
   .eco-orbit{display:none}
+
+  /* ── Radial dot ring — tap to explore ── */
+  @keyframes mobileDotReveal{0%{opacity:0}100%{opacity:1}}
+  .eco-node{
+    position:absolute;top:50%;left:50%;z-index:3;
+    width:14px;height:14px;opacity:0;
+    animation:mobileDotReveal 0.5s ease forwards;
+    cursor:pointer;
+  }
+  .eco-node-inner{
+    width:14px;height:14px;border-radius:50%;padding:0;
+    display:flex;align-items:center;justify-content:center;
+    background:rgba(139,109,181,0.15);
+    border:1.5px solid rgba(139,109,181,0.5);
+    box-shadow:0 0 10px rgba(139,109,181,0.3),0 0 20px rgba(139,109,181,0.1);
+    backdrop-filter:blur(8px);
+    transition:all 0.4s cubic-bezier(0.34,1.56,0.64,1);
+    overflow:hidden;position:relative;
+  }
+  .eco-node-inner:hover{transform:none;box-shadow:0 0 14px rgba(139,109,181,0.5),0 0 28px rgba(139,109,181,0.15)}
+  .eco-icon{width:6px;height:6px;margin:0;opacity:0.9}
+  .eco-label,.eco-thread{display:none}
+
+  /* Override desktop float animations + apply dot hint pulse */
+  .en-1 .eco-node-inner,.en-2 .eco-node-inner,.en-3 .eco-node-inner,
+  .en-4 .eco-node-inner,.en-5 .eco-node-inner,.en-6 .eco-node-inner{animation:none}
+  .eco-node:not(.active) .eco-node-inner{animation:dotHint 2.5s ease-in-out infinite}
+  @keyframes dotHint{0%,100%{transform:scale(1);box-shadow:0 0 10px rgba(139,109,181,0.3)}50%{transform:scale(1.25);box-shadow:0 0 18px rgba(139,109,181,0.55)}}
+
+  /* Reset desktop absolute positions and apply ring — 60° apart, ~130px radius */
+  .en-1,.en-2,.en-3,.en-4,.en-5,.en-6{top:50%;left:50%;right:auto;bottom:auto}
+  .en-1{transform:translate(-50%,-50%) rotate(-90deg) translateX(130px) rotate(90deg)}
+  .en-2{transform:translate(-50%,-50%) rotate(-30deg) translateX(130px) rotate(30deg)}
+  .en-3{transform:translate(-50%,-50%) rotate(30deg) translateX(130px) rotate(-30deg)}
+  .en-4{transform:translate(-50%,-50%) rotate(90deg) translateX(130px) rotate(-90deg)}
+  .en-5{transform:translate(-50%,-50%) rotate(150deg) translateX(130px) rotate(-150deg)}
+  .en-6{transform:translate(-50%,-50%) rotate(210deg) translateX(130px) rotate(-210deg)}
+
+  /* Stagger reveal delays */
+  .en-1{animation-delay:0.3s}.en-2{animation-delay:0.45s}.en-3{animation-delay:0.6s}
+  .en-4{animation-delay:0.75s}.en-5{animation-delay:0.9s}.en-6{animation-delay:1.05s}
+
+  /* Active state — expand into card */
+  .eco-node.active{z-index:10;width:auto;height:auto}
+  .eco-node.active .eco-node-inner{
+    width:auto;height:auto;border-radius:14px;padding:11px 15px;
+    background:rgba(14,14,20,0.85);
+    border:1px solid rgba(139,109,181,0.4);
+    box-shadow:0 8px 32px rgba(0,0,0,0.6),0 0 20px rgba(139,109,181,0.15),0 0 0 1px rgba(255,255,255,0.04) inset;
+    gap:10px;white-space:nowrap;overflow:visible;
+    animation:none;
+  }
+  .eco-node.active .eco-label{display:flex}
+  .eco-node.active .eco-thread{display:block}
+  .eco-node.active .eco-icon{width:6px;height:6px;opacity:0.4;margin-top:8px}
+
+  /* Card offset via margin — top-half dots: card below, bottom-half: card above */
+  .en-1.active .eco-node-inner{margin-top:8px;margin-left:-70px}
+  .en-2.active .eco-node-inner{margin-top:8px;margin-left:-120px}
+  .en-6.active .eco-node-inner{margin-top:8px;margin-left:-30px}
+  .en-4.active .eco-node-inner{margin-top:-56px;margin-left:-70px}
+  .en-5.active .eco-node-inner{margin-top:-56px;margin-left:-30px}
+  .en-3.active .eco-node-inner{margin-top:-56px;margin-left:-120px}
+
+  /* Globe pulse on active selection */
+  canvas#globe{transition:filter 0.4s ease}
+  canvas#globe.globe-pulse{filter:drop-shadow(0 0 80px rgba(139,109,181,0.45)) drop-shadow(0 0 30px rgba(139,109,181,0.25))}
 
   /* Sections padding */
   .reality-wrap,.hiw-wrap,.deliver-wrap,.why-wrap{padding:100px 28px}
@@ -933,6 +999,15 @@ footer{border-top:1px solid var(--border);padding:64px 48px 36px}
   .hero-ctas{flex-direction:column;gap:10px;margin-bottom:36px}
   .hero-ctas .btn{width:100%;justify-content:center}
   .hero-visual{height:260px}
+  /* Tighten the radial ring for smaller screen */
+  .en-1{transform:translate(-50%,-50%) rotate(-90deg) translateX(110px) rotate(90deg)}
+  .en-2{transform:translate(-50%,-50%) rotate(-30deg) translateX(110px) rotate(30deg)}
+  .en-3{transform:translate(-50%,-50%) rotate(30deg) translateX(110px) rotate(-30deg)}
+  .en-4{transform:translate(-50%,-50%) rotate(90deg) translateX(110px) rotate(-90deg)}
+  .en-5{transform:translate(-50%,-50%) rotate(150deg) translateX(110px) rotate(-150deg)}
+  .en-6{transform:translate(-50%,-50%) rotate(210deg) translateX(110px) rotate(-210deg)}
+  .eco-node-inner{width:12px;height:12px}
+  .eco-icon{width:5px;height:5px}
 
   /* Section padding */
   .reality-wrap,.hiw-wrap,.deliver-wrap,.why-wrap{padding:72px 20px}

@@ -286,4 +286,47 @@ document.addEventListener('DOMContentLoaded', () => {
     draw();
   })();
 
+  // ── MOBILE ECO-NODE TAP-TO-EXPLORE ────────────────────────────
+  (function () {
+    if (window.innerWidth > 1024) return;
+
+    const nodes = document.querySelectorAll('.eco-node');
+    const globe = document.getElementById('globe');
+    if (!nodes.length || !globe) return;
+
+    let pulseTimer = null;
+
+    function setActive(node) {
+      nodes.forEach(n => n.classList.remove('active'));
+      if (node) {
+        node.classList.add('active');
+        // Globe pulse
+        globe.classList.add('globe-pulse');
+        clearTimeout(pulseTimer);
+        pulseTimer = setTimeout(() => globe.classList.remove('globe-pulse'), 500);
+      }
+    }
+
+    nodes.forEach(node => {
+      node.addEventListener('click', function (e) {
+        e.stopPropagation();
+        const wasActive = this.classList.contains('active');
+        setActive(wasActive ? null : this);
+      });
+    });
+
+    // Tap anywhere else to close
+    document.addEventListener('click', function () {
+      setActive(null);
+    });
+
+    // Auto-hint: briefly show first node after 2s
+    setTimeout(function () {
+      if (!document.querySelector('.eco-node.active')) {
+        setActive(nodes[0]);
+        setTimeout(function () { setActive(null); }, 2500);
+      }
+    }, 2000);
+  })();
+
 });
