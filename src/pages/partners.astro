@@ -11,7 +11,10 @@ import WhoWeWorkWith from '@/components/partners/WhoWeWorkWith.astro';
 import partnersData from '@/data/partners.yaml';
 ---
 
-<BaseLayout title="Partners · StartSuite">
+<BaseLayout
+  title="Partners · StartSuite"
+  description="Brand HQ for the teams your network already backs. Accelerators, funds, and operator networks route founders, CMOs, and ops leaders to StartSuite for Brand HQ foundations."
+>
   <PartnersHero />
   <DimLine label={partnersData.the_gap.dim_line_label} />
   <TheGap />
