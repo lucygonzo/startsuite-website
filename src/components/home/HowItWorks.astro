@@ -28,7 +28,7 @@ const { howItWorks } = homeData;
         <div class="hiw-step-num">{step.num}</div>
         <div class="hiw-step-content">
           <h4>{step.title}</h4>
-          <p>{step.desc}</p>
+          {step.desc && <p>{step.desc}</p>}
           <div class="hiw-tag">{step.tag}</div>
         </div>
       </div>
@@ -37,10 +37,9 @@ const { howItWorks } = homeData;
   <div class="hiw-timeline">
     <div class="hiw-timeline-line"></div>
     <div class="hiw-timeline-dots">
-      <div class="hiw-timeline-dot"></div>
-      <div class="hiw-timeline-dot"></div>
-      <div class="hiw-timeline-dot"></div>
-      <div class="hiw-timeline-dot"></div>
+      {howItWorks.steps.map(() => (
+        <div class="hiw-timeline-dot"></div>
+      ))}
     </div>
   </div>
 </div>

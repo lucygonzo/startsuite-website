@@ -33,28 +33,27 @@ marquee:
 
 howItWorks:
   pill: "How it works"
-  headline: 'A creative partnership built around<span class="sketch-underline"> your company.<svg viewBox="0 0 200 12" preserveAspectRatio="none"><path d="M3,9 C50,2 90,11 140,4 S185,10 197,6"/></svg></span>'
-  description: "Not a ticket queue. Not a one-off project. Personalized, sustainable, and designed to scale with you — from the first conversation to year two and beyond."
+  headline: 'What the <span class="sketch-underline">first 30 days<svg viewBox="0 0 200 12" preserveAspectRatio="none"><path d="M3,9 C50,2 90,11 140,4 S185,10 197,6"/></svg></span> look like.'
+  description: "Brand work stops being episodic. It starts compounding from Day 1."
   cta_primary: "Book an Intro"
   cta_secondary: "See What's Included"
-  steps_marginalia: "4 phases &middot; 1 continuous relationship"
+  steps_marginalia: "5 milestones &middot; Day 1 to Day 30"
   steps:
     - num: "01"
-      title: "We learn your story first."
-      desc: "Before we design anything, we get embedded in your world — your positioning, your audience, your goals. Every decision starts from real context."
-      tag: "Personalized"
+      title: "Intake call, scope confirmation"
+      tag: "Day 1"
     - num: "02"
-      title: "We build your creative foundation in 60 days."
-      desc: "Identity, website, pitch materials — all designed as one cohesive system. Everything connects so nothing starts from scratch again."
-      tag: "Scalable"
+      title: "Brand HQ foundation stood up"
+      tag: "Day 3"
     - num: "03"
-      title: "We stay on as your creative team."
-      desc: "Monthly design support, strategic office hours, and on-demand assets — from a team that already knows your company inside out."
-      tag: "Sustainable"
+      title: "First competitive intelligence briefing"
+      tag: "Day 7"
     - num: "04"
-      title: "Your creative compounds every month."
-      desc: "The system we build in month one is why assets in month six take half the time. Every deliverable reinforces what came before."
-      tag: "Compounds"
+      title: "Complete brand system live and shareable"
+      tag: "Day 14"
+    - num: "05"
+      title: "Full operating rhythm, dogfooding, first monthly review"
+      tag: "Day 30"
 
 whyStartSuite:
   pill: "Why StartSuite"
