@@ -1,0 +1,304 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+---
+
+<BaseLayout
+  title="Tell us what you're building — StartSuite"
+  description="Tell us about your company and what you're building. If we're the right fit, Reagan reaches out within 24 hours with a calendar link. No pitch. No slide deck. Just a conversation."
+>
+  <section class="intake-hero">
+    <div class="intake-inner">
+      <div class="pill scroll-reveal">Start your Brand HQ</div>
+      <h1 class="scroll-reveal" style="transition-delay:0.06s">Tell us what you're building.</h1>
+      <p class="intake-lede scroll-reveal" style="transition-delay:0.12s">
+        If we're the right fit, Reagan reaches out within 24 hours with a calendar link.
+        No pitch. No slide deck. Just a conversation.
+      </p>
+    </div>
+  </section>
+
+  <section class="intake-form-wrap">
+    <div class="intake-inner intake-inner-narrow">
+      <form
+        id="intake-form"
+        name="intake"
+        method="POST"
+        data-netlify="true"
+        netlify-honeypot="bot-field"
+        class="intake-form scroll-reveal"
+      >
+        <p class="hidden-field"><label>Don't fill this out: <input name="bot-field" /></label></p>
+        <input type="hidden" name="form-name" value="intake" />
+        <input type="hidden" name="submitted_at" id="intake-submitted-at" />
+        <input type="hidden" name="page_url" id="intake-page-url" />
+        <input type="hidden" name="referrer" id="intake-referrer" />
+
+        <div class="form-group">
+          <label for="intake-name">Name</label>
+          <input id="intake-name" type="text" name="name" placeholder="Your name" required />
+        </div>
+
+        <div class="form-group">
+          <label for="intake-company">Company</label>
+          <input id="intake-company" type="text" name="company" placeholder="Your company" required />
+        </div>
+
+        <div class="form-group">
+          <label for="intake-role">Role</label>
+          <input id="intake-role" type="text" name="role" placeholder="Co-founder, CMO, Head of Ops..." required />
+        </div>
+
+        <div class="form-group">
+          <label for="intake-stage">Stage</label>
+          <select id="intake-stage" name="stage" required>
+            <option value="">Select your stage...</option>
+            <option value="Pre-seed">Pre-seed</option>
+            <option value="Seed">Seed</option>
+            <option value="Series A">Series A</option>
+            <option value="Series B+">Series B+</option>
+            <option value="Not raised">Not raised</option>
+            <option value="Established">Established</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="intake-building">What are you building?</label>
+          <textarea
+            id="intake-building"
+            name="what_building"
+            placeholder="One sentence is plenty."
+            rows="3"
+            required
+          ></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="intake-challenges">Top 1&ndash;2 creative or brand challenges</label>
+          <textarea
+            id="intake-challenges"
+            name="challenges"
+            placeholder="What's the headache right now?"
+            rows="4"
+            required
+          ></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="intake-heard">How did you hear about StartSuite? <span class="form-optional">(optional)</span></label>
+          <input id="intake-heard" type="text" name="heard_from" placeholder="LinkedIn, a friend, 46 Capital, the Journal..." />
+        </div>
+
+        <button type="submit" class="btn btn-primary btn-full btn-lg">Send it over</button>
+        <p class="intake-form-note">We read every submission. Reagan follows up within 24 hours when we're a fit.</p>
+      </form>
+
+      <div id="intake-success" class="intake-success" style="display:none;">
+        <div class="intake-success-icon">&#10003;</div>
+        <h2>Thanks for reaching out.</h2>
+        <p>
+          Reagan will review within 24 hours and send you a calendar link if we're a fit.
+          On the call, we'll walk through where your brand is today and what StartSuite would
+          actually look like for you. No pitch. No slide deck. Just a conversation.
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
+<script is:inline>
+  (function () {
+    var form = document.getElementById('intake-form');
+    var success = document.getElementById('intake-success');
+    if (!form) return;
+
+    var submittedAt = document.getElementById('intake-submitted-at');
+    var pageUrl = document.getElementById('intake-page-url');
+    var referrer = document.getElementById('intake-referrer');
+    if (submittedAt) submittedAt.value = new Date().toISOString();
+    if (pageUrl) pageUrl.value = window.location.href;
+    if (referrer) referrer.value = document.referrer || '';
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var fd = new FormData(form);
+      var body = new URLSearchParams(fd).toString();
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: body
+      })
+        .then(function (res) {
+          if (!res.ok) throw new Error('Submit failed');
+          form.style.display = 'none';
+          success.style.display = 'block';
+          success.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        })
+        .catch(function () {
+          form.submit();
+        });
+    });
+  })();
+</script>
+
+<style>
+  .intake-hero {
+    padding: 120px 0 60px;
+    background: var(--bg);
+    text-align: center;
+  }
+  .intake-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+  .intake-inner-narrow {
+    max-width: 720px;
+  }
+  .intake-hero .pill {
+    margin: 0 auto 20px;
+  }
+  .intake-hero h1 {
+    font-size: clamp(40px, 5.5vw, 72px);
+    letter-spacing: -0.035em;
+    line-height: 1.06;
+    background: linear-gradient(160deg, #fff 30%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 24px;
+  }
+  .intake-lede {
+    font-size: 18px;
+    color: var(--text-muted);
+    max-width: 640px;
+    margin: 0 auto;
+    line-height: 1.65;
+  }
+  .intake-form-wrap {
+    padding: 40px 0 120px;
+    background: var(--bg);
+  }
+  .intake-form {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 44px;
+    position: relative;
+    overflow: hidden;
+  }
+  .intake-form::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--purple), var(--accent));
+    opacity: 0.7;
+  }
+  .intake-form .form-group {
+    margin-bottom: 20px;
+  }
+  .intake-form label {
+    display: block;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--text);
+    letter-spacing: 0.01em;
+    margin-bottom: 8px;
+  }
+  .intake-form .form-optional {
+    font-weight: 400;
+    color: var(--text-dim);
+    margin-left: 4px;
+  }
+  .intake-form input,
+  .intake-form select,
+  .intake-form textarea {
+    width: 100%;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 12px 14px;
+    color: var(--text);
+    font-family: var(--font);
+    font-size: 14.5px;
+    line-height: 1.5;
+    transition: border-color var(--duration) var(--ease);
+  }
+  .intake-form textarea {
+    resize: vertical;
+    min-height: 96px;
+  }
+  .intake-form input:focus,
+  .intake-form select:focus,
+  .intake-form textarea:focus {
+    outline: none;
+    border-color: rgba(139, 109, 181, 0.5);
+  }
+  .intake-form input::placeholder,
+  .intake-form textarea::placeholder {
+    color: var(--text-dim);
+  }
+  .intake-form-note {
+    text-align: center;
+    color: var(--text-dim);
+    font-size: 12.5px;
+    margin: 14px 0 0;
+  }
+  .intake-success {
+    background: var(--surface);
+    border: 1px solid rgba(139, 109, 181, 0.3);
+    border-radius: 20px;
+    padding: 56px 44px;
+    text-align: center;
+  }
+  .intake-success-icon {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 20px;
+    background: linear-gradient(135deg, var(--purple), var(--accent));
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: 800;
+  }
+  .intake-success h2 {
+    font-size: clamp(24px, 3vw, 32px);
+    letter-spacing: -0.025em;
+    color: var(--text);
+    margin-bottom: 14px;
+  }
+  .intake-success p {
+    font-size: 15.5px;
+    color: var(--text-muted);
+    line-height: 1.72;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+  .hidden-field {
+    position: absolute;
+    left: -9999px;
+  }
+  @media (max-width: 720px) {
+    .intake-hero {
+      padding: 88px 0 40px;
+    }
+    .intake-form-wrap {
+      padding: 28px 0 88px;
+    }
+    .intake-inner {
+      padding: 0 20px;
+    }
+    .intake-form {
+      padding: 28px 22px;
+      border-radius: 16px;
+    }
+    .intake-success {
+      padding: 40px 22px;
+    }
+  }
+</style>
