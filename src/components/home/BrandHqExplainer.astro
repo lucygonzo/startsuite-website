@@ -1,0 +1,130 @@
+---
+import homeData from '@/data/home.yaml';
+
+const { brandHq } = homeData;
+---
+
+<section class="bhq-wrap">
+  <div class="bhq-inner">
+    <div class="bhq-header scroll-reveal">
+      <div class="pill">{brandHq.pill}</div>
+      <h2 set:html={brandHq.headline} />
+      <p class="bhq-sub">{brandHq.subheadline}</p>
+    </div>
+    <div class="bhq-panels">
+      {brandHq.panels.map((panel: any, i: number) => (
+        <div class="bhq-panel scroll-reveal" style={`transition-delay:${0.08 + i * 0.06}s`}>
+          <div class="bhq-panel-icon" set:html={panel.icon_svg} />
+          <h3>{panel.title}</h3>
+          <p>{panel.body}</p>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .bhq-wrap {
+    padding: 120px 0;
+    background: var(--bg);
+    position: relative;
+  }
+  .bhq-inner {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+  .bhq-header {
+    max-width: 760px;
+    margin: 0 auto 64px;
+    text-align: center;
+  }
+  .bhq-header .pill {
+    margin: 0 auto 20px;
+  }
+  .bhq-header h2 {
+    font-size: clamp(32px, 4vw, 52px);
+    letter-spacing: -0.03em;
+    line-height: 1.12;
+    color: var(--text);
+    margin-bottom: 20px;
+  }
+  .bhq-sub {
+    font-size: 16px;
+    color: var(--text-muted);
+    line-height: 1.76;
+    margin: 0;
+  }
+  .bhq-panels {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  .bhq-panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 40px;
+    transition: all var(--duration) var(--ease);
+    position: relative;
+    overflow: hidden;
+  }
+  .bhq-panel::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, var(--purple), var(--accent));
+    opacity: 0.55;
+  }
+  .bhq-panel:hover {
+    border-color: rgba(139, 109, 181, 0.3);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.25);
+    transform: translateY(-2px);
+  }
+  .bhq-panel-icon {
+    width: 56px;
+    height: 56px;
+    color: var(--purple-light);
+    margin-bottom: 22px;
+  }
+  .bhq-panel-icon :global(svg) {
+    width: 100%;
+    height: 100%;
+    display: block;
+  }
+  .bhq-panel h3 {
+    font-size: 20px;
+    font-weight: 800;
+    color: var(--text);
+    letter-spacing: -0.02em;
+    line-height: 1.25;
+    margin-bottom: 14px;
+  }
+  .bhq-panel p {
+    font-size: 14px;
+    color: var(--text-muted);
+    line-height: 1.72;
+    margin: 0;
+  }
+  @media (max-width: 960px) {
+    .bhq-panels {
+      grid-template-columns: 1fr;
+      gap: 18px;
+    }
+    .bhq-wrap {
+      padding: 80px 0;
+    }
+    .bhq-inner {
+      padding: 0 24px;
+    }
+    .bhq-header {
+      margin-bottom: 40px;
+    }
+    .bhq-panel {
+      padding: 32px 28px;
+    }
+  }
+</style>

@@ -3,6 +3,7 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import HeroSection from '@/components/home/HeroSection.astro';
 import PricingPill from '@/components/home/PricingPill.astro';
 import MarqueeStrip from '@/components/MarqueeStrip.astro';
+import BrandHqExplainer from '@/components/home/BrandHqExplainer.astro';
 import DimLine from '@/components/DimLine.astro';
 import HowItWorks from '@/components/home/HowItWorks.astro';
 import WhyStartSuite from '@/components/home/WhyStartSuite.astro';
@@ -16,6 +17,7 @@ import homeData from '@/data/home.yaml';
   <HeroSection />
   <PricingPill />
   <MarqueeStrip items={homeData.marquee.items} />
+  <BrandHqExplainer />
   <DimLine label="How it works" />
   <HowItWorks />
   <DimLine label="Why us" />

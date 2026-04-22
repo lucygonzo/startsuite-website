@@ -34,6 +34,21 @@ marquee:
     - "Intelligence"
     - "Operations"
 
+brandHq:
+  pill: "Brand HQ"
+  headline: 'Brand HQ is <span class="sketch-underline">infrastructure<svg viewBox="0 0 200 12" preserveAspectRatio="none"><path d="M2,8 C30,3 70,10 110,5 S170,9 198,6"/></svg></span>, not a deliverable.'
+  subheadline: "One place for your identity, your competitive landscape, your audience, your creative context. Updating as your business evolves."
+  panels:
+    - title: "Your identity in one place"
+      body: "Your brand lives where your team can actually use it. Structured, queryable, always current. No more 80-page PDFs sitting unopened on a shared drive."
+      icon_svg: '<svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="10" y="10" width="36" height="36" rx="4"/><rect x="18" y="18" width="20" height="20" rx="2"/><circle cx="28" cy="28" r="4"/></svg>'
+    - title: "Your competitive landscape, updated continuously"
+      body: "Daily intelligence with the \"so what\" built in. Signal instead of noise. Every piece routes back to your brand strategy."
+      icon_svg: '<svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="28" cy="28" r="6"/><circle cx="28" cy="28" r="14"/><circle cx="28" cy="28" r="22"/><line x1="28" y1="6" x2="28" y2="14"/><line x1="28" y1="42" x2="28" y2="50"/></svg>'
+    - title: "Creative that compounds your taste, not averages it."
+      body: "PRD to dev-ready prototype in days, not months. Content briefs generated from your actual brand voice, not a generic template."
+      icon_svg: '<svg viewBox="0 0 56 56" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M28 10 L32 24 L46 28 L32 32 L28 46 L24 32 L10 28 L24 24 Z"/><circle cx="28" cy="28" r="2.5"/></svg>'
+
 howItWorks:
   pill: "How it works"
   headline: 'What the <span class="sketch-underline">first 30 days<svg viewBox="0 0 200 12" preserveAspectRatio="none"><path d="M3,9 C50,2 90,11 140,4 S185,10 197,6"/></svg></span> look like.'
