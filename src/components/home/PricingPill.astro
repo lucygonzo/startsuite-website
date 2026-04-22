@@ -1,0 +1,42 @@
+---
+import homeData from '@/data/home.yaml';
+
+const { pricingPill } = homeData;
+---
+
+<section class="pricing-pill scroll-reveal">
+  <div class="pricing-pill-inner">
+    <p>{pricingPill.copy}</p>
+  </div>
+</section>
+
+<style>
+  .pricing-pill {
+    background: linear-gradient(135deg, var(--purple) 0%, #9B7BC4 100%);
+    padding: 32px 24px;
+    text-align: center;
+    border-top: 1px solid rgba(255,255,255,0.06);
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+  }
+  .pricing-pill-inner {
+    max-width: 1080px;
+    margin: 0 auto;
+  }
+  .pricing-pill p {
+    color: #fff;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 1.65;
+    letter-spacing: -0.005em;
+    margin: 0;
+  }
+  @media (max-width: 720px) {
+    .pricing-pill {
+      padding: 22px 18px;
+    }
+    .pricing-pill p {
+      font-size: 13.5px;
+      line-height: 1.6;
+    }
+  }
+</style>

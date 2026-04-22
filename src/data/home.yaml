@@ -23,6 +23,9 @@ hero:
       suffix: ""
       label: "Client satisfaction"
 
+pricingPill:
+  copy: "Foundations starts at $3K/month. Additional program options exist for startups and lean teams through partner networks. Full transparency on the intro call."
+
 marquee:
   items:
     - "Identity"
