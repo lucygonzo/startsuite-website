@@ -1,0 +1,144 @@
+---
+// Operator's Brief - email capture for the monthly newsletter
+// Backed by Netlify Forms (form name: operators-brief)
+---
+
+<div class="ob-wrap">
+  <div class="ob-label">The Operator's Brief</div>
+  <p class="ob-desc">
+    Monthly. Thinking from the StartSuite team. Client intelligence patterns,
+    brand decisions we're working through, what we're learning in public.
+    No pitch. Unsubscribe anytime.
+  </p>
+  <form
+    id="ob-form"
+    name="operators-brief"
+    method="POST"
+    data-netlify="true"
+    netlify-honeypot="bot-field"
+    class="ob-form"
+  >
+    <p class="hidden-field"><label>Don't fill this out: <input name="bot-field" /></label></p>
+    <input type="hidden" name="form-name" value="operators-brief" />
+    <input type="hidden" name="submitted_at" id="ob-submitted-at" />
+    <input type="hidden" name="page_url" id="ob-page-url" />
+    <div class="ob-row">
+      <input
+        id="ob-email"
+        type="email"
+        name="email"
+        placeholder="Your email"
+        required
+        autocomplete="email"
+      />
+      <button type="submit" class="btn btn-primary">Get the Operator's Brief</button>
+    </div>
+  </form>
+  <p id="ob-success" class="ob-success" style="display:none;">
+    You're on the list. First issue hits in May.
+  </p>
+</div>
+
+<script is:inline>
+  (function () {
+    var form = document.getElementById('ob-form');
+    var success = document.getElementById('ob-success');
+    if (!form) return;
+
+    var submittedAt = document.getElementById('ob-submitted-at');
+    var pageUrl = document.getElementById('ob-page-url');
+    if (submittedAt) submittedAt.value = new Date().toISOString();
+    if (pageUrl) pageUrl.value = window.location.href;
+
+    form.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var fd = new FormData(form);
+      var body = new URLSearchParams(fd).toString();
+      fetch('/', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+        body: body
+      })
+        .then(function (res) {
+          if (!res.ok) throw new Error('Submit failed');
+          form.style.display = 'none';
+          success.style.display = 'block';
+        })
+        .catch(function () {
+          form.submit();
+        });
+    });
+  })();
+</script>
+
+<style>
+  .ob-wrap {
+    max-width: 360px;
+  }
+  .ob-label {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--text);
+    letter-spacing: -0.01em;
+    margin-bottom: 8px;
+  }
+  .ob-desc {
+    font-size: 12px;
+    color: var(--text-dim);
+    line-height: 1.6;
+    margin: 0 0 16px;
+  }
+  .ob-row {
+    display: flex;
+    gap: 8px;
+    align-items: stretch;
+  }
+  .ob-row input[type="email"] {
+    flex: 1;
+    min-width: 0;
+    background: var(--bg2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 9px 12px;
+    color: var(--text);
+    font-family: var(--font);
+    font-size: 13px;
+    line-height: 1.4;
+    transition: border-color var(--duration) var(--ease);
+  }
+  .ob-row input[type="email"]:focus {
+    outline: none;
+    border-color: rgba(139, 109, 181, 0.5);
+  }
+  .ob-row input[type="email"]::placeholder {
+    color: var(--text-dim);
+  }
+  .ob-row .btn {
+    flex-shrink: 0;
+    font-size: 12px;
+    padding: 9px 14px;
+  }
+  .ob-success {
+    font-size: 13px;
+    color: var(--purple-light);
+    margin: 0;
+    line-height: 1.6;
+  }
+  .hidden-field {
+    position: absolute;
+    left: -9999px;
+  }
+  @media (max-width: 720px) {
+    .ob-wrap {
+      max-width: 100%;
+    }
+    .ob-row {
+      flex-direction: column;
+      gap: 10px;
+    }
+    .ob-row .btn {
+      width: 100%;
+      justify-content: center;
+    }
+  }
+</style>
