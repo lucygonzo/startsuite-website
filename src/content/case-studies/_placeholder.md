@@ -11,7 +11,7 @@ stats:
   - label: "Investor Meetings"
     value: "23"
 testimonial:
-  quote: "StartSuite didn't just design our brand — they helped us understand what our brand needed to say."
+  quote: "StartSuite didn't just design our brand. They helped us understand what our brand needed to say."
   name: "Jordan Cole"
   role: "CEO, Acme Inc."
 published: false
@@ -22,7 +22,7 @@ This is a placeholder case study. Replace with real content when ready.
 
 ## The Challenge
 
-Acme had a strong product but needed a visual identity and narrative that could match it — fast.
+Acme had a strong product but needed a visual identity and narrative that could match it. Fast.
 
 ## What We Did
 

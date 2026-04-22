@@ -1,12 +1,12 @@
 /**
- * StartSuite CRM — Google Sheet Auto-Setup Script
+ * StartSuite CRM - Google Sheet Auto-Setup Script
  *
  * HOW TO USE:
  * 1. Open your Google Sheet (StartSuite CRM)
  * 2. Go to Extensions → Apps Script
  * 3. Delete everything in the editor
  * 4. Paste this entire script
- * 5. Click Run (▶) — it will ask for permissions, click Allow
+ * 5. Click Run (▶) - it will ask for permissions, click Allow
  * 6. Done! Your sheet is formatted and ready.
  */
 
@@ -127,7 +127,7 @@ function setupCRM() {
   sheet.getRange(1, 1, 1, headers.length).createFilter();
 
   // Group technical columns (W through AE) so they're collapsed by default
-  // These are User Agent through Form ID — useful for debugging but not daily use
+  // These are User Agent through Form ID - useful for debugging but not daily use
   sheet.getRange('W1:AE1').setFontColor('#999999');
 
   SpreadsheetApp.getActiveSpreadsheet().toast(

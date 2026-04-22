@@ -1,5 +1,5 @@
 # ──────────────────────────────────────────────
-# About page — all text content
+# About page - all text content
 # ──────────────────────────────────────────────
 
 hero:
@@ -15,9 +15,9 @@ hero:
   marginalia: "The mission"
   quotes:
     - text: "\"Lean, serious companies deserve creative infrastructure that used to require a full in-house team or a bloated agency retainer.\""
-      attribution: "— StartSuite founding thesis"
+      attribution: "StartSuite founding thesis"
     - text: "\"The judgment is ours. The AI is a production tool. Every engagement is senior-led.\""
-      attribution: "— How we work"
+      attribution: "How we work"
 
 dim_line_1:
   label: "Why we exist"
@@ -160,7 +160,7 @@ forty_six_capital:
   hero_card:
     title: "We're built to run as infrastructure, not as an agency retainer."
     body_left: "46 Capital is our backer, not our client pipeline. That distinction is what lets us build Brand HQ for your company instead of pitching you a new deliverable every month."
-    body_right: "It's also what gives us pattern recognition across dozens of companies — the kind of context you'd otherwise have to learn company by company, year by year."
+    body_right: "It's also what gives us pattern recognition across dozens of companies. The kind of context you'd otherwise have to learn company by company, year by year."
     cta_label: "See Foundations"
     cta_href: "/services"
   points:

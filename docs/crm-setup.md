@@ -1,4 +1,4 @@
-# StartSuite CRM — Google Sheets Setup Guide
+# StartSuite CRM - Google Sheets Setup Guide
 
 ## Step 1: Create the Google Sheet
 
@@ -19,7 +19,7 @@ Copy these exact headers into Row 1 (A1 through AE1):
 | D | Company | From form |
 | E | Stage | Pre-seed / Seed / Series A prep / Post-funding / Other |
 | F | Pain Point | Their biggest creative headache |
-| G | Blind Date Mode | on/off — did they skip the questions? |
+| G | Blind Date Mode | on/off - did they skip the questions? |
 | H | Submitted At | ISO timestamp of submission |
 | I | Notes | Your notes after the call (manually entered) |
 | J | Next Step | What happens next (manually entered) |
@@ -49,7 +49,7 @@ Copy these exact headers into Row 1 (A1 through AE1):
 
 1. **Freeze Row 1** (View → Freeze → 1 row)
 2. **Bold Row 1** and give it a background color (dark purple #8B6DB5, white text)
-3. **Column A (Status)** — set up Data Validation with dropdown:
+3. **Column A (Status)** - set up Data Validation with dropdown:
    - 🟣 New
    - 🔵 Contacted
    - 🟡 Call Booked
@@ -57,8 +57,8 @@ Copy these exact headers into Row 1 (A1 through AE1):
    - ⚪ Closed Won
    - 🔴 Closed Lost
    - ❄️ Nurture
-4. **Column H (Submitted At)** — format as Date/Time
-5. **Column K (Follow Up Date)** — format as Date
+4. **Column H (Submitted At)** - format as Date/Time
+5. **Column K (Follow Up Date)** - format as Date
 6. **Auto-sort**: most recent leads at the top (sort by Column H descending)
 
 ## Step 4: Set Up Zapier
@@ -80,7 +80,7 @@ Copy these exact headers into Row 1 (A1 through AE1):
 - Map fields:
   | Sheet Column | Zapier Field |
   |-------------|--------------|
-  | Status | (leave blank — defaults to empty, you'll set manually) |
+  | Status | (leave blank - defaults to empty, you'll set manually) |
   | Name | name |
   | Email | email |
   | Company | company |
@@ -136,7 +136,7 @@ Copy these exact headers into Row 1 (A1 through AE1):
 ### Action 3: SMS Notification (optional)
 - App: **SMS by Zapier** (free, US numbers only) or **Twilio**
 - To: your phone number (one action per number)
-- Message: `🟣 New lead: {{name}} @ {{company}} — {{pain_point}} — {{email}}`
+- Message: `🟣 New lead: {{name}} @ {{company}} - {{pain_point}} - {{email}}`
 - Duplicate this action for Reagan's number
 
 ## Step 5: Add Webhook URL to Netlify
@@ -164,5 +164,5 @@ Copy these exact headers into Row 1 (A1 through AE1):
 - Netlify Forms stores all submissions as backup (even if Zapier fails)
 - Free Zapier tier: 100 tasks/month (plenty for early stage)
 - The IP geolocation "Organization" field often reveals the company name even if they didn't fill in the Company field
-- UTM tracking works automatically — just use tagged links in your campaigns:
+- UTM tracking works automatically - just use tagged links in your campaigns:
   `https://start-suite.com?utm_source=linkedin&utm_medium=social&utm_campaign=launch`

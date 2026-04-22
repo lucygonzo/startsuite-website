@@ -81,7 +81,7 @@ whyStartSuite:
   heroCard:
     num: "01"
     title: "Strategy and execution in the same room."
-    desc: "We do both — with your full context loaded from day one. No handoffs. No re-briefing. No gaps between what gets planned and what ships."
+    desc: "We do both, with your full context loaded from day one. No handoffs. No re-briefing. No gaps between what gets planned and what ships."
     team:
       - name: "Creative Strategy + Design"
         role: "Identity &middot; Graphic Design &middot; Art Direction"
@@ -96,9 +96,9 @@ whyStartSuite:
         role: "Launch assets &middot; Decks &middot; Campaigns"
         tag: "On your team"
   rightCards:
-    - num: "02 — Our edge"
+    - num: "02 · Our edge"
       title: "Built with investor perspective in the room."
-      desc: "Backed by 46 Capital. We know what the other side of the table looks for — your creative gets built with that lens from day one."
+      desc: "Backed by 46 Capital. We know what the other side of the table looks for. Your creative gets built with that lens from day one."
       accent: "46 Capital portfolio insight"
 
 partnerTeaser:

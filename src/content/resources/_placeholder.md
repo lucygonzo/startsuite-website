@@ -1,7 +1,7 @@
 ---
 title: "The Founder's Guide to Brand Infrastructure"
 category: "guide"
-summary: "Why your startup's creative stack matters more than you think — and how to build one that scales."
+summary: "Why your startup's creative stack matters more than you think, and how to build one that scales."
 published: false
 date: 2026-01-20
 ---
@@ -18,4 +18,4 @@ Start with these three foundations: visual identity, messaging framework, and a 
 
 ## When to Invest
 
-The right time is before you need it. If you're about to raise, launch, or hire — your brand should already be ready.
+The right time is before you need it. If you're about to raise, launch, or hire, your brand should already be ready.

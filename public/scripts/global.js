@@ -111,12 +111,12 @@ document.addEventListener('DOMContentLoaded', () => {
           form.style.display = 'none';
           document.getElementById('form-success').style.display = 'block';
         } else {
-          submitBtn.textContent = 'Something went wrong — try again';
+          submitBtn.textContent = 'Something went wrong. Try again.';
           submitBtn.disabled = false;
         }
       })
       .catch(function () {
-        submitBtn.textContent = 'Connection error — try again';
+        submitBtn.textContent = 'Connection error. Try again.';
         submitBtn.disabled = false;
       });
     });

@@ -1,4 +1,4 @@
-// Netlify background function — triggered automatically on every form submission
+// Netlify background function - triggered automatically on every form submission
 // Docs: https://docs.netlify.com/functions/trigger-on-events/
 //
 // This function:
@@ -36,7 +36,7 @@ exports.handler = async function (event) {
         };
       }
     } catch (e) {
-      // Geo lookup failed — continue without it
+      // Geo lookup failed - continue without it
       console.log('Geo lookup failed:', e.message);
     }
 
@@ -89,7 +89,7 @@ exports.handler = async function (event) {
       });
       console.log('Webhook response:', webhookRes.status);
     } else {
-      console.log('No FORM_WEBHOOK_URL set — skipping webhook. Record:', JSON.stringify(record));
+      console.log('No FORM_WEBHOOK_URL set - skipping webhook. Record:', JSON.stringify(record));
     }
 
     return {

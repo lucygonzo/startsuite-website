@@ -1,5 +1,5 @@
 # ──────────────────────────────────────────────
-#  Partners page — structured content
+#  Partners page - structured content
 # ──────────────────────────────────────────────
 
 hero:
@@ -33,7 +33,7 @@ the_gap:
     title: "Credibility compounds. So does the lack of it."
     body: "Investors make pattern decisions fast. A brand that looks inconsistent, amateur, or misaligned signals operational immaturity before a founder says a word."
     right_body: "Getting in the room is hard enough. StartSuite makes sure the brand doesn't cost them the meeting. We give founders the creative infrastructure that matches the ambition they're pitching."
-    right_footnote: "The pitch that doesn't land, the hire that passes, the partner that ghosts the follow-up — it all traces back to the same gap."
+    right_footnote: "The pitch that doesn't land, the hire that passes, the partner that ghosts the follow-up. It all traces back to the same gap."
   cards:
     - num: "02"
       title: "It shows up in your program's outcomes, not just theirs."
