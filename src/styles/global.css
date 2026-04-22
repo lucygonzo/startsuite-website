@@ -673,7 +673,7 @@ footer{border-top:1px solid var(--border);padding:64px 48px 36px}
 .team-creds{display:flex;flex-wrap:wrap;gap:7px;margin-top:20px;padding-top:18px;border-top:1px solid var(--border)}
 .team-cred{font-size:10px;color:var(--text-dim);background:var(--surface2);border:1px solid var(--border);padding:4px 10px;border-radius:6px;font-weight:600;transition:border-color var(--duration) var(--ease)}
 .team-card:hover .team-cred{border-color:rgba(139,109,181,0.15)}
-/* 46Capital team card — full-width hero style */
+/* 46 Capital team card — full-width hero style */
 .team-card-org{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start;background:linear-gradient(135deg,var(--surface) 0%,rgba(123,94,167,0.07) 100%);border-color:rgba(123,94,167,0.2);padding:48px}
 .team-card-org::before{opacity:0.6}
 .team-card-org::after{content:'46';position:absolute;top:-10px;right:40px;font-size:120px;font-weight:800;letter-spacing:-0.06em;color:rgba(255,255,255,0.018);line-height:1;pointer-events:none}
@@ -731,7 +731,7 @@ footer{border-top:1px solid var(--border);padding:64px 48px 36px}
 .a-creatives-strip-tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:14px}
 .a-creatives-strip-tag{font-size:10px;color:var(--text-dim);background:var(--surface);border:1px solid var(--border);padding:4px 10px;border-radius:100px;font-weight:600;letter-spacing:0.02em}
 
-/* 46Capital — split header + hero card + supporting points */
+/* 46 Capital — split header + hero card + supporting points */
 .a-capital-wrap{background:var(--surface);position:relative}
 .a-capital-inner{max-width:1200px;margin:0 auto;padding:100px 40px}
 .a-capital-header{display:grid;grid-template-columns:1.1fr 0.9fr;gap:56px;align-items:end;margin-bottom:56px}

@@ -97,10 +97,10 @@ team:
         - "Founder"
   org_card:
     initials: "46"
-    name: "46Capital"
+    name: "46 Capital"
     title: "Venture Capital · Growth Fund"
     bio:
-      - "StartSuite is powered by 46Capital, a VC firm with a growth fund and deep roots in the startup ecosystem. This isn't a branding exercise. It's a structural advantage. We sit in the rooms where fundraising decisions get made, and that perspective shapes every creative decision we make for our clients."
+      - "StartSuite is backed by 46 Capital, a VC firm with a growth fund and deep roots in the startup ecosystem. This isn't a branding exercise. It's a structural advantage. We sit in the rooms where fundraising decisions get made, and that perspective shapes every creative decision we make for our clients."
       - "The investor lens is built into every engagement. We know what makes investors lean in and what makes them check their phone. That context compounds across every brand system, pitch deck, and narrative we build."
     points:
       - num: "01"
@@ -156,7 +156,7 @@ dim_line_3:
 forty_six_capital:
   pill: "Our advantage"
   headline: 'Most creative partners aren''t in the room when fundraising decisions get made. <span class="sketch-underline">We are.<svg viewBox="0 0 200 8"><path d="M2 6 C50 2, 100 2, 198 5"/></svg></span>'
-  description: "StartSuite is independent, powered by 46Capital, a VC firm with a growth fund and deep roots in the startup ecosystem. That's not a logo on the footer. It changes the work we do."
+  description: "StartSuite is independent, backed by 46 Capital, a VC firm with a growth fund and deep roots in the startup ecosystem. That's not a logo on the footer. It changes the work we do."
   hero_card:
     title: "The investor perspective is already in the room with us."
     body_left: "We know what investors are looking for because we're in those conversations. We know which slides make investors lean in and which ones make them check their phone."
@@ -169,7 +169,7 @@ forty_six_capital:
       description: "We know what the other side of the table is actually looking for and we design your creative around that reality from the start."
     - num: "02"
       title: "Pattern recognition across the ecosystem"
-      description: "46Capital's network of founders, operators, and funds gives us a view across dozens of companies at similar stages. You benefit from what we've seen work."
+      description: "46 Capital's network of founders, operators, and funds gives us a view across dozens of companies at similar stages. You benefit from what we've seen work."
     - num: "03"
       title: "Connections a creative partner normally can't make"
       description: "For the right companies, StartSuite opens doors that sit well outside the creative relationship. We don't lead with it. But it's real, and it's happened."

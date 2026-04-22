@@ -810,7 +810,7 @@ collections:
               - { label: "Label", name: "label", widget: "string" }
 
           # forty_six_capital
-          - label: "46Capital"
+          - label: "46 Capital"
             name: "forty_six_capital"
             widget: "object"
             fields:
