@@ -1,0 +1,56 @@
+---
+// Currently accepting limited engagements - scarcity posture line
+// Placed on homepage (between testimonial band and footer) and services page (above the final CTA)
+---
+
+<section class="limited-engagements">
+  <div class="limited-engagements-inner">
+    <p>
+      Currently accepting a limited number of founder engagements.
+      If StartSuite is the right fit, Reagan will reach out within 24 hours of your intake.
+    </p>
+  </div>
+</section>
+
+<style>
+  .limited-engagements {
+    background: var(--purple-dim);
+    border-top: 1px solid rgba(139, 109, 181, 0.15);
+    border-bottom: 1px solid rgba(139, 109, 181, 0.15);
+    padding: 28px 24px;
+    text-align: center;
+    position: relative;
+  }
+  .limited-engagements::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--purple), var(--accent));
+    opacity: 0.8;
+    border-radius: 0 0 4px 4px;
+  }
+  .limited-engagements-inner {
+    max-width: 780px;
+    margin: 0 auto;
+  }
+  .limited-engagements p {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.65;
+    margin: 0;
+    letter-spacing: -0.005em;
+  }
+  @media (max-width: 720px) {
+    .limited-engagements {
+      padding: 22px 18px;
+    }
+    .limited-engagements p {
+      font-size: 13.5px;
+      line-height: 1.6;
+    }
+  }
+</style>
