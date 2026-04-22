@@ -25,12 +25,11 @@ hero:
 
 marquee:
   items:
-    - "Creative Strategy"
-    - "Visual Identity"
-    - "Web Design"
-    - "Pitch Materials"
-    - "Brand Infrastructure"
-    - "Ongoing Support"
+    - "Identity"
+    - "Audience"
+    - "Positioning"
+    - "Intelligence"
+    - "Operations"
 
 howItWorks:
   pill: "How it works"
@@ -84,21 +83,17 @@ whyStartSuite:
       title: "Built with investor perspective in the room."
       desc: "Backed by 46 Capital. We know what the other side of the table looks for — your creative gets built with that lens from day one."
       accent: "46 Capital portfolio insight"
-    - num: "03 — Our model"
-      title: "Human talent first. Accelerated by AI."
-      desc: "AI handles production friction so our team spends time where it counts: 1:1 with you, making the creative decisions only humans can make."
-      accent: "Senior-led, every engagement"
 
 partnerTeaser:
-  pill: "For accelerators &amp; funds"
-  headline: "Your founders deserve creative that matches their ambition."
-  description: "Most programs give founders capital, connections, and coaching. Creative infrastructure is the gap that quietly costs them credibility."
+  pill: "For partner networks"
+  headline: "Brand HQ for the teams your network already backs."
+  description: "Accelerators, funds, and operator networks route founders, CMOs, and ops leaders to StartSuite. We stand up Brand HQ so the program doesn't have to."
   cta: "See Partnership Options &rarr;"
 
 finalCta:
   pill: "Ready when you are"
   headline: "Let's build <em>together.</em>"
-  description: "One team. One partnership. Everything you need to show up like the company you're building."
+  description: "Brand HQ, built for your company and maintained by our team. Foundations starts at $3K/month. If we're the right fit, Reagan reaches out within 24 hours."
   cta_primary: "Book an Intro"
   cta_secondary: "What can we help with first?"
   dim_line_label: "StartSuite &middot; 2026"
