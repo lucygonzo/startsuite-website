@@ -1,18 +1,241 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import ServicesHero from '@/components/services/ServicesHero.astro';
-import PriceCard from '@/components/services/PriceCard.astro';
-import PriceCompare from '@/components/services/PriceCompare.astro';
-import BentoGrid from '@/components/services/BentoGrid.astro';
-import Timeline from '@/components/services/Timeline.astro';
-import ServicesFinalCta from '@/components/services/ServicesFinalCta.astro';
+import DimLine from '@/components/DimLine.astro';
+import HowItWorks from '@/components/home/HowItWorks.astro';
+import servicesData from '@/data/services.yaml';
 ---
 
-<BaseLayout title="Services — StartSuite">
-  <ServicesHero />
-  <PriceCard />
-  <PriceCompare />
-  <BentoGrid />
-  <Timeline />
-  <ServicesFinalCta />
+<BaseLayout
+  title="Services — StartSuite"
+  description="Foundations tier at $3K/month includes Brand HQ built for your company, weekly intelligence, and monthly strategic reviews. Program options for lean teams available through partner networks."
+>
+  <section class="svc-header">
+    <div class="svc-inner">
+      <div class="pill scroll-reveal">{servicesData.header.pill}</div>
+      <h1 class="scroll-reveal" style="transition-delay:0.06s">{servicesData.header.title}</h1>
+      <p class="svc-lede scroll-reveal" style="transition-delay:0.12s">{servicesData.header.subhead}</p>
+      <div class="svc-ctas scroll-reveal" style="transition-delay:0.18s">
+        <a class="btn btn-primary btn-lg" onclick="openModal()">{servicesData.header.cta}</a>
+      </div>
+    </div>
+  </section>
+
+  <DimLine label="The core offering" />
+
+  <section class="svc-section">
+    <div class="svc-inner">
+      <div class="svc-foundations-card scroll-reveal">
+        <div class="svc-foundations-head">
+          <h2>{servicesData.foundations.header}</h2>
+          <div class="svc-foundations-price">
+            <div class="svc-foundations-amount">{servicesData.foundations.price}</div>
+            <div class="svc-foundations-note">{servicesData.foundations.price_note}</div>
+          </div>
+        </div>
+        <ul class="svc-foundations-list">
+          {servicesData.foundations.includes.map((item: string) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section class="svc-section svc-section-alt">
+    <div class="svc-inner svc-inner-narrow">
+      <h2 class="scroll-reveal">{servicesData.programs.header}</h2>
+      <p class="svc-body scroll-reveal" style="transition-delay:0.06s">{servicesData.programs.body}</p>
+    </div>
+  </section>
+
+  <DimLine label="What the first 30 days look like" />
+
+  <HowItWorks />
+
+  <section class="svc-section">
+    <div class="svc-inner svc-inner-narrow">
+      <h2 class="scroll-reveal">{servicesData.who.header}</h2>
+      <p class="svc-body scroll-reveal" style="transition-delay:0.06s">{servicesData.who.body}</p>
+    </div>
+  </section>
+
+  <section class="svc-section svc-section-alt">
+    <div class="svc-inner svc-inner-narrow">
+      <h2 class="scroll-reveal">{servicesData.start.header}</h2>
+      <p class="svc-body scroll-reveal" style="transition-delay:0.06s">{servicesData.start.body}</p>
+      <div class="svc-ctas scroll-reveal" style="transition-delay:0.12s">
+        <a class="btn btn-primary btn-lg" onclick="openModal()">{servicesData.start.cta}</a>
+      </div>
+    </div>
+  </section>
 </BaseLayout>
+
+<style>
+  .svc-header {
+    padding: 120px 0 80px;
+    background: var(--bg);
+    text-align: center;
+  }
+  .svc-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 40px;
+  }
+  .svc-inner-narrow {
+    max-width: 820px;
+  }
+  .svc-header .pill {
+    margin: 0 auto 20px;
+  }
+  .svc-header h1 {
+    font-size: clamp(40px, 5.5vw, 72px);
+    letter-spacing: -0.035em;
+    line-height: 1.06;
+    background: linear-gradient(160deg, #fff 30%, var(--accent) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    margin-bottom: 24px;
+  }
+  .svc-lede {
+    font-size: 19px;
+    color: var(--text-muted);
+    max-width: 640px;
+    margin: 0 auto 36px;
+    line-height: 1.6;
+  }
+  .svc-ctas {
+    display: flex;
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+  .svc-section {
+    padding: 100px 0;
+    background: var(--bg);
+  }
+  .svc-section-alt {
+    background: var(--bg2);
+  }
+  .svc-section h2 {
+    font-size: clamp(28px, 3.5vw, 44px);
+    letter-spacing: -0.03em;
+    line-height: 1.12;
+    color: var(--text);
+    margin-bottom: 18px;
+  }
+  .svc-body {
+    font-size: 16px;
+    color: var(--text-muted);
+    line-height: 1.78;
+    margin: 0;
+  }
+  .svc-section-alt .svc-ctas {
+    justify-content: flex-start;
+    margin-top: 28px;
+  }
+  .svc-foundations-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    padding: 56px;
+    position: relative;
+    overflow: hidden;
+  }
+  .svc-foundations-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, var(--purple), var(--accent));
+    opacity: 0.7;
+  }
+  .svc-foundations-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 32px;
+    margin-bottom: 36px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid var(--border);
+  }
+  .svc-foundations-head h2 {
+    font-size: clamp(32px, 4vw, 48px);
+    margin: 0;
+  }
+  .svc-foundations-price {
+    text-align: right;
+    flex-shrink: 0;
+  }
+  .svc-foundations-amount {
+    font-size: clamp(22px, 2.4vw, 28px);
+    font-weight: 800;
+    color: var(--text);
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+  .svc-foundations-note {
+    font-size: 13px;
+    color: var(--text-dim);
+    margin-top: 6px;
+  }
+  .svc-foundations-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 14px 32px;
+  }
+  .svc-foundations-list li {
+    font-size: 15px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    padding-left: 26px;
+    position: relative;
+  }
+  .svc-foundations-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 14px;
+    height: 1.5px;
+    background: var(--purple-light);
+    border-radius: 2px;
+  }
+  @media (max-width: 820px) {
+    .svc-header {
+      padding: 88px 0 56px;
+    }
+    .svc-inner {
+      padding: 0 24px;
+    }
+    .svc-section {
+      padding: 72px 0;
+    }
+    .svc-foundations-card {
+      padding: 36px 28px;
+      border-radius: 18px;
+    }
+    .svc-foundations-head {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 28px;
+      padding-bottom: 22px;
+    }
+    .svc-foundations-price {
+      text-align: left;
+    }
+    .svc-foundations-list {
+      grid-template-columns: 1fr;
+      gap: 12px;
+    }
+    .svc-section-alt .svc-ctas {
+      justify-content: center;
+    }
+  }
+</style>
