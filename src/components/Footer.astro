@@ -1,46 +1,114 @@
 ---
 // Footer - standardized across all pages
 import OperatorsBrief from '@/components/OperatorsBrief.astro';
+import footerData from '@/data/footer.yaml';
+
+const isVisible = (item: any) => item.enabled !== false;
+const socialLinks = (footerData.bottom.social || []).filter(isVisible);
+const legalLinks = (footerData.bottom.legal || []).filter(isVisible);
 ---
 
 <footer>
   <div class="footer-inner">
     <div class="footer-top">
-      <div>
+      <div class="footer-brand">
         <a href="/" class="nav-logo footer-logo" style="pointer-events:auto;cursor:pointer;text-decoration:none">
           <img src="/images/logo-full-dark.png" alt="StartSuite" class="footer-logo-img" />
         </a>
-        <p class="footer-brand-desc">Creative strategy, design, and storytelling for companies that can't afford to be overlooked.</p>
+        <p class="footer-tagline">{footerData.brand.tagline}</p>
+        <div class="footer-backed-by">{footerData.brand.backed_by}</div>
       </div>
       <div class="footer-cols">
-        <div class="footer-col">
-          <h5>Product</h5>
-          <ul>
-            <li><a href="/services">Services</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h5>Partners</h5>
-          <ul>
-            <li><a href="/partners">Overview</a></li>
-            <li><a onclick="openModal()" style="cursor:pointer">Get in touch</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h5>Company</h5>
-          <ul>
-            <li><a href="/about">About</a></li>
-            <li><a href="/intake">Contact</a></li>
-          </ul>
-        </div>
+        {footerData.columns.map((col: any) => (
+          <div class="footer-col">
+            <h5>{col.title}</h5>
+            <ul>
+              {col.links.filter(isVisible).map((link: any) => (
+                <li>
+                  <a href={link.href}>{link.label}</a>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
         <div class="footer-col footer-col-newsletter">
           <OperatorsBrief />
         </div>
       </div>
     </div>
     <div class="footer-bottom">
-      <p>&copy; 2026 StartSuite. All rights reserved.</p>
-      <div class="powered-by">Backed by <span>46 Capital</span></div>
+      <p>{footerData.bottom.copyright}</p>
+      {socialLinks.length > 0 && (
+        <ul class="footer-social">
+          {socialLinks.map((social: any) => (
+            <li>
+              <a href={social.href} target="_blank" rel="noopener noreferrer">{social.label}</a>
+            </li>
+          ))}
+        </ul>
+      )}
+      {legalLinks.length > 0 && (
+        <ul class="footer-legal">
+          {legalLinks.map((legal: any) => (
+            <li>
+              <a href={legal.href}>{legal.label}</a>
+            </li>
+          ))}
+        </ul>
+      )}
     </div>
   </div>
 </footer>
+
+<style>
+  .footer-brand {
+    max-width: 280px;
+  }
+  .footer-tagline {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.6;
+    margin: 14px 0 14px;
+  }
+  .footer-backed-by {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--purple-light);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-family: var(--mono);
+  }
+  .footer-col-newsletter {
+    grid-column: span 1;
+  }
+  .footer-social,
+  .footer-legal {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 18px;
+    align-items: center;
+  }
+  .footer-social a,
+  .footer-legal a {
+    font-size: 12px;
+    color: var(--text-dim);
+    text-decoration: none;
+    transition: color var(--duration) var(--ease);
+  }
+  .footer-social a:hover,
+  .footer-legal a:hover {
+    color: var(--purple-light);
+  }
+  @media (max-width: 720px) {
+    .footer-brand {
+      max-width: 100%;
+    }
+    .footer-social,
+    .footer-legal {
+      gap: 14px;
+    }
+  }
+</style>

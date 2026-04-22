@@ -1,24 +1,50 @@
 brand:
-  description: "Creative strategy, design, and storytelling for companies that can't afford to be overlooked."
+  tagline: "Brand operating system for founders and teams."
+  backed_by: "Backed by 46 Capital"
 
 columns:
-  - title: "Product"
+  - title: "Quick links"
     links:
+      - label: "Homepage"
+        href: "/"
+      - label: "Brand HQ"
+        href: "/#brand-hq"
       - label: "Services"
         href: "/services"
-  - title: "Partners"
-    links:
-      - label: "Overview"
-        href: "/partners"
-      - label: "Get in touch"
-        action: "openModal()"
-  - title: "Company"
-    links:
       - label: "About"
         href: "/about"
-      - label: "Contact"
-        action: "openModal()"
+      - label: "Journal"
+        href: "/journal"
+        enabled: false
+      - label: "Case Studies"
+        href: "/case-studies"
+        enabled: true
+  - title: "Contact"
+    links:
+      - label: "Start your Brand HQ"
+        href: "/intake"
+      - label: "press@start-suite.com"
+        href: "mailto:press@start-suite.com"
+      - label: "Press kit"
+        href: "/press"
+        enabled: false
 
 bottom:
   copyright: "© 2026 StartSuite. All rights reserved."
-  powered_by: "Backed by 46 Capital"
+  social:
+    - label: "LinkedIn"
+      href: "https://www.linkedin.com/company/start-suite"
+      enabled: false
+    - label: "Twitter/X"
+      href: "https://twitter.com/startsuite"
+      enabled: false
+    - label: "YouTube"
+      href: "https://www.youtube.com/@startsuite"
+      enabled: false
+  legal:
+    - label: "Privacy"
+      href: "/privacy"
+      enabled: false
+    - label: "Terms"
+      href: "/terms"
+      enabled: false
