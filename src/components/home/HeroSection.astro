@@ -13,7 +13,7 @@ const { hero } = homeData;
       <h1 set:html={hero.headline} />
       <p class="hero-sub">{hero.subheadline}</p>
       <div class="hero-ctas">
-        <a class="btn btn-primary btn-lg" onclick="openModal()">{hero.cta_primary}</a>
+        <a class="btn btn-primary btn-lg" href="/intake">{hero.cta_primary}</a>
         <a class="btn btn-outline btn-lg" href="/services">{hero.cta_secondary}</a>
       </div>
       <div style="position:relative">

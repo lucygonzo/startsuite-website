@@ -18,5 +18,5 @@ links:
     id: "nav-about"
 
 cta:
-  label: "Book Intro"
-  action: "openModal()"
+  label: "Start your Brand HQ"
+  href: "/intake"

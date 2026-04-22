@@ -2,7 +2,7 @@ hero:
   eyebrow: 'Brand operating system &nbsp;&middot;&nbsp; <span>Powered by 46 Capital</span>'
   headline: 'Taste is your moat.<br><em>Now act like it.</em>'
   subheadline: "StartSuite is the brand operating system for founders and teams who don't have time to wing it. We built what this moment needs."
-  cta_primary: "Book an Intro"
+  cta_primary: "Tell us what you're building"
   cta_secondary: "See What's Included"
   stats_marginalia: "Verified &middot; Q1 2026"
   stats:
@@ -53,7 +53,7 @@ howItWorks:
   pill: "How it works"
   headline: 'What the <span class="sketch-underline">first 30 days<svg viewBox="0 0 200 12" preserveAspectRatio="none"><path d="M3,9 C50,2 90,11 140,4 S185,10 197,6"/></svg></span> look like.'
   description: "Brand work stops being episodic. It starts compounding from Day 1."
-  cta_primary: "Book an Intro"
+  cta_primary: "Tell us what you're building"
   cta_secondary: "See What's Included"
   steps_marginalia: "5 milestones &middot; Day 1 to Day 30"
   steps:
@@ -111,6 +111,6 @@ finalCta:
   pill: "Ready when you are"
   headline: "Let's build <em>together.</em>"
   description: "Brand HQ, built for your company and maintained by our team. Foundations starts at $3K/month. If we're the right fit, Reagan reaches out within 24 hours."
-  cta_primary: "Book an Intro"
-  cta_secondary: "What can we help with first?"
+  cta_primary: "Tell us what you're building"
+  cta_secondary: "Book a call with Reagan"
   dim_line_label: "StartSuite &middot; 2026"

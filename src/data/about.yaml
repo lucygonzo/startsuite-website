@@ -10,8 +10,8 @@ hero:
     label: "See Foundations"
     href: "/services"
   cta_outline:
-    label: "Book Intro Call"
-    action: "openModal()"
+    label: "Book a call with Reagan"
+    href: "/intake"
   marginalia: "The mission"
   quotes:
     - text: "\"Lean, serious companies deserve creative infrastructure that used to require a full in-house team or a bloated agency retainer.\""
@@ -185,5 +185,5 @@ final_cta:
     label: "View Foundations"
     href: "/services"
   cta_outline:
-    label: "Book Intro Call"
-    action: "openModal()"
+    label: "Book a call with Reagan"
+    href: "/intake"

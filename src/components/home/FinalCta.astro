@@ -9,8 +9,8 @@ const { finalCta } = homeData;
   <h2 class="scroll-reveal" set:html={finalCta.headline} />
   <p class="scroll-reveal">{ finalCta.description }</p>
   <div class="final-cta-btns scroll-reveal">
-    <a class="btn btn-primary btn-lg" onclick="openModal()">{ finalCta.cta_primary }</a>
-    <a class="btn btn-ghost btn-lg" onclick="openModal()">{ finalCta.cta_secondary }</a>
+    <a class="btn btn-primary btn-lg" href="/intake">{ finalCta.cta_primary }</a>
+    <a class="btn btn-ghost btn-lg" href="/intake">{ finalCta.cta_secondary }</a>
   </div>
 </div>
 
