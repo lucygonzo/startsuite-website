@@ -1,27 +1,11 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import HeroSection from '@/components/home/HeroSection.astro';
-import MarqueeStrip from '@/components/MarqueeStrip.astro';
-import CreativeEdge from '@/components/home/CreativeEdge.astro';
-import DimLine from '@/components/DimLine.astro';
-import HowItWorks from '@/components/home/HowItWorks.astro';
-import DeliverGrid from '@/components/home/DeliverGrid.astro';
-import WhyStartSuite from '@/components/home/WhyStartSuite.astro';
-import PartnerTeaser from '@/components/home/PartnerTeaser.astro';
-import FinalCta from '@/components/home/FinalCta.astro';
-
-import homeData from '@/data/home.yaml';
+import DualPathRow from '@/components/home/DualPathRow.astro';
 ---
 
 <BaseLayout>
   <HeroSection />
-  <MarqueeStrip items={homeData.marquee.items} />
-  <CreativeEdge />
-  <DimLine label="How it works" />
-  <HowItWorks />
-  <DeliverGrid />
-  <DimLine label="Why us" />
-  <WhyStartSuite />
-  <PartnerTeaser />
-  <FinalCta />
+  <DualPathRow />
+  {/* Stages 2 & 3: ProofBar, BrandHQReveal, Empowerment, WhoFor, VCFirm, SecondProof, FinalCta */}
 </BaseLayout>

@@ -1,0 +1,18 @@
+---
+import homeData from '@/data/home.yaml';
+
+const { dualPath } = homeData;
+---
+
+<section class="dual-path-wrap">
+  <div class="dual-path-grid">
+    {dualPath.cards.map((card: any) => (
+      <article class="dp-card scroll-reveal">
+        <div class="dp-eyebrow">For {card.audience}</div>
+        <h3>{card.heading}</h3>
+        <p>{card.copy}</p>
+        <a class="dp-cta" href={card.href}>{card.cta}</a>
+      </article>
+    ))}
+  </div>
+</section>

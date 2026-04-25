@@ -1,24 +1,39 @@
 brand:
-  description: "Creative strategy, design, and storytelling for companies that can't afford to be overlooked."
+  tagline: "Taste at scale."
 
 columns:
   - title: "Product"
     links:
-      - label: "Services"
-        href: "/services"
-  - title: "Partners"
+      - label: "Brand HQ"
+        href: "/brand-hq"
+      - label: "Pricing"
+        href: "/pricing"
+  - title: "Segments"
     links:
-      - label: "Overview"
-        href: "/partners"
-      - label: "Get in touch"
-        action: "openModal()"
+      - label: "Operators"
+        href: "/for-operators"
+      - label: "Founders"
+        href: "/for-founders"
+      - label: "Funds"
+        href: "/for-funds"
   - title: "Company"
     links:
       - label: "About"
         href: "/about"
+      - label: "Case Studies"
+        href: "/case-studies"
       - label: "Contact"
-        action: "openModal()"
+        href: "/contact"
+  - title: "Clients"
+    links:
+      - label: "Sign in to your Brand HQ"
+        href: "/admin/"
 
 bottom:
   copyright: "© 2026 StartSuite. All rights reserved."
-  powered_by: "Powered by 46Capital"
+  powered_by: "An independent creative firm, powered by 46 Capital."
+  legal:
+    - label: "Privacy"
+      href: "/privacy"
+    - label: "Terms"
+      href: "/terms"

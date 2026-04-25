@@ -1,0 +1,190 @@
+/* ═══ V5 HOMEPAGE — incremental styles, layered on top of global.css ═══ */
+
+/* ── HERO TWEAKS ───────────────────────────────────────────────── */
+.hero-eyebrow-v5{
+  font-family:var(--mono);
+  font-size:10px;font-weight:700;letter-spacing:0.18em;
+  text-transform:uppercase;color:var(--purple-light);
+  margin-bottom:32px;display:inline-block;
+}
+.hero-v5 h1 em{font-weight:400;font-style:italic;background:none;-webkit-text-fill-color:var(--purple-light);letter-spacing:-0.02em}
+
+/* ── PILLS ROW (with tooltip) ─────────────────────────────────── */
+.pills-row-wrap{position:relative;margin-top:8px}
+.pills-row-marginalia{position:absolute;top:-22px;left:0}
+.pills-row{
+  list-style:none;display:flex;flex-wrap:wrap;gap:10px;
+  padding:0;margin:0;
+}
+.pill-item{position:relative}
+.pill-chip{
+  background:rgba(19,19,24,0.6);backdrop-filter:blur(20px);
+  border:1px solid var(--border);border-radius:100px;
+  padding:9px 18px;color:var(--text-muted);
+  font-family:var(--font);font-size:12px;font-weight:600;
+  letter-spacing:0.01em;cursor:pointer;
+  transition:all var(--duration) var(--ease);
+  display:inline-flex;align-items:center;gap:6px;
+}
+.pill-chip::before{
+  content:'';width:5px;height:5px;border-radius:50%;
+  background:var(--purple-light);opacity:0.55;
+  transition:all var(--duration) var(--ease);
+}
+.pill-chip:hover,.pill-item.open .pill-chip{
+  color:var(--text);
+  border-color:rgba(139,109,181,0.35);
+  background:rgba(139,109,181,0.08);
+  transform:translateY(-2px);
+  box-shadow:0 4px 16px rgba(139,109,181,0.15);
+}
+.pill-chip:hover::before,.pill-item.open .pill-chip::before{
+  opacity:1;box-shadow:0 0 8px rgba(196,169,224,0.7);
+}
+
+/* tooltip card */
+.pill-tooltip{
+  position:absolute;bottom:calc(100% + 14px);left:50%;
+  transform:translateX(-50%) translateY(6px);
+  width:280px;padding:16px 18px;
+  background:var(--surface);
+  border:1px solid var(--border-hi);
+  border-radius:var(--radius-md);
+  box-shadow:0 12px 40px rgba(0,0,0,0.55),0 0 0 1px rgba(139,109,181,0.08) inset;
+  opacity:0;pointer-events:none;visibility:hidden;
+  transition:opacity 0.24s var(--ease),transform 0.24s var(--ease),visibility 0s 0.24s;
+  z-index:50;
+}
+.pill-tooltip p{
+  font-size:12.5px;line-height:1.6;
+  color:var(--text);margin:0;letter-spacing:-0.005em;
+}
+.pill-tooltip::after{
+  content:'';position:absolute;top:100%;left:50%;
+  width:10px;height:10px;
+  background:var(--surface);
+  border-right:1px solid var(--border-hi);
+  border-bottom:1px solid var(--border-hi);
+  transform:translateX(-50%) translateY(-5px) rotate(45deg);
+}
+.pill-item:hover .pill-tooltip,
+.pill-item.open .pill-tooltip{
+  opacity:1;visibility:visible;
+  transform:translateX(-50%) translateY(0);
+  transition:opacity 0.24s var(--ease),transform 0.24s var(--ease),visibility 0s 0s;
+}
+
+/* ── DUAL PATH ROW ────────────────────────────────────────────── */
+.dual-path-wrap{
+  max-width:1200px;margin:0 auto;
+  padding:80px 48px 40px;
+}
+.dual-path-grid{
+  display:grid;grid-template-columns:1fr 1fr;gap:20px;
+}
+.dp-card{
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:var(--radius-lg);
+  padding:44px 40px;
+  display:flex;flex-direction:column;gap:18px;
+  transition:all var(--duration) var(--ease);
+  position:relative;overflow:hidden;
+}
+.dp-card::after{
+  content:'';position:absolute;left:0;top:24%;bottom:24%;
+  width:2px;background:var(--purple-light);
+  opacity:0;transition:opacity var(--duration) var(--ease);
+  border-radius:1px;
+}
+.dp-card:hover{
+  background:var(--surface2);
+  border-color:rgba(139,109,181,0.25);
+  transform:translateY(-3px);
+  box-shadow:0 12px 40px rgba(0,0,0,0.3);
+}
+.dp-card:hover::after{opacity:0.4}
+.dp-eyebrow{
+  font-family:var(--mono);
+  font-size:9px;font-weight:700;letter-spacing:0.14em;
+  text-transform:uppercase;color:var(--purple-light);
+}
+.dp-card h3{
+  font-size:clamp(22px,2.4vw,30px);
+  letter-spacing:-0.025em;line-height:1.2;
+  color:var(--text);
+}
+.dp-card p{
+  font-size:14px;line-height:1.78;
+  color:var(--text-muted);
+  margin:0;
+}
+.dp-cta{
+  margin-top:auto;padding-top:8px;
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:13px;font-weight:600;
+  color:var(--text);text-decoration:none;
+  transition:all var(--duration) var(--ease);
+  align-self:flex-start;
+}
+.dp-cta::after{content:'→';transition:transform var(--duration) var(--ease)}
+.dp-cta:hover{color:var(--purple-light)}
+.dp-cta:hover::after{transform:translateX(4px)}
+
+/* ── HERO LAYOUT REFLOW (single column when pills replace stats) ── */
+.hero-v5 .hero-inner{
+  display:grid;grid-template-columns:1.05fr 0.95fr;gap:72px;align-items:center;
+}
+
+/* ── FOOTER V5 ────────────────────────────────────────────────── */
+.footer-tagline{
+  font-size:14px;font-weight:600;color:var(--text);
+  margin-top:11px;letter-spacing:-0.01em;font-style:italic;
+}
+.footer-powered{
+  border-top:1px solid var(--border);
+  padding:20px 0 18px;
+  margin-top:8px;
+}
+.footer-powered p{
+  font-size:11px;color:var(--text-muted);
+  letter-spacing:0.02em;
+}
+.footer-legal{
+  display:flex;align-items:center;gap:8px;
+  font-size:11px;color:var(--text-dim);
+}
+.footer-legal a{
+  color:var(--text-dim);text-decoration:none;
+  transition:color 0.4s var(--ease);
+}
+.footer-legal a:hover{color:var(--text)}
+.footer-legal-dot{color:var(--text-dim);opacity:0.5}
+
+/* ── MOBILE ──────────────────────────────────────────────────── */
+@media (max-width: 900px){
+  .hero-v5 .hero-inner{grid-template-columns:1fr;gap:40px}
+  .pills-row{gap:8px}
+  .pill-chip{padding:8px 14px;font-size:11.5px}
+  /* On mobile, anchor tooltip to viewport edge so it never overflows;
+     drop the arrow since it would no longer point at the pill cleanly. */
+  .pill-tooltip{
+    bottom:auto;top:calc(100% + 12px);
+    left:0;
+    transform:translateY(6px);
+    width:min(280px,calc(100vw - 48px));
+  }
+  .pill-item:hover .pill-tooltip,
+  .pill-item.open .pill-tooltip{
+    transform:translateY(0);
+  }
+  .pill-tooltip::after{display:none}
+  .dual-path-wrap{padding:60px 28px 24px}
+  .dual-path-grid{grid-template-columns:1fr;gap:14px}
+  .dp-card{padding:32px 28px}
+}
+
+@media (max-width: 480px){
+  .dual-path-wrap{padding:48px 20px 20px}
+  .dp-card{padding:28px 24px}
+}

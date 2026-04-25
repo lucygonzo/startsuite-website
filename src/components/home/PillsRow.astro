@@ -1,0 +1,87 @@
+---
+interface PillItem {
+  label: string;
+  hover: string;
+}
+
+interface Props {
+  pills: PillItem[];
+  marginalia?: string;
+}
+
+const { pills, marginalia } = Astro.props;
+---
+
+<div class="pills-row-wrap">
+  {marginalia && (
+    <div class="marginalia pills-row-marginalia" set:html={marginalia} />
+  )}
+  <ul class="pills-row" role="list">
+    {pills.map((p, i) => (
+      <li class="pill-item">
+        <button
+          type="button"
+          class="pill-chip"
+          data-pill-index={i}
+          aria-expanded="false"
+          aria-describedby={`pill-tip-${i}`}
+        >
+          <span class="pill-chip-label">{p.label}</span>
+        </button>
+        <div
+          class="pill-tooltip"
+          id={`pill-tip-${i}`}
+          role="tooltip"
+        >
+          <p>{p.hover}</p>
+        </div>
+      </li>
+    ))}
+  </ul>
+</div>
+
+<script is:inline>
+  (function () {
+    const wrap = document.querySelector('.pills-row-wrap');
+    if (!wrap) return;
+    const items = wrap.querySelectorAll('.pill-item');
+
+    function closeAll(except) {
+      items.forEach(function (item) {
+        if (item === except) return;
+        item.classList.remove('open');
+        const btn = item.querySelector('.pill-chip');
+        if (btn) btn.setAttribute('aria-expanded', 'false');
+      });
+    }
+
+    items.forEach(function (item) {
+      const btn = item.querySelector('.pill-chip');
+      if (!btn) return;
+
+      btn.addEventListener('click', function (e) {
+        e.stopPropagation();
+        const isOpen = item.classList.contains('open');
+        closeAll(item);
+        if (isOpen) {
+          item.classList.remove('open');
+          btn.setAttribute('aria-expanded', 'false');
+        } else {
+          item.classList.add('open');
+          btn.setAttribute('aria-expanded', 'true');
+        }
+      });
+
+      btn.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') {
+          item.classList.remove('open');
+          btn.setAttribute('aria-expanded', 'false');
+        }
+      });
+    });
+
+    document.addEventListener('click', function (e) {
+      if (!wrap.contains(e.target)) closeAll(null);
+    });
+  })();
+</script>

@@ -1,5 +1,7 @@
 ---
-// Footer — standardized across all pages
+import footerData from '@/data/footer.yaml';
+
+const { brand, columns, bottom } = footerData;
 ---
 
 <footer>
@@ -9,34 +11,41 @@
         <a href="/" class="nav-logo footer-logo" style="pointer-events:auto;cursor:pointer;text-decoration:none">
           <img src="/images/logo-full-dark.png" alt="StartSuite" class="footer-logo-img" />
         </a>
-        <p class="footer-brand-desc">Creative strategy, design, and storytelling for companies that can't afford to be overlooked.</p>
+        <p class="footer-tagline">{brand.tagline}</p>
       </div>
       <div class="footer-cols">
-        <div class="footer-col">
-          <h5>Product</h5>
-          <ul>
-            <li><a href="/services">Services</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h5>Partners</h5>
-          <ul>
-            <li><a href="/partners">Overview</a></li>
-            <li><a onclick="openModal()" style="cursor:pointer">Get in touch</a></li>
-          </ul>
-        </div>
-        <div class="footer-col">
-          <h5>Company</h5>
-          <ul>
-            <li><a href="/about">About</a></li>
-            <li><a onclick="openModal()" style="cursor:pointer">Contact</a></li>
-          </ul>
-        </div>
+        {columns.map((col: any) => (
+          <div class="footer-col">
+            <h5>{col.title}</h5>
+            <ul>
+              {col.links.map((link: any) => (
+                <li>
+                  {link.action
+                    ? <a onclick={link.action} style="cursor:pointer">{link.label}</a>
+                    : <a href={link.href}>{link.label}</a>
+                  }
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
       </div>
     </div>
+    <div class="footer-powered">
+      <p>{bottom.powered_by}</p>
+    </div>
     <div class="footer-bottom">
-      <p>&copy; 2026 StartSuite. All rights reserved.</p>
-      <div class="powered-by">Powered by <span>46Capital</span></div>
+      <p>{bottom.copyright}</p>
+      {bottom.legal && (
+        <div class="footer-legal">
+          {bottom.legal.map((item: any, i: number) => (
+            <>
+              {i > 0 && <span class="footer-legal-dot">·</span>}
+              <a href={item.href}>{item.label}</a>
+            </>
+          ))}
+        </div>
+      )}
     </div>
   </div>
 </footer>
