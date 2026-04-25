@@ -1,0 +1,15 @@
+---
+import homeData from '@/data/home.yaml';
+
+const { secondProof } = homeData;
+---
+
+<section class="sp-wrap">
+  <div class="sp-inner">
+    <figure class="scroll-reveal">
+      <blockquote>{secondProof.quote}</blockquote>
+      <figcaption>{secondProof.attribution}</figcaption>
+    </figure>
+    <p class="sp-framing scroll-reveal">{secondProof.framing}</p>
+  </div>
+</section>

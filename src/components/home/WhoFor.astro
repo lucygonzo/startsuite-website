@@ -1,0 +1,23 @@
+---
+import homeData from '@/data/home.yaml';
+
+const { whoFor } = homeData;
+---
+
+<section class="who-wrap">
+  <div class="who-inner">
+    <header class="who-header scroll-reveal">
+      <h2>{whoFor.header}</h2>
+    </header>
+    <div class="who-grid">
+      {whoFor.cards.map((card: any) => (
+        <article class="who-card scroll-reveal">
+          <div class="who-card-eyebrow">{card.title}</div>
+          <h3>{card.heading}</h3>
+          <p>{card.body}</p>
+          <a class="who-card-cta" href={card.href}>{card.cta} →</a>
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
