@@ -1,10 +1,348 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import StubPage from '@/components/StubPage.astro';
+import ClientBand from '@/components/home/ClientBand.astro';
+import bhqData from '@/data/brand-hq.yaml';
+
+const {
+  hero,
+  showcase,
+  yoursSpecifically,
+  whatItIs,
+  builtFast,
+  roles,
+  tiers,
+  northStar,
+  jobs,
+  publicOutputs,
+  stack,
+  whosUsing,
+  quote,
+  finalCta,
+} = bhqData;
 ---
-<BaseLayout title="Brand HQ — StartSuite">
-  <StubPage
-    title="Brand HQ"
-    blurb="The living system that holds how you actually think about your brand. Full walkthrough page coming soon."
-  />
+
+<BaseLayout title="Brand HQ — StartSuite" description="Brand HQ is the living system custom-built around your strategy, your audience, and the work that actually moves your business.">
+
+  <!-- ─── HERO ─── -->
+  <section class="bhq-hero">
+    <div class="bhq-hero-glow" aria-hidden="true"></div>
+    <div class="bhq-hero-inner">
+      <p class="bhq-eyebrow">{hero.eyebrow}</p>
+      <h1>{hero.headline}</h1>
+      <p class="bhq-hero-sub">{hero.subhead}</p>
+      <div class="bhq-hero-ctas">
+        <a class="btn btn-primary btn-lg" onclick={hero.cta_primary_action} style="cursor:pointer">{hero.cta_primary} →</a>
+        <a class="btn btn-outline btn-lg" href={hero.cta_secondary_target}>{hero.cta_secondary} ↓</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── SHOWCASE (3 mock screenshots) ─── -->
+  <section class="bhq-showcase" id="showcase">
+    <div class="bhq-showcase-inner">
+      <p class="bhq-section-eyebrow">{showcase.eyebrow}</p>
+      <div class="bhq-showcase-grid">
+        {showcase.shots.map((s) => (
+          <figure class="bhq-shot scroll-reveal">
+            <div class={`bhq-shot-mock bhq-shot-${s.kind}`} aria-hidden="true">
+              <div class="bhq-shot-chrome"><span></span><span></span><span></span></div>
+              <div class="bhq-shot-body">
+                {s.kind === 'industry' && (
+                  <>
+                    <div class="bhq-mock-cap">
+                      <span class="bhq-mock-pulse"></span>
+                      IIJA funding window · open
+                    </div>
+                    <h6>Industry Landscape</h6>
+                    <div class="bhq-mock-states">
+                      <div><span>MN</span><em>4 active</em></div>
+                      <div><span>WI</span><em>2 active</em></div>
+                      <div><span>IA</span><em>1 active</em></div>
+                      <div><span>ND</span><em>3 active</em></div>
+                      <div><span>SD</span><em>2 active</em></div>
+                      <div><span>NE</span><em>1 active</em></div>
+                    </div>
+                    <div class="bhq-mock-countdown">
+                      <span class="bhq-mock-countdown-num">91</span>
+                      <span class="bhq-mock-countdown-lbl">days to centennial</span>
+                    </div>
+                  </>
+                )}
+                {s.kind === 'listening' && (
+                  <>
+                    <div class="bhq-mock-cap">
+                      <span class="bhq-mock-pulse bhq-mock-pulse-green"></span>
+                      14 mentions · 2 alerts
+                    </div>
+                    <h6>Listening Feed</h6>
+                    <div class="bhq-mock-feed">
+                      <div class="bhq-mock-mention">
+                        <div class="bhq-mock-mention-meta"><span>Forbes</span><em class="pos">positive</em></div>
+                        <p>"...notable executive moves at the firm signal a new strategic posture..."</p>
+                      </div>
+                      <div class="bhq-mock-mention">
+                        <div class="bhq-mock-mention-meta"><span>TechCrunch</span><em class="neu">neutral</em></div>
+                        <p>"...new partnership announcement reframes the category positioning..."</p>
+                      </div>
+                      <div class="bhq-mock-mention">
+                        <div class="bhq-mock-mention-meta"><span>LinkedIn</span><em class="pos">positive</em></div>
+                        <p>"...team is building something different from the usual playbook..."</p>
+                      </div>
+                    </div>
+                  </>
+                )}
+                {s.kind === 'logo' && (
+                  <>
+                    <div class="bhq-mock-cap">
+                      <span class="bhq-mock-pulse"></span>
+                      Latest update · 2d ago
+                    </div>
+                    <h6>Logo System</h6>
+                    <div class="bhq-mock-logo">
+                      <div class="bhq-mock-logo-art" aria-hidden="true">
+                        <svg viewBox="0 0 80 80" fill="none">
+                          <circle cx="40" cy="40" r="34" stroke="currentColor" stroke-width="2"/>
+                          <path d="M28 40h24M40 28v24" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                      </div>
+                      <div class="bhq-mock-logo-formats">
+                        <span>SVG</span>
+                        <span>PNG</span>
+                        <span>WEBP</span>
+                        <span>EPS</span>
+                      </div>
+                      <div class="bhq-mock-logo-variants">
+                        <div class="dark"></div>
+                        <div class="light"></div>
+                        <div class="mark"></div>
+                      </div>
+                    </div>
+                  </>
+                )}
+              </div>
+            </div>
+            <figcaption>{s.caption}</figcaption>
+          </figure>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── YOURS, SPECIFICALLY (the wedge) ─── -->
+  <section class="bhq-wedge section-alt">
+    <div class="bhq-wedge-inner">
+      <header class="bhq-wedge-header scroll-reveal">
+        <p class="bhq-section-eyebrow">{yoursSpecifically.eyebrow}</p>
+        <h2>{yoursSpecifically.header}</h2>
+        <p class="bhq-wedge-body">{yoursSpecifically.body}</p>
+      </header>
+      <ol class="bhq-wedge-examples">
+        {yoursSpecifically.examples.map((ex, i) => (
+          <li class="bhq-wedge-example scroll-reveal" style={`--i:${i}`}>
+            <span class="bhq-wedge-num">{String(i + 1).padStart(2, '0')}</span>
+            <div class="bhq-wedge-tag">{ex.tag}</div>
+            <p>{ex.copy}</p>
+          </li>
+        ))}
+      </ol>
+      <p class="bhq-wedge-closing scroll-reveal">{yoursSpecifically.closing}</p>
+    </div>
+  </section>
+
+  <!-- ─── WHAT BRAND HQ ACTUALLY IS ─── -->
+  <section class="bhq-what">
+    <div class="bhq-what-inner">
+      <h2 class="scroll-reveal">{whatItIs.header}</h2>
+      <p class="bhq-what-body scroll-reveal">{whatItIs.body}</p>
+      <ul class="bhq-what-lines">
+        {whatItIs.lines.map((line, i) => (
+          <li class="scroll-reveal" style={`--i:${i}`}>{line}</li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- ─── BUILT FAST ─── -->
+  <section class="bhq-fast section-alt">
+    <div class="bhq-fast-inner">
+      <header class="bhq-fast-header scroll-reveal">
+        <h2>{builtFast.header}</h2>
+        <p class="bhq-fast-sub">{builtFast.subhead}</p>
+      </header>
+      <p class="bhq-fast-body scroll-reveal">{builtFast.body}</p>
+      <ol class="bhq-fast-framings">
+        {builtFast.framings.map((f, i) => (
+          <li class="scroll-reveal" style={`--i:${i}`}>
+            <span class="bhq-fast-num">{String(i + 1).padStart(2, '0')}</span>
+            <div>
+              <h4>{f.title}</h4>
+              <p>{f.copy}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <!-- ─── ROLES ─── -->
+  <section class="bhq-roles">
+    <div class="bhq-roles-inner">
+      <header class="bhq-roles-header scroll-reveal">
+        <h2>{roles.header}</h2>
+        <p class="bhq-roles-sub">{roles.subhead}</p>
+      </header>
+      <div class="bhq-roles-grid">
+        {roles.cards.map((card, i) => (
+          <article class="bhq-role-card scroll-reveal" style={`--i:${i}`}>
+            <h3>{card.title}</h3>
+            <p>{card.copy}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── TIERS (Canonical / Decided / Observed) ─── -->
+  <section class="bhq-tiers section-alt">
+    <div class="bhq-tiers-inner">
+      <header class="bhq-tiers-header scroll-reveal">
+        <h2>{tiers.header}</h2>
+        <p class="bhq-tiers-sub">{tiers.subhead}</p>
+      </header>
+      <p class="bhq-tiers-body scroll-reveal">{tiers.body}</p>
+      <ol class="bhq-tiers-list">
+        {tiers.layers.map((l, i) => (
+          <li class={`bhq-tier bhq-tier-${l.level.toLowerCase()} scroll-reveal`} style={`--i:${i}`}>
+            <div class="bhq-tier-marker" aria-hidden="true"></div>
+            <div class="bhq-tier-text">
+              <h4>{l.level}.</h4>
+              <p>{l.copy}</p>
+            </div>
+          </li>
+        ))}
+      </ol>
+      <p class="bhq-tiers-closing scroll-reveal">{tiers.closing}</p>
+    </div>
+  </section>
+
+  <!-- ─── NORTH STAR (5 sections) ─── -->
+  <section class="bhq-north">
+    <div class="bhq-north-inner">
+      <header class="bhq-north-header scroll-reveal">
+        <h2>{northStar.header}</h2>
+        <p class="bhq-north-body">{northStar.body}</p>
+      </header>
+      <ul class="bhq-north-sections">
+        {northStar.sections.map((s, i) => (
+          <li class="bhq-north-item scroll-reveal" style={`--i:${i}`}>
+            <span class="bhq-north-rail" aria-hidden="true"></span>
+            <h3>{s.title}</h3>
+            <p class="bhq-north-lede">{s.lede}</p>
+            <p class="bhq-north-copy">{s.copy}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- ─── JOBS TO BE DONE ─── -->
+  <section class="bhq-jobs section-alt">
+    <div class="bhq-jobs-inner">
+      <header class="bhq-jobs-header scroll-reveal">
+        <h2>{jobs.header}</h2>
+        <p class="bhq-jobs-sub">{jobs.subhead}</p>
+      </header>
+      <ol class="bhq-jobs-grid">
+        {jobs.cards.map((card, i) => (
+          <li class="bhq-job scroll-reveal" style={`--i:${i}`}>
+            <span class="bhq-job-num">{String(i + 1).padStart(2, '0')}</span>
+            <h3>{card.title}</h3>
+            <p>{card.copy}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <!-- ─── PUBLIC OUTPUTS (Brand Guide etc.) ─── -->
+  <section class="bhq-outputs">
+    <div class="bhq-outputs-inner">
+      <header class="bhq-outputs-header scroll-reveal">
+        <h2>{publicOutputs.header}</h2>
+        <p class="bhq-outputs-body">{publicOutputs.body}</p>
+      </header>
+      <div class="bhq-outputs-visual scroll-reveal" aria-hidden="true">
+        <div class="bhq-guide-mock">
+          <div class="bhq-shot-chrome"><span></span><span></span><span></span></div>
+          <div class="bhq-guide-body">
+            <p class="bhq-guide-cap">Brand Guide · public URL</p>
+            <h6>The brand, in one place.</h6>
+            <div class="bhq-guide-grid">
+              <div><span>Logo</span><em>System</em></div>
+              <div><span>Color</span><em>Palette</em></div>
+              <div><span>Type</span><em>Scale</em></div>
+              <div><span>Voice</span><em>Principles</em></div>
+              <div><span>Motion</span><em>Rules</em></div>
+              <div><span>Photo</span><em>Direction</em></div>
+            </div>
+          </div>
+        </div>
+        <div class="bhq-outputs-list">
+          {publicOutputs.outputs.map((o) => (
+            <div class="bhq-output-tile">
+              <h5>{o.label}</h5>
+              <p>{o.detail}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+      <p class="bhq-outputs-caption scroll-reveal">{publicOutputs.caption}</p>
+    </div>
+  </section>
+
+  <!-- ─── ALREADY HAVE TOOLS ─── -->
+  <section class="bhq-stack section-alt">
+    <div class="bhq-stack-inner">
+      <h2 class="scroll-reveal">{stack.header}</h2>
+      <p class="bhq-stack-body scroll-reveal">{stack.body}</p>
+    </div>
+  </section>
+
+  <!-- ─── WHO'S USING IT (header above pills band) ─── -->
+  <section class="bhq-whos">
+    <div class="bhq-whos-inner">
+      <header class="bhq-whos-header scroll-reveal">
+        <h2>{whosUsing.header}</h2>
+        <p class="bhq-whos-body">{whosUsing.body}</p>
+      </header>
+    </div>
+  </section>
+  <ClientBand />
+
+  <!-- ─── PULL QUOTE ─── -->
+  <section class="bhq-quote">
+    <div class="bhq-quote-inner">
+      <figure class="scroll-reveal">
+        <span class="bhq-quote-glyph" aria-hidden="true">&ldquo;</span>
+        <blockquote>{quote.text}</blockquote>
+        <figcaption>
+          <span class="bhq-quote-rule" aria-hidden="true"></span>
+          {quote.attribution}
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ─── FINAL CTA ─── -->
+  <section class="bhq-final">
+    <div class="bhq-final-inner">
+      <h2 class="scroll-reveal">{finalCta.header}</h2>
+      <p class="scroll-reveal">{finalCta.body}</p>
+      <div class="bhq-final-ctas scroll-reveal">
+        <a class="btn btn-primary btn-lg" onclick={finalCta.cta_primary_action} style="cursor:pointer">{finalCta.cta_primary} →</a>
+        <a class="btn btn-ghost btn-lg" onclick={finalCta.cta_secondary_action} style="cursor:pointer">{finalCta.cta_secondary} →</a>
+      </div>
+    </div>
+  </section>
+
 </BaseLayout>

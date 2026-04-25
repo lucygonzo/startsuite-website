@@ -1,0 +1,151 @@
+hero:
+  eyebrow: "The Product"
+  headline: "Your brand, in one place. Working harder so you can focus on working smarter."
+  subhead: "Brand HQ is custom-built around your strategy, your audience, and the work that actually moves your business. Yours from day one. Sharper every time your team uses it."
+  cta_primary: "Request a walkthrough"
+  cta_primary_action: "openModal()"
+  cta_secondary: "See it in action"
+  cta_secondary_target: "#showcase"
+
+showcase:
+  eyebrow: "Real Brand HQs, anonymized"
+  shots:
+    - kind: "industry"
+      label: "Industry Landscape"
+      caption: "Industry Landscape, tuned to a 100-year-old construction company at a generational market moment."
+    - kind: "listening"
+      label: "Listening Feed"
+      caption: "Live signals filtered through your strategy. Mentions sorted by sentiment, alerts that matter to your business."
+    - kind: "logo"
+      label: "Logo System"
+      caption: "The work your team needs, the second they need it. Branded, downloadable, always current."
+
+yoursSpecifically:
+  eyebrow: "Yours, specifically"
+  header: "A Brand HQ tuned to your business, not a template."
+  body: "Most brand tools give every customer the same dashboard. The same metrics, the same modules, the same generic signal sources. Brand HQ doesn't work that way. We build yours around the strategy your business is actually running. The signals that move your category. The audiences your team is trying to reach. The work that earns its keep on your timeline."
+  examples:
+    - tag: "Centennial countdown · 91 days"
+      copy: "A 4th-generation construction company gets state-by-state presence tracking, IIJA funding callouts, and a centennial countdown widget on the dashboard."
+    - tag: "Founder narrative architecture"
+      copy: "A venture-backed healthcare brand gets compliance-aware content frameworks, founder narrative architecture, and a content brief generator tuned to clinical audiences."
+    - tag: "Creative direction tab"
+      copy: "A consumer platform gets audience persona depth, a campaign library, and a creative direction tab her team can run without her."
+  closing: "Your Brand HQ won't look like anyone else's. That's the point."
+
+whatItIs:
+  header: "The thinking, the work, and the world your brand operates in. Tuned to you."
+  body: "Brand HQ holds three things that usually live in three different places. Your strategy and your taste. The work that comes from it. The live signals from your audience and your market that feed both. We build the first version with you. You and your team run it from there. We're available when you want us."
+  lines:
+    - "Built fast, from outside-in research and real conversations."
+    - "Structured around how your team actually works."
+    - "Yours to run, with us in the room when it counts."
+
+builtFast:
+  header: "Built in weeks, not months."
+  subhead: "Most brand discovery takes a quarter and produces a deck. Ours takes weeks and produces a working system."
+  body: "We start outside-in. Your audience already sees a version of your brand in the world, your category already has signals moving in it, your team already has knowledge scattered across decks, drives, and Slack. We pull the public picture together first, then organize the internal knowledge into a system your team can actually use. The result is a real snapshot of how you show up, not a sanitized internal view. And it's running before most discovery processes have finished onboarding."
+  framings:
+    - title: "Outside-in first."
+      copy: "We start with what your audience already sees, not what you think you've said."
+    - title: "Internal organization second."
+      copy: "What lives in heads, decks, drives, and Slack gets sorted into a system your team can use."
+    - title: "Working in weeks."
+      copy: "A live Brand HQ ready for your team to walk into, not a 60-page PDF that nobody opens."
+
+roles:
+  header: "Built for the people who'll actually use it."
+  subhead: "Brand HQ talks to your team in their own language. The designer doesn't get the executive summary. The developer doesn't get the marketing brief. Each role gets what they need, where they expect to find it."
+  cards:
+    - title: "Designers"
+      copy: "A design system that updates when the brand updates. Logo files in every format with download links pulling from Drive. Color, type, motion, photography rules with the rationale behind every choice already there."
+    - title: "Developers"
+      copy: "Tokens, components, and brand rules in machine-readable form. Hook your codebase to the source of truth. The Brand Guide is a public, citeable URL — link to it from your component library."
+    - title: "Marketers"
+      copy: "Voice, audience, competitive context, and live signals in one place. The brief generator pulls from your strategy and writes a draft. Your next campaign starts ahead."
+    - title: "Executives"
+      copy: "The strategic narrative, the proof, and the live performance. What you need to walk into a board meeting cold. The dashboard surfaces what changed this week before someone asks."
+    - title: "Data and ops"
+      copy: "Decisions logged with context. Performance signals filtered through your strategy. Mentions tagged by sentiment. The institutional memory your team can't carry alone."
+
+tiers:
+  header: "The right idea, at the right moment, to the right person."
+  subhead: "Brand HQ doesn't just store everything. It knows when to surface what, and when to keep raw thinking out of the room."
+  body: "Every brand has the same problem with knowledge. The half-formed idea from a Slack thread shows up in a customer pitch. The decision the leadership team made six months ago gets relitigated by every new hire. The brilliant insight from a customer call disappears into a transcript nobody opens. Brand HQ solves this by organizing everything by how seriously it's been thought through, and by routing what surfaces based on who's asking."
+  layers:
+    - level: "Canonical"
+      copy: "The decisions you've actually made. Cited, defended, used in the work."
+    - level: "Decided"
+      copy: "Working positions your team is operating from. Trusted, but still moving."
+    - level: "Observed"
+      copy: "Raw signal from meetings, conversations, and the world. Reference material until your team decides it's more."
+  closing: "Your AI agents and your team work from canonical and decided. Observed gets resurfaced when it's relevant, never when it shouldn't be. Every decision that crosses a layer gets logged."
+
+northStar:
+  header: "Your strategy at the center. Five sections that carry it into the work."
+  body: "The thing that makes a brand compound is consistency under pressure. Every touchpoint reflecting the same point of view, even when the team gets bigger and the world gets noisier. Brand HQ is built around your north star, and structured so it shows up in the work your team produces, the signals your team watches, and the decisions your team makes."
+  sections:
+    - title: "Brand"
+      lede: "Your point of view, made tangible."
+      copy: "Positioning, voice, visual identity, and the operating standards that keep it consistent across teams and partners."
+    - title: "Market"
+      lede: "The world your point of view is operating in."
+      copy: "Your audience, your competitors, the category you're building. Watched on a cadence so it stays current with reality."
+    - title: "Strategy"
+      lede: "Your point of view, made actionable."
+      copy: "What you stand for, where you're headed, the moments that matter in your customer journey."
+    - title: "Intelligence"
+      lede: "Your point of view, applied to live signals."
+      copy: "The world feeds Brand HQ a constant stream. We filter, synthesize, and surface what matters through your strategic lens."
+    - title: "Operations"
+      lede: "Your point of view, in the record."
+      copy: "Decisions made and why. Actions in flight. Onboarding for new team members. The institutional memory that keeps the system honest."
+
+jobs:
+  header: "The work this actually replaces."
+  subhead: "The jobs Brand HQ does for the people who run it."
+  cards:
+    - title: "Get a new team member up to speed without booking five meetings."
+      copy: "Brand HQ is the onboarding. They read the canonical layer, follow the citations, show up to their first meeting fluent in your brand."
+    - title: "Brief an agency in 20 minutes instead of three weeks."
+      copy: "Send the relevant section. They get the strategic context, the operating standards, and the live signals. They produce work that doesn't have to be redone."
+    - title: "Make decisions without relitigating them every quarter."
+      copy: "Decisions get logged with context. Your team can see why something was decided, when, and what's changed since. New hires don't reopen settled questions."
+    - title: "Stay current without staring at a dashboard."
+      copy: "Brand HQ watches the signals you care about, filters them through your strategy, and surfaces what matters. Your team doesn't have to add another monitoring tool."
+    - title: "Brief leadership without three rounds of edits."
+      copy: "Strategic narrative, recent activity, and proof points already in place. Pull what you need, present, move on."
+    - title: "Hand off without losing the thread."
+      copy: "When someone leaves, their work, decisions, and rationale stay in the system. The next person starts where they left off, not from scratch."
+
+publicOutputs:
+  header: "Brand HQ doesn't just live behind a login."
+  body: "The same system that runs internally produces the work your team needs to share. A public Brand Guide your contractors, partners, and freelancers can cite. A press kit that updates when the brand updates. A landing page asset library your team can pull from without a Slack request. Whatever your business actually needs, downstream of the canonical record."
+  caption: "The Brand Guide above lives at a public URL. Your team and your partners cite it instead of reconstructing it."
+  outputs:
+    - label: "Brand Guide"
+      detail: "Public, citeable URL"
+    - label: "Press Kit"
+      detail: "Updates when the brand updates"
+    - label: "Asset Library"
+      detail: "Pull-from-anywhere downloads"
+
+stack:
+  header: "Already have tools that work?"
+  body: "Most of our clients did. A 60-page PDF that nobody opened. A Notion workspace that drifted. A Frontify instance with the basics. A design system in Figma. A CRM with audience notes. Brand HQ doesn't replace your stack. It's the place where the strategic context that makes your stack actually work lives. We bring what you have into Brand HQ on day one, structure it so your team will use it, and plug the holes you've been meaning to plug. You decide what stays in your existing tools and what comes home."
+
+whosUsing:
+  header: "In rooms like yours, right now."
+  body: "Brand HQ is running inside Fortune 200 companies, venture-backed founders, and the funds that back them. Different stages, different industries, same system. Each one tuned to the work that actually matters for that business."
+
+quote:
+  text: "Once everything is housed here, you don't need to learn new AI tools. You turn an agent loose on your own data and say, give me a LinkedIn post. It knows your voice, your topics, your rules."
+  attribution: "Managing Partner, venture capital fund"
+
+finalCta:
+  header: "See if Brand HQ is right for your company."
+  body: "The best way to know is to see one. Tell us about what you're building and we'll walk you through a live Brand HQ for a company like yours. Thirty minutes. No deck."
+  cta_primary: "Request a walkthrough"
+  cta_primary_action: "openModal()"
+  cta_secondary: "Or send a note"
+  cta_secondary_action: "openModal()"
