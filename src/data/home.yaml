@@ -108,16 +108,16 @@ empowerment:
       - "Scaffolding you can use at any depth."
       - "Work product that stays yours when we're done."
   services:
-    eyebrow: "Three ways to work with us"
+    eyebrow: "Three ways to work"
     heading: "Want us to run with it?"
-    copy: "Some clients want the system. Others want us in the room executing inside it. Most want both at different times. We do all three."
+    copy: "Some clients want the system. Others want us to execute on it for them. Most want both at different times."
     modes:
       - title: "The system"
         copy: "Brand HQ as scaffolding your team owns and runs."
-      - title: "In the room"
-        copy: "We embed and execute inside the system we built."
-      - title: "Both, at different times"
-        copy: "Most clients land here. Foundation you own, plus us in the moments that need us."
+      - title: "Done for you"
+        copy: "We execute on the system we built, alongside your team."
+      - title: "Both"
+        copy: "Foundation you own, plus us in the moments that need us. Most land here."
     link: "See how we work"
     href: "/pricing"
   pullQuote:
@@ -147,7 +147,7 @@ whoFor:
 vcFirm:
   header: "A creative firm with a VC firm in-house."
   paragraphs:
-    - "Most creative firms raise money from investors and operate alone. StartSuite works the other way. 46 Capital isn't outside looking in. They're inside the room with us."
+    - "Most creative firms raise money from investors and operate alone. StartSuite works the other way. 46 Capital isn't outside looking in. They build alongside us."
     - "For you, that means three things. Strategic work calibrated to how investors actually read a company. A network of operators and investors you can tap when the moment calls for it. A team whose instincts come from having raised, hired, launched, and scaled under pressure, not from having studied it."
     - "We're independent. We're opinionated. We build with conviction and speed."
   cta: "Meet the team"

@@ -580,8 +580,8 @@
 .bhq-cta-row{display:flex;justify-content:center}
 
 /* ── EMPOWERMENT STAKE ────────────────────────────────────────── */
-.emp-wrap{padding:140px 0 0;position:relative}
-.emp-inner{max-width:1100px;margin:0 auto;padding:0 48px}
+.emp-wrap{padding:140px 48px;position:relative}
+.emp-inner{max-width:1100px;margin:0 auto}
 .emp-header{
   max-width:760px;margin:0 auto 36px;text-align:center;
 }
@@ -721,81 +721,62 @@
   background:var(--purple-light);opacity:0.5;flex-shrink:0;
 }
 
-/* Services band — full-width feature offering */
-.emp-services-band{
-  position:relative;
-  margin-top:80px;
-  padding:80px 48px 100px;
-  background:
-    radial-gradient(ellipse 800px 360px at 50% 0%,rgba(139,109,181,0.16) 0%,transparent 70%),
-    linear-gradient(180deg,rgba(91,70,135,0.18) 0%,rgba(58,42,90,0.22) 100%);
-  border-top:1px solid rgba(139,109,181,0.22);
-  overflow:hidden;
-}
-.emp-services-band::before{
-  content:'';position:absolute;inset:0;pointer-events:none;
-  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  background-size:256px 256px;
-  opacity:0.04;mix-blend-mode:overlay;
-}
-.emp-services-inner{
-  max-width:1200px;margin:0 auto;
-  position:relative;z-index:1;
-  display:flex;flex-direction:column;gap:48px;
+/* Services — compact 3-mode block */
+.emp-services{
+  margin:64px auto 64px;
+  max-width:920px;
+  display:flex;flex-direction:column;gap:24px;
+  padding:32px 0 28px;
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
 }
 .emp-services-head{
-  text-align:center;max-width:680px;margin:0 auto;
-  display:flex;flex-direction:column;gap:14px;
+  display:flex;align-items:baseline;gap:18px;flex-wrap:wrap;
 }
 .emp-services-eyebrow{
   font-family:var(--mono);
   font-size:10px;font-weight:700;letter-spacing:0.18em;
   text-transform:uppercase;color:var(--purple-light);
+  flex-shrink:0;
 }
 .emp-services-head h3{
-  font-size:clamp(28px,3.6vw,42px);
-  letter-spacing:-0.03em;line-height:1.12;
+  font-size:clamp(20px,2.2vw,24px);
+  letter-spacing:-0.02em;line-height:1.2;
   color:var(--text);font-weight:800;
   margin:0;
 }
-.emp-services-head p{
-  font-size:15px;line-height:1.78;color:var(--text-muted);
-  margin:0;
+.emp-services-copy{
+  font-size:14px;line-height:1.7;color:var(--text-muted);
+  margin:0;max-width:680px;
 }
 .emp-services-modes{
-  list-style:none;padding:0;margin:0;
-  display:grid;grid-template-columns:repeat(3,1fr);gap:0;
-  border-top:1px solid rgba(139,109,181,0.18);
-  border-bottom:1px solid rgba(139,109,181,0.18);
+  list-style:none;padding:0;margin:8px 0 0;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
 }
 .emp-services-modes li{
-  position:relative;
-  padding:32px 32px;
-  display:flex;flex-direction:column;gap:12px;
-  transition:background var(--duration) var(--ease);
-}
-.emp-services-modes li:hover{background:rgba(139,109,181,0.04)}
-.emp-services-modes li:not(:last-child)::after{
-  content:'';position:absolute;top:24px;bottom:24px;right:0;
-  width:1px;background:rgba(139,109,181,0.18);
+  display:flex;gap:12px;align-items:flex-start;
 }
 .emp-services-num{
   font-family:var(--mono);
-  font-size:10px;font-weight:700;letter-spacing:0.16em;
+  font-size:10px;font-weight:700;letter-spacing:0.14em;
   color:var(--purple-light);
-  margin-bottom:4px;
+  padding-top:2px;flex-shrink:0;
 }
 .emp-services-modes h4{
-  font-size:18px;font-weight:800;letter-spacing:-0.02em;
-  color:var(--text);line-height:1.2;margin:0;
+  font-size:14px;font-weight:700;letter-spacing:-0.015em;
+  color:var(--text);line-height:1.25;margin:0 0 4px;
 }
 .emp-services-modes p{
-  font-size:13.5px;line-height:1.65;
+  font-size:12.5px;line-height:1.55;
   color:var(--text-muted);margin:0;
 }
-.emp-services-cta{
-  display:flex;justify-content:center;
+.emp-services-link{
+  align-self:flex-start;
+  font-size:13px;font-weight:600;color:var(--purple-light);
+  text-decoration:none;
+  transition:color var(--duration) var(--ease);
 }
+.emp-services-link:hover{color:var(--text)}
 
 /* ── WHO IS THIS FOR ──────────────────────────────────────────── */
 .who-wrap{
@@ -1079,8 +1060,7 @@
   .bhq-closing{padding:32px 24px;margin-bottom:40px}
 
   /* Empowerment mobile */
-  .emp-wrap{padding:88px 0 0}
-  .emp-inner{padding:0 28px}
+  .emp-wrap{padding:88px 28px}
   .emp-body{margin-bottom:56px}
   .emp-pairs{padding:24px 0 36px;margin-bottom:56px}
   .emp-pairs-headers{grid-template-columns:1fr;gap:6px;text-align:left}
@@ -1090,12 +1070,8 @@
   .emp-pair-line{display:none}
   .emp-pair-do{padding-left:14px;border-left:2px solid var(--purple-light)}
   .emp-pull-quote{padding:0 16px;margin-bottom:32px}
-  .emp-services-band{margin-top:64px;padding:64px 28px 80px}
-  .emp-services-modes{grid-template-columns:1fr}
-  .emp-services-modes li{padding:24px 0}
-  .emp-services-modes li:not(:last-child)::after{
-    top:auto;bottom:0;left:0;right:0;width:auto;height:1px;
-  }
+  .emp-services{margin:48px auto 48px;padding:24px 0 24px;gap:18px}
+  .emp-services-modes{grid-template-columns:1fr;gap:18px}
 
   /* Who For mobile */
   .who-wrap{padding:88px 28px 80px}
