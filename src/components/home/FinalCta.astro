@@ -10,11 +10,7 @@ const { finalCta } = homeData;
     <p class="scroll-reveal">{finalCta.body}</p>
     <div class="final-cta-v5-btns scroll-reveal">
       <a class="btn btn-primary btn-lg" href={finalCta.cta_primary_href}>{finalCta.cta_primary} →</a>
-      <a class="btn btn-ghost btn-lg" href={finalCta.cta_secondary_href}>{finalCta.cta_secondary} →</a>
+      <a class="btn btn-ghost btn-lg" onclick={finalCta.cta_secondary_action} style="cursor:pointer">{finalCta.cta_secondary} →</a>
     </div>
   </div>
 </section>
-
-<div style="max-width:1200px;margin:0 auto;padding:0 48px">
-  <div class="dim-line"><div class="dim-line-label" set:html={finalCta.dim_line_label} /></div>
-</div>

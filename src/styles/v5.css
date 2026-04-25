@@ -580,8 +580,8 @@
 .bhq-cta-row{display:flex;justify-content:center}
 
 /* ── EMPOWERMENT STAKE ────────────────────────────────────────── */
-.emp-wrap{padding:140px 48px;position:relative}
-.emp-inner{max-width:1100px;margin:0 auto}
+.emp-wrap{padding:140px 0 0;position:relative}
+.emp-inner{max-width:1100px;margin:0 auto;padding:0 48px}
 .emp-header{
   max-width:760px;margin:0 auto 36px;text-align:center;
 }
@@ -682,42 +682,117 @@
   .emp-pair-line-svg{opacity:0.6;stroke-dashoffset:0;transition:none}
 }
 
-.emp-services{
-  max-width:720px;margin:0 auto 64px;
-  padding:36px 40px;
-  background:var(--surface);
-  border:1px solid var(--border);
-  border-left:2px solid var(--purple-light);
-  border-radius:0 var(--radius-md) var(--radius-md) 0;
-  display:flex;flex-direction:column;gap:14px;align-items:flex-start;
-}
-.emp-services h3{
-  font-size:22px;font-weight:800;letter-spacing:-0.02em;color:var(--text);
-}
-.emp-services p{
-  font-size:14px;color:var(--text-muted);line-height:1.7;margin:0;
-}
-.emp-services-link{
-  font-size:13px;font-weight:600;color:var(--purple-light);
-  text-decoration:none;
-  transition:all var(--duration) var(--ease);
-}
-.emp-services-link:hover{color:var(--text)}
-
+/* Empowerment pull quote — proper quote treatment */
 .emp-pull-quote{
-  max-width:820px;margin:0 auto;text-align:center;
-  display:flex;flex-direction:column;gap:20px;align-items:center;
+  max-width:820px;margin:0 auto 24px;
+  display:flex;flex-direction:column;gap:24px;align-items:center;
+  text-align:center;
+  position:relative;
+  padding:8px 32px;
+}
+.emp-pull-glyph{
+  font-family:'Georgia','Times New Roman',serif;
+  font-size:clamp(72px,7vw,108px);
+  line-height:0.4;
+  color:var(--purple-light);
+  opacity:0.32;
+  display:block;
+  font-style:italic;
+  letter-spacing:-0.05em;
 }
 .emp-pull-quote blockquote{
-  font-size:clamp(20px,2.2vw,26px);
-  line-height:1.5;letter-spacing:-0.015em;
-  color:var(--text-muted);font-style:italic;
-  margin:0;max-width:720px;
+  font-family:'Georgia','Times New Roman',serif;
+  font-style:italic;font-weight:400;
+  font-size:clamp(20px,2.2vw,28px);
+  line-height:1.4;letter-spacing:-0.015em;
+  color:var(--text);
+  margin:0;max-width:760px;
 }
 .emp-pull-quote figcaption{
   font-family:var(--mono);
-  font-size:10px;font-weight:600;letter-spacing:0.14em;
+  font-size:10.5px;font-weight:600;letter-spacing:0.14em;
   text-transform:uppercase;color:var(--purple-light);
+  display:flex;align-items:center;gap:14px;
+}
+.emp-pull-rule{
+  display:inline-block;width:36px;height:1px;
+  background:var(--purple-light);opacity:0.5;flex-shrink:0;
+}
+
+/* Services band — full-width feature offering */
+.emp-services-band{
+  position:relative;
+  margin-top:80px;
+  padding:80px 48px 100px;
+  background:
+    radial-gradient(ellipse 800px 360px at 50% 0%,rgba(139,109,181,0.16) 0%,transparent 70%),
+    linear-gradient(180deg,rgba(91,70,135,0.18) 0%,rgba(58,42,90,0.22) 100%);
+  border-top:1px solid rgba(139,109,181,0.22);
+  overflow:hidden;
+}
+.emp-services-band::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:256px 256px;
+  opacity:0.04;mix-blend-mode:overlay;
+}
+.emp-services-inner{
+  max-width:1200px;margin:0 auto;
+  position:relative;z-index:1;
+  display:flex;flex-direction:column;gap:48px;
+}
+.emp-services-head{
+  text-align:center;max-width:680px;margin:0 auto;
+  display:flex;flex-direction:column;gap:14px;
+}
+.emp-services-eyebrow{
+  font-family:var(--mono);
+  font-size:10px;font-weight:700;letter-spacing:0.18em;
+  text-transform:uppercase;color:var(--purple-light);
+}
+.emp-services-head h3{
+  font-size:clamp(28px,3.6vw,42px);
+  letter-spacing:-0.03em;line-height:1.12;
+  color:var(--text);font-weight:800;
+  margin:0;
+}
+.emp-services-head p{
+  font-size:15px;line-height:1.78;color:var(--text-muted);
+  margin:0;
+}
+.emp-services-modes{
+  list-style:none;padding:0;margin:0;
+  display:grid;grid-template-columns:repeat(3,1fr);gap:0;
+  border-top:1px solid rgba(139,109,181,0.18);
+  border-bottom:1px solid rgba(139,109,181,0.18);
+}
+.emp-services-modes li{
+  position:relative;
+  padding:32px 32px;
+  display:flex;flex-direction:column;gap:12px;
+  transition:background var(--duration) var(--ease);
+}
+.emp-services-modes li:hover{background:rgba(139,109,181,0.04)}
+.emp-services-modes li:not(:last-child)::after{
+  content:'';position:absolute;top:24px;bottom:24px;right:0;
+  width:1px;background:rgba(139,109,181,0.18);
+}
+.emp-services-num{
+  font-family:var(--mono);
+  font-size:10px;font-weight:700;letter-spacing:0.16em;
+  color:var(--purple-light);
+  margin-bottom:4px;
+}
+.emp-services-modes h4{
+  font-size:18px;font-weight:800;letter-spacing:-0.02em;
+  color:var(--text);line-height:1.2;margin:0;
+}
+.emp-services-modes p{
+  font-size:13.5px;line-height:1.65;
+  color:var(--text-muted);margin:0;
+}
+.emp-services-cta{
+  display:flex;justify-content:center;
 }
 
 /* ── WHO IS THIS FOR ──────────────────────────────────────────── */
@@ -737,6 +812,13 @@
 .who-header h2{
   font-size:clamp(34px,4.6vw,54px);
   letter-spacing:-0.035em;line-height:1.12;
+  margin-bottom:18px;
+}
+.who-subhead{
+  font-size:16px;line-height:1.7;
+  color:var(--text-muted);
+  max-width:640px;margin:0 auto;
+  letter-spacing:-0.005em;
 }
 .who-grid{
   display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:0;
@@ -995,7 +1077,8 @@
   .bhq-closing{padding:32px 24px;margin-bottom:40px}
 
   /* Empowerment mobile */
-  .emp-wrap{padding:88px 28px}
+  .emp-wrap{padding:88px 0 0}
+  .emp-inner{padding:0 28px}
   .emp-body{margin-bottom:56px}
   .emp-pairs{padding:24px 0 36px;margin-bottom:56px}
   .emp-pairs-headers{grid-template-columns:1fr;gap:6px;text-align:left}
@@ -1004,8 +1087,13 @@
   .emp-pair{grid-template-columns:1fr;gap:8px;padding:16px 0}
   .emp-pair-line{display:none}
   .emp-pair-do{padding-left:14px;border-left:2px solid var(--purple-light)}
-  .emp-services{padding:28px 26px;margin-bottom:48px}
-  .emp-services h3{font-size:19px}
+  .emp-pull-quote{padding:0 16px;margin-bottom:32px}
+  .emp-services-band{margin-top:64px;padding:64px 28px 80px}
+  .emp-services-modes{grid-template-columns:1fr}
+  .emp-services-modes li{padding:24px 0}
+  .emp-services-modes li:not(:last-child)::after{
+    top:auto;bottom:0;left:0;right:0;width:auto;height:1px;
+  }
 
   /* Who For mobile */
   .who-wrap{padding:88px 28px 80px}

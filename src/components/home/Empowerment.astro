@@ -3,7 +3,6 @@ import homeData from '@/data/home.yaml';
 
 const { empowerment } = homeData;
 
-// Zip don't and do into paired rows
 const pairs: [string, string][] = empowerment.dont.items.map(
   (d: string, i: number) => [d, empowerment.do.items[i]]
 );
@@ -40,16 +39,36 @@ const pairs: [string, string][] = empowerment.dont.items.map(
       </ul>
     </div>
 
-    <div class="emp-services scroll-reveal">
-      <h3>{empowerment.services.heading}</h3>
-      <p>{empowerment.services.copy}</p>
-      <a class="emp-services-link" href={empowerment.services.href}>{empowerment.services.link} →</a>
-    </div>
-
     <figure class="emp-pull-quote scroll-reveal">
+      <span class="emp-pull-glyph" aria-hidden="true">&ldquo;</span>
       <blockquote>{empowerment.pullQuote.quote}</blockquote>
-      <figcaption>{empowerment.pullQuote.attribution}</figcaption>
+      <figcaption>
+        <span class="emp-pull-rule" aria-hidden="true"></span>
+        {empowerment.pullQuote.attribution}
+      </figcaption>
     </figure>
+  </div>
+
+  <div class="emp-services-band scroll-reveal">
+    <div class="emp-services-inner">
+      <div class="emp-services-head">
+        <span class="emp-services-eyebrow">{empowerment.services.eyebrow}</span>
+        <h3>{empowerment.services.heading}</h3>
+        <p>{empowerment.services.copy}</p>
+      </div>
+      <ol class="emp-services-modes">
+        {empowerment.services.modes.map((m: any, i: number) => (
+          <li>
+            <span class="emp-services-num">{String(i + 1).padStart(2, '0')}</span>
+            <h4>{m.title}</h4>
+            <p>{m.copy}</p>
+          </li>
+        ))}
+      </ol>
+      <div class="emp-services-cta">
+        <a class="btn btn-primary btn-lg" href={empowerment.services.href}>{empowerment.services.link} →</a>
+      </div>
+    </div>
   </div>
 </section>
 

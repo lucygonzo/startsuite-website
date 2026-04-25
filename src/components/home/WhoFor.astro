@@ -8,6 +8,7 @@ const { whoFor } = homeData;
   <div class="who-inner">
     <header class="who-header scroll-reveal">
       <h2>{whoFor.header}</h2>
+      {whoFor.subhead && <p class="who-subhead">{whoFor.subhead}</p>}
     </header>
     <div class="who-grid">
       {whoFor.cards.map((card: any, i: number) => (

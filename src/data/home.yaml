@@ -108,8 +108,16 @@ empowerment:
       - "Scaffolding you can use at any depth."
       - "Work product that stays yours when we're done."
   services:
+    eyebrow: "Three ways to work with us"
     heading: "Want us to run with it?"
     copy: "Some clients want the system. Others want us in the room executing inside it. Most want both at different times. We do all three."
+    modes:
+      - title: "The system"
+        copy: "Brand HQ as scaffolding your team owns and runs."
+      - title: "In the room"
+        copy: "We embed and execute inside the system we built."
+      - title: "Both, at different times"
+        copy: "Most clients land here. Foundation you own, plus us in the moments that need us."
     link: "See how we work"
     href: "/pricing"
   pullQuote:
@@ -118,6 +126,7 @@ empowerment:
 
 whoFor:
   header: "For the people who want their brand to keep up with them."
+  subhead: "Not just keep up. Get ahead of the market, earn its keep at every touchpoint, and work for the team instead of sitting there."
   cards:
     - title: "Founders"
       heading: "You are the whole company right now."
@@ -154,6 +163,5 @@ finalCta:
   body: "StartSuite is built to go deep. That means staying small. We have a handful of spots open right now. Tell us about what you're building and we'll let you know if we're the right fit, or put you on the waitlist if we're not ready for you yet."
   cta_primary: "Request a spot"
   cta_primary_href: "/request-a-spot"
-  cta_secondary: "Or book a blind date"
-  cta_secondary_href: "/blind-date"
-  dim_line_label: "StartSuite &middot; 2026"
+  cta_secondary: "Or book a free intro call"
+  cta_secondary_action: "openModal()"
