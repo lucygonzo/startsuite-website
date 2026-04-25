@@ -16,13 +16,11 @@ const ICONS: Record<string, string> = {
 
 <section class="cb-wrap" aria-label="Currently inside">
   <div class="cb-header">
-    <div class="cb-eyebrow">
-      <span class="cb-pulse" aria-hidden="true"></span>
-      {clientBand.eyebrow}
+    <div class="cb-live" aria-label="Live indicator">
+      <span class="cb-live-dot" aria-hidden="true"></span>
+      <span class="cb-live-label">Live</span>
     </div>
-    {clientBand.caption && (
-      <p class="cb-caption">{clientBand.caption}</p>
-    )}
+    <div class="cb-eyebrow">{clientBand.eyebrow}</div>
   </div>
   <div class="cb-marquee" data-cb-marquee>
     <div class="cb-track">

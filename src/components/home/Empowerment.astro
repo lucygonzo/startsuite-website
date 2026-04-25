@@ -2,6 +2,11 @@
 import homeData from '@/data/home.yaml';
 
 const { empowerment } = homeData;
+
+// Zip don't and do into paired rows
+const pairs: [string, string][] = empowerment.dont.items.map(
+  (d: string, i: number) => [d, empowerment.do.items[i]]
+);
 ---
 
 <section class="emp-wrap section-alt">
@@ -13,23 +18,26 @@ const { empowerment } = homeData;
 
     <p class="emp-body scroll-reveal">{empowerment.body}</p>
 
-    <div class="emp-columns">
-      <div class="emp-col scroll-reveal">
+    <div class="emp-pairs" data-emp-pairs>
+      <div class="emp-pairs-headers">
         <h3 class="emp-col-title">{empowerment.dont.title}</h3>
-        <ul class="emp-col-list emp-col-dont">
-          {empowerment.dont.items.map((item: string) => (
-            <li>{item}</li>
-          ))}
-        </ul>
-      </div>
-      <div class="emp-col scroll-reveal">
+        <span class="emp-col-arrow" aria-hidden="true"></span>
         <h3 class="emp-col-title">{empowerment.do.title}</h3>
-        <ul class="emp-col-list emp-col-do">
-          {empowerment.do.items.map((item: string) => (
-            <li>{item}</li>
-          ))}
-        </ul>
       </div>
+      <ul class="emp-pairs-list">
+        {pairs.map(([dont, doItem], i) => (
+          <li class="emp-pair" style={`--i:${i}`}>
+            <span class="emp-pair-dont">{dont}</span>
+            <span class="emp-pair-line" aria-hidden="true">
+              <svg viewBox="0 0 100 8" preserveAspectRatio="none" class="emp-pair-line-svg">
+                <line x1="0" y1="4" x2="100" y2="4" />
+                <polyline points="92,1 99,4 92,7" />
+              </svg>
+            </span>
+            <span class="emp-pair-do">{doItem}</span>
+          </li>
+        ))}
+      </ul>
     </div>
 
     <div class="emp-services scroll-reveal">
@@ -44,3 +52,29 @@ const { empowerment } = homeData;
     </figure>
   </div>
 </section>
+
+<script is:inline>
+  (function () {
+    const wrap = document.querySelector('[data-emp-pairs]');
+    if (!wrap) return;
+    const reduce = window.matchMedia &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduce) {
+      wrap.classList.add('is-revealed');
+      return;
+    }
+    if ('IntersectionObserver' in window) {
+      const io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) {
+            wrap.classList.add('is-revealed');
+            io.disconnect();
+          }
+        });
+      }, { threshold: 0.2 });
+      io.observe(wrap);
+    } else {
+      wrap.classList.add('is-revealed');
+    }
+  })();
+</script>

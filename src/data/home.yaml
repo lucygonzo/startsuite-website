@@ -7,7 +7,6 @@ hero:
 
 clientBand:
   eyebrow: "Currently inside"
-  caption: "The rooms we're in right now. Identifying details held back at launch."
   entries:
     - size: "Fortune 200"
       sector: "Construction"
@@ -57,12 +56,16 @@ proofBar:
   header: "What the people inside our rooms are saying."
   quotes:
     - quote: "I wish I had this on May 5th. We spent months doing internal and external interviews, having people scour the competitive analysis, setting the teams up, getting the brand background work all in one spot."
+      highlight: "all in one spot"
       attribution: "CMO, Fortune 200 construction company"
     - quote: "I'm blown away with what we have presented to us. Just how in depth it is, how well thought out it is, how there's such organization to it."
+      highlight: "in depth"
       attribution: "Co-founder, healthcare brand"
     - quote: "Once everything is housed here, you don't need to learn new AI tools. You turn an agent loose on your own data and say, give me a LinkedIn post. It knows your voice, your topics, your rules."
+      highlight: "It knows your voice, your topics, your rules"
       attribution: "Managing Partner, venture capital fund"
     - quote: "I can't tell you how many years I've been waiting for a team member to willingly share and reference a brand guide."
+      highlight: "willingly share and reference a brand guide"
       attribution: "CMO, media platform"
 
 brandHq:

@@ -2,6 +2,17 @@
 import homeData from '@/data/home.yaml';
 
 const { proofBar } = homeData;
+
+// Wrap the highlight phrase (case-insensitive, first occurrence) in <mark>.
+function applyHighlight(quote: string, highlight?: string): string {
+  if (!highlight) return quote;
+  const idx = quote.toLowerCase().indexOf(highlight.toLowerCase());
+  if (idx < 0) return quote;
+  const before = quote.slice(0, idx);
+  const match = quote.slice(idx, idx + highlight.length);
+  const after = quote.slice(idx + highlight.length);
+  return `${before}<mark class="proof-emphasis">${match}</mark>${after}`;
+}
 ---
 
 <section class="proof-bar-wrap">
@@ -15,7 +26,8 @@ const { proofBar } = homeData;
             data-proof-slot={i}
             aria-hidden={i === 0 ? 'false' : 'true'}
           >
-            <blockquote>{q.quote}</blockquote>
+            <span class="proof-quote-glyph" aria-hidden="true">&ldquo;</span>
+            <blockquote set:html={applyHighlight(q.quote, q.highlight)} />
             <figcaption>{q.attribution}</figcaption>
           </figure>
         ))}
@@ -30,7 +42,10 @@ const { proofBar } = homeData;
             role="tab"
             aria-selected={i === 0 ? 'true' : 'false'}
           >
-            <span class="proof-card-quote">{q.quote}</span>
+            <span class="proof-card-glyph" aria-hidden="true">&ldquo;</span>
+            <span class="proof-card-quote">
+              {q.highlight ? <strong>{q.highlight}</strong> : q.quote.slice(0, 60) + '…'}
+            </span>
             <span class="proof-card-attribution">{q.attribution}</span>
           </button>
         ))}
