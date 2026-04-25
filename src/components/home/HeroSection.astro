@@ -1,7 +1,6 @@
 ---
 import homeData from '@/data/home.yaml';
 import GlobeCanvas from '@/components/GlobeCanvas.astro';
-import PillsRow from '@/components/home/PillsRow.astro';
 
 const { hero } = homeData;
 ---
@@ -17,7 +16,6 @@ const { hero } = homeData;
         <a class="btn btn-primary btn-lg" href="/brand-hq">{hero.cta_primary} →</a>
         <a class="btn btn-outline btn-lg" href="/request-a-spot">{hero.cta_secondary} →</a>
       </div>
-      <PillsRow pills={hero.pills} marginalia={hero.pills_marginalia} />
     </div>
     <GlobeCanvas />
   </div>

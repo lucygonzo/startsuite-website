@@ -9,7 +9,109 @@
 }
 .hero-v5 h1 em{font-weight:400;font-style:italic;background:none;-webkit-text-fill-color:var(--purple-light);letter-spacing:-0.02em}
 
-/* ── PILLS ROW (marquee + tooltip) ────────────────────────────── */
+/* ── CLIENT BAND (editorial strip) ────────────────────────────── */
+.cb-wrap{
+  position:relative;
+  padding:64px 0 72px;
+  background:
+    linear-gradient(180deg,rgba(139,109,181,0.025) 0%,transparent 100%),
+    var(--bg);
+  border-top:1px solid var(--border);
+  border-bottom:1px solid var(--border);
+  overflow:hidden;
+}
+.cb-header{
+  max-width:1200px;margin:0 auto 36px;
+  padding:0 48px;
+  display:flex;align-items:baseline;gap:28px;flex-wrap:wrap;
+}
+.cb-eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-family:var(--mono);
+  font-size:10px;font-weight:700;letter-spacing:0.2em;
+  text-transform:uppercase;color:var(--purple-light);
+}
+.cb-pulse{
+  width:6px;height:6px;border-radius:50%;
+  background:var(--purple-light);
+  box-shadow:0 0 0 0 rgba(196,169,224,0.6);
+  animation:cbPulse 2.4s ease-in-out infinite;
+}
+@keyframes cbPulse{
+  0%,100%{box-shadow:0 0 0 0 rgba(196,169,224,0.55);opacity:1}
+  50%{box-shadow:0 0 0 7px rgba(196,169,224,0);opacity:0.85}
+}
+.cb-caption{
+  font-size:12px;color:var(--text-dim);
+  letter-spacing:-0.005em;
+  margin:0;
+}
+.cb-marquee{
+  position:relative;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 6%,#000 94%,transparent 100%);
+  mask-image:linear-gradient(90deg,transparent 0,#000 6%,#000 94%,transparent 100%);
+}
+.cb-track{
+  display:inline-flex;align-items:stretch;
+  animation:cbScroll 90s linear infinite;
+  white-space:nowrap;
+  will-change:transform;
+}
+.cb-wrap:hover .cb-track,
+.cb-wrap:focus-within .cb-track{animation-play-state:paused}
+@keyframes cbScroll{
+  from{transform:translateX(0)}
+  to{transform:translateX(-50%)}
+}
+.cb-entry{
+  position:relative;flex-shrink:0;
+  display:flex;align-items:flex-start;gap:18px;
+  padding:8px 56px;
+  min-width:340px;
+}
+.cb-entry::after{
+  content:'';position:absolute;top:14px;bottom:14px;right:0;
+  width:1px;background:var(--border);
+}
+.cb-entry-icon{
+  width:22px;height:22px;flex-shrink:0;
+  color:var(--purple-light);opacity:0.55;
+  margin-top:2px;
+  transition:opacity 0.4s var(--ease),color 0.4s var(--ease);
+}
+.cb-entry:hover .cb-entry-icon{opacity:1;color:var(--accent)}
+.cb-entry-text{
+  display:flex;flex-direction:column;gap:4px;
+  white-space:normal;
+}
+.cb-entry-size{
+  font-family:var(--mono);
+  font-size:9.5px;font-weight:700;letter-spacing:0.18em;
+  text-transform:uppercase;color:var(--text-dim);
+  margin-bottom:2px;
+  transition:color 0.4s var(--ease);
+}
+.cb-entry:hover .cb-entry-size{color:var(--purple-light)}
+.cb-entry-sector{
+  font-size:18px;font-weight:700;letter-spacing:-0.02em;
+  color:var(--text);line-height:1.2;
+  font-family:var(--font);
+}
+.cb-entry-detail{
+  font-size:12px;color:var(--text-muted);line-height:1.5;
+  letter-spacing:-0.005em;
+  max-width:280px;
+}
+
+@media (max-width: 900px){
+  .cb-wrap{padding:48px 0 56px}
+  .cb-header{padding:0 28px;margin-bottom:28px}
+  .cb-entry{min-width:280px;padding:6px 36px;gap:14px}
+  .cb-entry-sector{font-size:16px}
+  .cb-track{animation-duration:60s}
+}
+
+/* ── PILLS ROW (legacy — kept for reference, no longer rendered) ─ */
 .pills-row-wrap{position:relative;margin-top:8px}
 .pills-row-marginalia{position:absolute;top:-22px;left:0}
 .pills-marquee{
