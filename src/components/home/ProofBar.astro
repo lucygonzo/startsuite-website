@@ -7,57 +7,64 @@ const { proofBar } = homeData;
 <section class="proof-bar-wrap">
   <div class="proof-bar-inner">
     <p class="proof-bar-header marginalia">{proofBar.header}</p>
-    <div class="proof-bar-stage" data-proof-stage>
-      {proofBar.quotes.map((q: any, i: number) => (
-        <figure
-          class={`proof-quote ${i === 0 ? 'is-active' : ''}`}
-          data-proof-slide={i}
-          aria-hidden={i === 0 ? 'false' : 'true'}
-        >
-          <blockquote>{q.quote}</blockquote>
-          <figcaption>{q.attribution}</figcaption>
-        </figure>
-      ))}
-    </div>
-    <div class="proof-bar-nav" role="tablist" aria-label="Quote navigation">
-      {proofBar.quotes.map((_: any, i: number) => (
-        <button
-          type="button"
-          class={`proof-dot ${i === 0 ? 'is-active' : ''}`}
-          data-proof-dot={i}
-          role="tab"
-          aria-selected={i === 0 ? 'true' : 'false'}
-          aria-label={`Quote ${i + 1}`}
-        ></button>
-      ))}
+    <div class="proof-stage" data-proof>
+      <div class="proof-featured" data-proof-featured>
+        {proofBar.quotes.map((q: any, i: number) => (
+          <figure
+            class={`proof-featured-quote ${i === 0 ? 'is-active' : ''}`}
+            data-proof-slot={i}
+            aria-hidden={i === 0 ? 'false' : 'true'}
+          >
+            <blockquote>{q.quote}</blockquote>
+            <figcaption>{q.attribution}</figcaption>
+          </figure>
+        ))}
+      </div>
+
+      <div class="proof-cards" role="tablist" aria-label="Other quotes">
+        {proofBar.quotes.map((q: any, i: number) => (
+          <button
+            type="button"
+            class={`proof-card ${i === 0 ? 'is-hidden' : ''}`}
+            data-proof-card={i}
+            role="tab"
+            aria-selected={i === 0 ? 'true' : 'false'}
+          >
+            <span class="proof-card-quote">{q.quote}</span>
+            <span class="proof-card-attribution">{q.attribution}</span>
+          </button>
+        ))}
+      </div>
     </div>
   </div>
 </section>
 
 <script is:inline>
   (function () {
-    const stage = document.querySelector('[data-proof-stage]');
+    const stage = document.querySelector('[data-proof]');
     if (!stage) return;
-    const slides = stage.querySelectorAll('[data-proof-slide]');
-    const dots = document.querySelectorAll('[data-proof-dot]');
-    if (!slides.length) return;
+    const slots = stage.querySelectorAll('[data-proof-slot]');
+    const cards = stage.querySelectorAll('[data-proof-card]');
+    if (!slots.length) return;
 
     let active = 0;
     let timer = null;
     const INTERVAL = 8000;
 
-    function go(i) {
-      active = (i + slides.length) % slides.length;
-      slides.forEach(function (s, idx) {
-        const on = idx === active;
+    function go(next) {
+      if (next === active) return;
+      next = (next + slots.length) % slots.length;
+      slots.forEach(function (s, i) {
+        const on = i === next;
         s.classList.toggle('is-active', on);
         s.setAttribute('aria-hidden', on ? 'false' : 'true');
       });
-      dots.forEach(function (d, idx) {
-        const on = idx === active;
-        d.classList.toggle('is-active', on);
-        d.setAttribute('aria-selected', on ? 'true' : 'false');
+      cards.forEach(function (c, i) {
+        const on = i === next;
+        c.classList.toggle('is-hidden', on);
+        c.setAttribute('aria-selected', on ? 'true' : 'false');
       });
+      active = next;
     }
 
     function start() {
@@ -66,8 +73,8 @@ const { proofBar } = homeData;
     }
     function stop() { if (timer) { clearInterval(timer); timer = null; } }
 
-    dots.forEach(function (d, i) {
-      d.addEventListener('click', function () {
+    cards.forEach(function (c, i) {
+      c.addEventListener('click', function () {
         go(i);
         start();
       });

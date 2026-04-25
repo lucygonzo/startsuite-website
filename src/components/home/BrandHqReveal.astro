@@ -2,6 +2,16 @@
 import homeData from '@/data/home.yaml';
 
 const { brandHq } = homeData;
+
+// Per-section mock content variants. Bar widths %s + grid sizes give each
+// section a slightly different "shape" without needing real screenshots.
+const VARIANTS: Record<string, { bars: number[]; grid: number }> = {
+  Brand: { bars: [82, 56, 68], grid: 4 },
+  Market: { bars: [70, 90, 50], grid: 3 },
+  Strategy: { bars: [88, 60, 76], grid: 2 },
+  Intelligence: { bars: [62, 84, 44, 72], grid: 6 },
+  Operations: { bars: [78, 52, 90, 64], grid: 4 },
+};
 ---
 
 <section class="bhq-wrap">
@@ -11,7 +21,7 @@ const { brandHq } = homeData;
       <p class="bhq-subhead">{brandHq.subhead}</p>
     </header>
 
-    <div class="bhq-body">
+    <div class="bhq-body" data-bhq>
       <div class="bhq-visual scroll-reveal" aria-hidden="true">
         <div class="bhq-visual-placeholder">
           <div class="bhq-mock-chrome">
@@ -19,17 +29,29 @@ const { brandHq } = homeData;
           </div>
           <div class="bhq-mock-stage">
             <div class="bhq-mock-nav">
-              {brandHq.sections.map((s: any) => (
-                <span>{s.title.replace('.', '')}</span>
-              ))}
+              {brandHq.sections.map((s: any, i: number) => {
+                const key = s.title.replace('.', '');
+                return (
+                  <span class={i === 0 ? 'is-active' : ''} data-bhq-nav={key}>{key}</span>
+                );
+              })}
             </div>
-            <div class="bhq-mock-content">
-              <div class="bhq-mock-bar"></div>
-              <div class="bhq-mock-bar bhq-mock-bar-sm"></div>
-              <div class="bhq-mock-bar bhq-mock-bar-md"></div>
-              <div class="bhq-mock-grid">
-                <div></div><div></div><div></div><div></div>
-              </div>
+            <div class="bhq-mock-content" data-bhq-content>
+              {brandHq.sections.map((s: any, i: number) => {
+                const key = s.title.replace('.', '');
+                const v = VARIANTS[key] || { bars: [80, 50, 65], grid: 4 };
+                return (
+                  <div class={`bhq-mock-variant ${i === 0 ? 'is-active' : ''}`} data-bhq-variant={key}>
+                    <div class="bhq-mock-title">{key}</div>
+                    {v.bars.map((w) => (
+                      <div class="bhq-mock-bar" style={`width:${w}%`}></div>
+                    ))}
+                    <div class="bhq-mock-grid" style={`grid-template-columns:repeat(${Math.min(v.grid, 3)},1fr)`}>
+                      {Array.from({ length: v.grid }).map(() => <div></div>)}
+                    </div>
+                  </div>
+                );
+              })}
             </div>
           </div>
           <p class="bhq-visual-note marginalia">Brand HQ preview &middot; placeholder</p>
@@ -39,12 +61,20 @@ const { brandHq } = homeData;
       <div class="bhq-list scroll-reveal">
         <p class="bhq-intro">{brandHq.intro}</p>
         <ul>
-          {brandHq.sections.map((s: any) => (
-            <li>
-              <strong>{s.title}</strong>
-              <span>{s.copy}</span>
-            </li>
-          ))}
+          {brandHq.sections.map((s: any, i: number) => {
+            const key = s.title.replace('.', '');
+            return (
+              <li
+                class={`bhq-list-item ${i === 0 ? 'is-active' : ''}`}
+                data-bhq-item={key}
+                tabindex="0"
+              >
+                <span class="bhq-list-rail" aria-hidden="true"></span>
+                <strong>{s.title}</strong>
+                <span class="bhq-list-copy">{s.copy}</span>
+              </li>
+            );
+          })}
         </ul>
       </div>
     </div>
@@ -58,3 +88,49 @@ const { brandHq } = homeData;
     </div>
   </div>
 </section>
+
+<script is:inline>
+  (function () {
+    const root = document.querySelector('[data-bhq]');
+    if (!root) return;
+    const items = root.querySelectorAll('[data-bhq-item]');
+    const navs = root.querySelectorAll('[data-bhq-nav]');
+    const variants = root.querySelectorAll('[data-bhq-variant]');
+    if (!items.length) return;
+
+    const reduceMotion = window.matchMedia &&
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    function activate(key) {
+      items.forEach(function (el) {
+        el.classList.toggle('is-active', el.getAttribute('data-bhq-item') === key);
+      });
+      navs.forEach(function (el) {
+        el.classList.toggle('is-active', el.getAttribute('data-bhq-nav') === key);
+      });
+      variants.forEach(function (el) {
+        el.classList.toggle('is-active', el.getAttribute('data-bhq-variant') === key);
+      });
+    }
+
+    items.forEach(function (item) {
+      const key = item.getAttribute('data-bhq-item');
+      item.addEventListener('mouseenter', function () { activate(key); });
+      item.addEventListener('focus', function () { activate(key); });
+      item.addEventListener('click', function () { activate(key); });
+    });
+
+    // Scroll-link: when a list item enters the middle of the viewport, activate it.
+    if ('IntersectionObserver' in window && !reduceMotion) {
+      const io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting && e.intersectionRatio > 0.6) {
+            const key = e.target.getAttribute('data-bhq-item');
+            if (key) activate(key);
+          }
+        });
+      }, { threshold: [0.6, 0.8], rootMargin: '-20% 0px -30% 0px' });
+      items.forEach(function (i) { io.observe(i); });
+    }
+  })();
+</script>
