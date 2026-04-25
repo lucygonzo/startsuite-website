@@ -28,7 +28,11 @@ const {
     <div class="bhq-hero-glow" aria-hidden="true"></div>
     <div class="bhq-hero-inner">
       <p class="bhq-eyebrow">{hero.eyebrow}</p>
-      <h1>{hero.headline}</h1>
+      <h1>
+        <span class="bhq-hero-lead">{hero.headline_lead}</span>
+        <em>{hero.headline_emphasis}</em>
+      </h1>
+      <p class="bhq-hero-tagline">{hero.tagline}</p>
       <p class="bhq-hero-sub">{hero.subhead}</p>
       <div class="bhq-hero-ctas">
         <a class="btn btn-primary btn-lg" onclick={hero.cta_primary_action} style="cursor:pointer">{hero.cta_primary} →</a>
@@ -135,13 +139,20 @@ const {
         <p class="bhq-section-eyebrow">{yoursSpecifically.eyebrow}</p>
         <h2>{yoursSpecifically.header}</h2>
         <p class="bhq-wedge-body">{yoursSpecifically.body}</p>
+        <p class="bhq-wedge-cap">{yoursSpecifically.examplesHeader}</p>
       </header>
       <ol class="bhq-wedge-examples">
         {yoursSpecifically.examples.map((ex, i) => (
           <li class="bhq-wedge-example scroll-reveal" style={`--i:${i}`}>
-            <span class="bhq-wedge-num">{String(i + 1).padStart(2, '0')}</span>
-            <div class="bhq-wedge-tag">{ex.tag}</div>
-            <p>{ex.copy}</p>
+            <div class="bhq-wedge-meta">
+              <span class="bhq-wedge-num">{String(i + 1).padStart(2, '0')}</span>
+              <span class="bhq-wedge-label">{ex.label}</span>
+            </div>
+            <p class="bhq-wedge-strategy">{ex.strategy}</p>
+            <p class="bhq-wedge-arrow" aria-hidden="true">Brand HQ surfaces ↓</p>
+            <ul class="bhq-wedge-surfaces">
+              {ex.surfaces.map((s) => <li>{s}</li>)}
+            </ul>
           </li>
         ))}
       </ol>
@@ -305,6 +316,18 @@ const {
     <div class="bhq-stack-inner">
       <h2 class="scroll-reveal">{stack.header}</h2>
       <p class="bhq-stack-body scroll-reveal">{stack.body}</p>
+      <ul class="bhq-stack-list">
+        {stack.bringIns.map((item, i) => (
+          <li class="scroll-reveal" style={`--i:${i}`}>
+            <span class="bhq-stack-arrow" aria-hidden="true">→</span>
+            <div>
+              <strong>{item.label}</strong>
+              <span>{item.detail}</span>
+            </div>
+          </li>
+        ))}
+      </ul>
+      <p class="bhq-stack-closing scroll-reveal">{stack.closing}</p>
     </div>
   </section>
 
