@@ -14,13 +14,10 @@ const ICONS: Record<string, string> = {
 };
 ---
 
-<section class="cb-wrap" aria-label="Currently inside">
-  <div class="cb-header">
-    <div class="cb-live" aria-label="Live indicator">
-      <span class="cb-live-dot" aria-hidden="true"></span>
-      <span class="cb-live-label">Live</span>
-    </div>
-    <div class="cb-eyebrow">{clientBand.eyebrow}</div>
+<section class="cb-wrap" aria-label="Live: rooms StartSuite is currently inside">
+  <div class="cb-live-anchor" aria-hidden="true">
+    <span class="cb-live-dot"></span>
+    <span class="cb-live-label">Live</span>
   </div>
   <div class="cb-marquee" data-cb-marquee>
     <div class="cb-track">
@@ -28,7 +25,7 @@ const ICONS: Record<string, string> = {
         const isClone = i >= clientBand.entries.length;
         const iconSvg = ICONS[e.icon] || ICONS.consumer;
         return (
-          <article class="cb-entry" aria-hidden={isClone ? 'true' : 'false'}>
+          <span class="cb-entry" aria-hidden={isClone ? 'true' : 'false'}>
             <svg
               class="cb-entry-icon"
               viewBox="0 0 24 24"
@@ -40,12 +37,11 @@ const ICONS: Record<string, string> = {
               aria-hidden="true"
               set:html={iconSvg}
             />
-            <div class="cb-entry-text">
-              <div class="cb-entry-size">{e.size}</div>
-              <div class="cb-entry-sector">{e.sector}</div>
-              <div class="cb-entry-detail">{e.detail}</div>
-            </div>
-          </article>
+            <span class="cb-entry-size">{e.size}</span>
+            <span class="cb-entry-sep" aria-hidden="true">·</span>
+            <span class="cb-entry-sector">{e.sector}</span>
+            <span class="cb-entry-detail">{e.detail}</span>
+          </span>
         );
       })}
     </div>

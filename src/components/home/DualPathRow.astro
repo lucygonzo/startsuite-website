@@ -6,13 +6,18 @@ const { dualPath } = homeData;
 
 <section class="dual-path-wrap">
   <div class="dual-path-grid">
-    {dualPath.cards.map((card: any) => (
-      <article class="dp-card scroll-reveal">
-        <div class="dp-eyebrow">For {card.audience}</div>
-        <h3>{card.heading}</h3>
-        <p>{card.copy}</p>
-        <a class="dp-cta" href={card.href}>{card.cta}</a>
-      </article>
-    ))}
+    <article class="dp-card scroll-reveal">
+      <div class="dp-eyebrow">For {dualPath.cards[0].audience}</div>
+      <h3>{dualPath.cards[0].heading}</h3>
+      <p>{dualPath.cards[0].copy}</p>
+      <a class="dp-cta" href={dualPath.cards[0].href}>{dualPath.cards[0].cta}</a>
+    </article>
+    <span class="dp-divider" aria-hidden="true"></span>
+    <article class="dp-card scroll-reveal">
+      <div class="dp-eyebrow">For {dualPath.cards[1].audience}</div>
+      <h3>{dualPath.cards[1].heading}</h3>
+      <p>{dualPath.cards[1].copy}</p>
+      <a class="dp-cta" href={dualPath.cards[1].href}>{dualPath.cards[1].cta}</a>
+    </article>
   </div>
 </section>

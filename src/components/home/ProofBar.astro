@@ -3,7 +3,6 @@ import homeData from '@/data/home.yaml';
 
 const { proofBar } = homeData;
 
-// Wrap the highlight phrase (case-insensitive, first occurrence) in <mark>.
 function applyHighlight(quote: string, highlight?: string): string {
   if (!highlight) return quote;
   const idx = quote.toLowerCase().indexOf(highlight.toLowerCase());
@@ -15,7 +14,7 @@ function applyHighlight(quote: string, highlight?: string): string {
 }
 ---
 
-<section class="proof-bar-wrap">
+<section class="proof-bar-wrap section-alt">
   <div class="proof-bar-inner">
     <p class="proof-bar-header marginalia">{proofBar.header}</p>
     <div class="proof-stage" data-proof>
@@ -28,28 +27,35 @@ function applyHighlight(quote: string, highlight?: string): string {
           >
             <span class="proof-quote-glyph" aria-hidden="true">&ldquo;</span>
             <blockquote set:html={applyHighlight(q.quote, q.highlight)} />
-            <figcaption>{q.attribution}</figcaption>
+            <figcaption>
+              <span class="proof-cite-rule" aria-hidden="true"></span>
+              {q.attribution}
+            </figcaption>
           </figure>
         ))}
       </div>
 
-      <div class="proof-cards" role="tablist" aria-label="Other quotes">
+      <ol class="proof-pager" role="tablist" aria-label="Other quotes">
         {proofBar.quotes.map((q: any, i: number) => (
-          <button
-            type="button"
-            class={`proof-card ${i === 0 ? 'is-hidden' : ''}`}
-            data-proof-card={i}
-            role="tab"
-            aria-selected={i === 0 ? 'true' : 'false'}
-          >
-            <span class="proof-card-glyph" aria-hidden="true">&ldquo;</span>
-            <span class="proof-card-quote">
-              {q.highlight ? <strong>{q.highlight}</strong> : q.quote.slice(0, 60) + '…'}
-            </span>
-            <span class="proof-card-attribution">{q.attribution}</span>
-          </button>
+          <li>
+            <button
+              type="button"
+              class={`proof-pager-item ${i === 0 ? 'is-active' : ''}`}
+              data-proof-card={i}
+              role="tab"
+              aria-selected={i === 0 ? 'true' : 'false'}
+            >
+              <span class="proof-pager-num">{String(i + 1).padStart(2, '0')}</span>
+              <span class="proof-pager-meta">
+                <span class="proof-pager-attribution">{q.attribution}</span>
+                {q.highlight && (
+                  <span class="proof-pager-teaser">&ldquo;{q.highlight}&rdquo;</span>
+                )}
+              </span>
+            </button>
+          </li>
         ))}
-      </div>
+      </ol>
     </div>
   </div>
 </section>
@@ -76,7 +82,7 @@ function applyHighlight(quote: string, highlight?: string): string {
       });
       cards.forEach(function (c, i) {
         const on = i === next;
-        c.classList.toggle('is-hidden', on);
+        c.classList.toggle('is-active', on);
         c.setAttribute('aria-selected', on ? 'true' : 'false');
       });
       active = next;
