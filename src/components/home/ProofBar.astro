@@ -1,0 +1,91 @@
+---
+import homeData from '@/data/home.yaml';
+
+const { proofBar } = homeData;
+---
+
+<section class="proof-bar-wrap">
+  <div class="proof-bar-inner">
+    <p class="proof-bar-header marginalia">{proofBar.header}</p>
+    <div class="proof-bar-stage" data-proof-stage>
+      {proofBar.quotes.map((q: any, i: number) => (
+        <figure
+          class={`proof-quote ${i === 0 ? 'is-active' : ''}`}
+          data-proof-slide={i}
+          aria-hidden={i === 0 ? 'false' : 'true'}
+        >
+          <blockquote>{q.quote}</blockquote>
+          <figcaption>{q.attribution}</figcaption>
+        </figure>
+      ))}
+    </div>
+    <div class="proof-bar-nav" role="tablist" aria-label="Quote navigation">
+      {proofBar.quotes.map((_: any, i: number) => (
+        <button
+          type="button"
+          class={`proof-dot ${i === 0 ? 'is-active' : ''}`}
+          data-proof-dot={i}
+          role="tab"
+          aria-selected={i === 0 ? 'true' : 'false'}
+          aria-label={`Quote ${i + 1}`}
+        ></button>
+      ))}
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  (function () {
+    const stage = document.querySelector('[data-proof-stage]');
+    if (!stage) return;
+    const slides = stage.querySelectorAll('[data-proof-slide]');
+    const dots = document.querySelectorAll('[data-proof-dot]');
+    if (!slides.length) return;
+
+    let active = 0;
+    let timer = null;
+    const INTERVAL = 8000;
+
+    function go(i) {
+      active = (i + slides.length) % slides.length;
+      slides.forEach(function (s, idx) {
+        const on = idx === active;
+        s.classList.toggle('is-active', on);
+        s.setAttribute('aria-hidden', on ? 'false' : 'true');
+      });
+      dots.forEach(function (d, idx) {
+        const on = idx === active;
+        d.classList.toggle('is-active', on);
+        d.setAttribute('aria-selected', on ? 'true' : 'false');
+      });
+    }
+
+    function start() {
+      stop();
+      timer = setInterval(function () { go(active + 1); }, INTERVAL);
+    }
+    function stop() { if (timer) { clearInterval(timer); timer = null; } }
+
+    dots.forEach(function (d, i) {
+      d.addEventListener('click', function () {
+        go(i);
+        start();
+      });
+    });
+
+    const wrap = document.querySelector('.proof-bar-wrap');
+    if (wrap) {
+      wrap.addEventListener('mouseenter', stop);
+      wrap.addEventListener('mouseleave', start);
+    }
+
+    if ('IntersectionObserver' in window && wrap) {
+      const io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) { e.isIntersecting ? start() : stop(); });
+      }, { threshold: 0.25 });
+      io.observe(wrap);
+    } else {
+      start();
+    }
+  })();
+</script>

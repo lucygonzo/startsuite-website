@@ -1,0 +1,60 @@
+---
+import homeData from '@/data/home.yaml';
+
+const { brandHq } = homeData;
+---
+
+<section class="bhq-wrap">
+  <div class="bhq-inner">
+    <header class="bhq-header scroll-reveal">
+      <h2>{brandHq.header}</h2>
+      <p class="bhq-subhead">{brandHq.subhead}</p>
+    </header>
+
+    <div class="bhq-body">
+      <div class="bhq-visual scroll-reveal" aria-hidden="true">
+        <div class="bhq-visual-placeholder">
+          <div class="bhq-mock-chrome">
+            <span></span><span></span><span></span>
+          </div>
+          <div class="bhq-mock-stage">
+            <div class="bhq-mock-nav">
+              {brandHq.sections.map((s: any) => (
+                <span>{s.title.replace('.', '')}</span>
+              ))}
+            </div>
+            <div class="bhq-mock-content">
+              <div class="bhq-mock-bar"></div>
+              <div class="bhq-mock-bar bhq-mock-bar-sm"></div>
+              <div class="bhq-mock-bar bhq-mock-bar-md"></div>
+              <div class="bhq-mock-grid">
+                <div></div><div></div><div></div><div></div>
+              </div>
+            </div>
+          </div>
+          <p class="bhq-visual-note marginalia">Brand HQ preview &middot; placeholder</p>
+        </div>
+      </div>
+
+      <div class="bhq-list scroll-reveal">
+        <p class="bhq-intro">{brandHq.intro}</p>
+        <ul>
+          {brandHq.sections.map((s: any) => (
+            <li>
+              <strong>{s.title}</strong>
+              <span>{s.copy}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <div class="bhq-closing scroll-reveal">
+      <p>{brandHq.closing}</p>
+    </div>
+
+    <div class="bhq-cta-row scroll-reveal">
+      <a class="btn btn-primary btn-lg" href={brandHq.href}>{brandHq.cta} →</a>
+    </div>
+  </div>
+</section>

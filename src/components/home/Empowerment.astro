@@ -1,0 +1,46 @@
+---
+import homeData from '@/data/home.yaml';
+
+const { empowerment } = homeData;
+---
+
+<section class="emp-wrap section-alt">
+  <div class="emp-inner">
+    <header class="emp-header scroll-reveal">
+      <h2>{empowerment.header}</h2>
+      <p class="emp-subhead">{empowerment.subhead}</p>
+    </header>
+
+    <p class="emp-body scroll-reveal">{empowerment.body}</p>
+
+    <div class="emp-columns">
+      <div class="emp-col scroll-reveal">
+        <h3 class="emp-col-title">{empowerment.dont.title}</h3>
+        <ul class="emp-col-list emp-col-dont">
+          {empowerment.dont.items.map((item: string) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      </div>
+      <div class="emp-col scroll-reveal">
+        <h3 class="emp-col-title">{empowerment.do.title}</h3>
+        <ul class="emp-col-list emp-col-do">
+          {empowerment.do.items.map((item: string) => (
+            <li>{item}</li>
+          ))}
+        </ul>
+      </div>
+    </div>
+
+    <div class="emp-services scroll-reveal">
+      <h3>{empowerment.services.heading}</h3>
+      <p>{empowerment.services.copy}</p>
+      <a class="emp-services-link" href={empowerment.services.href}>{empowerment.services.link} →</a>
+    </div>
+
+    <figure class="emp-pull-quote scroll-reveal">
+      <blockquote>{empowerment.pullQuote.quote}</blockquote>
+      <figcaption>{empowerment.pullQuote.attribution}</figcaption>
+    </figure>
+  </div>
+</section>

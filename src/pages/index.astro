@@ -2,10 +2,16 @@
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import HeroSection from '@/components/home/HeroSection.astro';
 import DualPathRow from '@/components/home/DualPathRow.astro';
+import ProofBar from '@/components/home/ProofBar.astro';
+import BrandHqReveal from '@/components/home/BrandHqReveal.astro';
+import Empowerment from '@/components/home/Empowerment.astro';
 ---
 
 <BaseLayout>
   <HeroSection />
   <DualPathRow />
-  {/* Stages 2 & 3: ProofBar, BrandHQReveal, Empowerment, WhoFor, VCFirm, SecondProof, FinalCta */}
+  <ProofBar />
+  <BrandHqReveal />
+  <Empowerment />
+  {/* Stage 3: WhoFor, VCFirm, SecondProof, FinalCta */}
 </BaseLayout>
