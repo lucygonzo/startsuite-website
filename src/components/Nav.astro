@@ -6,9 +6,25 @@ interface Props {
 const { currentPath } = Astro.props;
 
 const forYouItems = [
-  { href: '/for-founders', label: 'For Founders' },
-  { href: '/for-operators', label: 'For Operators / Marketing Teams' },
-  { href: '/for-partners', label: 'For Partners' },
+  {
+    href: '/for-founders',
+    label: 'For Founders',
+    description: 'A brand foundation built in weeks. Yours from day one.',
+    icon: 'founders',
+  },
+  {
+    href: '/for-operators',
+    label: 'For Operators',
+    sublabel: 'Marketing Teams',
+    description: 'The brand operating system for CMOs running real complexity.',
+    icon: 'operators',
+  },
+  {
+    href: '/for-partners',
+    label: 'For Partners',
+    description: 'Brand infrastructure for VCs, accelerators, and ecosystem partners.',
+    icon: 'partners',
+  },
 ];
 
 const links = [
@@ -51,17 +67,52 @@ function isAnyChildActive(items: readonly { href: string }[]): boolean {
                 <path d="M2 2 L6 6 L10 2" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
               </svg>
             </button>
-            <ul class="nav-dropdown" role="menu" data-dropdown-menu>
-              {link.items.map((sub) => (
-                <li role="none">
+            <div class="nav-mega" role="menu" data-dropdown-menu>
+              <p class="nav-mega-label">Pick the path that fits you</p>
+              <div class="nav-mega-grid">
+                {link.items.map((sub: any) => (
                   <a
                     href={sub.href}
                     role="menuitem"
-                    class={isActive(sub.href) ? 'active' : ''}
-                  >{sub.label}</a>
-                </li>
-              ))}
-            </ul>
+                    class={`nav-mega-card ${isActive(sub.href) ? 'is-active' : ''}`}
+                  >
+                    <span class="nav-mega-icon" aria-hidden="true">
+                      {sub.icon === 'founders' && (
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                          <path d="M12 2 L14.5 9 L22 9 L16 13.5 L18.5 21 L12 16.5 L5.5 21 L8 13.5 L2 9 L9.5 9 Z"/>
+                        </svg>
+                      )}
+                      {sub.icon === 'operators' && (
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                          <rect x="3" y="3" width="7" height="7"/>
+                          <rect x="14" y="3" width="7" height="7"/>
+                          <rect x="3" y="14" width="7" height="7"/>
+                          <rect x="14" y="14" width="7" height="7"/>
+                        </svg>
+                      )}
+                      {sub.icon === 'partners' && (
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                          <circle cx="12" cy="12" r="3"/>
+                          <circle cx="5" cy="5" r="2"/>
+                          <circle cx="19" cy="5" r="2"/>
+                          <circle cx="5" cy="19" r="2"/>
+                          <circle cx="19" cy="19" r="2"/>
+                          <path d="M9.5 9.5 L6.5 6.5 M14.5 9.5 L17.5 6.5 M9.5 14.5 L6.5 17.5 M14.5 14.5 L17.5 17.5" opacity="0.5"/>
+                        </svg>
+                      )}
+                    </span>
+                    <div class="nav-mega-text">
+                      <strong>
+                        {sub.label}
+                        {sub.sublabel && <em class="nav-mega-sublabel">/ {sub.sublabel}</em>}
+                      </strong>
+                      <span>{sub.description}</span>
+                    </div>
+                    <span class="nav-mega-arrow" aria-hidden="true">→</span>
+                  </a>
+                ))}
+              </div>
+            </div>
           </>
         ) : (
           <a href={link.href} id={link.id} class={isActive(link.href) ? 'active' : ''}>
@@ -85,7 +136,7 @@ function isAnyChildActive(items: readonly { href: string }[]): boolean {
       link.type === 'dropdown' ? (
         <>
           <li class="nav-mobile-group-label">{link.label}</li>
-          {link.items.map((sub) => (
+          {link.items.map((sub: any) => (
             <li>
               <a href={sub.href} class={`nav-mobile-sub ${isActive(sub.href) ? 'active' : ''}`}>
                 {sub.label}
@@ -128,7 +179,6 @@ function isAnyChildActive(items: readonly { href: string }[]): boolean {
     trigger.addEventListener('keydown', function (e) {
       if (e.key === 'Escape') close();
     });
-    // Open on hover (desktop only — pointer:fine)
     if (window.matchMedia && window.matchMedia('(hover: hover)').matches) {
       wrap.addEventListener('mouseenter', open);
       wrap.addEventListener('mouseleave', close);
