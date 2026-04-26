@@ -128,26 +128,19 @@ const faqSchema = {
               <h3>{card.name}</h3>
             </div>
             <p class="sv-mode-claim">{card.claim}</p>
-            <div class="sv-mode-best">
-              <p class="sv-mode-best-label">Best for</p>
-              <p class="sv-mode-best-copy">{card.bestFor}</p>
-            </div>
-            <div class="sv-mode-list">
-              <p class="sv-mode-list-label">What's in it</p>
-              <ul>
-                {card.whatsInIt.map((item: string) => (
-                  <li>
-                    <span class="sv-mode-check" aria-hidden="true">
-                      <svg viewBox="0 0 14 14" fill="none">
-                        <path d="M3 7.5 L6 10.5 L11 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                      </svg>
-                    </span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <p class="sv-mode-tagline">{card.tagline}</p>
+            <span class="sv-mode-for">For: {card.forTag}</span>
+            <ul class="sv-mode-list">
+              {card.whatsInIt.map((item: string) => (
+                <li>
+                  <span class="sv-mode-check" aria-hidden="true">
+                    <svg viewBox="0 0 14 14" fill="none">
+                      <path d="M3 7.5 L6 10.5 L11 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                  </span>
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
             <a class="sv-mode-cta" onclick="openModal()" style="cursor:pointer">{card.cta} →</a>
           </article>
         ))}
@@ -155,45 +148,24 @@ const faqSchema = {
     </div>
   </section>
 
-  <!-- ─── THREE PHASES ─── -->
+  <!-- ─── THREE PHASES (rail) ─── -->
   <section class="sv-phases section-alt">
     <div class="sv-phases-inner">
       <header class="sv-phases-header scroll-reveal">
         <p class="sv-section-eyebrow">What an engagement looks like</p>
         <h2>{phases.header}</h2>
+        {phases.subhead && <p class="sv-phases-sub">{phases.subhead}</p>}
       </header>
-      <div class="sv-phases-flow">
+      <ol class="sv-phases-rail" aria-label="Engagement phases">
+        <span class="sv-phases-rail-line" aria-hidden="true"></span>
         {phases.cards.map((p: any, i: number) => (
-          <>
-            <article class="sv-phase scroll-reveal" style={`--i:${i}`}>
-              <div class="sv-phase-num-rail">
-                <span class="sv-phase-num">{p.num}</span>
-                <span class="sv-phase-rail" aria-hidden="true"></span>
-              </div>
-              <div class="sv-phase-body">
-                <h3>{p.name}</h3>
-                <p class="sv-phase-what">{p.what}</p>
-                <p class="sv-phase-list-label">What's happening</p>
-                <ul class="sv-phase-list">
-                  {p.happening.map((item: string) => <li>{item}</li>)}
-                </ul>
-                <div class="sv-phase-experience">
-                  <span class="sv-phase-experience-label">What you experience</span>
-                  <p>{p.experience}</p>
-                </div>
-              </div>
-            </article>
-            {i < phases.cards.length - 1 && (
-              <div class="sv-phase-arrow" aria-hidden="true">
-                <svg viewBox="0 0 80 16" preserveAspectRatio="none">
-                  <line x1="0" y1="8" x2="70" y2="8"/>
-                  <polyline points="62,3 78,8 62,13"/>
-                </svg>
-              </div>
-            )}
-          </>
+          <li class="sv-phase-node scroll-reveal" style={`--i:${i}`}>
+            <span class="sv-phase-num">{p.num}</span>
+            <h3>{p.name}</h3>
+            <p>{p.what}</p>
+          </li>
         ))}
-      </div>
+      </ol>
     </div>
   </section>
 
@@ -273,7 +245,10 @@ const faqSchema = {
         {examples.cards.map((ex: any, i: number) => (
           <article class="sv-example scroll-reveal" style={`--i:${i}`}>
             <span class="sv-example-tag">{ex.tag}</span>
-            <p class="sv-example-body">{ex.body}</p>
+            <div class="sv-example-text">
+              {ex.pull && <p class="sv-example-pull">{ex.pull}</p>}
+              <p class="sv-example-body">{ex.body}</p>
+            </div>
           </article>
         ))}
       </div>
