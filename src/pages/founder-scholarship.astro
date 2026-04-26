@@ -1,0 +1,183 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+---
+<BaseLayout
+  title="Founder Scholarship — StartSuite"
+  description="A scholarship program for founders at the protostar stage — earlier than pre-Series A. Same Brand HQ system, scoped engagement, partial scholarship."
+>
+  <section class="fs-hero">
+    <div class="fs-hero-glow" aria-hidden="true"></div>
+    <div class="fs-hero-orbits" aria-hidden="true">
+      <span></span><span></span><span></span>
+    </div>
+    <div class="fs-hero-inner">
+      <p class="fs-eyebrow">For protostars · Founder Scholarship</p>
+      <h1>The earliest, dense, nascent moment.</h1>
+      <p class="fs-hero-sub">An early-stage star is called a protostar. Gas and dust collapsing into a hot, dense core. The earliest stage of stellar formation, before what comes next.</p>
+      <p class="fs-hero-sub fs-hero-sub-emph">If that's where you are, we have a path for you.</p>
+
+      <div class="fs-card">
+        <p class="fs-card-eyebrow">What it is</p>
+        <p class="fs-card-body">The Founder Scholarship is a small cohort program for founders earlier than pre-Series A. You get the same Brand HQ system, a scoped engagement, and a partial scholarship covering a meaningful share of the build.</p>
+        <ul class="fs-card-list">
+          <li><strong>Cohort size</strong><span>Three founders per cohort, two cohorts a year.</span></li>
+          <li><strong>Engagement</strong><span>Six weeks. Live Brand HQ ready to walk into.</span></li>
+          <li><strong>Scholarship</strong><span>Partial coverage on engagement fees.</span></li>
+          <li><strong>What we look for</strong><span>Real product. Real point of view. The protostar moment.</span></li>
+        </ul>
+      </div>
+
+      <div class="fs-hero-ctas">
+        <a class="btn btn-primary btn-lg" onclick="openModal()" style="cursor:pointer">Apply to the program →</a>
+        <a class="btn btn-outline btn-lg" href="/for-founders">See the full StartSuite for Founders →</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="fs-back">
+    <div class="fs-back-inner">
+      <p class="fs-back-note">Have a peer who's protostar-stage? Send them this link.</p>
+      <a class="fs-back-link" href="/">Back to StartSuite →</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  .fs-hero{
+    position:relative;
+    padding:160px 48px 100px;
+    overflow:hidden;
+  }
+  .fs-hero-glow{
+    position:absolute;top:-180px;left:50%;
+    transform:translateX(-50%);
+    width:1100px;height:680px;
+    background:radial-gradient(ellipse,rgba(139,109,181,0.16) 0%,transparent 65%);
+    pointer-events:none;
+  }
+  .fs-hero-orbits{
+    position:absolute;top:140px;left:50%;
+    transform:translateX(-50%);
+    width:520px;height:520px;
+    pointer-events:none;
+    z-index:0;
+  }
+  .fs-hero-orbits span{
+    position:absolute;inset:0;border-radius:50%;
+    border:1px dashed rgba(139,109,181,0.15);
+  }
+  .fs-hero-orbits span:nth-child(1){
+    inset:25%;border-style:solid;border-color:rgba(139,109,181,0.18);
+    animation:fsSpin 80s linear infinite;
+  }
+  .fs-hero-orbits span:nth-child(2){
+    inset:12%;
+    animation:fsSpin 130s linear infinite reverse;
+  }
+  .fs-hero-orbits span:nth-child(3){
+    animation:fsSpin 200s linear infinite;
+  }
+  @keyframes fsSpin{
+    from{transform:rotate(0deg)}
+    to{transform:rotate(360deg)}
+  }
+  .fs-hero-inner{
+    max-width:780px;margin:0 auto;
+    position:relative;z-index:1;
+    text-align:center;
+    display:flex;flex-direction:column;gap:24px;align-items:center;
+  }
+  .fs-eyebrow{
+    font-family:var(--mono);
+    font-size:10px;font-weight:700;letter-spacing:0.2em;
+    text-transform:uppercase;color:var(--purple-light);
+    margin:0;
+  }
+  .fs-hero h1{
+    font-size:clamp(34px,5vw,64px);
+    letter-spacing:-0.04em;line-height:1.05;
+    color:var(--text);margin:0;font-weight:800;
+    background:linear-gradient(160deg,#fff 30%,var(--accent) 100%);
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+    background-clip:text;
+  }
+  .fs-hero-sub{
+    font-size:16px;line-height:1.78;color:var(--text-muted);
+    max-width:620px;margin:0;
+  }
+  .fs-hero-sub-emph{
+    color:var(--text);font-weight:500;
+  }
+  .fs-card{
+    width:100%;max-width:680px;
+    margin-top:24px;
+    padding:28px 32px;
+    background:linear-gradient(160deg,rgba(139,109,181,0.06) 0%,rgba(139,109,181,0.015) 100%);
+    border:1px solid rgba(139,109,181,0.18);
+    border-radius:var(--radius-lg);
+    text-align:left;
+    display:flex;flex-direction:column;gap:14px;
+  }
+  .fs-card-eyebrow{
+    font-family:var(--mono);
+    font-size:10px;font-weight:700;letter-spacing:0.18em;
+    text-transform:uppercase;color:var(--purple-light);
+    margin:0;
+  }
+  .fs-card-body{
+    font-size:15px;line-height:1.7;color:var(--text);margin:0;
+  }
+  .fs-card-list{
+    list-style:none;padding:0;margin:8px 0 0;
+    display:grid;grid-template-columns:1fr 1fr;gap:12px;
+  }
+  .fs-card-list li{
+    display:flex;flex-direction:column;gap:3px;
+    padding:14px 16px;
+    background:rgba(0,0,0,0.25);
+    border:1px solid var(--border);
+    border-radius:10px;
+  }
+  .fs-card-list strong{
+    font-family:var(--mono);
+    font-size:9px;font-weight:700;letter-spacing:0.16em;
+    text-transform:uppercase;color:var(--purple-light);
+  }
+  .fs-card-list span{
+    font-size:13px;line-height:1.5;color:var(--text);
+  }
+  .fs-hero-ctas{
+    display:flex;gap:14px;flex-wrap:wrap;justify-content:center;margin-top:8px;
+  }
+  .fs-back{
+    padding:60px 48px 100px;
+    text-align:center;
+    border-top:1px solid var(--border);
+    margin-top:40px;
+  }
+  .fs-back-inner{
+    max-width:680px;margin:0 auto;
+    display:flex;flex-direction:column;gap:14px;align-items:center;
+  }
+  .fs-back-note{
+    font-size:13px;color:var(--text-muted);margin:0;
+  }
+  .fs-back-link{
+    font-size:13px;font-weight:600;color:var(--purple-light);
+    text-decoration:none;
+    transition:color var(--duration) var(--ease);
+  }
+  .fs-back-link:hover{color:var(--text)}
+
+  @media (max-width: 700px){
+    .fs-hero{padding:120px 24px 80px}
+    .fs-card{padding:22px 24px}
+    .fs-card-list{grid-template-columns:1fr}
+    .fs-hero-ctas{flex-direction:column;align-items:stretch;width:100%}
+    .fs-hero-ctas .btn{justify-content:center}
+    .fs-hero-orbits{width:380px;height:380px}
+  }
+  @media (prefers-reduced-motion: reduce){
+    .fs-hero-orbits span{animation:none}
+  }
+</style>

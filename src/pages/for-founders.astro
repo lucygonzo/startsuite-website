@@ -13,6 +13,7 @@ const {
   caseStudy,
   isnt,
   founderToFounder,
+  scholarship,
   fundsBanner,
   faq,
   finalCta,
@@ -412,6 +413,24 @@ const faqSchema = {
         <a class="ff-f2f-link" href={founderToFounder.href}>{founderToFounder.cta} →</a>
       )}
     </div>
+  </section>
+
+  <!-- ─── SCHOLARSHIP INLINE NOTE (Protostar tile) ─── -->
+  <section class="ff-scholarship">
+    <a class="ff-scholarship-tile" href={scholarship.href}>
+      <div class="ff-scholarship-mark" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none">
+          <circle cx="12" cy="12" r="3" fill="currentColor"/>
+          <circle cx="12" cy="12" r="6.5" stroke="currentColor" stroke-width="0.6" stroke-dasharray="2 3" opacity="0.6"/>
+          <circle cx="12" cy="12" r="10.5" stroke="currentColor" stroke-width="0.4" stroke-dasharray="1 4" opacity="0.35"/>
+        </svg>
+      </div>
+      <div class="ff-scholarship-text">
+        <span class="ff-scholarship-eyebrow">{scholarship.eyebrow}</span>
+        <p>{scholarship.text}</p>
+      </div>
+      <span class="ff-scholarship-cta">{scholarship.cta} →</span>
+    </a>
   </section>
 
   <!-- ─── FUNDS BANNER (full-width pivot CTA) ─── -->

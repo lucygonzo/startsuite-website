@@ -87,6 +87,12 @@ founderToFounder:
   cta: "The full story"
   href: "/about"
 
+scholarship:
+  eyebrow: "For protostars"
+  text: "Earlier than pre-Series A? We run a Founder Scholarship for founders at the protostar stage."
+  cta: "Apply to the program"
+  href: "/founder-scholarship"
+
 fundsBanner:
   eyebrow: "For funds & ecosystem partners"
   header: "Backing founders who'd build with this?"
@@ -101,7 +107,7 @@ faq:
     - q: "How long does it take to build a Brand HQ?"
       a: "A few weeks, not a few quarters. We start outside-in, mapping what your audience already sees in the world, then organize the internal knowledge living across decks, drives, and team conversations. Most clients have a working Brand HQ within four to six weeks of kickoff."
     - q: "What stage is StartSuite designed for?"
-      a: "Founders from pre-Series A through Series B. Earlier-stage founders who already have a clear point of view also work. The common thread is taste, ambition, and a real product, not a specific funding round."
+      a: "Founders from pre-Series A through Series B. Earlier than that? We run a Founder Scholarship for protostar-stage founders. Same system, scoped engagement, partial scholarship. The common thread across both paths is taste, ambition, and a real product, not a specific funding round."
     - q: "Do I need to have a brand already, or can you build from scratch?"
       a: "Both work. We've built Brand HQs for founders with a fully-developed brand they wanted organized into a working system, and for founders who came to us with a product, a point of view, and a blank page. The system is the same either way. The work is in the gaps."
     - q: "How is this different from a brand consultant or a fractional CMO?"

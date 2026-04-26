@@ -817,6 +817,69 @@
 }
 .ff-f2f-link:hover{color:var(--text)}
 
+/* ── SCHOLARSHIP TILE (Protostar inline) ─────────────────────── */
+.ff-scholarship{
+  padding:0 48px;
+  margin:-32px auto 0;
+  position:relative;z-index:1;
+}
+.ff-scholarship-tile{
+  display:flex;align-items:center;gap:18px;
+  max-width:760px;margin:0 auto;
+  padding:18px 22px;
+  background:rgba(19,19,24,0.6);
+  border:1px solid var(--border);
+  border-radius:14px;
+  text-decoration:none;
+  backdrop-filter:blur(10px);
+  transition:transform var(--duration) var(--ease),border-color var(--duration) var(--ease),background var(--duration) var(--ease);
+}
+.ff-scholarship-tile:hover{
+  transform:translateY(-2px);
+  border-color:rgba(196,169,224,0.32);
+  background:rgba(19,19,24,0.85);
+}
+.ff-scholarship-mark{
+  flex-shrink:0;width:38px;height:38px;
+  color:var(--purple-light);
+  position:relative;
+  display:flex;align-items:center;justify-content:center;
+}
+.ff-scholarship-mark svg{
+  width:100%;height:100%;
+  animation:ffOrbitSpin 28s linear infinite;
+  transform-origin:center;
+}
+@keyframes ffOrbitSpin{
+  from{transform:rotate(0deg)}
+  to{transform:rotate(360deg)}
+}
+.ff-scholarship-mark::before{
+  content:'';position:absolute;inset:-4px;
+  border-radius:50%;
+  background:radial-gradient(circle,rgba(196,169,224,0.28) 0%,transparent 60%);
+  pointer-events:none;
+}
+.ff-scholarship-text{flex:1;min-width:0;display:flex;flex-direction:column;gap:3px}
+.ff-scholarship-eyebrow{
+  font-family:var(--mono);
+  font-size:9.5px;font-weight:700;letter-spacing:0.18em;
+  text-transform:uppercase;color:var(--purple-light);
+}
+.ff-scholarship-text p{
+  font-size:14px;line-height:1.5;color:var(--text);margin:0;
+  letter-spacing:-0.005em;
+}
+.ff-scholarship-cta{
+  font-size:13px;font-weight:600;color:var(--purple-light);
+  white-space:nowrap;flex-shrink:0;
+  transition:color var(--duration) var(--ease);
+}
+.ff-scholarship-tile:hover .ff-scholarship-cta{color:#fff}
+@media (prefers-reduced-motion: reduce){
+  .ff-scholarship-mark svg{animation:none}
+}
+
 /* ── FUNDS BANNER (pivot CTA) ─────────────────────────────────── */
 .ff-funds{
   position:relative;
@@ -978,6 +1041,9 @@
   .ff-isnt{padding:80px 24px}
   .ff-isnt-grid{grid-template-columns:1fr;gap:36px;padding:24px 0}
   .ff-f2f{padding:48px 24px 80px}
+  .ff-scholarship{padding:0 24px;margin-top:-24px}
+  .ff-scholarship-tile{flex-direction:column;align-items:flex-start;gap:14px;text-align:left}
+  .ff-scholarship-cta{width:100%}
   .ff-funds{padding:40px 24px 44px}
   .ff-funds-inner{grid-template-columns:1fr;gap:24px}
   .ff-funds-action .btn{width:100%;justify-content:center}
