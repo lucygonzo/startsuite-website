@@ -1,0 +1,186 @@
+meta:
+  title: "StartSuite for Operators | Brand HQ for CMOs and brand teams"
+  description: "The brand operating system for CMOs, VP Brand leaders, and marketing teams. Where strategy lives, creative work moves, category signals reach you, and context travels."
+  ogTitle: "StartSuite for Operators"
+  ogDescription: "The brand operating system for CMOs and marketing teams running real complexity. Strategy, creative work, signals, and context, all in one place, sharper every quarter."
+
+referenceBrand: "Atlas Co"
+
+hero:
+  eyebrow: "For Operators"
+  headline_lead: "The system your brand"
+  headline_emphasis: "has been waiting for."
+  subhead: "The brand operating system for CMOs, VP Brand leaders, and marketing teams running real complexity. Where strategy lives, work moves, signals reach you, and context travels."
+  cta_primary: "Request a spot"
+  cta_primary_action: "openModal()"
+  cta_secondary: "See Brand HQ"
+  cta_secondary_href: "/brand-hq"
+  visual_caption: "A real Brand HQ. Built around the way your team already works."
+
+empathy:
+  header: "You already have the brand. Your team needs more of it, in the right shape."
+  lines:
+    - "The brand exists. The thinking is real."
+    - "The work is shipping. The team is moving."
+    - "What's missing is the depth and structure your team actually needs to perform. Let alone hand off to a new hire, a contractor, or an agent."
+
+pillars:
+  header: "The four moments where everything else falls apart."
+  subhead: "Every brand team has the same four breakdowns. StartSuite is what those four moments look like when they actually work."
+  cards:
+    - icon: "strategy"
+      title: "Where brand strategy actually lives."
+      copy: "Your positioning, audience, voice, and decisions in one place. Not buried in a deck someone made eighteen months ago. Not scattered across Notion. Not carried in someone's head."
+    - icon: "work"
+      title: "How creative work moves through your team."
+      copy: "Briefs, agencies, contractors, and approvals all working from the same source. No more re-onboarding every quarter. No more 'wait, what's our voice again.'"
+    - icon: "signals"
+      title: "How signals from your category reach you."
+      copy: "Live, filtered through your strategy. Not generic competitive reports nobody reads. Not RSS feeds drowning in noise. The signals that actually move your brand."
+    - icon: "context"
+      title: "How context travels."
+      copy: "The thinking that underpins everything else, structured so any new hire, any agency, any agent can use it the moment they need it."
+
+beforeAfter:
+  header: "What changes."
+  rows:
+    - now: "60-page brand guide PDF nobody opens"
+      after: "A living brand context your team cites every week, sharper every quarter"
+    - now: "Social content planner that doesn't know your strategy"
+      after: "Content that pulls from your actual positioning and voice"
+    - now: "Competitive intelligence feeds delivering generic advice"
+      after: "Category signals filtered through your strategy, in your context"
+    - now: "Website analytics without the brand context to make them useful"
+      after: "Performance tied to your brand pillars and strategic POVs"
+    - now: "Meeting notes and decisions sitting in documents nobody finds"
+      after: "Decisions logged with rationale, surfaced when they matter"
+
+whyNow:
+  header: "The cost of the current operating model."
+  body: "Operators rarely think they're doing brand work wrong. They're doing it the way it's been done for fifteen years. The problem isn't effort. It's that the model was built for fewer channels, fewer tools, and fewer people who needed to understand the brand. The cost shows up in three places."
+  columns:
+    - title: "You stop paying for context twice."
+      copy: "Every new agency, contractor, and hire stops re-onboarding to your brand from scratch."
+      visual: "library"
+    - title: "You can show the work in CFO language."
+      copy: "Brand pillars tied to performance signals. Campaigns tied to revenue. The brand pitch becomes a business pitch."
+      visual: "performance"
+    - title: "The brand survives the team change."
+      copy: "Decisions logged. Strategic shifts dated. The next person walks in and starts ahead, not from scratch."
+      visual: "onboarding"
+
+roi:
+  header: "What this looks like in business terms."
+  blocks:
+    - claim: "3-5x"
+      title: "consolidation."
+      copy: "Most clients fold three to five existing tools and engagements into Brand HQ. The savings on those alone often cover the engagement."
+    - claim: "Faster"
+      title: "onboarding, every time."
+      copy: "New hires, agencies, and contractors ramp meaningfully faster. The conversation moves from 'let me explain the brand' to 'let me see what you'd do.'"
+    - claim: "2 quarters"
+      title: "typical payback."
+      copy: "Most engagements pay back within two quarters when measured against consolidated tooling, faster ramps, and reduced rework on briefs and campaigns."
+
+jobs:
+  header: "The jobs this does for your team."
+  cards:
+    - title: "Run a brand refresh without losing six months."
+      copy: "Brand HQ holds the existing context and runs the refresh as a system update, not a wholesale restart. The team keeps moving while the brand evolves."
+      visual: "refresh"
+    - title: "Brief an agency in one call instead of three."
+      copy: "Send the access link. The kickoff becomes a working session, not an orientation."
+      visual: "share"
+    - title: "Walk into the board meeting with the proof."
+      copy: "Brand performance shown in the metrics the CFO and CEO are watching. Category share, sentiment trajectory, audience growth, campaign-to-revenue."
+      visual: "boardroom"
+    - title: "Stop watching your category from a distance."
+      copy: "Brand HQ tracks category signals and filters them through your strategy. Your team walks into every conversation already current."
+      visual: "competitive"
+    - title: "Hand off the brand without handing over a year.”"
+      copy: "When someone leaves, the brand stays. The next person walks in and starts ahead, not from scratch."
+      visual: "handoff"
+
+caseStudy:
+  header: "The system, in real life."
+  body: "A CMO at a Fortune 200 construction company came to us with a brand that lived everywhere and nowhere. Decades of work, four sub-brands, three agencies, a dozen state-by-state cuts, and a centennial milestone she was running toward without a system to organize against. Six weeks later, her team had a Brand HQ that consolidated the strategy, the state-by-state intelligence, the centennial roadmap, and the live category signals. The first board meeting after, she walked in with the brand connected to the business in a way she'd been trying to articulate for two years."
+  quote: "I wish I had this on May 5th, honestly. We spent months doing internal and external interviews, having people scour the competitive analysis, setting the teams up, getting the brand background work all in one spot."
+  attribution: "CMO, Fortune 200 construction company"
+
+isnt:
+  header: "What this isn't."
+  dont:
+    - "A brand SaaS subscription you forget about."
+    - "A single-deliverable agency engagement."
+    - "A consultant you onboard and lose."
+    - "A framework that lives on a shelf."
+  do:
+    title: "What this is."
+    items:
+      - "A system your team uses every day."
+      - "The strategic context that makes your existing tools work better."
+      - "A foundation that survives every team change."
+      - "The brand operating model your stack has been missing."
+
+vcInHouse:
+  header: "A creative firm with a VC firm in-house."
+  body: "StartSuite is independent and opinionated. 46 Capital is in the room with us. For operators, that means three things. We bring the speed and conviction of a fund-backed product team to brand work that traditionally moves at agency pace. We're calibrated to how investors and acquirers actually evaluate brand at exit. And we have a network of operators across the 46 portfolio you can tap when the moment calls for it."
+  cta: "The full story"
+  href: "/about"
+
+crossLinks:
+  header: "Where this fits in the rest of StartSuite."
+  cards:
+    - heading: "For Founders."
+      copy: "Building the next generation of leaders inside your company? Brand HQ is also the system founders use to plant a flag for their point of view from day one."
+      cta: "StartSuite for founders"
+      href: "/for-founders"
+    - heading: "For Funds and Partners."
+      copy: "StartSuite has a version tuned for the funds and ecosystem partners who back the next wave of operators."
+      cta: "StartSuite for partners"
+      href: "/partners"
+
+faq:
+  eyebrow: "FAQ"
+  header: "Operator questions, answered."
+  items:
+    - q: "How is this different from Notion, Frontify, or a brand consultant?"
+      a: "Notion is a workspace. Frontify is a brand asset manager. A consultant gives you deliverables. None of them hold the strategic context that makes the brand actually work across teams, agencies, and time. Brand HQ does. Longer comparison lives on our comparison page. Or grab the executive overview from the Champion's Kit for a one-page version."
+    - q: "How does Brand HQ work alongside our existing tools?"
+      a: "Brand HQ holds the strategic context that makes your existing tools work harder. Notion, Figma, Frontify, Asana, your CRM, your CMS. We integrate with what you have, bring the scattered context into a single source of truth, and let the rest of your stack pull from it."
+    - q: "How long does implementation take?"
+      a: "Most operator engagements have a working Brand HQ within four to six weeks of kickoff. The team can start using Brand HQ before the engagement is finished."
+    - q: "Can multiple agencies and contractors share access?"
+      a: "Yes. Brand HQ has scoped, time-bounded access for agencies, contractors, freelancers, and partners. Read-only by default, time-limited, and you see who accessed what."
+    - q: "How does this fit with our existing brand governance?"
+      a: "It enforces governance. Brand HQ holds canonical, decided, and observed layers. Your governance process decides what becomes canonical. The system makes sure everyone operates from the canonical layer."
+    - q: "How do we measure brand impact?"
+      a: "Brand HQ ties every brand pillar to measurable signals. Sentiment, category share, audience growth, campaign-to-revenue. Configure dashboards to match how your business measures things."
+    - q: "What about brand change management?"
+      a: "Strategic shifts dated. Decisions logged with rationale. Active workstreams have owners. New positions enter the decided layer for adoption before becoming canonical."
+    - q: "How does StartSuite handle data, security, and privacy?"
+      a: "We treat your data as yours. No training, no third-party sharing, no aggregation across clients. Details live on our Trust page. We're happy to fill out your security questionnaire on request."
+    - q: "What happens after the initial build?"
+      a: "You and your team run the system. We're available for new launches, repositioning, content sprints, brand refreshes, or strategic moments. Some clients work with us monthly. Some come back twice a year."
+
+finalCta:
+  header: "See if StartSuite is right for your team."
+  body: "Tell us what you're running and we'll walk you through a Brand HQ for a team like yours. Thirty minutes. No deck. If we're a fit, we'll talk next steps. If not, you'll leave with a clearer view of your brand operating model than you came in with."
+  cta_primary: "Request a spot"
+  cta_primary_action: "openModal()"
+  cta_secondary: "Or send us a note"
+  cta_secondary_action: "openModal()"
+
+championKit:
+  closedLabel: "Champion's Kit"
+  microcopy: "Resources to sell this internally."
+  href: "/champion-kit"
+  items:
+    - label: "Executive overview"
+      detail: "The 1-pager for your CFO and CEO."
+    - label: "IT and security brief"
+      detail: "Hosting, data, and access details."
+    - label: "Procurement summary"
+      detail: "Pricing, contract, and vendor profile."
+    - label: "Talking points"
+      detail: "Internal pitch language by audience."
