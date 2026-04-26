@@ -87,7 +87,49 @@ const faqSchema = {
         <p class="sv-section-eyebrow">Why this works the way it works</p>
         <h2>{why.header}</h2>
       </header>
-      <p class="sv-why-body scroll-reveal">{why.body}</p>
+
+      <!-- Wrong shapes vs right shape — visual model-fit diagram -->
+      <div class="sv-fit scroll-reveal" aria-hidden="true">
+        <div class="sv-fit-row sv-fit-row-wrong">
+          <span class="sv-fit-row-label">Most engagement shapes</span>
+          <div class="sv-fit-blocks">
+            <div class="sv-fit-block sv-fit-block-wrong">
+              <span class="sv-fit-glyph"><span class="sv-fit-rect"></span></span>
+              <strong>Agency</strong>
+              <em>Contracts deliverables</em>
+            </div>
+            <div class="sv-fit-block sv-fit-block-wrong">
+              <span class="sv-fit-glyph">
+                <span class="sv-fit-seat"></span><span class="sv-fit-seat"></span><span class="sv-fit-seat"></span>
+              </span>
+              <strong>SaaS tool</strong>
+              <em>Contracts seats</em>
+            </div>
+            <div class="sv-fit-block sv-fit-block-wrong">
+              <span class="sv-fit-glyph"><span class="sv-fit-clock"></span></span>
+              <strong>Consultant</strong>
+              <em>Contracts hours</em>
+            </div>
+          </div>
+        </div>
+        <div class="sv-fit-divider" aria-hidden="true">
+          <span class="sv-fit-divider-line"></span>
+          <span class="sv-fit-divider-label">none of these fit the work</span>
+          <span class="sv-fit-divider-line"></span>
+        </div>
+        <div class="sv-fit-row sv-fit-row-right">
+          <span class="sv-fit-row-label">The shape brand actually needs</span>
+          <div class="sv-fit-block sv-fit-block-right">
+            <span class="sv-fit-glyph sv-fit-glyph-hq" aria-hidden="true">
+              <span class="sv-fit-orbit"></span>
+              <span class="sv-fit-core">HQ</span>
+            </span>
+            <strong>Foundation that compounds</strong>
+            <em>+ execution that scales · + partnership when called for</em>
+          </div>
+        </div>
+      </div>
+
       <ul class="sv-why-lines">
         {why.lines.map((line: string, i: number) => (
           <li class="scroll-reveal" style={`--i:${i}`}>
@@ -123,6 +165,71 @@ const faqSchema = {
                 Partnership shape
               </span>
             )}
+            <div class="sv-mode-shape" aria-hidden="true">
+              {card.id === 'system' && (
+                <div class="sv-shape sv-shape-system">
+                  <div class="sv-shape-block sv-shape-block-us">
+                    <span class="sv-shape-mark">SS</span>
+                    <em>Builds</em>
+                  </div>
+                  <span class="sv-shape-arrow">
+                    <svg viewBox="0 0 60 12" preserveAspectRatio="none">
+                      <line x1="2" y1="6" x2="54" y2="6"/>
+                      <polyline points="48,2 58,6 48,10"/>
+                    </svg>
+                    <em>Hands off</em>
+                  </span>
+                  <div class="sv-shape-block sv-shape-block-them is-primary">
+                    <span class="sv-shape-mark sv-shape-mark-hq">HQ</span>
+                    <em>Your team owns + runs</em>
+                  </div>
+                </div>
+              )}
+              {card.id === 'doneforyou' && (
+                <div class="sv-shape sv-shape-doneforyou">
+                  <div class="sv-shape-fused">
+                    <span class="sv-shape-mark sv-shape-mark-fused">SS · HQ</span>
+                    <em>We run it</em>
+                  </div>
+                  <div class="sv-shape-out">
+                    <span class="sv-shape-rays" aria-hidden="true">
+                      <span></span><span></span><span></span><span></span><span></span>
+                    </span>
+                    <em>Active execution</em>
+                  </div>
+                </div>
+              )}
+              {card.id === 'both' && (
+                <div class="sv-shape sv-shape-both">
+                  <div class="sv-shape-block sv-shape-block-them is-primary">
+                    <span class="sv-shape-mark sv-shape-mark-hq">HQ</span>
+                    <em>Your team owns it</em>
+                  </div>
+                  <span class="sv-shape-orbit" aria-hidden="true">
+                    <svg viewBox="0 0 56 56">
+                      <circle cx="28" cy="28" r="22" fill="none" stroke="currentColor" stroke-width="1.2" stroke-dasharray="3 3"/>
+                      <circle cx="28" cy="6" r="3" fill="currentColor"/>
+                    </svg>
+                    <em>Retainer</em>
+                  </span>
+                  <div class="sv-shape-block sv-shape-block-us">
+                    <span class="sv-shape-mark">SS</span>
+                    <em>In moments</em>
+                  </div>
+                </div>
+              )}
+              {card.id === 'embedded' && (
+                <div class="sv-shape sv-shape-embedded">
+                  <div class="sv-shape-outer">
+                    <em class="sv-shape-outer-label">Your fund · program · stack</em>
+                    <div class="sv-shape-inner">
+                      <span class="sv-shape-mark sv-shape-mark-fused">SS · HQ</span>
+                      <em>Embedded inside</em>
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
             <div class="sv-mode-head">
               <span class="sv-mode-num">{card.number}</span>
               <h3>{card.name}</h3>
@@ -178,7 +285,7 @@ const faqSchema = {
     </div>
   </section>
 
-  <!-- ─── HANDOFF / KEEP RUNNING ─── -->
+  <!-- ─── HANDOFF / KEEP RUNNING (matrix) ─── -->
   <section class="sv-handoff section-alt">
     <div class="sv-handoff-inner">
       <header class="sv-handoff-header scroll-reveal">
@@ -186,50 +293,65 @@ const faqSchema = {
         <h2>{handoff.header}</h2>
         <p class="sv-handoff-body">{handoff.body}</p>
       </header>
-      <div class="sv-handoff-grid">
-        <article class="sv-handoff-col sv-handoff-col-keep scroll-reveal">
-          <div class="sv-handoff-col-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <path d="M5 8h14v11a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2z"/>
-              <path d="M9 8V6a3 3 0 0 1 6 0v2"/>
-              <path d="M12 13v4"/>
-            </svg>
-          </div>
-          <h3>{handoff.handoffCol.title}</h3>
-          <ul>
-            {handoff.handoffCol.items.map((item: string) => (
-              <li>
-                <span class="sv-handoff-check" aria-hidden="true">
-                  <svg viewBox="0 0 14 14" fill="none">
-                    <path d="M3 7.5 L6 10.5 L11 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </span>
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-        </article>
-        <article class="sv-handoff-col sv-handoff-col-running scroll-reveal">
-          <div class="sv-handoff-col-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
-              <circle cx="12" cy="12" r="9"/>
-              <path d="M12 7v5l3 3"/>
-            </svg>
-          </div>
-          <h3>{handoff.keepCol.title}</h3>
-          <ul>
-            {handoff.keepCol.items.map((item: string) => (
-              <li>
-                <span class="sv-handoff-check" aria-hidden="true">
-                  <svg viewBox="0 0 14 14" fill="none">
-                    <path d="M3 7.5 L6 10.5 L11 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
-                  </svg>
-                </span>
-                <span>{item}</span>
-              </li>
-            ))}
-          </ul>
-        </article>
+      <div class="sv-matrix-wrap scroll-reveal">
+        <table class="sv-matrix" role="table">
+          <thead>
+            <tr>
+              <th scope="col" class="sv-matrix-row-head"><span class="sv-mat-empty">Capability</span></th>
+              {handoff.modesHeader.slice(1).map((m: string) => (
+                <th scope="col" class={`sv-matrix-mode ${m === 'Both' ? 'is-emphasized' : ''}`}>
+                  <span>{m}</span>
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {handoff.rows.map((row: any, i: number) => {
+              const isFirstRunning = row.group === 'running' && handoff.rows[i - 1]?.group === 'handoff';
+              return (
+                <>
+                  {isFirstRunning && (
+                    <tr class="sv-matrix-divider" aria-hidden="true">
+                      <td colspan={5}>
+                        <span class="sv-matrix-divider-label">{handoff.legend.runningLabel}</span>
+                      </td>
+                    </tr>
+                  )}
+                  {i === 0 && (
+                    <tr class="sv-matrix-divider" aria-hidden="true">
+                      <td colspan={5}>
+                        <span class="sv-matrix-divider-label sv-matrix-divider-handoff">{handoff.legend.handoffLabel}</span>
+                      </td>
+                    </tr>
+                  )}
+                  <tr class={`sv-matrix-row sv-matrix-row-${row.group}`}>
+                    <th scope="row" class="sv-matrix-row-head">{row.label}</th>
+                    {row.values.map((v: any, vi: number) => (
+                      <td class={`sv-matrix-cell ${vi === 2 ? 'is-emphasized' : ''}`}>
+                        {v === true && (
+                          <span class="sv-matrix-check" aria-label="Included">
+                            <svg viewBox="0 0 14 14" fill="none">
+                              <path d="M3 7.5 L6 10.5 L11 4.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            </svg>
+                          </span>
+                        )}
+                        {v === false && (
+                          <span class="sv-matrix-dash" aria-label="Not included">—</span>
+                        )}
+                        {v === 'moments' && (
+                          <span class="sv-matrix-moments" aria-label="On retainer or per-engagement, when the moment calls for it">
+                            moments
+                          </span>
+                        )}
+                      </td>
+                    ))}
+                  </tr>
+                </>
+              );
+            })}
+          </tbody>
+        </table>
+        <p class="sv-matrix-note">{handoff.legend.momentsNote}</p>
       </div>
     </div>
   </section>

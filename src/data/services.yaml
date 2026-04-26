@@ -92,22 +92,22 @@ team:
   body: "Every engagement is led by senior creative judgment. Lucy and Reagan are involved directly in every Brand HQ build. We bring in specialist support, designers, strategists, writers, motion experts, when the work calls for it. There's no tier of junior creatives executing on your account. The people who know your business are the same people making decisions about it."
 
 handoff:
-  header: "Everything we build is yours to keep, run, and grow."
-  body: "Brand HQ is your asset, not ours. At the end of every engagement, you have a fully owned, fully documented brand operating system. Your team can run it. Your future agencies can pull from it. Your AI tools can query it. We're available for ongoing work, but the system itself doesn't depend on us being in the room."
-  handoffCol:
-    title: "What we hand off (every mode)"
-    items:
-      - "A live Brand HQ, fully populated, fully owned by you"
-      - "The strategic narrative, audience research, and competitive intelligence"
-      - "Operating standards your team and partners can cite"
-      - "Documentation, access patterns, and onboarding for new hires"
-  keepCol:
-    title: "What we can keep running (Done For You, Both, Embedded)"
-    items:
-      - "Active creative execution"
-      - "Live signal monitoring and strategic alerts"
-      - "Quarterly reviews and brand health assessments"
-      - "Senior creative direction in the moments that matter"
+  header: "Everything we build is yours. Some of it we can keep running."
+  body: "Brand HQ is your asset, not ours. At the end of every engagement you have a fully owned, fully documented brand operating system. The rows below show what's handed off in every mode, and what we can keep running where the engagement calls for it."
+  modesHeader: ["", "System", "Done For You", "Both", "Embedded"]
+  rows:
+    - { label: "Brand HQ build, owned by you", group: "handoff", values: [true, true, true, true] }
+    - { label: "Strategic narrative + research", group: "handoff", values: [true, true, true, true] }
+    - { label: "Operating standards", group: "handoff", values: [true, true, true, true] }
+    - { label: "Documentation + onboarding", group: "handoff", values: [true, true, true, true] }
+    - { label: "Active creative execution", group: "running", values: [false, true, "moments", true] }
+    - { label: "Live signal monitoring", group: "running", values: [false, true, "moments", true] }
+    - { label: "Quarterly brand reviews", group: "running", values: [false, true, true, true] }
+    - { label: "Senior creative direction", group: "running", values: [false, true, "moments", true] }
+  legend:
+    handoffLabel: "Handed off (yours forever)"
+    runningLabel: "We can keep running"
+    momentsNote: "moments = on retainer or per-engagement, when the moment calls for it"
 
 examples:
   header: "Four engagements. Four shapes. Same product underneath."
