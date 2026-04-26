@@ -239,7 +239,15 @@ const faqSchema = {
               <h3>{card.name}</h3>
             </div>
             <p class="sv-mode-claim">{card.claim}</p>
-            <span class="sv-mode-for">For: {card.forTag}</span>
+            <div class="sv-mode-meta">
+              <span class="sv-mode-for">For: {card.forTag}</span>
+              {card.timing && (
+                <span class="sv-mode-timing">
+                  <span class="sv-mode-timing-dot" aria-hidden="true"></span>
+                  {card.timing}
+                </span>
+              )}
+            </div>
             <ul class="sv-mode-list">
               {card.whatsInIt.map((item: string) => (
                 <li>

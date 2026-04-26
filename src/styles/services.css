@@ -708,6 +708,9 @@
   color:var(--text);font-weight:600;
   letter-spacing:-0.018em;margin:0;
 }
+.sv-mode-meta{
+  display:flex;flex-wrap:wrap;gap:6px;align-items:center;
+}
 .sv-mode-for{
   display:inline-flex;align-self:flex-start;
   padding:5px 11px 5px 9px;
@@ -718,6 +721,32 @@
   font-size:9.5px;font-weight:700;letter-spacing:0.12em;
   text-transform:uppercase;color:var(--purple-light);
   white-space:normal;line-height:1.4;
+}
+.sv-mode-timing{
+  display:inline-flex;align-items:center;gap:6px;
+  padding:5px 11px;
+  background:linear-gradient(140deg,rgba(212,190,232,0.16) 0%,rgba(139,109,181,0.16) 100%);
+  border:1px solid rgba(212,190,232,0.36);
+  border-radius:100px;
+  font-family:var(--mono);
+  font-size:9.5px;font-weight:700;letter-spacing:0.12em;
+  text-transform:uppercase;color:#fff;
+  white-space:nowrap;line-height:1.4;
+  box-shadow:0 0 14px rgba(196,169,224,0.16);
+}
+.sv-mode-timing-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:var(--purple-light);
+  box-shadow:0 0 6px rgba(196,169,224,0.7);
+  animation:svTimingPulse 1.8s ease-in-out infinite;
+  flex-shrink:0;
+}
+@keyframes svTimingPulse{
+  0%,100%{opacity:1;transform:scale(1)}
+  50%{opacity:0.55;transform:scale(0.85)}
+}
+@media (prefers-reduced-motion: reduce){
+  .sv-mode-timing-dot{animation:none}
 }
 .sv-mode-list{
   list-style:none;padding:14px 0 0;margin:0;
