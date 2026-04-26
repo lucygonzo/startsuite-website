@@ -82,17 +82,23 @@ const faqSchema = {
     </div>
   </section>
 
-  <!-- ─── TL;DR ─── -->
+  <!-- ─── TL;DR (purple band) ─── -->
   <section class="ff-tldr">
     <div class="ff-tldr-inner">
-      <p class="ff-section-eyebrow">TL;DR</p>
+      <div class="ff-tldr-badge" aria-hidden="true">
+        <svg viewBox="0 0 16 16" fill="none">
+          <circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.4"/>
+          <path d="M8 4.5 L8 8 L10.5 9.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>Our tl;dr pitch</span>
+      </div>
       <h2>{tldr.header}</h2>
       <p>{tldr.body}</p>
     </div>
   </section>
 
   <!-- ─── EMPATHY: You Are the Whole Company ─── -->
-  <section class="ff-empathy">
+  <section class="ff-empathy section-alt">
     <div class="ff-empathy-inner">
       <h2>{empathy.header}</h2>
       <p>{empathy.body}</p>
