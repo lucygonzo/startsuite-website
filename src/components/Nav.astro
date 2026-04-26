@@ -76,6 +76,7 @@ function isAnyChildActive(items: readonly { href: string }[]): boolean {
                     role="menuitem"
                     class={`nav-mega-card ${isActive(sub.href) ? 'is-active' : ''}`}
                   >
+                    <span class="nav-mega-pill" aria-label="Current">Now viewing</span>
                     <span class="nav-mega-icon" aria-hidden="true">
                       {sub.icon === 'founders' && (
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
@@ -108,7 +109,9 @@ function isAnyChildActive(items: readonly { href: string }[]): boolean {
                       </strong>
                       <span>{sub.description}</span>
                     </div>
-                    <span class="nav-mega-arrow" aria-hidden="true">→</span>
+                    <span class="nav-mega-foot">
+                      Explore <span class="nav-mega-foot-arrow" aria-hidden="true">→</span>
+                    </span>
                   </a>
                 ))}
               </div>
