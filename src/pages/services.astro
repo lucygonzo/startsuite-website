@@ -1,18 +1,324 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import ServicesHero from '@/components/services/ServicesHero.astro';
-import PriceCard from '@/components/services/PriceCard.astro';
-import PriceCompare from '@/components/services/PriceCompare.astro';
-import BentoGrid from '@/components/services/BentoGrid.astro';
-import Timeline from '@/components/services/Timeline.astro';
-import ServicesFinalCta from '@/components/services/ServicesFinalCta.astro';
+import ChampionsKit from '@/components/ChampionsKit.astro';
+import sData from '@/data/services.yaml';
+
+const {
+  meta,
+  referenceBrand,
+  hero,
+  why,
+  modes,
+  phases,
+  team,
+  handoff,
+  examples,
+  faq,
+  finalCta,
+  championKit,
+} = sData;
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faq.items.map((item: any) => ({
+    "@type": "Question",
+    "name": item.q,
+    "acceptedAnswer": { "@type": "Answer", "text": item.a },
+  })),
+};
 ---
 
-<BaseLayout title="Services — StartSuite">
-  <ServicesHero />
-  <PriceCard />
-  <PriceCompare />
-  <BentoGrid />
-  <Timeline />
-  <ServicesFinalCta />
+<BaseLayout title={meta.title} description={meta.description}>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)}></script>
+
+  <!-- ─── HERO ─── -->
+  <section class="sv-hero">
+    <div class="sv-hero-glow" aria-hidden="true"></div>
+    <div class="sv-hero-inner">
+      <div class="sv-hero-text">
+        <p class="sv-eyebrow">{hero.eyebrow}</p>
+        <h1>
+          <span class="sv-hero-lead">{hero.headline_lead}</span>
+          <em>{hero.headline_emphasis}</em>
+        </h1>
+        <p class="sv-hero-sub">{hero.subhead}</p>
+        <div class="sv-hero-ctas">
+          <a class="btn btn-primary btn-lg" onclick={hero.cta_primary_action} style="cursor:pointer">{hero.cta_primary} →</a>
+          <a class="btn btn-outline btn-lg" href={hero.cta_secondary_href}>{hero.cta_secondary} →</a>
+        </div>
+      </div>
+      <div class="sv-hero-visual" aria-hidden="true">
+        <div class="sv-orbit">
+          <div class="sv-orbit-ring sv-orbit-ring-outer"></div>
+          <div class="sv-orbit-ring sv-orbit-ring-inner"></div>
+          <div class="sv-orbit-core">
+            <span class="sv-orbit-core-eyebrow">{referenceBrand}</span>
+            <strong>Brand HQ</strong>
+            <em>The product</em>
+          </div>
+          <div class="sv-orbit-node sv-orbit-node-1">
+            <span class="sv-orbit-num">01</span>
+            <strong>The System</strong>
+          </div>
+          <div class="sv-orbit-node sv-orbit-node-2">
+            <span class="sv-orbit-num">02</span>
+            <strong>Done For You</strong>
+          </div>
+          <div class="sv-orbit-node sv-orbit-node-3 is-emphasized">
+            <span class="sv-orbit-num">03</span>
+            <strong>Both</strong>
+            <em>Most clients land here</em>
+          </div>
+          <div class="sv-orbit-node sv-orbit-node-4">
+            <span class="sv-orbit-num">04</span>
+            <strong>Embedded</strong>
+          </div>
+        </div>
+        <p class="sv-hero-caption">{hero.visual_caption}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── WHY ─── -->
+  <section class="sv-why section-alt">
+    <div class="sv-why-inner">
+      <header class="sv-why-header scroll-reveal">
+        <p class="sv-section-eyebrow">Why this works the way it works</p>
+        <h2>{why.header}</h2>
+      </header>
+      <p class="sv-why-body scroll-reveal">{why.body}</p>
+      <ul class="sv-why-lines">
+        {why.lines.map((line: string, i: number) => (
+          <li class="scroll-reveal" style={`--i:${i}`}>
+            <span class="sv-why-dot" aria-hidden="true"></span>
+            <p>{line}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- ─── FOUR MODES ─── -->
+  <section class="sv-modes">
+    <div class="sv-modes-inner">
+      <header class="sv-modes-header scroll-reveal">
+        <h2>{modes.header}</h2>
+        <p class="sv-modes-sub">{modes.subhead}</p>
+      </header>
+      <div class="sv-modes-grid">
+        {modes.cards.map((card: any, i: number) => (
+          <article
+            class={`sv-mode sv-mode-${card.id} ${card.emphasized ? 'is-emphasized' : ''} ${card.isPartnership ? 'is-partnership' : ''} scroll-reveal`}
+            style={`--i:${i}`}
+          >
+            {card.emphasized && (
+              <span class="sv-mode-badge">
+                <span class="sv-mode-badge-dot" aria-hidden="true"></span>
+                {card.emphasisLabel}
+              </span>
+            )}
+            {card.isPartnership && (
+              <span class="sv-mode-badge sv-mode-badge-partnership">
+                Partnership shape
+              </span>
+            )}
+            <div class="sv-mode-head">
+              <span class="sv-mode-num">{card.number}</span>
+              <h3>{card.name}</h3>
+            </div>
+            <p class="sv-mode-claim">{card.claim}</p>
+            <div class="sv-mode-best">
+              <p class="sv-mode-best-label">Best for</p>
+              <p class="sv-mode-best-copy">{card.bestFor}</p>
+            </div>
+            <div class="sv-mode-list">
+              <p class="sv-mode-list-label">What's in it</p>
+              <ul>
+                {card.whatsInIt.map((item: string) => (
+                  <li>
+                    <span class="sv-mode-check" aria-hidden="true">
+                      <svg viewBox="0 0 14 14" fill="none">
+                        <path d="M3 7.5 L6 10.5 L11 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                      </svg>
+                    </span>
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <p class="sv-mode-tagline">{card.tagline}</p>
+            <a class="sv-mode-cta" onclick="openModal()" style="cursor:pointer">{card.cta} →</a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── THREE PHASES ─── -->
+  <section class="sv-phases section-alt">
+    <div class="sv-phases-inner">
+      <header class="sv-phases-header scroll-reveal">
+        <p class="sv-section-eyebrow">What an engagement looks like</p>
+        <h2>{phases.header}</h2>
+      </header>
+      <div class="sv-phases-flow">
+        {phases.cards.map((p: any, i: number) => (
+          <>
+            <article class="sv-phase scroll-reveal" style={`--i:${i}`}>
+              <div class="sv-phase-num-rail">
+                <span class="sv-phase-num">{p.num}</span>
+                <span class="sv-phase-rail" aria-hidden="true"></span>
+              </div>
+              <div class="sv-phase-body">
+                <h3>{p.name}</h3>
+                <p class="sv-phase-what">{p.what}</p>
+                <p class="sv-phase-list-label">What's happening</p>
+                <ul class="sv-phase-list">
+                  {p.happening.map((item: string) => <li>{item}</li>)}
+                </ul>
+                <div class="sv-phase-experience">
+                  <span class="sv-phase-experience-label">What you experience</span>
+                  <p>{p.experience}</p>
+                </div>
+              </div>
+            </article>
+            {i < phases.cards.length - 1 && (
+              <div class="sv-phase-arrow" aria-hidden="true">
+                <svg viewBox="0 0 80 16" preserveAspectRatio="none">
+                  <line x1="0" y1="8" x2="70" y2="8"/>
+                  <polyline points="62,3 78,8 62,13"/>
+                </svg>
+              </div>
+            )}
+          </>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── WHO IS IN THE ROOM ─── -->
+  <section class="sv-team">
+    <div class="sv-team-inner scroll-reveal">
+      <p class="sv-section-eyebrow">Who's in the room</p>
+      <h2>{team.header}</h2>
+      <p>{team.body}</p>
+    </div>
+  </section>
+
+  <!-- ─── HANDOFF / KEEP RUNNING ─── -->
+  <section class="sv-handoff section-alt">
+    <div class="sv-handoff-inner">
+      <header class="sv-handoff-header scroll-reveal">
+        <p class="sv-section-eyebrow">What you keep</p>
+        <h2>{handoff.header}</h2>
+        <p class="sv-handoff-body">{handoff.body}</p>
+      </header>
+      <div class="sv-handoff-grid">
+        <article class="sv-handoff-col sv-handoff-col-keep scroll-reveal">
+          <div class="sv-handoff-col-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M5 8h14v11a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2z"/>
+              <path d="M9 8V6a3 3 0 0 1 6 0v2"/>
+              <path d="M12 13v4"/>
+            </svg>
+          </div>
+          <h3>{handoff.handoffCol.title}</h3>
+          <ul>
+            {handoff.handoffCol.items.map((item: string) => (
+              <li>
+                <span class="sv-handoff-check" aria-hidden="true">
+                  <svg viewBox="0 0 14 14" fill="none">
+                    <path d="M3 7.5 L6 10.5 L11 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </article>
+        <article class="sv-handoff-col sv-handoff-col-running scroll-reveal">
+          <div class="sv-handoff-col-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="9"/>
+              <path d="M12 7v5l3 3"/>
+            </svg>
+          </div>
+          <h3>{handoff.keepCol.title}</h3>
+          <ul>
+            {handoff.keepCol.items.map((item: string) => (
+              <li>
+                <span class="sv-handoff-check" aria-hidden="true">
+                  <svg viewBox="0 0 14 14" fill="none">
+                    <path d="M3 7.5 L6 10.5 L11 4.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/>
+                  </svg>
+                </span>
+                <span>{item}</span>
+              </li>
+            ))}
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── EXAMPLES IN PRACTICE ─── -->
+  <section class="sv-examples">
+    <div class="sv-examples-inner">
+      <header class="sv-examples-header scroll-reveal">
+        <p class="sv-section-eyebrow">In practice</p>
+        <h2>{examples.header}</h2>
+      </header>
+      <div class="sv-examples-list">
+        {examples.cards.map((ex: any, i: number) => (
+          <article class="sv-example scroll-reveal" style={`--i:${i}`}>
+            <span class="sv-example-tag">{ex.tag}</span>
+            <p class="sv-example-body">{ex.body}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FAQ ─── -->
+  <section class="sv-faq section-alt">
+    <div class="sv-faq-inner">
+      <header class="sv-faq-header scroll-reveal">
+        <p class="sv-section-eyebrow">{faq.eyebrow}</p>
+        <h2>{faq.header}</h2>
+      </header>
+      <div class="sv-faq-list">
+        {faq.items.map((item: any, i: number) => (
+          <details class="sv-faq-item scroll-reveal" style={`--i:${i}`} open={i === 0}>
+            <summary>
+              <span class="sv-faq-q">{item.q}</span>
+              <span class="sv-faq-icon" aria-hidden="true"></span>
+            </summary>
+            <p class="sv-faq-a">{item.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FINAL CTA ─── -->
+  <section class="sv-final">
+    <div class="sv-final-glow" aria-hidden="true"></div>
+    <div class="sv-final-inner">
+      <h2 class="scroll-reveal">{finalCta.header}</h2>
+      <p class="scroll-reveal">{finalCta.body}</p>
+      <div class="sv-final-ctas scroll-reveal">
+        <a class="btn btn-primary btn-lg" onclick={finalCta.cta_primary_action} style="cursor:pointer">{finalCta.cta_primary} →</a>
+        <a class="btn btn-ghost btn-lg" onclick={finalCta.cta_secondary_action} style="cursor:pointer">{finalCta.cta_secondary} →</a>
+      </div>
+    </div>
+  </section>
+
+  <ChampionsKit
+    closedLabel={championKit.closedLabel}
+    microcopy={championKit.microcopy}
+    items={championKit.items}
+    href={championKit.href}
+  />
+
 </BaseLayout>
