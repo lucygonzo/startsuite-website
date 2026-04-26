@@ -520,12 +520,8 @@
 
 .bhq-flow-grid{
   position:relative;z-index:1;
-  max-width:1280px;margin:0 auto;
-  display:grid;
-  grid-template-columns:1fr 1.4fr 1fr;
-  gap:36px;
-  align-items:stretch;
-  min-height:680px;
+  max-width:1200px;margin:0 auto;
+  display:flex;flex-direction:column;gap:80px;
 }
 
 /* SVG line overlay covers the whole grid */
@@ -538,71 +534,91 @@
 .bhq-flow-line{
   stroke:var(--purple-light);
   stroke-width:1;
-  opacity:0.55;
+  opacity:0.5;
 }
 .bhq-flow-line-in{stroke:var(--accent)}
 .bhq-flow-line-out{stroke:var(--purple-light)}
 
-/* Inputs / Outputs columns share much */
-.bhq-flow-inputs,
-.bhq-flow-outputs{
-  list-style:none;padding:0;margin:0;
-  display:flex;flex-direction:column;gap:14px;
+/* Each band */
+.bhq-flow-band{
   position:relative;z-index:1;
-  justify-content:center;
+  display:flex;flex-direction:column;align-items:center;gap:18px;
 }
-.bhq-flow-col-label{
+.bhq-flow-band-label{
   font-family:var(--mono);
   font-size:9.5px;font-weight:700;letter-spacing:0.18em;
   text-transform:uppercase;color:var(--purple-light);
-  margin-bottom:6px;
+  margin:0;
 }
-.bhq-flow-outputs .bhq-flow-col-label{text-align:right}
 
-.bhq-flow-input,
+/* INPUTS row: 4 cards horizontal */
+.bhq-flow-inputs{
+  list-style:none;padding:0;margin:0;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:14px;
+  width:100%;
+}
+.bhq-flow-input{
+  display:flex;align-items:center;gap:12px;
+  padding:14px 16px;
+  background:var(--surface);
+  border:1px solid var(--border);
+  border-radius:10px;
+  transition:transform var(--duration) var(--ease),border-color var(--duration) var(--ease);
+}
+.bhq-flow-input:hover{
+  transform:translateY(-2px);
+  border-color:rgba(139,109,181,0.3);
+}
+.bhq-flow-input strong{
+  display:block;
+  font-size:13px;font-weight:700;color:var(--text);
+  letter-spacing:-0.005em;line-height:1.25;
+}
+.bhq-flow-input span{
+  display:block;
+  font-size:11px;line-height:1.4;color:var(--text-muted);
+  margin-top:2px;
+}
+.bhq-flow-input-dot{
+  width:8px;height:8px;border-radius:50%;flex-shrink:0;
+  background:var(--accent);
+  box-shadow:0 0 6px rgba(212,190,232,0.55);
+}
+
+/* OUTPUTS grid: 4 cols × 2 rows */
+.bhq-flow-outputs{
+  list-style:none;padding:0;margin:0;
+  display:grid;grid-template-columns:repeat(4,1fr);gap:14px;
+  width:100%;
+}
 .bhq-flow-output{
   display:flex;align-items:center;gap:12px;
   padding:14px 16px;
   background:var(--surface);
   border:1px solid var(--border);
   border-radius:10px;
-  position:relative;
   transition:transform var(--duration) var(--ease),border-color var(--duration) var(--ease);
 }
-.bhq-flow-input:hover,
 .bhq-flow-output:hover{
-  transform:translateY(-1px);
+  transform:translateY(-2px);
   border-color:rgba(139,109,181,0.3);
 }
-.bhq-flow-input strong,
+.bhq-flow-output > div{flex:1;min-width:0}
 .bhq-flow-output strong{
   display:block;
   font-size:13px;font-weight:700;color:var(--text);
   letter-spacing:-0.005em;line-height:1.25;
 }
-.bhq-flow-input span,
 .bhq-flow-output span{
   display:block;
-  font-size:11px;line-height:1.4;
-  color:var(--text-muted);
-  letter-spacing:0;
+  font-size:11px;line-height:1.4;color:var(--text-muted);
   margin-top:2px;
 }
-.bhq-flow-input-dot,
 .bhq-flow-output-dot{
-  width:8px;height:8px;border-radius:50%;
-  flex-shrink:0;
-  background:var(--accent);
-  box-shadow:0 0 6px rgba(212,190,232,0.55);
-}
-.bhq-flow-output-dot{
+  width:8px;height:8px;border-radius:50%;flex-shrink:0;
   background:var(--purple-light);
   box-shadow:0 0 6px rgba(196,169,224,0.55);
 }
-.bhq-flow-output{
-  flex-direction:row;
-}
-.bhq-flow-output > div{flex:1;min-width:0}
 .bhq-flow-output-kind{
   font-style:normal;
   font-family:var(--mono);
@@ -619,16 +635,9 @@
   background:rgba(139,109,181,0.16);color:var(--purple-light);
 }
 
-/* CORE: Radial North Star */
-.bhq-flow-core{
-  position:relative;z-index:1;
-  display:flex;flex-direction:column;align-items:center;
-  gap:24px;
-}
-.bhq-flow-core-label{
-  font-family:var(--mono);
-  font-size:9.5px;font-weight:700;letter-spacing:0.18em;
-  text-transform:uppercase;color:var(--purple-light);
+/* CORE: Radial North Star centered, with feature panel below */
+.bhq-flow-band-core{
+  display:flex;flex-direction:column;align-items:center;gap:20px;
 }
 .bhq-star{
   width:100%;max-width:380px;height:auto;
@@ -720,17 +729,17 @@
   fill:var(--text);
 }
 
-/* Feature panel below the radial */
+/* Feature panel below the radial — wider for vertical layout */
 .bhq-flow-features{
-  position:relative;width:100%;max-width:420px;
-  min-height:240px;
+  position:relative;width:100%;max-width:680px;
+  min-height:200px;
   background:var(--surface);
   border:1px solid var(--border);
   border-radius:var(--radius-lg);
-  padding:24px 26px;
+  padding:28px 32px;
 }
 .bhq-flow-feature{
-  position:absolute;inset:24px 26px;
+  position:absolute;inset:28px 32px;
   opacity:0;visibility:hidden;
   transform:translateY(8px);
   transition:opacity 0.45s var(--ease),transform 0.45s var(--ease),visibility 0s 0.45s;
@@ -752,7 +761,7 @@
 }
 .bhq-flow-feature-list{
   list-style:none;padding:0;margin:6px 0 0;
-  display:grid;grid-template-columns:1fr 1fr;gap:6px;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:6px;
 }
 .bhq-flow-feature-list li{
   font-size:12px;line-height:1.4;color:var(--text);
@@ -1316,18 +1325,13 @@
 
   .bhq-flow{padding:88px 28px 100px}
   .bhq-flow-header{margin-bottom:48px}
-  .bhq-flow-grid{
-    grid-template-columns:1fr;gap:48px;min-height:0;
-  }
+  .bhq-flow-grid{gap:56px}
   .bhq-flow-lines{display:none}
-  .bhq-flow-inputs,.bhq-flow-outputs{justify-content:flex-start}
-  .bhq-flow-outputs .bhq-flow-col-label{text-align:left}
-  .bhq-flow-core{order:0}
-  .bhq-flow-inputs{order:-1}
-  .bhq-flow-outputs{order:1}
-  .bhq-star{max-width:300px}
-  .bhq-flow-features{max-width:100%;min-height:200px;padding:20px 22px}
-  .bhq-flow-feature{inset:20px 22px}
+  .bhq-flow-inputs{grid-template-columns:1fr 1fr}
+  .bhq-flow-outputs{grid-template-columns:1fr 1fr}
+  .bhq-star{max-width:280px}
+  .bhq-flow-features{max-width:100%;min-height:200px;padding:22px}
+  .bhq-flow-feature{inset:22px}
   .bhq-flow-feature-list{grid-template-columns:1fr}
 
   .bhq-inputs{padding:88px 28px}

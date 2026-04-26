@@ -226,21 +226,23 @@ const productSchema = {
 
     <div class="bhq-flow-grid">
 
-      <ol class="bhq-flow-inputs" aria-label="Inputs to Brand HQ">
-        <li class="bhq-flow-col-label" aria-hidden="true">Inputs</li>
-        {inputs.groups.map((g: any, i: number) => (
-          <li class="bhq-flow-input" data-flow-input={i}>
-            <span class="bhq-flow-input-dot" aria-hidden="true"></span>
-            <div>
-              <strong>{g.title}</strong>
-              <span>{g.items.slice(0, 2).join(' · ')}</span>
-            </div>
-          </li>
-        ))}
-      </ol>
+      <div class="bhq-flow-band bhq-flow-band-inputs">
+        <p class="bhq-flow-band-label" aria-hidden="true">Inputs</p>
+        <ol class="bhq-flow-inputs" aria-label="Inputs to Brand HQ">
+          {inputs.groups.map((g: any, i: number) => (
+            <li class="bhq-flow-input" data-flow-input={i}>
+              <span class="bhq-flow-input-dot" aria-hidden="true"></span>
+              <div>
+                <strong>{g.title}</strong>
+                <span>{g.items.slice(0, 2).join(' · ')}</span>
+              </div>
+            </li>
+          ))}
+        </ol>
+      </div>
 
-      <div class="bhq-flow-core">
-        <div class="bhq-flow-core-label" aria-hidden="true">North Star</div>
+      <div class="bhq-flow-band bhq-flow-band-core">
+        <p class="bhq-flow-band-label" aria-hidden="true">North Star</p>
         <svg class="bhq-star" viewBox="-180 -160 360 320" aria-label="Brand HQ north star with five sections">
           <circle cx="0" cy="0" r="125" class="bhq-star-orbit bhq-star-orbit-outer" />
           <circle cx="0" cy="0" r="110" class="bhq-star-orbit" />
@@ -310,19 +312,21 @@ const productSchema = {
         </div>
       </div>
 
-      <ul class="bhq-flow-outputs" aria-label="Outputs from Brand HQ">
-        <li class="bhq-flow-col-label" aria-hidden="true">Outputs</li>
-        {publicOutputs.outputs.map((o: any, i: number) => (
-          <li class={`bhq-flow-output bhq-output-${o.kind}`} data-flow-output={i}>
-            <span class="bhq-flow-output-dot" aria-hidden="true"></span>
-            <div>
-              <strong>{o.label}</strong>
-              <span>{o.detail}</span>
-            </div>
-            <em class="bhq-flow-output-kind">{o.kind === 'public' ? 'Public' : o.kind === 'agent' ? 'Agent' : 'Internal'}</em>
-          </li>
-        ))}
-      </ul>
+      <div class="bhq-flow-band bhq-flow-band-outputs">
+        <p class="bhq-flow-band-label" aria-hidden="true">Outputs</p>
+        <ul class="bhq-flow-outputs" aria-label="Outputs from Brand HQ">
+          {publicOutputs.outputs.map((o: any, i: number) => (
+            <li class={`bhq-flow-output bhq-output-${o.kind}`} data-flow-output={i}>
+              <span class="bhq-flow-output-dot" aria-hidden="true"></span>
+              <div>
+                <strong>{o.label}</strong>
+                <span>{o.detail}</span>
+              </div>
+              <em class="bhq-flow-output-kind">{o.kind === 'public' ? 'Public' : o.kind === 'agent' ? 'Agent' : 'Internal'}</em>
+            </li>
+          ))}
+        </ul>
+      </div>
 
       <svg class="bhq-flow-lines" aria-hidden="true" data-bhq-lines></svg>
 
@@ -349,22 +353,28 @@ const productSchema = {
         if (!linesSvg || !grid || !star) return null;
         const gridRect = grid.getBoundingClientRect();
         const starRect = star.getBoundingClientRect();
-        const cx = (starRect.left + starRect.width / 2) - gridRect.left;
-        const cy = (starRect.top + starRect.height / 2) - gridRect.top;
+        // Star receiving point: top-center (slight inset so it visually meets the orbit ring)
+        const starInX = (starRect.left + starRect.width / 2) - gridRect.left;
+        const starInY = (starRect.top + starRect.height * 0.18) - gridRect.top;
+        // Output emerging point: bottom-center of feature panel (or star if panel missing)
+        const sourceRect = featurePanel ? featurePanel.getBoundingClientRect() : starRect;
+        const starOutX = (sourceRect.left + sourceRect.width / 2) - gridRect.left;
+        const starOutY = sourceRect.bottom - gridRect.top;
 
         linesSvg.setAttribute('viewBox', '0 0 ' + gridRect.width + ' ' + gridRect.height);
         linesSvg.setAttribute('width', gridRect.width);
         linesSvg.setAttribute('height', gridRect.height);
         linesSvg.innerHTML = '';
 
-        function curve(x1, y1, x2, y2) {
-          const mx = (x1 + x2) / 2;
-          return 'M ' + x1 + ' ' + y1 + ' C ' + mx + ' ' + y1 + ', ' + mx + ' ' + y2 + ', ' + x2 + ' ' + y2;
+        // Vertical bezier — control points pulled up/down
+        function vCurve(x1, y1, x2, y2) {
+          const my = (y1 + y2) / 2;
+          return 'M ' + x1 + ' ' + y1 + ' C ' + x1 + ' ' + my + ', ' + x2 + ' ' + my + ', ' + x2 + ' ' + y2;
         }
 
         function addLine(x1, y1, x2, y2, side) {
           const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
-          path.setAttribute('d', curve(x1, y1, x2, y2));
+          path.setAttribute('d', vCurve(x1, y1, x2, y2));
           path.setAttribute('class', 'bhq-flow-line bhq-flow-line-' + side);
           path.setAttribute('fill', 'none');
           const len = path.getTotalLength ? Math.max(200, Math.ceil(path.getTotalLength())) : 600;
@@ -377,16 +387,16 @@ const productSchema = {
         const inputPaths = [];
         inputNodes.forEach(function (n) {
           const r = n.getBoundingClientRect();
-          const x = r.right - gridRect.left;
-          const y = (r.top + r.height / 2) - gridRect.top;
-          inputPaths.push(addLine(x, y, cx - 30, cy, 'in'));
+          const x = (r.left + r.width / 2) - gridRect.left;
+          const y = r.bottom - gridRect.top;
+          inputPaths.push(addLine(x, y, starInX, starInY, 'in'));
         });
         const outputPaths = [];
         outputNodes.forEach(function (n) {
           const r = n.getBoundingClientRect();
-          const x = r.left - gridRect.left;
-          const y = (r.top + r.height / 2) - gridRect.top;
-          outputPaths.push(addLine(cx + 30, cy, x, y, 'out'));
+          const x = (r.left + r.width / 2) - gridRect.left;
+          const y = r.top - gridRect.top;
+          outputPaths.push(addLine(starOutX, starOutY, x, y, 'out'));
         });
 
         return { inputPaths: inputPaths, outputPaths: outputPaths };
