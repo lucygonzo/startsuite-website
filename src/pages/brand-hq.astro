@@ -10,10 +10,7 @@ const {
   definition,
   yoursSpecifically,
   inputs,
-  builtFast,
-  roles,
   northStar,
-  jobs,
   publicOutputs,
   stack,
   whosUsing,
@@ -225,45 +222,6 @@ const productSchema = {
     </div>
   </section>
 
-  <!-- ─── BUILT FAST ─── -->
-  <section class="bhq-fast section-alt">
-    <div class="bhq-fast-inner">
-      <header class="bhq-fast-header scroll-reveal">
-        <h2>{builtFast.header}</h2>
-        <p class="bhq-fast-sub">{builtFast.subhead}</p>
-      </header>
-      <p class="bhq-fast-body scroll-reveal">{builtFast.body}</p>
-      <ol class="bhq-fast-framings">
-        {builtFast.framings.map((f, i) => (
-          <li class="scroll-reveal" style={`--i:${i}`}>
-            <span class="bhq-fast-num">{String(i + 1).padStart(2, '0')}</span>
-            <div>
-              <h4>{f.title}</h4>
-              <p>{f.copy}</p>
-            </div>
-          </li>
-        ))}
-      </ol>
-    </div>
-  </section>
-
-  <!-- ─── ROLES ─── -->
-  <section class="bhq-roles">
-    <div class="bhq-roles-inner">
-      <header class="bhq-roles-header scroll-reveal">
-        <h2>{roles.header}</h2>
-        <p class="bhq-roles-sub">{roles.subhead}</p>
-      </header>
-      <div class="bhq-roles-grid">
-        {roles.cards.map((card, i) => (
-          <article class="bhq-role-card scroll-reveal" style={`--i:${i}`}>
-            <h3>{card.title}</h3>
-            <p>{card.copy}</p>
-          </article>
-        ))}
-      </div>
-    </div>
-  </section>
 
   <!-- ─── NORTH STAR (5 sections) ─── -->
   <section class="bhq-north">
@@ -311,24 +269,6 @@ const productSchema = {
     </div>
   </section>
 
-  <!-- ─── JOBS TO BE DONE ─── -->
-  <section class="bhq-jobs section-alt">
-    <div class="bhq-jobs-inner">
-      <header class="bhq-jobs-header scroll-reveal">
-        <h2>{jobs.header}</h2>
-        <p class="bhq-jobs-sub">{jobs.subhead}</p>
-      </header>
-      <ol class="bhq-jobs-grid">
-        {jobs.cards.map((card, i) => (
-          <li class="bhq-job scroll-reveal" style={`--i:${i}`}>
-            <span class="bhq-job-num">{String(i + 1).padStart(2, '0')}</span>
-            <h3>{card.title}</h3>
-            <p>{card.copy}</p>
-          </li>
-        ))}
-      </ol>
-    </div>
-  </section>
 
   <!-- ─── OUTPUTS ─── -->
   <section class="bhq-outputs">

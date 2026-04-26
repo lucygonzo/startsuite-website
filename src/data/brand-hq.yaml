@@ -86,33 +86,6 @@ inputs:
         - "Alert routing"
         - "Category news"
 
-builtFast:
-  header: "Built in weeks, not months."
-  subhead: "Most brand discovery takes a quarter and produces a deck. Ours takes weeks and produces a working system."
-  body: "Outside-in first: we pull the public picture of your brand together, then organize internal knowledge into a system your team will actually use. Working before most discovery processes finish onboarding."
-  framings:
-    - title: "Outside-in first."
-      copy: "Start with what your audience already sees, not what you think you've said."
-    - title: "Internal organization second."
-      copy: "What lives in heads, decks, drives, and Slack gets sorted into a system your team can use."
-    - title: "Working in weeks."
-      copy: "A live Brand HQ ready to walk into, not a 60-page PDF that nobody opens."
-
-roles:
-  header: "Built for the people who'll actually use it."
-  subhead: "Each role gets what they need, where they expect to find it. The designer doesn't get the executive summary. The developer doesn't get the marketing brief."
-  cards:
-    - title: "Designers"
-      copy: "A design system that updates when the brand updates. Logo files in every format. Color, type, motion, photography rules with the rationale behind every choice."
-    - title: "Developers"
-      copy: "Tokens, components, and brand rules in machine-readable form. Hook your codebase to the source of truth. The Brand Guide is a public, citeable URL."
-    - title: "Marketers"
-      copy: "Voice, audience, competitive context, and live signals in one place. The brief generator pulls from your strategy and writes a draft."
-    - title: "Executives"
-      copy: "Strategic narrative, proof, and live performance. What you need for a board meeting, cold. The dashboard surfaces what changed this week before someone asks."
-    - title: "Data and ops"
-      copy: "Decisions logged with context. Performance signals filtered through your strategy. The institutional memory your team can't carry alone."
-
 tiers:
   header: "The right idea, at the right moment, to the right person."
   subhead: "Brand HQ doesn't just store everything. It knows when to surface what, and when to keep raw thinking out of the work."
@@ -185,23 +158,6 @@ northStar:
           copy: "Raw signal. Reference until your team decides it's more."
       tiersCaption: "Knowledge sorts into three layers. Agents and your team work from canonical and decided. Observed surfaces when relevant."
 
-jobs:
-  header: "The work this actually replaces."
-  subhead: "The jobs Brand HQ does for the people who run it."
-  cards:
-    - title: "Onboard a new team member without booking five meetings."
-      copy: "Brand HQ is the onboarding. They read the canonical layer, follow the citations, show up fluent."
-    - title: "Brief an agency in 20 minutes instead of three weeks."
-      copy: "Send the relevant section. They get strategic context, operating standards, and live signals. The work doesn't have to be redone."
-    - title: "Make decisions without relitigating them every quarter."
-      copy: "Decisions log with context. Your team can see why, when, and what's changed since. New hires don't reopen settled questions."
-    - title: "Stay current without staring at a dashboard."
-      copy: "Brand HQ watches the signals you care about, filters them through your strategy, and surfaces what matters."
-    - title: "Brief leadership without three rounds of edits."
-      copy: "Strategic narrative, recent activity, and proof points already in place. Pull, present, move on."
-    - title: "Hand off without losing the thread."
-      copy: "When someone leaves, their work, decisions, and rationale stay. The next person starts where they left off."
-
 publicOutputs:
   eyebrow: "Outputs"
   header: "What comes out."
@@ -265,6 +221,10 @@ faq:
       a: "Brand HQ structures your knowledge so the AI tools you already use work with your data. You turn an agent loose on canonical and decided knowledge, not raw transcripts. You don't learn new tools. Your tools learn you."
     - q: "What happens if my brand changes?"
       a: "Brand HQ updates with you. Decisions log with context. The Brand Guide updates when the brand updates. Onboarding stays current. New hires don't relitigate settled questions."
+    - q: "Who on my team will use it?"
+      a: "Designers, developers, marketers, executives, and operations leads. Each role gets the same source of truth surfaced for their workflow. Designers see the design system and downloadable files. Developers get tokens and machine-readable rules. Marketers get briefs, voice, and live signals. Executives get strategic narrative and performance. Ops gets decision logs and audit trails."
+    - q: "What does Brand HQ actually replace in my day?"
+      a: "Onboarding meetings (new hires read the canonical layer and show up fluent). Three-week agency briefs (send the relevant section). Decisions relitigated every quarter (logged with rationale). Dashboard staring (signals filtered through your strategy). Edit-heavy leadership briefs (strategic narrative ready to pull). Handoff churn (work and decisions stay in the system)."
     - q: "How big does my company need to be?"
       a: "We work with Fortune 200 enterprises, venture-backed founders, and the funds that back them. Different stages, same system, tuned per business. If you have a strategy and a team, Brand HQ has leverage to add."
     - q: "What does it cost?"
