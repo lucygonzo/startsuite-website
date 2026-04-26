@@ -10,7 +10,7 @@ hero:
   eyebrow: "For Partners"
   headline_lead: "Capital is table stakes."
   headline_emphasis: "Real founder support is the differentiator."
-  subhead: "For VCs, accelerators, and ecosystem partners. StartSuite is the brand infrastructure you can hand your founders, knowing they'll actually use it, your fund gets credit for it, and the brand work signals fund quality before the numbers do."
+  subhead: "For VCs, accelerators, and ecosystem partners. Brand infrastructure your founders actually use, your fund gets credit for, and that signals fund quality before the numbers do."
   cta_primary: "Request a partnership conversation"
   cta_primary_action: "openModal()"
   cta_secondary: "See Brand HQ"
@@ -19,14 +19,14 @@ hero:
 
 tldr:
   header: "StartSuite for partners, in 30 seconds."
-  body: "StartSuite is brand and creative infrastructure for VCs, accelerators, and ecosystem partners. We build Brand HQ, a living system, for the founders in your portfolio so they show up branded, prepped, and capable of using their own materials without coming back to you for help. Three engagement models from referral-only to fully embedded. Sharper portfolios. Smarter founder support. A creative partner fluent in how your fund actually works."
+  body: "StartSuite is brand and creative infrastructure for VCs, accelerators, and ecosystem partners. We build Brand HQ, a living system, for the founders in your portfolio so they show up branded, prepped, and capable of using their own materials without coming back to you for help. Sharper portfolios. Smarter founder support. A creative partner fluent in how your fund actually works."
 
 empathy:
   header: "You're already the brand consultant for your portfolio. You shouldn't have to be."
   lines:
     - "Your founders ask for brand help constantly."
     - "You can't cover it yourself, and the agencies you refer them to cost too much or miss the room."
-    - "The result is portfolios that show up scattered, founders losing credibility because their brand doesn't match their ambition, and you watching it happen from the sideline."
+    - "The result: portfolios that show up scattered, founders whose brand doesn't match their ambition, and you watching from the sideline."
 
 pillars:
   header: "The brand work you wish you could do for them, finally done right."
@@ -34,7 +34,7 @@ pillars:
   cards:
     - icon: "strategy"
       title: "Where their brand strategy actually lives."
-      copy: "Each founder gets a Brand HQ holding their positioning, audience, voice, and decisions. Not a logo and a deck. A system that grows with them through every raise, every hire, every category shift."
+      copy: "Not a logo and a deck. Each founder gets a Brand HQ that holds their positioning, voice, and decisions. A system that grows through every raise, every hire, every category shift."
     - icon: "showup"
       title: "How they show up to your LPs and their investors."
       copy: "Pitch decks that match their ambition. Websites that don't undersell them. A consistent brand presence that signals 'this fund picks well' before the numbers do."
@@ -67,12 +67,12 @@ partnershipModels:
     - level: "Tier 1"
       label: "Referral"
       title: "Send your founders our way."
-      copy: "The simplest model. You refer founders directly to StartSuite. We handle intake, onboarding, delivery. No integration required. You get a trusted creative partner in your back pocket."
+      copy: "Refer founders directly. We handle intake, onboarding, delivery. No integration required from your fund."
       bestFor: "Funds and partners who want a vetted resource without committing to a structured program."
     - level: "Tier 2"
       label: "Subsidized Access"
       title: "Cover part of the engagement for your founders."
-      copy: "Your fund or program covers a portion of the Brand HQ engagement. Founders pay the remainder. Positions you as a fund that invests in founder success beyond capital."
+      copy: "Your fund covers a portion of the engagement. Founders pay the remainder. You become a fund that invests in founder success beyond capital."
       bestFor: "Funds and accelerators with founder-success budgets who want to make brand infrastructure a real benefit."
     - level: "Tier 3"
       label: "Embedded Partner"
@@ -92,7 +92,7 @@ roi:
       copy: "Your fund stops being the brand help desk. Founders have the system. You get to focus on the strategic work only you can do."
     - claim: "Compounds"
       title: "at every fund moment."
-      copy: "Funds with embedded brand infrastructure differentiate at LP meetings, at founder pitches, and at portfolio company exits. The advantage shows up everywhere capital meets brand."
+      copy: "Funds with this differentiate at LP meetings, founder pitches, and portfolio exits. The advantage shows up everywhere capital meets brand."
 
 jobs:
   header: "Stop being your portfolio's brand help desk."
@@ -115,7 +115,7 @@ jobs:
 
 caseStudy:
   header: "What changed for one fund's portfolio in twelve months."
-  body: "A managing partner at a venture capital fund came to us with a portfolio of seventeen companies, each with their own brand challenges, each asking for help. He'd been the de facto brand consultant for years, fielding requests, recommending agencies, watching brand decisions get made under pressure. We built a fund-level partnership: a shared resource library, three Brand HQ engagements at portfolio companies in their highest-leverage moments, and quarterly brand reviews across the portfolio. Twelve months later, his portfolio companies were showing up sharper at LP days, the brand questions had stopped landing in his inbox, and two of his companies had named StartSuite as a key part of their go-to-market readiness."
+  body: "A managing partner at a venture capital fund came to us with seventeen portfolio companies all asking for brand help. He'd been the de facto brand consultant for years, fielding requests, recommending agencies, watching brand decisions get made under pressure. We built a fund-level partnership: a shared resource library, three Brand HQ engagements at portfolio companies in their highest-leverage moments, and quarterly brand reviews across the portfolio. Twelve months later, the brand questions had stopped landing in his inbox, his portfolio showed up sharper at LP days, and two companies named StartSuite in their go-to-market readiness."
   quote: "Once everything is housed here, you don't need to learn new AI tools. You turn an agent loose on your own data and say, give me a LinkedIn post for Wednesday. It knows your voice, your topics, your rules. It just works."
   attribution: "Managing Partner, venture capital fund"
 
@@ -159,7 +159,7 @@ faq:
     - q: "How does this work alongside our existing founder support?"
       a: "It complements, not competes. Most funds have legal, accounting, recruiting, and PR resources for founders. Brand and creative infrastructure has been the gap nobody filled well. StartSuite is the resource that fills that gap, and it's designed to slot into your existing founder support model without disrupting it."
     - q: "What's the typical engagement structure for funds?"
-      a: "Three tiers. Referral (you send founders our way, no commitment from your fund). Subsidized (your fund covers part of the engagement, founders pay the remainder). Embedded partner (StartSuite integrates at the fund level with cohort workshops, office hours, and portfolio brand intelligence). Most fund relationships start at Tier 1 or 2 and evolve."
+      a: "Three tiers, ranging from Referral (lightest) to Embedded Partner (deepest). See the partnership models section above for detail. Most fund relationships start at Tier 1 or 2 and evolve."
     - q: "How do you handle confidentiality across portfolio companies?"
       a: "Each Brand HQ is private to its founder. We don't share content, signals, or strategic decisions across portfolio companies. At the fund level (Tier 3), partners can see aggregated portfolio brand health metrics, but never specific competitive context or strategic decisions from individual founders."
     - q: "What's the typical timeline from referral to a working Brand HQ?"
