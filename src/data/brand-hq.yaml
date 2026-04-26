@@ -1,7 +1,8 @@
 hero:
   eyebrow: "The Product"
   headline_lead: "Your brand,"
-  headline_emphasis: "in one place."
+  headline_emphasis: "in one place"
+  headline_tail: "to go from here to anywhere."
   tagline: "Working harder so you can focus on working smarter."
   subhead: "Custom-built around your strategy, your audience, and the work that moves your business. Yours from day one. Sharper every time your team uses it."
   cta_primary: "Request a walkthrough"
@@ -48,13 +49,35 @@ yoursSpecifically:
         - "Creative direction layer"
   closing: "Your Brand HQ won't look like anyone else's. That's the point."
 
-whatItIs:
-  header: "Strategy, work, and signals. In one system. Tuned to you."
-  body: "Three things that usually live in three places: your strategy and taste, the work that comes from it, and the live signals from your audience and market that feed both. We build the first version with you. Your team runs it from there."
-  lines:
-    - "Built fast, from outside-in research."
-    - "Structured around how your team actually works."
-    - "Yours to run, with us when it counts."
+inputs:
+  eyebrow: "Inputs"
+  header: "What feeds into it."
+  body: "We don't make you start from zero. Brand HQ pulls from research we run, the assets you already have, the knowledge in your team's heads, and the live signals your category produces every day."
+  groups:
+    - title: "Outside-in research"
+      items:
+        - "Audience interviews"
+        - "Competitive analysis"
+        - "Category mapping"
+        - "Public-facing brand audit"
+    - title: "Existing assets"
+      items:
+        - "Notion, PDFs, Figma"
+        - "Frontify, brand guidelines"
+        - "CRM and audience notes"
+        - "Anything in Drive"
+    - title: "Internal knowledge"
+      items:
+        - "Stakeholder interviews"
+        - "Slack archives"
+        - "Decision history"
+        - "Tribal knowledge in heads"
+    - title: "Live signals"
+      items:
+        - "Mention monitoring"
+        - "Sentiment tagging"
+        - "Alert routing"
+        - "Category news"
 
 builtFast:
   header: "Built in weeks, not months."
@@ -97,24 +120,55 @@ tiers:
   closing: "Your agents and your team work from canonical and decided. Observed surfaces when relevant, never when it shouldn't. Every decision that crosses a layer gets logged."
 
 northStar:
+  eyebrow: "The North Star"
   header: "Your strategy at the center. Five sections that carry it into the work."
-  body: "Brands compound on consistency under pressure. Brand HQ is built around your north star and structured so it shows up in the work, the signals, and the decisions your team makes."
+  body: "Brands compound on consistency under pressure. Brand HQ is structured around your north star so it shows up in the work, the signals, and the decisions your team makes."
   sections:
     - title: "Brand"
       lede: "Your point of view, made tangible."
-      copy: "Positioning, voice, visual identity, and the operating standards that keep it consistent across teams and partners."
+      copy: "Positioning, voice, and identity that stay consistent across teams and partners."
+      features:
+        - "Positioning + value props"
+        - "Voice principles + examples"
+        - "Logo system + downloads"
+        - "Color, type, motion, photo standards"
+        - "Operating do's and don'ts"
     - title: "Market"
       lede: "The world your point of view is operating in."
-      copy: "Your audience, your competitors, the category you're building. Watched on a cadence so it stays current with reality."
+      copy: "Your audience, competitors, and category, watched so they stay current with reality."
+      features:
+        - "Audience persona depth"
+        - "Competitive intelligence"
+        - "Category mapping"
+        - "Cadence-driven monitoring"
+        - "Macro forces and trends"
     - title: "Strategy"
       lede: "Your point of view, made actionable."
-      copy: "What you stand for, where you're headed, the moments that matter in your customer journey."
+      copy: "What you stand for, where you're headed, and the moments that matter."
+      features:
+        - "North star + strategic pillars"
+        - "Customer journey mapping"
+        - "Strategic narrative"
+        - "Growth thesis"
+        - "Decision history + rationale"
     - title: "Intelligence"
       lede: "Your point of view, applied to live signals."
-      copy: "The world feeds Brand HQ a constant stream. We filter, synthesize, and surface what matters through your strategic lens."
+      copy: "Constant stream from the world, filtered through your strategic lens."
+      features:
+        - "Listening feed (filtered)"
+        - "Sentiment tagging"
+        - "Alert routing"
+        - "Synthesis briefs"
+        - "Performance dashboard"
     - title: "Operations"
       lede: "Your point of view, in the record."
-      copy: "Decisions made and why. Actions in flight. Onboarding for new team members. The institutional memory that keeps the system honest."
+      copy: "Decisions, actions, and onboarding. The institutional memory that keeps the system honest."
+      features:
+        - "Decision log with citations"
+        - "Action tracker"
+        - "Onboarding portal"
+        - "Knowledge handoff"
+        - "Audit trail"
 
 jobs:
   header: "The work this actually replaces."
@@ -134,16 +188,35 @@ jobs:
       copy: "When someone leaves, their work, decisions, and rationale stay. The next person starts where they left off."
 
 publicOutputs:
-  header: "Brand HQ doesn't just live behind a login."
-  body: "The same system that runs internally produces the work your team needs to share. A public Brand Guide your contractors and partners can cite. A press kit that updates when the brand updates. An asset library your team can pull from without a Slack request."
+  eyebrow: "Outputs"
+  header: "What comes out."
+  body: "The same system that runs internally produces the work your team ships. Internal artifacts your team uses every day. Public artifacts your partners cite. Agent-drafted work in your voice. All downstream of the canonical record."
   caption: "The Brand Guide above lives at a public URL. Your team and partners cite it instead of reconstructing it."
   outputs:
     - label: "Brand Guide"
       detail: "Public, citeable URL"
+      kind: "public"
     - label: "Press Kit"
       detail: "Updates when the brand updates"
+      kind: "public"
     - label: "Asset Library"
       detail: "Pull-from-anywhere downloads"
+      kind: "public"
+    - label: "Content briefs"
+      detail: "Strategy + audience + voice in one"
+      kind: "internal"
+    - label: "Social posts"
+      detail: "Agent-drafted, in your voice"
+      kind: "agent"
+    - label: "Performance signals"
+      detail: "What changed this week"
+      kind: "internal"
+    - label: "Onboarding portal"
+      detail: "New hires up to speed in a day"
+      kind: "internal"
+    - label: "Agency briefs"
+      detail: "Strategic context, ready to send"
+      kind: "internal"
 
 stack:
   header: "Already have tools that work?"

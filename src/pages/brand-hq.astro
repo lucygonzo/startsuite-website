@@ -7,7 +7,7 @@ const {
   hero,
   showcase,
   yoursSpecifically,
-  whatItIs,
+  inputs,
   builtFast,
   roles,
   tiers,
@@ -30,7 +30,7 @@ const {
       <p class="bhq-eyebrow">{hero.eyebrow}</p>
       <h1>
         <span class="bhq-hero-lead">{hero.headline_lead}</span>
-        <em>{hero.headline_emphasis}</em>
+        <span class="bhq-hero-line"><em>{hero.headline_emphasis}</em> {hero.headline_tail}</span>
       </h1>
       <p class="bhq-hero-tagline">{hero.tagline}</p>
       <p class="bhq-hero-sub">{hero.subhead}</p>
@@ -160,16 +160,25 @@ const {
     </div>
   </section>
 
-  <!-- ─── WHAT BRAND HQ ACTUALLY IS ─── -->
-  <section class="bhq-what">
-    <div class="bhq-what-inner">
-      <h2 class="scroll-reveal">{whatItIs.header}</h2>
-      <p class="bhq-what-body scroll-reveal">{whatItIs.body}</p>
-      <ul class="bhq-what-lines">
-        {whatItIs.lines.map((line, i) => (
-          <li class="scroll-reveal" style={`--i:${i}`}>{line}</li>
+  <!-- ─── INPUTS ─── -->
+  <section class="bhq-inputs">
+    <div class="bhq-inputs-inner">
+      <header class="bhq-inputs-header scroll-reveal">
+        <p class="bhq-section-eyebrow">{inputs.eyebrow}</p>
+        <h2>{inputs.header}</h2>
+        <p class="bhq-inputs-body">{inputs.body}</p>
+      </header>
+      <div class="bhq-inputs-grid">
+        {inputs.groups.map((g, i) => (
+          <article class="bhq-input-group scroll-reveal" style={`--i:${i}`}>
+            <h3>{g.title}</h3>
+            <ul>
+              {g.items.map((item) => <li>{item}</li>)}
+            </ul>
+          </article>
         ))}
-      </ul>
+      </div>
+      <p class="bhq-inputs-flow scroll-reveal" aria-hidden="true">↓ Feeds the North Star</p>
     </div>
   </section>
 
@@ -240,6 +249,7 @@ const {
   <section class="bhq-north">
     <div class="bhq-north-inner">
       <header class="bhq-north-header scroll-reveal">
+        <p class="bhq-section-eyebrow">{northStar.eyebrow}</p>
         <h2>{northStar.header}</h2>
         <p class="bhq-north-body">{northStar.body}</p>
       </header>
@@ -247,12 +257,20 @@ const {
         {northStar.sections.map((s, i) => (
           <li class="bhq-north-item scroll-reveal" style={`--i:${i}`}>
             <span class="bhq-north-rail" aria-hidden="true"></span>
-            <h3>{s.title}</h3>
-            <p class="bhq-north-lede">{s.lede}</p>
-            <p class="bhq-north-copy">{s.copy}</p>
+            <div class="bhq-north-meta">
+              <h3>{s.title}</h3>
+              <p class="bhq-north-lede">{s.lede}</p>
+              <p class="bhq-north-copy">{s.copy}</p>
+            </div>
+            {s.features && (
+              <ul class="bhq-north-features">
+                {s.features.map((f) => <li>{f}</li>)}
+              </ul>
+            )}
           </li>
         ))}
       </ul>
+      <p class="bhq-inputs-flow scroll-reveal" aria-hidden="true">↓ Powers the outputs</p>
     </div>
   </section>
 
@@ -275,13 +293,23 @@ const {
     </div>
   </section>
 
-  <!-- ─── PUBLIC OUTPUTS (Brand Guide etc.) ─── -->
+  <!-- ─── OUTPUTS ─── -->
   <section class="bhq-outputs">
     <div class="bhq-outputs-inner">
       <header class="bhq-outputs-header scroll-reveal">
+        <p class="bhq-section-eyebrow">{publicOutputs.eyebrow}</p>
         <h2>{publicOutputs.header}</h2>
         <p class="bhq-outputs-body">{publicOutputs.body}</p>
       </header>
+      <ul class="bhq-outputs-grid">
+        {publicOutputs.outputs.map((o, i) => (
+          <li class={`bhq-output-tile bhq-output-${o.kind} scroll-reveal`} style={`--i:${i}`}>
+            <span class="bhq-output-kind">{o.kind === 'public' ? 'Public' : o.kind === 'agent' ? 'Agent' : 'Internal'}</span>
+            <h5>{o.label}</h5>
+            <p>{o.detail}</p>
+          </li>
+        ))}
+      </ul>
       <div class="bhq-outputs-visual scroll-reveal" aria-hidden="true">
         <div class="bhq-guide-mock">
           <div class="bhq-shot-chrome"><span></span><span></span><span></span></div>
@@ -297,14 +325,6 @@ const {
               <div><span>Photo</span><em>Direction</em></div>
             </div>
           </div>
-        </div>
-        <div class="bhq-outputs-list">
-          {publicOutputs.outputs.map((o) => (
-            <div class="bhq-output-tile">
-              <h5>{o.label}</h5>
-              <p>{o.detail}</p>
-            </div>
-          ))}
         </div>
       </div>
       <p class="bhq-outputs-caption scroll-reveal">{publicOutputs.caption}</p>
