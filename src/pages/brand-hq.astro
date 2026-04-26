@@ -9,6 +9,7 @@ const {
   showcase,
   definition,
   yoursSpecifically,
+  flow,
   inputs,
   northStar,
   publicOutputs,
@@ -18,6 +19,21 @@ const {
   faq,
   finalCta,
 } = bhqData;
+
+// Pre-compute petal positions for the radial north star
+const NS_RADIUS = 110;
+const petals = northStar.sections.map((s: any, i: number) => {
+  const angle = (-90 + i * 72) * (Math.PI / 180);
+  return {
+    ...s,
+    key: s.title.toLowerCase(),
+    x: Math.cos(angle) * NS_RADIUS,
+    y: Math.sin(angle) * NS_RADIUS,
+    labelX: Math.cos(angle) * (NS_RADIUS + 26),
+    labelY: Math.sin(angle) * (NS_RADIUS + 26),
+    angle: i * 72,
+  };
+});
 
 // Build JSON-LD for SEO/GEO
 const faqSchema = {
@@ -200,113 +216,256 @@ const productSchema = {
     </div>
   </section>
 
-  <!-- ─── INPUTS ─── -->
-  <section class="bhq-inputs">
-    <div class="bhq-inputs-inner">
-      <header class="bhq-inputs-header scroll-reveal">
-        <p class="bhq-section-eyebrow">{inputs.eyebrow}</p>
-        <h2>{inputs.header}</h2>
-        <p class="bhq-inputs-body">{inputs.body}</p>
-      </header>
-      <div class="bhq-inputs-grid">
-        {inputs.groups.map((g, i) => (
-          <article class="bhq-input-group scroll-reveal" style={`--i:${i}`}>
-            <h3>{g.title}</h3>
-            <ul>
-              {g.items.map((item) => <li>{item}</li>)}
-            </ul>
-          </article>
-        ))}
-      </div>
-      <p class="bhq-inputs-flow scroll-reveal" aria-hidden="true">↓ Feeds the North Star</p>
+  <!-- ─── FLOW: Inputs → Radial North Star → Outputs (one connected story) ─── -->
+  <section class="bhq-flow" data-bhq-flow>
+    <div class="bhq-flow-header scroll-reveal">
+      <p class="bhq-section-eyebrow">{flow.eyebrow}</p>
+      <h2>{flow.header}</h2>
+      <p class="bhq-flow-body">{flow.body}</p>
     </div>
-  </section>
 
+    <div class="bhq-flow-grid">
 
-  <!-- ─── NORTH STAR (5 sections) ─── -->
-  <section class="bhq-north">
-    <div class="bhq-north-inner">
-      <header class="bhq-north-header scroll-reveal">
-        <p class="bhq-section-eyebrow">{northStar.eyebrow}</p>
-        <h2>{northStar.header}</h2>
-        <p class="bhq-north-body">{northStar.body}</p>
-      </header>
-      <ul class="bhq-north-sections">
-        {northStar.sections.map((s: any, i: number) => (
-          <li class="bhq-north-item scroll-reveal" style={`--i:${i}`}>
-            <span class="bhq-north-rail" aria-hidden="true"></span>
-            <div class="bhq-north-meta">
-              <h3>{s.title}</h3>
-              <p class="bhq-north-lede">{s.lede}</p>
-              <p class="bhq-north-copy">{s.copy}</p>
-              {s.tiers && (
-                <div class="bhq-north-tiers">
-                  <p class="bhq-north-tiers-label">Knowledge sorts into three layers:</p>
-                  <div class="bhq-north-tiers-row">
-                    {s.tiers.map((t: any) => (
-                      <div class={`bhq-tier-mini bhq-tier-mini-${t.level.toLowerCase()}`}>
-                        <span class="bhq-tier-mini-rail" aria-hidden="true"></span>
-                        <div class="bhq-tier-mini-text">
-                          <strong>{t.level}</strong>
-                          <span>{t.copy}</span>
-                        </div>
+      <ol class="bhq-flow-inputs" aria-label="Inputs to Brand HQ">
+        <li class="bhq-flow-col-label" aria-hidden="true">Inputs</li>
+        {inputs.groups.map((g: any, i: number) => (
+          <li class="bhq-flow-input" data-flow-input={i}>
+            <span class="bhq-flow-input-dot" aria-hidden="true"></span>
+            <div>
+              <strong>{g.title}</strong>
+              <span>{g.items.slice(0, 2).join(' · ')}</span>
+            </div>
+          </li>
+        ))}
+      </ol>
+
+      <div class="bhq-flow-core">
+        <div class="bhq-flow-core-label" aria-hidden="true">North Star</div>
+        <svg class="bhq-star" viewBox="-180 -160 360 320" aria-label="Brand HQ north star with five sections">
+          <circle cx="0" cy="0" r="125" class="bhq-star-orbit bhq-star-orbit-outer" />
+          <circle cx="0" cy="0" r="110" class="bhq-star-orbit" />
+          <polygon points={petals.map((p: any) => `${p.x.toFixed(2)},${p.y.toFixed(2)}`).join(' ')} class="bhq-star-pentagon" />
+          {petals.map((p: any) => (
+            <line x1="0" y1="0" x2={p.x.toFixed(2)} y2={p.y.toFixed(2)} class="bhq-star-spoke" data-petal-spoke={p.key} />
+          ))}
+          <g class="bhq-star-center">
+            <circle cx="0" cy="0" r="22" class="bhq-star-glow" />
+            <circle cx="0" cy="0" r="6" class="bhq-star-core" />
+            <line x1="-14" y1="0" x2="14" y2="0" />
+            <line x1="0" y1="-14" x2="0" y2="14" />
+            <line x1="-10" y1="-10" x2="10" y2="10" />
+            <line x1="-10" y1="10" x2="10" y2="-10" />
+          </g>
+          {petals.map((p: any, i: number) => (
+            <g
+              class={`bhq-petal ${i === 0 ? 'is-active' : ''}`}
+              data-petal={p.key}
+              tabindex="0"
+              role="button"
+              aria-label={`Show ${p.title} features`}
+            >
+              <circle cx={p.x.toFixed(2)} cy={p.y.toFixed(2)} r="14" class="bhq-petal-glow" />
+              <circle cx={p.x.toFixed(2)} cy={p.y.toFixed(2)} r="7" class="bhq-petal-dot" />
+              <text
+                x={p.labelX.toFixed(2)}
+                y={p.labelY.toFixed(2)}
+                text-anchor="middle"
+                dominant-baseline="middle"
+                class="bhq-petal-label"
+              >{p.title}</text>
+            </g>
+          ))}
+        </svg>
+
+        <div class="bhq-flow-features" data-bhq-features>
+          {petals.map((p: any, i: number) => (
+            <div
+              class={`bhq-flow-feature ${i === 0 ? 'is-active' : ''}`}
+              data-feature={p.key}
+              aria-hidden={i === 0 ? 'false' : 'true'}
+            >
+              <p class="bhq-flow-feature-eyebrow">{p.title}</p>
+              <p class="bhq-flow-feature-lede">{p.lede}</p>
+              {p.features && (
+                <ul class="bhq-flow-feature-list">
+                  {p.features.map((f: string) => <li>{f}</li>)}
+                </ul>
+              )}
+              {p.tiers && (
+                <div class="bhq-flow-feature-tiers">
+                  <p class="bhq-flow-feature-tiers-label">Knowledge sorts into:</p>
+                  {p.tiers.map((t: any) => (
+                    <div class={`bhq-tier-mini bhq-tier-mini-${t.level.toLowerCase()}`}>
+                      <span class="bhq-tier-mini-rail" aria-hidden="true"></span>
+                      <div class="bhq-tier-mini-text">
+                        <strong>{t.level}</strong>
+                        <span>{t.copy}</span>
                       </div>
-                    ))}
-                  </div>
-                  {s.tiersCaption && <p class="bhq-north-tiers-caption">{s.tiersCaption}</p>}
+                    </div>
+                  ))}
                 </div>
               )}
             </div>
-            {s.features && (
-              <ul class="bhq-north-features">
-                {s.features.map((f: string) => <li>{f}</li>)}
-              </ul>
-            )}
-          </li>
-        ))}
-      </ul>
-      <p class="bhq-inputs-flow scroll-reveal" aria-hidden="true">↓ Powers the outputs</p>
-    </div>
-  </section>
-
-
-  <!-- ─── OUTPUTS ─── -->
-  <section class="bhq-outputs">
-    <div class="bhq-outputs-inner">
-      <header class="bhq-outputs-header scroll-reveal">
-        <p class="bhq-section-eyebrow">{publicOutputs.eyebrow}</p>
-        <h2>{publicOutputs.header}</h2>
-        <p class="bhq-outputs-body">{publicOutputs.body}</p>
-      </header>
-      <ul class="bhq-outputs-grid">
-        {publicOutputs.outputs.map((o, i) => (
-          <li class={`bhq-output-tile bhq-output-${o.kind} scroll-reveal`} style={`--i:${i}`}>
-            <span class="bhq-output-kind">{o.kind === 'public' ? 'Public' : o.kind === 'agent' ? 'Agent' : 'Internal'}</span>
-            <h5>{o.label}</h5>
-            <p>{o.detail}</p>
-          </li>
-        ))}
-      </ul>
-      <div class="bhq-outputs-visual scroll-reveal" aria-hidden="true">
-        <div class="bhq-guide-mock">
-          <div class="bhq-shot-chrome"><span></span><span></span><span></span></div>
-          <div class="bhq-guide-body">
-            <p class="bhq-guide-cap">Brand Guide · public URL</p>
-            <h6>The brand, in one place.</h6>
-            <div class="bhq-guide-grid">
-              <div><span>Logo</span><em>System</em></div>
-              <div><span>Color</span><em>Palette</em></div>
-              <div><span>Type</span><em>Scale</em></div>
-              <div><span>Voice</span><em>Principles</em></div>
-              <div><span>Motion</span><em>Rules</em></div>
-              <div><span>Photo</span><em>Direction</em></div>
-            </div>
-          </div>
+          ))}
         </div>
       </div>
-      <p class="bhq-outputs-caption scroll-reveal">{publicOutputs.caption}</p>
+
+      <ul class="bhq-flow-outputs" aria-label="Outputs from Brand HQ">
+        <li class="bhq-flow-col-label" aria-hidden="true">Outputs</li>
+        {publicOutputs.outputs.map((o: any, i: number) => (
+          <li class={`bhq-flow-output bhq-output-${o.kind}`} data-flow-output={i}>
+            <span class="bhq-flow-output-dot" aria-hidden="true"></span>
+            <div>
+              <strong>{o.label}</strong>
+              <span>{o.detail}</span>
+            </div>
+            <em class="bhq-flow-output-kind">{o.kind === 'public' ? 'Public' : o.kind === 'agent' ? 'Agent' : 'Internal'}</em>
+          </li>
+        ))}
+      </ul>
+
+      <svg class="bhq-flow-lines" aria-hidden="true" data-bhq-lines></svg>
+
     </div>
   </section>
+
+  <script is:inline>
+    (function () {
+      const root = document.querySelector('[data-bhq-flow]');
+      if (!root) return;
+      const linesSvg = root.querySelector('[data-bhq-lines]');
+      const featurePanel = root.querySelector('[data-bhq-features]');
+      const inputNodes = root.querySelectorAll('[data-flow-input]');
+      const outputNodes = root.querySelectorAll('[data-flow-output]');
+      const star = root.querySelector('.bhq-star');
+      const petals = root.querySelectorAll('.bhq-petal');
+      const spokes = root.querySelectorAll('[data-petal-spoke]');
+      const grid = root.querySelector('.bhq-flow-grid');
+
+      const reduceMotion = window.matchMedia &&
+        window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      function rebuildLines() {
+        if (!linesSvg || !grid || !star) return null;
+        const gridRect = grid.getBoundingClientRect();
+        const starRect = star.getBoundingClientRect();
+        const cx = (starRect.left + starRect.width / 2) - gridRect.left;
+        const cy = (starRect.top + starRect.height / 2) - gridRect.top;
+
+        linesSvg.setAttribute('viewBox', '0 0 ' + gridRect.width + ' ' + gridRect.height);
+        linesSvg.setAttribute('width', gridRect.width);
+        linesSvg.setAttribute('height', gridRect.height);
+        linesSvg.innerHTML = '';
+
+        function curve(x1, y1, x2, y2) {
+          const mx = (x1 + x2) / 2;
+          return 'M ' + x1 + ' ' + y1 + ' C ' + mx + ' ' + y1 + ', ' + mx + ' ' + y2 + ', ' + x2 + ' ' + y2;
+        }
+
+        function addLine(x1, y1, x2, y2, side) {
+          const path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+          path.setAttribute('d', curve(x1, y1, x2, y2));
+          path.setAttribute('class', 'bhq-flow-line bhq-flow-line-' + side);
+          path.setAttribute('fill', 'none');
+          const len = path.getTotalLength ? Math.max(200, Math.ceil(path.getTotalLength())) : 600;
+          path.setAttribute('stroke-dasharray', String(len));
+          path.setAttribute('stroke-dashoffset', String(reduceMotion ? 0 : len));
+          linesSvg.appendChild(path);
+          return path;
+        }
+
+        const inputPaths = [];
+        inputNodes.forEach(function (n) {
+          const r = n.getBoundingClientRect();
+          const x = r.right - gridRect.left;
+          const y = (r.top + r.height / 2) - gridRect.top;
+          inputPaths.push(addLine(x, y, cx - 30, cy, 'in'));
+        });
+        const outputPaths = [];
+        outputNodes.forEach(function (n) {
+          const r = n.getBoundingClientRect();
+          const x = r.left - gridRect.left;
+          const y = (r.top + r.height / 2) - gridRect.top;
+          outputPaths.push(addLine(cx + 30, cy, x, y, 'out'));
+        });
+
+        return { inputPaths: inputPaths, outputPaths: outputPaths };
+      }
+
+      let drawn = rebuildLines();
+
+      function animateLines() {
+        if (!drawn || reduceMotion) return;
+        const allPaths = [].concat(drawn.inputPaths || [], drawn.outputPaths || []);
+        allPaths.forEach(function (p, i) {
+          setTimeout(function () {
+            p.style.transition = 'stroke-dashoffset 1.4s cubic-bezier(0.16, 1, 0.3, 1)';
+            p.setAttribute('stroke-dashoffset', '0');
+          }, i * 80);
+        });
+      }
+
+      let triggered = false;
+      if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) {
+            if (e.isIntersecting && !triggered) {
+              triggered = true;
+              animateLines();
+            }
+          });
+        }, { threshold: 0.2 });
+        io.observe(root);
+      } else {
+        animateLines();
+      }
+
+      let rT;
+      window.addEventListener('resize', function () {
+        clearTimeout(rT);
+        rT = setTimeout(function () {
+          drawn = rebuildLines();
+          if (triggered && drawn) {
+            const allPaths = [].concat(drawn.inputPaths || [], drawn.outputPaths || []);
+            allPaths.forEach(function (p) { p.setAttribute('stroke-dashoffset', '0'); });
+          }
+        }, 200);
+      });
+
+      function activate(key) {
+        petals.forEach(function (p) {
+          p.classList.toggle('is-active', p.getAttribute('data-petal') === key);
+        });
+        spokes.forEach(function (s) {
+          s.classList.toggle('is-active', s.getAttribute('data-petal-spoke') === key);
+        });
+        if (featurePanel) {
+          featurePanel.querySelectorAll('[data-feature]').forEach(function (f) {
+            const on = f.getAttribute('data-feature') === key;
+            f.classList.toggle('is-active', on);
+            f.setAttribute('aria-hidden', on ? 'false' : 'true');
+          });
+        }
+      }
+
+      petals.forEach(function (p) {
+        const key = p.getAttribute('data-petal');
+        p.addEventListener('mouseenter', function () { activate(key); });
+        p.addEventListener('focus', function () { activate(key); });
+        p.addEventListener('click', function () { activate(key); });
+        p.addEventListener('keydown', function (e) {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            activate(key);
+          }
+        });
+      });
+    })();
+  </script>
+
+
+
+
 
   <!-- ─── ALREADY HAVE TOOLS ─── -->
   <section class="bhq-stack section-alt">

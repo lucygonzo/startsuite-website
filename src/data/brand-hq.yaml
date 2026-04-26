@@ -56,6 +56,11 @@ yoursSpecifically:
         - "Creative direction layer"
   closing: "Your Brand HQ won't look like anyone else's. That's the point."
 
+flow:
+  eyebrow: "How it works"
+  header: "Inputs feed your north star. Your north star powers the work."
+  body: "Research, assets, knowledge, and signals feed in. Five sections tune to your business. Outputs go everywhere your team needs them."
+
 inputs:
   eyebrow: "Inputs"
   header: "What feeds into it."
