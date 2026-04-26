@@ -81,11 +81,17 @@ const faqSchema = {
   </section>
 
   <!-- ─── WHY ─── -->
-  <section class="sv-why section-alt">
+  <section class="sv-why sv-section-tint">
+    <div class="sv-wave sv-wave-top" aria-hidden="true">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+        <path d="M0,12 C280,68 560,4 880,40 C1100,64 1280,28 1440,18 L1440,80 L0,80 Z"/>
+      </svg>
+    </div>
     <div class="sv-why-inner">
       <header class="sv-why-header scroll-reveal">
         <p class="sv-section-eyebrow">Why this works the way it works</p>
         <h2>{why.header}</h2>
+        <p class="sv-why-body">{why.body}</p>
       </header>
 
       <!-- Wrong shapes vs right shape — visual model-fit diagram -->
@@ -130,14 +136,12 @@ const faqSchema = {
         </div>
       </div>
 
-      <ul class="sv-why-lines">
-        {why.lines.map((line: string, i: number) => (
-          <li class="scroll-reveal" style={`--i:${i}`}>
-            <span class="sv-why-dot" aria-hidden="true"></span>
-            <p>{line}</p>
-          </li>
-        ))}
-      </ul>
+      {why.closing && (
+        <p class="sv-why-closing scroll-reveal">
+          <span class="sv-why-mark" aria-hidden="true">↑</span>
+          {why.closing}
+        </p>
+      )}
     </div>
   </section>
 
@@ -256,7 +260,7 @@ const faqSchema = {
   </section>
 
   <!-- ─── THREE PHASES (rail) ─── -->
-  <section class="sv-phases section-alt">
+  <section class="sv-phases sv-section-grid">
     <div class="sv-phases-inner">
       <header class="sv-phases-header scroll-reveal">
         <p class="sv-section-eyebrow">What an engagement looks like</p>
@@ -286,7 +290,12 @@ const faqSchema = {
   </section>
 
   <!-- ─── HANDOFF / KEEP RUNNING (matrix) ─── -->
-  <section class="sv-handoff section-alt">
+  <section class="sv-handoff sv-section-tint">
+    <div class="sv-wave sv-wave-top" aria-hidden="true">
+      <svg viewBox="0 0 1440 80" preserveAspectRatio="none">
+        <path d="M0,12 C280,68 560,4 880,40 C1100,64 1280,28 1440,18 L1440,80 L0,80 Z"/>
+      </svg>
+    </div>
     <div class="sv-handoff-inner">
       <header class="sv-handoff-header scroll-reveal">
         <p class="sv-section-eyebrow">What you keep</p>
@@ -357,7 +366,7 @@ const faqSchema = {
   </section>
 
   <!-- ─── EXAMPLES IN PRACTICE ─── -->
-  <section class="sv-examples">
+  <section class="sv-examples sv-section-deep">
     <div class="sv-examples-inner">
       <header class="sv-examples-header scroll-reveal">
         <p class="sv-section-eyebrow">In practice</p>
@@ -378,7 +387,7 @@ const faqSchema = {
   </section>
 
   <!-- ─── FAQ ─── -->
-  <section class="sv-faq section-alt">
+  <section class="sv-faq sv-section-tint">
     <div class="sv-faq-inner">
       <header class="sv-faq-header scroll-reveal">
         <p class="sv-section-eyebrow">{faq.eyebrow}</p>

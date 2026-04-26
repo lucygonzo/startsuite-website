@@ -19,11 +19,8 @@ hero:
 
 why:
   header: "Brand work breaks when the engagement model is wrong."
-  body: "A traditional agency contracts for deliverables. A SaaS tool contracts for seats. A consultant contracts for hours. None of those shapes fit the work brand actually requires, which is a foundation that compounds over months and years, with execution support that scales up and down based on what's happening in the business, and partnership that goes deeper than the build itself when the moment calls for it."
-  lines:
-    - "We built four engagement shapes so the work can match the moment."
-    - "You can move between them as the business changes."
-    - "The product is the same. The depth and the partnership shape is what changes."
+  body: "Most engagement shapes were built for someone else's work. We built four for ours."
+  closing: "Same product across all four. The depth and the partnership shape is what changes."
 
 modes:
   header: "Pick the mode. Or let us recommend one."
@@ -88,12 +85,12 @@ phases:
       what: "Your team runs the system. Our involvement matches the mode."
 
 team:
-  header: "Senior-led from day one. No account managers between you and the work."
-  body: "Every engagement is led by senior creative judgment. Lucy and Reagan are involved directly in every Brand HQ build. We bring in specialist support, designers, strategists, writers, motion experts, when the work calls for it. There's no tier of junior creatives executing on your account. The people who know your business are the same people making decisions about it."
+  header: "Senior-led, every engagement."
+  body: "Lucy and Reagan run every Brand HQ build directly. Specialist designers, strategists, writers, and motion experts come in when the work calls for them. No junior tier. No account managers between you and the work."
 
 handoff:
   header: "Everything we build is yours. Some of it we can keep running."
-  body: "Brand HQ is your asset, not ours. At the end of every engagement you have a fully owned, fully documented brand operating system. The rows below show what's handed off in every mode, and what we can keep running where the engagement calls for it."
+  body: "Brand HQ is your asset, not ours. The rows below show what's yours in every mode, and what we can keep running where the engagement calls for it."
   modesHeader: ["", "System", "Done For You", "System + Studio", "Embedded"]
   rows:
     - { label: "Brand HQ build, owned by you", group: "handoff", values: [true, true, true, true] }
