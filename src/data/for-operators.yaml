@@ -138,7 +138,7 @@ crossLinks:
     - heading: "For Funds and Partners."
       copy: "StartSuite has a version tuned for the funds and ecosystem partners who back the next wave of operators."
       cta: "StartSuite for partners"
-      href: "/partners"
+      href: "/for-partners"
 
 faq:
   eyebrow: "FAQ"

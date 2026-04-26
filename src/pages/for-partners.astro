@@ -1,0 +1,505 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import ChampionsKit from '@/components/ChampionsKit.astro';
+import pData from '@/data/for-partners.yaml';
+
+const {
+  meta,
+  referenceBrand,
+  hero,
+  tldr,
+  empathy,
+  pillars,
+  beforeAfter,
+  partnershipModels,
+  roi,
+  jobs,
+  caseStudy,
+  isnt,
+  vcInHouse,
+  crossLinks,
+  faq,
+  finalCta,
+  championKit,
+} = pData;
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faq.items.map((item: any) => ({
+    "@type": "Question",
+    "name": item.q,
+    "acceptedAnswer": { "@type": "Answer", "text": item.a },
+  })),
+};
+
+// Six anonymized portfolio brand identities for the hero portfolio grid mock.
+// Each has a distinct color so the visual differentiation reads at a glance.
+const portfolio = [
+  { name: 'Atlas',   shape: 'circle', tone: 'purple' },
+  { name: 'Helix',   shape: 'square', tone: 'green' },
+  { name: 'Mercer',  shape: 'plus',   tone: 'amber' },
+  { name: 'Vector',  shape: 'tri',    tone: 'blue' },
+  { name: 'Quay',    shape: 'circle', tone: 'red' },
+  { name: 'North',   shape: 'square', tone: 'mint' },
+];
+---
+
+<BaseLayout title={meta.title} description={meta.description}>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)}></script>
+
+  <!-- ─── HERO ─── -->
+  <section class="pp-hero">
+    <div class="pp-hero-glow" aria-hidden="true"></div>
+    <div class="pp-hero-inner">
+      <div class="pp-hero-text">
+        <p class="pp-eyebrow">{hero.eyebrow}</p>
+        <h1>
+          <span class="pp-hero-lead">{hero.headline_lead}</span>
+          <em>{hero.headline_emphasis}</em>
+        </h1>
+        <p class="pp-hero-sub">{hero.subhead}</p>
+        <div class="pp-hero-ctas">
+          <a class="btn btn-primary btn-lg" onclick={hero.cta_primary_action} style="cursor:pointer">{hero.cta_primary} →</a>
+          <a class="btn btn-outline btn-lg" href={hero.cta_secondary_href}>{hero.cta_secondary} →</a>
+        </div>
+      </div>
+      <div class="pp-hero-visual">
+        <!-- Slot 1: portfolio grid (multiple Brand HQ instances under one fund header) -->
+        <div class="pp-mock pp-mock-portfolio" aria-hidden="true">
+          <div class="pp-mock-chrome">
+            <span></span><span></span><span></span>
+            <em>{referenceBrand} Capital · Portfolio Brand HQ</em>
+          </div>
+          <div class="pp-mock-body pp-portfolio-body">
+            <div class="pp-portfolio-fund">
+              <span class="pp-portfolio-fund-mark" aria-hidden="true"></span>
+              <div>
+                <strong>{referenceBrand} Capital</strong>
+                <em>6 active Brand HQs</em>
+              </div>
+              <span class="pp-portfolio-pulse"></span>
+            </div>
+            <div class="pp-portfolio-grid">
+              {portfolio.map((p, i) => (
+                <div class={`pp-portfolio-tile pp-tone-${p.tone}`} style={`--d:${i}`}>
+                  <span class={`pp-portfolio-shape pp-shape-${p.shape}`} aria-hidden="true"></span>
+                  <strong>{p.name}</strong>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+        <p class="pp-hero-caption">{hero.visual_caption}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── TL;DR ─── -->
+  <section class="pp-tldr">
+    <div class="pp-tldr-inner">
+      <div class="pp-tldr-badge" aria-hidden="true">
+        <svg viewBox="0 0 16 16" fill="none">
+          <circle cx="8" cy="8" r="6.5" stroke="currentColor" stroke-width="1.4"/>
+          <path d="M8 4.5 L8 8 L10.5 9.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span>Our tl;dr pitch</span>
+      </div>
+      <h2>{tldr.header}</h2>
+      <p>{tldr.body}</p>
+    </div>
+  </section>
+
+  <!-- ─── EMPATHY ─── -->
+  <section class="pp-empathy section-alt">
+    <div class="pp-empathy-inner">
+      <header class="pp-empathy-header">
+        <h2>{empathy.header}</h2>
+      </header>
+      <ol class="pp-empathy-lines">
+        {empathy.lines.map((line: string, i: number) => (
+          <li class="scroll-reveal" style={`--i:${i}`}>
+            <span class="pp-empathy-num">{String(i + 1).padStart(2, '0')}</span>
+            <p>{line}</p>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <!-- ─── PILLARS ─── -->
+  <section class="pp-pillars">
+    <div class="pp-pillars-inner">
+      <header class="pp-pillars-header scroll-reveal">
+        <h2>{pillars.header}</h2>
+        <p class="pp-pillars-sub">{pillars.subhead}</p>
+      </header>
+      <div class="pp-pillars-grid">
+        {pillars.cards.map((card: any, i: number) => (
+          <article class={`pp-pillar pp-pillar-${card.icon} scroll-reveal ${card.emphasized ? 'is-emphasized' : ''}`} style={`--i:${i}`}>
+            <div class="pp-pillar-icon" aria-hidden="true">
+              {card.icon === 'strategy' && (
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="3"/>
+                  <path d="M12 2v3M12 19v3M2 12h3M19 12h3"/>
+                </svg>
+              )}
+              {card.icon === 'showup' && (
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 17l5-5 4 3 8-8M21 7v4M21 7h-4"/>
+                </svg>
+              )}
+              {card.icon === 'signals' && (
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M3 12h4l3-7 4 14 3-7h4"/>
+                </svg>
+              )}
+              {card.icon === 'scale' && (
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="3"/>
+                  <circle cx="5" cy="5" r="2"/>
+                  <circle cx="19" cy="5" r="2"/>
+                  <circle cx="5" cy="19" r="2"/>
+                  <circle cx="19" cy="19" r="2"/>
+                  <path d="M9.5 9.5 L6.5 6.5M14.5 9.5 L17.5 6.5M9.5 14.5 L6.5 17.5M14.5 14.5 L17.5 17.5"/>
+                </svg>
+              )}
+            </div>
+            {card.emphasized && <span class="pp-pillar-badge">Why partners care</span>}
+            <h3>{card.title}</h3>
+            <p>{card.copy}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── BEFORE / AFTER ─── -->
+  <section class="pp-ba section-alt">
+    <div class="pp-ba-inner">
+      <header class="pp-ba-header scroll-reveal">
+        <p class="pp-section-eyebrow">Before / After</p>
+        <h2>{beforeAfter.header}</h2>
+      </header>
+      <div class="pp-ba-rows">
+        <div class="pp-ba-cols-header" aria-hidden="true">
+          <span>Now</span>
+          <span></span>
+          <span>With StartSuite</span>
+        </div>
+        {beforeAfter.rows.map((row: any, i: number) => (
+          <div class="pp-ba-row scroll-reveal" style={`--i:${i}`}>
+            <div class="pp-ba-now">{row.now}</div>
+            <div class="pp-ba-arrow" aria-hidden="true">
+              <svg viewBox="0 0 100 12" preserveAspectRatio="none">
+                <line x1="0" y1="6" x2="92" y2="6" />
+                <polyline points="84,2 99,6 84,10"/>
+              </svg>
+            </div>
+            <div class="pp-ba-after">{row.after}</div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── PARTNERSHIP MODELS ─── -->
+  <section class="pp-tiers">
+    <div class="pp-tiers-inner">
+      <header class="pp-tiers-header scroll-reveal">
+        <h2>{partnershipModels.header}</h2>
+        <p class="pp-tiers-sub">{partnershipModels.subhead}</p>
+      </header>
+      <div class="pp-tiers-grid">
+        {partnershipModels.tiers.map((t: any, i: number) => (
+          <article class={`pp-tier pp-tier-${i + 1} ${t.emphasized ? 'is-emphasized' : ''} scroll-reveal`} style={`--i:${i}`}>
+            <div class="pp-tier-head">
+              <span class="pp-tier-level">{t.level}</span>
+              <span class="pp-tier-label">{t.label}</span>
+            </div>
+            <h3>{t.title}</h3>
+            <p class="pp-tier-copy">{t.copy}</p>
+            <div class="pp-tier-best">
+              <span>Best for</span>
+              <p>{t.bestFor}</p>
+            </div>
+            <a class="pp-tier-cta" onclick="openModal()" style="cursor:pointer">Talk to us →</a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── ROI ─── -->
+  <section class="pp-roi">
+    <div class="pp-roi-inner">
+      <header class="pp-roi-header scroll-reveal">
+        <h2>{roi.header}</h2>
+      </header>
+      <div class="pp-roi-grid">
+        {roi.blocks.map((b: any, i: number) => (
+          <article class="pp-roi-block scroll-reveal" style={`--i:${i}`}>
+            <div class="pp-roi-claim">{b.claim}</div>
+            <h3>{b.title}</h3>
+            <p>{b.copy}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── JOBS ─── -->
+  <section class="pp-jobs">
+    <div class="pp-jobs-inner">
+      <header class="pp-jobs-header scroll-reveal">
+        <h2>{jobs.header}</h2>
+      </header>
+      <div class="pp-jobs-grid">
+        {jobs.cards.map((card: any, i: number) => (
+          <article class="pp-job scroll-reveal" style={`--i:${i}`}>
+            <div class="pp-job-visual">
+              {card.visual === 'founderonboarding' && (
+                <div class="pp-mock pp-mock-onboarding">
+                  <div class="pp-mock-chrome"><span></span><span></span><span></span><em>Atlas Co · Brand HQ · Founder onboarding</em></div>
+                  <div class="pp-mock-body">
+                    <div class="pp-mock-cap">Sent by {referenceBrand} Capital</div>
+                    <ol class="pp-onboarding-list">
+                      <li><span>01</span><div><strong>Welcome from your fund</strong><em>2 min</em></div></li>
+                      <li><span>02</span><div><strong>Positioning</strong><em>Canonical · 4 min</em></div></li>
+                      <li><span>03</span><div><strong>Audience + voice</strong><em>3 min</em></div></li>
+                      <li><span>04</span><div><strong>Live signals</strong><em>Already filtered</em></div></li>
+                    </ol>
+                  </div>
+                </div>
+              )}
+              {card.visual === 'pitchprep' && (
+                <div class="pp-mock pp-mock-pitch">
+                  <div class="pp-mock-chrome"><span></span><span></span><span></span><em>Atlas Co · Brand HQ · Pitch prep</em></div>
+                  <div class="pp-mock-body">
+                    <div class="pp-mock-cap">Series A pitch · ready</div>
+                    <h6>Strategic narrative · in flight</h6>
+                    <div class="pp-pitch-arc">
+                      <div><span>01</span><strong>Why now</strong></div>
+                      <div><span>02</span><strong>What we believe</strong></div>
+                      <div><span>03</span><strong>What we ship</strong></div>
+                      <div><span>04</span><strong>The math</strong></div>
+                    </div>
+                    <div class="pp-pitch-signals">
+                      <span class="pp-mock-pulse pp-mock-pulse-green"></span>
+                      <em>3 fresh category signals integrated</em>
+                    </div>
+                  </div>
+                </div>
+              )}
+              {card.visual === 'cohort' && (
+                <div class="pp-mock pp-mock-cohort">
+                  <div class="pp-mock-chrome"><span></span><span></span><span></span><em>{referenceBrand} Capital · Cohort 9</em></div>
+                  <div class="pp-mock-body">
+                    <div class="pp-mock-cap">Cohort 9 · 6 founders · Week 4</div>
+                    <div class="pp-cohort-grid">
+                      <div><span class="pp-cohort-dot active"></span><strong>Atlas</strong><em>HQ live</em></div>
+                      <div><span class="pp-cohort-dot active"></span><strong>Helix</strong><em>HQ live</em></div>
+                      <div><span class="pp-cohort-dot active"></span><strong>Mercer</strong><em>HQ live</em></div>
+                      <div><span class="pp-cohort-dot building"></span><strong>Vector</strong><em>Building</em></div>
+                      <div><span class="pp-cohort-dot building"></span><strong>Quay</strong><em>Building</em></div>
+                      <div><span class="pp-cohort-dot building"></span><strong>North</strong><em>Building</em></div>
+                    </div>
+                    <div class="pp-cohort-foot">Workshop 3 of 6 · this Thursday</div>
+                  </div>
+                </div>
+              )}
+              {card.visual === 'fundview' && (
+                <div class="pp-mock pp-mock-fundview">
+                  <div class="pp-mock-chrome"><span></span><span></span><span></span><em>{referenceBrand} Capital · Portfolio brand health</em></div>
+                  <div class="pp-mock-body">
+                    <div class="pp-mock-cap">Portfolio · Q3</div>
+                    <div class="pp-fundview-stats">
+                      <div><strong>17</strong><em>Active companies</em></div>
+                      <div><strong>11</strong><em>With Brand HQ</em></div>
+                      <div><strong>+0.4</strong><em>Avg sentiment</em></div>
+                    </div>
+                    <div class="pp-fundview-trends">
+                      <strong>This quarter's signals</strong>
+                      <div><span class="pp-cohort-dot active"></span><em>3 raised on schedule</em></div>
+                      <div><span class="pp-cohort-dot building"></span><em>2 mid-repositioning</em></div>
+                      <div><span class="pp-cohort-dot done"></span><em>1 acquired (Brand HQ stayed)</em></div>
+                    </div>
+                  </div>
+                </div>
+              )}
+              {card.visual === 'exits' && (
+                <div class="pp-mock pp-mock-exits">
+                  <div class="pp-mock-chrome"><span></span><span></span><span></span><em>Atlas Co · Brand HQ · Exit handoff</em></div>
+                  <div class="pp-mock-body">
+                    <div class="pp-mock-cap">Acquired · Q3</div>
+                    <h6>What stays with the company</h6>
+                    <div class="pp-exits-list">
+                      <div><strong>Strategic narrative</strong><em>Canonical · documented</em></div>
+                      <div><strong>Audience research</strong><em>4 personas · cited</em></div>
+                      <div><strong>Decisions log</strong><em>3 years · with rationale</em></div>
+                      <div><strong>Operating standards</strong><em>14 rules · current</em></div>
+                    </div>
+                    <div class="pp-exits-foot">
+                      <span class="pp-mock-pulse"></span>
+                      Inherited intact by new parent
+                    </div>
+                  </div>
+                </div>
+              )}
+            </div>
+            <div class="pp-job-text">
+              <span class="pp-job-num">{String(i + 1).padStart(2, '0')}</span>
+              <h3>{card.title}</h3>
+              <p>{card.copy}</p>
+            </div>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── CASE STUDY ─── -->
+  <section class="pp-case section-alt">
+    <div class="pp-case-inner">
+      <header class="pp-case-header scroll-reveal">
+        <h2>{caseStudy.header}</h2>
+      </header>
+      <div class="pp-case-body scroll-reveal">
+        <p class="pp-case-narrative">{caseStudy.body}</p>
+        <figure class="pp-case-quote">
+          <span class="pp-case-glyph" aria-hidden="true">&ldquo;</span>
+          <blockquote>{caseStudy.quote}</blockquote>
+          <figcaption>
+            <span class="pp-case-rule" aria-hidden="true"></span>
+            {caseStudy.attribution}
+          </figcaption>
+        </figure>
+      </div>
+      <div class="pp-case-visual scroll-reveal" aria-hidden="true">
+        <div class="pp-mock pp-mock-fundoverview">
+          <div class="pp-mock-chrome"><span></span><span></span><span></span><em>{referenceBrand} Capital · Portfolio Brand HQ</em></div>
+          <div class="pp-mock-body pp-fundoverview-body">
+            <aside class="pp-fundoverview-nav">
+              <span class="is-active">Portfolio</span>
+              <span>Atlas</span>
+              <span>Helix</span>
+              <span>Mercer</span>
+              <span>Vector</span>
+              <span>+ 13 more</span>
+            </aside>
+            <main class="pp-fundoverview-main">
+              <div class="pp-fundoverview-cap">Portfolio · brand health</div>
+              <h6>17 companies. 11 active Brand HQs. Brand layer compounding.</h6>
+              <div class="pp-fundoverview-bars">
+                <div><span style="width:78%"></span><em>Pitch readiness</em></div>
+                <div><span style="width:64%"></span><em>Brand consistency</em></div>
+                <div><span style="width:84%"></span><em>Founder usage</em></div>
+              </div>
+              <div class="pp-fundoverview-grid">
+                <div><strong>3</strong><em>Raised on schedule</em></div>
+                <div><strong>2</strong><em>Repositioning</em></div>
+                <div><strong>1</strong><em>Acquired</em></div>
+                <div><strong>11</strong><em>Active HQs</em></div>
+              </div>
+            </main>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── ISN'T / IS ─── -->
+  <section class="pp-isnt">
+    <div class="pp-isnt-inner">
+      <header class="pp-isnt-header scroll-reveal">
+        <h2>{isnt.header}</h2>
+      </header>
+      <div class="pp-isnt-grid">
+        <div class="pp-isnt-col scroll-reveal">
+          <p class="pp-isnt-col-label">What this isn't</p>
+          <ul class="pp-isnt-list pp-isnt-list-dont">
+            {isnt.dont.map((item: string) => <li>{item}</li>)}
+          </ul>
+        </div>
+        <div class="pp-isnt-col scroll-reveal">
+          <p class="pp-isnt-col-label">{isnt.do.title}</p>
+          <ul class="pp-isnt-list pp-isnt-list-do">
+            {isnt.do.items.map((item: string) => <li>{item}</li>)}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── VC IN HOUSE ─── -->
+  <section class="pp-vc">
+    <div class="pp-vc-inner scroll-reveal">
+      <p class="pp-section-eyebrow">From the team</p>
+      <h2>{vcInHouse.header}</h2>
+      <p>{vcInHouse.body}</p>
+      {vcInHouse.cta && (
+        <a class="pp-vc-link" href={vcInHouse.href}>{vcInHouse.cta} →</a>
+      )}
+    </div>
+  </section>
+
+  <!-- ─── CROSS LINKS ─── -->
+  <section class="pp-cross section-alt">
+    <div class="pp-cross-inner">
+      <header class="pp-cross-header scroll-reveal">
+        <h2>{crossLinks.header}</h2>
+      </header>
+      <div class="pp-cross-grid">
+        {crossLinks.cards.map((card: any) => (
+          <article class="pp-cross-card scroll-reveal">
+            <h3>{card.heading}</h3>
+            <p>{card.copy}</p>
+            <a class="pp-cross-cta" href={card.href}>{card.cta} →</a>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FAQ ─── -->
+  <section class="pp-faq">
+    <div class="pp-faq-inner">
+      <header class="pp-faq-header scroll-reveal">
+        <p class="pp-section-eyebrow">{faq.eyebrow}</p>
+        <h2>{faq.header}</h2>
+      </header>
+      <div class="pp-faq-list">
+        {faq.items.map((item: any, i: number) => (
+          <details class="pp-faq-item scroll-reveal" style={`--i:${i}`} open={i === 0}>
+            <summary>
+              <span class="pp-faq-q">{item.q}</span>
+              <span class="pp-faq-icon" aria-hidden="true"></span>
+            </summary>
+            <p class="pp-faq-a">{item.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FINAL CTA ─── -->
+  <section class="pp-final">
+    <div class="pp-final-glow" aria-hidden="true"></div>
+    <div class="pp-final-inner">
+      <h2 class="scroll-reveal">{finalCta.header}</h2>
+      <p class="scroll-reveal">{finalCta.body}</p>
+      <div class="pp-final-ctas scroll-reveal">
+        <a class="btn btn-primary btn-lg" onclick={finalCta.cta_primary_action} style="cursor:pointer">{finalCta.cta_primary} →</a>
+        <a class="btn btn-ghost btn-lg" onclick={finalCta.cta_secondary_action} style="cursor:pointer">{finalCta.cta_secondary} →</a>
+      </div>
+    </div>
+  </section>
+
+  <ChampionsKit
+    closedLabel={championKit.closedLabel}
+    microcopy={championKit.microcopy}
+    items={championKit.items}
+    href={championKit.href}
+  />
+
+</BaseLayout>

@@ -98,7 +98,7 @@ fundsBanner:
   header: "Backing founders who'd build with this?"
   body: "StartSuite has a version tuned for the funds, accelerators, and platforms that bring Brand HQ to their portfolio. Better-branded companies, better-prepped for their next raise."
   cta: "See StartSuite for partners"
-  href: "/partners"
+  href: "/for-partners"
 
 faq:
   eyebrow: "FAQ"
