@@ -42,7 +42,7 @@ pillars:
       copy: "The thinking that underpins everything else, structured so any new hire, any agency, any agent can use it the moment they need it."
 
 beforeAfter:
-  header: "What changes."
+  header: "Stop fighting your stack. Start compounding it."
   rows:
     - now: "60-page brand guide PDF nobody opens"
       after: "A living brand context your team cites every week, sharper every quarter"
@@ -56,7 +56,7 @@ beforeAfter:
       after: "Decisions logged with rationale, surfaced when they matter"
 
 whyNow:
-  header: "The cost of the current operating model."
+  header: "You're paying for context twice."
   body: "Operators rarely think they're doing brand work wrong. They're doing it the way it's been done for fifteen years. The problem isn't effort. It's that the model was built for fewer channels, fewer tools, and fewer people who needed to understand the brand. The cost shows up in three places."
   columns:
     - title: "You stop paying for context twice."
@@ -70,7 +70,7 @@ whyNow:
       visual: "onboarding"
 
 roi:
-  header: "What this looks like in business terms."
+  header: "Two quarters to payback. Three tools to one."
   blocks:
     - claim: "3-5x"
       title: "consolidation."
@@ -83,7 +83,7 @@ roi:
       copy: "Most engagements pay back within two quarters when measured against consolidated tooling, faster ramps, and reduced rework on briefs and campaigns."
 
 jobs:
-  header: "The jobs this does for your team."
+  header: "Five places your team is bleeding time. Solved."
   cards:
     - title: "Run a brand refresh without losing six months."
       copy: "Brand HQ holds the existing context and runs the refresh as a system update, not a wholesale restart. The team keeps moving while the brand evolves."
@@ -102,13 +102,13 @@ jobs:
       visual: "handoff"
 
 caseStudy:
-  header: "The system, in real life."
+  header: "How a Fortune 200 CMO finally connected the brand to the business."
   body: "A CMO at a Fortune 200 construction company came to us with a brand that lived everywhere and nowhere. Decades of work, four sub-brands, three agencies, a dozen state-by-state cuts, and a centennial milestone she was running toward without a system to organize against. Six weeks later, her team had a Brand HQ that consolidated the strategy, the state-by-state intelligence, the centennial roadmap, and the live category signals. The first board meeting after, she walked in with the brand connected to the business in a way she'd been trying to articulate for two years."
   quote: "I wish I had this on May 5th, honestly. We spent months doing internal and external interviews, having people scour the competitive analysis, setting the teams up, getting the brand background work all in one spot."
   attribution: "CMO, Fortune 200 construction company"
 
 isnt:
-  header: "What this isn't."
+  header: "What every other answer leaves out."
   dont:
     - "A brand SaaS subscription you forget about."
     - "A single-deliverable agency engagement."
@@ -129,7 +129,7 @@ vcInHouse:
   href: "/about"
 
 crossLinks:
-  header: "Where this fits in the rest of StartSuite."
+  header: "Operators aren't the only ones building brands."
   cards:
     - heading: "For Founders."
       copy: "Building the next generation of leaders inside your company? Brand HQ is also the system founders use to plant a flag for their point of view from day one."
@@ -142,7 +142,7 @@ crossLinks:
 
 faq:
   eyebrow: "FAQ"
-  header: "Operator questions, answered."
+  header: "What every CMO asks before booking the call."
   items:
     - q: "How is this different from Notion, Frontify, or a brand consultant?"
       a: "Notion is a workspace. Frontify is a brand asset manager. A consultant gives you deliverables. None of them hold the strategic context that makes the brand actually work across teams, agencies, and time. Brand HQ does. Longer comparison lives on our comparison page. Or grab the executive overview from the Champion's Kit for a one-page version."
