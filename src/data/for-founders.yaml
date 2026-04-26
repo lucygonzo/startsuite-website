@@ -26,7 +26,7 @@ empathy:
   body: "Your product is real. Your team is real, even if it's just you and one other person. Your customers are real, even if there are three of them. Every meeting you take is a brand impression. Every deck you remake at midnight is a brand artifact. Every LinkedIn post you draft and don't ship is a missed beat. The brand work is happening either way. The question is whether it's compounding or whether you're rebuilding it every week."
 
 whyNow:
-  header: "The work that earns its keep at your stage."
+  header: "The cost of being wrong about brand compounds."
   body: "Most founders think brand is a Series B problem. They're wrong, and the cost of being wrong compounds. Without a cohesive point of view, you can't tell what's working. Every test runs against a different version of your message, every customer conversation lands differently, and you can't separate what's pulling from what's noise. A real foundation lets you learn fast. It establishes the wedge that's actually yours, instead of the watered-down version that emerges when you don't have one."
   framings:
     - title: "You learn what's working faster."
@@ -40,7 +40,7 @@ whyNow:
       visual: "decisionlog"
 
 jobs:
-  header: "The jobs Brand HQ does for you."
+  header: "Five things you've been doing the hard way."
   cards:
     - title: "Pitch with one foundation, not five different decks."
       copy: "Your strategic narrative lives in Brand HQ. Pull from it for the seed deck, the partnerships pitch, the press conversation. Same story, different cuts. No more rebuilding from scratch every Friday."
@@ -59,13 +59,13 @@ jobs:
       visual: "campaigns"
 
 caseStudy:
-  header: "The foundation, in real life."
+  header: "How a pre-Series A healthcare founder went from seven origin stories to one."
   body: "A pre-Series A healthcare founder came to us with a seven-part origin story he'd been telling investors in different fragments. We organized it into a strategic narrative, built the audience and competitive context around it, and gave his small team a Brand HQ they could pull from. Six weeks later, his pitch was tighter, his first marketing hire ramped in three days instead of three weeks, and his first content brief produced work that didn't have to be redone."
   quote: "I'm blown away with what we have presented to us. Just how in depth it is, how well thought out it is, how there's such organization to it."
   attribution: "Co-founder, healthcare brand"
 
 isnt:
-  header: "What this isn't."
+  header: "What every other answer leaves out."
   dont:
     - "A logo refresh."
     - "A pitch deck design subscription."
@@ -102,7 +102,7 @@ fundsBanner:
 
 faq:
   eyebrow: "FAQ"
-  header: "Founder questions, answered."
+  header: "What every founder asks before booking the call."
   items:
     - q: "How long does it take to build a Brand HQ?"
       a: "A few weeks, not a few quarters. We start outside-in, mapping what your audience already sees in the world, then organize the internal knowledge living across decks, drives, and team conversations. Most clients have a working Brand HQ within four to six weeks of kickoff."
