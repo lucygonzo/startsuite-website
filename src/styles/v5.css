@@ -29,11 +29,10 @@
   margin-top:10px;
   width:720px;max-width:calc(100vw - 32px);
   padding:18px;
-  background:rgba(19,19,24,0.96);
-  backdrop-filter:blur(28px) saturate(1.4);
+  background:#0E0E13;
   border:1px solid var(--border-hi);
   border-radius:18px;
-  box-shadow:0 24px 64px rgba(0,0,0,0.6),0 0 0 1px rgba(255,255,255,0.03) inset;
+  box-shadow:0 24px 64px rgba(0,0,0,0.7),0 0 0 1px rgba(255,255,255,0.04) inset;
   opacity:0;visibility:hidden;
   transition:opacity 0.2s var(--ease),transform 0.2s var(--ease),visibility 0s 0.2s;
   z-index:300;
@@ -57,37 +56,35 @@
 .nav-mega-grid{
   display:grid;grid-template-columns:repeat(3,1fr);gap:12px;
 }
-.nav-mega-card{
+.nav-links .nav-mega-card{
   position:relative;
   display:flex;flex-direction:column;gap:14px;
   padding:20px 18px 16px;
-  background:var(--surface);
-  border:1px solid var(--border);
+  background:#1B1B23;
+  border:1px solid rgba(255,255,255,0.08);
   border-radius:8px;
   text-decoration:none;
   min-height:200px;
-  transition:transform 0.22s var(--ease),
-             border-color 0.22s var(--ease),
+  transition:border-color 0.22s var(--ease),
              background 0.22s var(--ease);
 }
-.nav-mega-card::before{
+.nav-links .nav-mega-card::before{
   /* Top accent line — subtle gradient across the top edge */
   content:'';position:absolute;top:0;left:14px;right:14px;height:1px;
   background:linear-gradient(90deg,transparent 0%,rgba(196,169,224,0.45) 50%,transparent 100%);
   opacity:0;
   transition:opacity 0.22s var(--ease);
 }
-.nav-mega-card:hover{
-  transform:translateY(-2px);
+.nav-links .nav-mega-card:hover{
   border-color:rgba(139,109,181,0.4);
   background:var(--surface2);
 }
-.nav-mega-card:hover::before{opacity:1}
-.nav-mega-card.is-active{
+.nav-links .nav-mega-card:hover::before{opacity:1}
+.nav-links .nav-mega-card.is-active{
   border-color:rgba(196,169,224,0.4);
-  background:linear-gradient(180deg,rgba(139,109,181,0.16) 0%,var(--surface2) 100%);
+  background:var(--surface2);
 }
-.nav-mega-card.is-active::before{opacity:1}
+.nav-links .nav-mega-card.is-active::before{opacity:1}
 .nav-mega-pill{
   position:absolute;top:14px;right:12px;
   display:none;
