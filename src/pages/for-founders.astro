@@ -13,6 +13,7 @@ const {
   caseStudy,
   isnt,
   founderToFounder,
+  fundsBanner,
   faq,
   finalCta,
 } = ffData;
@@ -410,6 +411,20 @@ const faqSchema = {
       {founderToFounder.cta && (
         <a class="ff-f2f-link" href={founderToFounder.href}>{founderToFounder.cta} →</a>
       )}
+    </div>
+  </section>
+
+  <!-- ─── FUNDS BANNER (full-width pivot CTA) ─── -->
+  <section class="ff-funds">
+    <div class="ff-funds-inner">
+      <div class="ff-funds-text">
+        <p class="ff-funds-eyebrow">{fundsBanner.eyebrow}</p>
+        <h2>{fundsBanner.header}</h2>
+        <p class="ff-funds-body">{fundsBanner.body}</p>
+      </div>
+      <div class="ff-funds-action">
+        <a class="btn btn-primary btn-lg" href={fundsBanner.href}>{fundsBanner.cta} →</a>
+      </div>
     </div>
   </section>
 

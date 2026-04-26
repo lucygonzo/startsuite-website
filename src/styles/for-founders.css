@@ -817,6 +817,52 @@
 }
 .ff-f2f-link:hover{color:var(--text)}
 
+/* ── FUNDS BANNER (pivot CTA) ─────────────────────────────────── */
+.ff-funds{
+  position:relative;
+  padding:56px 48px 60px;
+  background:
+    radial-gradient(ellipse 900px 320px at 70% 50%,rgba(196,169,224,0.1) 0%,transparent 65%),
+    linear-gradient(180deg,var(--bg2) 0%,rgba(19,19,24,0.85) 100%);
+  border-top:1px solid rgba(139,109,181,0.18);
+  border-bottom:1px solid rgba(139,109,181,0.14);
+  overflow:hidden;
+}
+.ff-funds::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background-image:radial-gradient(circle,rgba(255,255,255,0.04) 1px,transparent 1px);
+  background-size:24px 24px;
+  -webkit-mask-image:radial-gradient(ellipse at center,black 0%,transparent 75%);
+  mask-image:radial-gradient(ellipse at center,black 0%,transparent 75%);
+  opacity:0.5;
+}
+.ff-funds-inner{
+  position:relative;z-index:1;
+  max-width:1200px;margin:0 auto;
+  display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center;
+}
+.ff-funds-text{
+  display:flex;flex-direction:column;gap:10px;
+  max-width:680px;
+}
+.ff-funds-eyebrow{
+  font-family:var(--mono);
+  font-size:10px;font-weight:700;letter-spacing:0.18em;
+  text-transform:uppercase;color:var(--purple-light);
+  margin:0;
+}
+.ff-funds h2{
+  font-size:clamp(22px,2.6vw,30px);
+  letter-spacing:-0.025em;line-height:1.2;
+  color:var(--text);margin:0;
+  font-weight:800;
+}
+.ff-funds-body{
+  font-size:14px;line-height:1.65;color:var(--text-muted);margin:0;
+  letter-spacing:-0.005em;
+}
+.ff-funds-action{flex-shrink:0}
+
 /* ── FAQ ─────────────────────────────────────────────────────── */
 .ff-faq{padding:120px 48px}
 .ff-faq-inner{max-width:880px;margin:0 auto}
@@ -932,6 +978,9 @@
   .ff-isnt{padding:80px 24px}
   .ff-isnt-grid{grid-template-columns:1fr;gap:36px;padding:24px 0}
   .ff-f2f{padding:48px 24px 80px}
+  .ff-funds{padding:40px 24px 44px}
+  .ff-funds-inner{grid-template-columns:1fr;gap:24px}
+  .ff-funds-action .btn{width:100%;justify-content:center}
   .ff-faq{padding:80px 24px}
   .ff-faq-item summary{padding:18px 18px 18px 0}
   .ff-faq-q{font-size:14.5px}
