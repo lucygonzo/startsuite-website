@@ -234,7 +234,7 @@ const productSchema = {
               <span class="bhq-flow-input-dot" aria-hidden="true"></span>
               <div>
                 <strong>{g.title}</strong>
-                <span>{g.items.slice(0, 2).join(' · ')}</span>
+                <span>{g.detail}</span>
               </div>
             </li>
           ))}
@@ -403,6 +403,29 @@ const productSchema = {
       }
 
       let drawn = rebuildLines();
+
+      // Wire input / output hover to highlight matching line.
+      // Handlers look up the current path each time so they survive resize rebuilds.
+      function attachHighlight(nodes, kind) {
+        nodes.forEach(function (n, i) {
+          function on() {
+            if (!drawn) return;
+            const arr = kind === 'in' ? drawn.inputPaths : drawn.outputPaths;
+            if (arr && arr[i]) arr[i].classList.add('is-highlighted');
+          }
+          function off() {
+            if (!drawn) return;
+            const arr = kind === 'in' ? drawn.inputPaths : drawn.outputPaths;
+            if (arr && arr[i]) arr[i].classList.remove('is-highlighted');
+          }
+          n.addEventListener('mouseenter', on);
+          n.addEventListener('mouseleave', off);
+          n.addEventListener('focus', on);
+          n.addEventListener('blur', off);
+        });
+      }
+      attachHighlight(inputNodes, 'in');
+      attachHighlight(outputNodes, 'out');
 
       function animateLines() {
         if (!drawn || reduceMotion) return;

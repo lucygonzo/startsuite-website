@@ -67,24 +67,28 @@ inputs:
   body: "We don't make you start from zero. Brand HQ pulls from research we run, the assets you already have, the knowledge in your team's heads, and the live signals your category produces every day."
   groups:
     - title: "Outside-in research"
+      detail: "Everything your customers already see. Pulled together from the public web."
       items:
+        - "Public-facing brand audit"
         - "Audience interviews"
         - "Competitive analysis"
         - "Category mapping"
-        - "Public-facing brand audit"
     - title: "Existing assets"
+      detail: "What you've already built. Brought home and structured."
       items:
         - "Notion, PDFs, Figma"
         - "Frontify, brand guidelines"
         - "CRM and audience notes"
         - "Anything in Drive"
     - title: "Internal knowledge"
+      detail: "What lives in heads, decks, and Slack. Sorted into a system."
       items:
         - "Stakeholder interviews"
         - "Slack archives"
         - "Decision history"
         - "Tribal knowledge in heads"
     - title: "Live signals"
+      detail: "What the world says about you, filtered through your strategy."
       items:
         - "Mention monitoring"
         - "Sentiment tagging"
