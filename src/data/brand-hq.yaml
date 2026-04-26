@@ -1,3 +1,7 @@
+meta:
+  title: "Brand HQ · The living brand system for companies that compound | StartSuite"
+  description: "Brand HQ is a living brand system custom-built around your strategy, your audience, and the work that moves your business. Built in weeks. Yours from day one."
+
 hero:
   eyebrow: "The Product"
   headline_lead: "Your brand,"
@@ -9,6 +13,9 @@ hero:
   cta_primary_action: "openModal()"
   cta_secondary: "See it in action"
   cta_secondary_target: "#showcase"
+
+definition:
+  text: "Brand HQ is a living brand system. It holds your strategy, the work it produces, and the live signals that feed both. In one place, tuned to your business."
 
 showcase:
   eyebrow: "Real Brand HQs, anonymized"
@@ -169,6 +176,14 @@ northStar:
         - "Onboarding portal"
         - "Knowledge handoff"
         - "Audit trail"
+      tiers:
+        - level: "Canonical"
+          copy: "Decisions you've made. Cited, used in the work."
+        - level: "Decided"
+          copy: "Working positions. Trusted, still moving."
+        - level: "Observed"
+          copy: "Raw signal. Reference until your team decides it's more."
+      tiersCaption: "Knowledge sorts into three layers. Agents and your team work from canonical and decided. Observed surfaces when relevant."
 
 jobs:
   header: "The work this actually replaces."
@@ -235,6 +250,27 @@ stack:
 whosUsing:
   header: "Running right now."
   body: "Inside Fortune 200 companies, venture-backed founders, and the funds that back them. Different stages, different industries, same system. Tuned per business."
+
+faq:
+  eyebrow: "Common questions"
+  header: "What people ask before the walkthrough."
+  items:
+    - q: "How is Brand HQ different from a brand guide PDF, Notion, or Frontify?"
+      a: "Those are document stores. Brand HQ is a living system. It holds your strategy, watches your category, and produces the work in your voice. Documents go stale and get ignored. Brand HQ gets sharper every time your team uses it."
+    - q: "How long does it take to set up?"
+      a: "Weeks, not months. We start outside-in, pull in your existing assets in week one, and have a working Brand HQ ready for your team to walk into before most discovery processes finish onboarding."
+    - q: "Who owns Brand HQ once it's built?"
+      a: "You do. Your data, your strategy, your work product. Yours from day one. Yours when we're done. We're available when you want us. We're not a permanent dependency."
+    - q: "How does AI fit in? Is this just a wrapper over ChatGPT?"
+      a: "Brand HQ structures your knowledge so the AI tools you already use work with your data. You turn an agent loose on canonical and decided knowledge, not raw transcripts. You don't learn new tools. Your tools learn you."
+    - q: "What happens if my brand changes?"
+      a: "Brand HQ updates with you. Decisions log with context. The Brand Guide updates when the brand updates. Onboarding stays current. New hires don't relitigate settled questions."
+    - q: "How big does my company need to be?"
+      a: "We work with Fortune 200 enterprises, venture-backed founders, and the funds that back them. Different stages, same system, tuned per business. If you have a strategy and a team, Brand HQ has leverage to add."
+    - q: "What does it cost?"
+      a: "It depends on engagement scope and how much execution support you want. We're built to go deep, which means staying small. Pricing details and engagement models live on our pricing page, or we'll walk you through them in the demo."
+    - q: "What's the walkthrough?"
+      a: "Thirty minutes. No deck. We show you a live Brand HQ for a company like yours so you can see exactly what you'd get. No commitment."
 
 quote:
   text: "Once everything is housed here, you don't need to learn new AI tools. You turn an agent loose on your own data and say, give me a LinkedIn post. It knows your voice, your topics, your rules."

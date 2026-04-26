@@ -4,24 +4,59 @@ import ClientBand from '@/components/home/ClientBand.astro';
 import bhqData from '@/data/brand-hq.yaml';
 
 const {
+  meta,
   hero,
   showcase,
+  definition,
   yoursSpecifically,
   inputs,
   builtFast,
   roles,
-  tiers,
   northStar,
   jobs,
   publicOutputs,
   stack,
   whosUsing,
   quote,
+  faq,
   finalCta,
 } = bhqData;
+
+// Build JSON-LD for SEO/GEO
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faq.items.map((item: any) => ({
+    "@type": "Question",
+    "name": item.q,
+    "acceptedAnswer": { "@type": "Answer", "text": item.a },
+  })),
+};
+
+const productSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Brand HQ",
+  "applicationCategory": "BusinessApplication",
+  "operatingSystem": "Web",
+  "description": meta.description,
+  "url": "https://startsuite.com/brand-hq",
+  "creator": {
+    "@type": "Organization",
+    "name": "StartSuite",
+    "url": "https://startsuite.com",
+  },
+  "offers": {
+    "@type": "Offer",
+    "availability": "https://schema.org/InStock",
+    "url": "https://startsuite.com/pricing",
+  },
+};
 ---
 
-<BaseLayout title="Brand HQ — StartSuite" description="Brand HQ is the living system custom-built around your strategy, your audience, and the work that actually moves your business.">
+<BaseLayout title={meta.title} description={meta.description}>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)}></script>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(productSchema)}></script>
 
   <!-- ─── HERO ─── -->
   <section class="bhq-hero">
@@ -132,6 +167,14 @@ const {
     </div>
   </section>
 
+  <!-- ─── DEFINITION (one-line for GEO/LLM citation) ─── -->
+  <section class="bhq-define">
+    <div class="bhq-define-inner">
+      <p class="bhq-define-eyebrow">What is Brand HQ?</p>
+      <p class="bhq-define-text">{definition.text}</p>
+    </div>
+  </section>
+
   <!-- ─── YOURS, SPECIFICALLY (the wedge) ─── -->
   <section class="bhq-wedge section-alt">
     <div class="bhq-wedge-inner">
@@ -222,29 +265,6 @@ const {
     </div>
   </section>
 
-  <!-- ─── TIERS (Canonical / Decided / Observed) ─── -->
-  <section class="bhq-tiers section-alt">
-    <div class="bhq-tiers-inner">
-      <header class="bhq-tiers-header scroll-reveal">
-        <h2>{tiers.header}</h2>
-        <p class="bhq-tiers-sub">{tiers.subhead}</p>
-      </header>
-      <p class="bhq-tiers-body scroll-reveal">{tiers.body}</p>
-      <ol class="bhq-tiers-list">
-        {tiers.layers.map((l, i) => (
-          <li class={`bhq-tier bhq-tier-${l.level.toLowerCase()} scroll-reveal`} style={`--i:${i}`}>
-            <div class="bhq-tier-marker" aria-hidden="true"></div>
-            <div class="bhq-tier-text">
-              <h4>{l.level}.</h4>
-              <p>{l.copy}</p>
-            </div>
-          </li>
-        ))}
-      </ol>
-      <p class="bhq-tiers-closing scroll-reveal">{tiers.closing}</p>
-    </div>
-  </section>
-
   <!-- ─── NORTH STAR (5 sections) ─── -->
   <section class="bhq-north">
     <div class="bhq-north-inner">
@@ -254,17 +274,34 @@ const {
         <p class="bhq-north-body">{northStar.body}</p>
       </header>
       <ul class="bhq-north-sections">
-        {northStar.sections.map((s, i) => (
+        {northStar.sections.map((s: any, i: number) => (
           <li class="bhq-north-item scroll-reveal" style={`--i:${i}`}>
             <span class="bhq-north-rail" aria-hidden="true"></span>
             <div class="bhq-north-meta">
               <h3>{s.title}</h3>
               <p class="bhq-north-lede">{s.lede}</p>
               <p class="bhq-north-copy">{s.copy}</p>
+              {s.tiers && (
+                <div class="bhq-north-tiers">
+                  <p class="bhq-north-tiers-label">Knowledge sorts into three layers:</p>
+                  <div class="bhq-north-tiers-row">
+                    {s.tiers.map((t: any) => (
+                      <div class={`bhq-tier-mini bhq-tier-mini-${t.level.toLowerCase()}`}>
+                        <span class="bhq-tier-mini-rail" aria-hidden="true"></span>
+                        <div class="bhq-tier-mini-text">
+                          <strong>{t.level}</strong>
+                          <span>{t.copy}</span>
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                  {s.tiersCaption && <p class="bhq-north-tiers-caption">{s.tiersCaption}</p>}
+                </div>
+              )}
             </div>
             {s.features && (
               <ul class="bhq-north-features">
-                {s.features.map((f) => <li>{f}</li>)}
+                {s.features.map((f: string) => <li>{f}</li>)}
               </ul>
             )}
           </li>
@@ -361,6 +398,27 @@ const {
     </div>
   </section>
   <ClientBand />
+
+  <!-- ─── FAQ (objection handling + GEO/SEO) ─── -->
+  <section class="bhq-faq section-alt">
+    <div class="bhq-faq-inner">
+      <header class="bhq-faq-header scroll-reveal">
+        <p class="bhq-section-eyebrow">{faq.eyebrow}</p>
+        <h2>{faq.header}</h2>
+      </header>
+      <div class="bhq-faq-list">
+        {faq.items.map((item: any, i: number) => (
+          <details class="bhq-faq-item scroll-reveal" style={`--i:${i}`} open={i === 0}>
+            <summary>
+              <span class="bhq-faq-q">{item.q}</span>
+              <span class="bhq-faq-icon" aria-hidden="true"></span>
+            </summary>
+            <p class="bhq-faq-a">{item.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
 
   <!-- ─── PULL QUOTE ─── -->
   <section class="bhq-quote">

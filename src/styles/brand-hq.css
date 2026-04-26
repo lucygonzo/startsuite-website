@@ -490,70 +490,148 @@
   font-size:13.5px;line-height:1.65;color:var(--text-muted);margin:0;
 }
 
-/* ── TIERS ───────────────────────────────────────────────────────── */
-.bhq-tiers{padding:140px 48px;position:relative}
-.bhq-tiers-inner{max-width:1100px;margin:0 auto}
-.bhq-tiers-header{
-  max-width:760px;margin:0 0 28px;
-  display:flex;flex-direction:column;gap:14px;
+/* ── DEFINITION (one-liner for GEO/LLM citation) ─────────────────── */
+.bhq-define{
+  padding:60px 48px 24px;
 }
-.bhq-tiers h2{
+.bhq-define-inner{
+  max-width:880px;margin:0 auto;
+  padding:28px 32px;
+  background:linear-gradient(160deg,rgba(139,109,181,0.06) 0%,rgba(139,109,181,0.015) 100%);
+  border:1px solid rgba(139,109,181,0.18);
+  border-radius:var(--radius-lg);
+  display:flex;flex-direction:column;gap:8px;
+}
+.bhq-define-eyebrow{
+  font-family:var(--mono);
+  font-size:10px;font-weight:700;letter-spacing:0.18em;
+  text-transform:uppercase;color:var(--purple-light);
+  margin:0;
+}
+.bhq-define-text{
+  font-size:clamp(16px,1.7vw,19px);
+  line-height:1.55;letter-spacing:-0.015em;
+  color:var(--text);font-weight:500;margin:0;
+}
+
+/* ── INLINE TIER MINI (within Operations) ────────────────────────── */
+.bhq-north-tiers{
+  margin-top:18px;
+  padding-top:18px;
+  border-top:1px dashed var(--border);
+  display:flex;flex-direction:column;gap:10px;
+}
+.bhq-north-tiers-label{
+  font-family:var(--mono);
+  font-size:10px;font-weight:700;letter-spacing:0.16em;
+  text-transform:uppercase;color:var(--text-dim);
+  margin:0;
+}
+.bhq-north-tiers-row{
+  display:flex;flex-direction:column;gap:6px;
+}
+.bhq-tier-mini{
+  display:grid;grid-template-columns:6px 1fr;gap:12px;
+  padding:8px 0;
+  align-items:start;
+}
+.bhq-tier-mini-rail{
+  width:4px;border-radius:2px;align-self:stretch;
+  margin-top:3px;height:calc(100% - 6px);
+}
+.bhq-tier-mini-canonical .bhq-tier-mini-rail{
+  background:var(--purple-light);
+  box-shadow:0 0 6px rgba(196,169,224,0.45);
+}
+.bhq-tier-mini-decided .bhq-tier-mini-rail{
+  background:rgba(196,169,224,0.55);
+}
+.bhq-tier-mini-observed .bhq-tier-mini-rail{
+  background:rgba(196,169,224,0.2);
+}
+.bhq-tier-mini-text{
+  display:flex;flex-direction:column;gap:2px;
+}
+.bhq-tier-mini strong{
+  display:block;
+  font-size:13px;font-weight:700;
+  color:var(--text);
+  letter-spacing:-0.01em;
+}
+.bhq-tier-mini-observed strong{color:var(--text-muted)}
+.bhq-tier-mini-text span{
+  font-size:12px;line-height:1.5;
+  color:var(--text-muted);
+}
+.bhq-north-tiers-caption{
+  font-size:12px;line-height:1.5;
+  color:var(--text-dim);
+  margin:6px 0 0;font-style:italic;
+}
+
+/* ── FAQ (objection handling + GEO/SEO) ──────────────────────────── */
+.bhq-faq{padding:140px 48px;position:relative}
+.bhq-faq-inner{max-width:880px;margin:0 auto}
+.bhq-faq-header{
+  margin:0 auto 48px;text-align:center;
+  display:flex;flex-direction:column;gap:14px;align-items:center;
+}
+.bhq-faq h2{
   font-size:clamp(30px,4.2vw,48px);
   letter-spacing:-0.035em;line-height:1.1;
   color:var(--text);margin:0;
 }
-.bhq-tiers-sub{
-  font-size:17px;line-height:1.6;color:var(--text);font-weight:500;
-  max-width:640px;margin:0;
-}
-.bhq-tiers-body{
-  font-size:15px;line-height:1.78;color:var(--text-muted);
-  max-width:760px;margin-bottom:48px;
-}
-.bhq-tiers-list{
-  list-style:none;padding:0;margin:0 0 36px;
+.bhq-faq-list{
   display:flex;flex-direction:column;gap:0;
-}
-.bhq-tier{
-  display:grid;grid-template-columns:32px 1fr;gap:22px;
-  padding:24px 0;
-  align-items:flex-start;
   border-top:1px solid var(--border);
 }
-.bhq-tier:last-child{border-bottom:1px solid var(--border)}
-.bhq-tier-marker{
-  width:14px;border-radius:3px;
-  align-self:stretch;
+.bhq-faq-item{
+  border-bottom:1px solid var(--border);
+  transition:background var(--duration) var(--ease);
 }
-.bhq-tier-canonical .bhq-tier-marker{
-  background:linear-gradient(180deg,var(--purple-light),var(--purple));
-  box-shadow:0 0 14px rgba(196,169,224,0.4);
+.bhq-faq-item[open]{
+  background:rgba(139,109,181,0.03);
 }
-.bhq-tier-decided .bhq-tier-marker{
-  background:rgba(196,169,224,0.6);
+.bhq-faq-item summary{
+  list-style:none;cursor:pointer;
+  padding:22px 24px 22px 0;
+  display:flex;justify-content:space-between;align-items:center;gap:24px;
+  position:relative;
 }
-.bhq-tier-observed .bhq-tier-marker{
-  background:rgba(196,169,224,0.22);
+.bhq-faq-item summary::-webkit-details-marker{display:none}
+.bhq-faq-q{
+  font-size:16px;font-weight:700;letter-spacing:-0.015em;
+  color:var(--text);line-height:1.4;
+  flex:1;
+  transition:color var(--duration) var(--ease);
 }
-.bhq-tier-text h4{
-  font-family:var(--font);
-  font-weight:800;letter-spacing:-0.02em;
-  color:var(--text);margin:0 0 6px;
+.bhq-faq-item:hover .bhq-faq-q{color:var(--purple-light)}
+.bhq-faq-icon{
+  flex-shrink:0;width:18px;height:18px;
+  position:relative;
 }
-.bhq-tier-canonical h4{font-size:24px}
-.bhq-tier-decided h4{font-size:20px;color:var(--text)}
-.bhq-tier-observed h4{font-size:17px;color:var(--text-muted)}
-.bhq-tier-text p{
-  font-size:14px;line-height:1.7;color:var(--text-muted);margin:0;
+.bhq-faq-icon::before,
+.bhq-faq-icon::after{
+  content:'';position:absolute;
+  background:var(--purple-light);
+  border-radius:1px;
+  transition:transform var(--duration) var(--ease);
+}
+.bhq-faq-icon::before{
+  top:50%;left:0;width:100%;height:1.5px;
+  transform:translateY(-50%);
+}
+.bhq-faq-icon::after{
+  top:0;left:50%;width:1.5px;height:100%;
+  transform:translateX(-50%);
+}
+.bhq-faq-item[open] .bhq-faq-icon::after{transform:translateX(-50%) rotate(90deg)}
+.bhq-faq-a{
+  font-size:14.5px;line-height:1.7;color:var(--text-muted);
+  margin:0;
+  padding:0 24px 26px 0;
+  letter-spacing:-0.005em;
   max-width:760px;
-}
-.bhq-tier-canonical p{color:var(--text)}
-.bhq-tier-observed p{color:var(--text-dim)}
-.bhq-tiers-closing{
-  font-size:14px;line-height:1.7;color:var(--text-muted);
-  max-width:780px;
-  padding:24px 0 0;
-  font-style:italic;
 }
 
 /* ── NORTH STAR (5 sections) ─────────────────────────────────────── */
@@ -958,7 +1036,13 @@
   .bhq-role-card::after{display:none}
   .bhq-role-card:last-child{border-bottom:none}
 
-  .bhq-tiers{padding:88px 28px}
+  .bhq-define{padding:40px 28px 16px}
+  .bhq-define-inner{padding:24px}
+
+  .bhq-faq{padding:88px 28px}
+  .bhq-faq-item summary{padding:18px 18px 18px 0;gap:16px}
+  .bhq-faq-q{font-size:14.5px}
+  .bhq-faq-a{padding:0 18px 22px 0;font-size:13.5px}
 
   .bhq-north{padding:88px 28px}
   .bhq-north-item{grid-template-columns:1fr;gap:24px;padding:28px 0 28px 24px}
