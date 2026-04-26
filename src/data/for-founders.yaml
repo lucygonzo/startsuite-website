@@ -1,0 +1,117 @@
+meta:
+  title: "StartSuite for Founders | Brand foundation for pre-Series A through Series B"
+  description: "StartSuite is the brand foundation for founders who need to plant a flag for their point of view now and grow into it as they scale. Built in weeks. Owned by you."
+  ogTitle: "StartSuite for Founders"
+  ogDescription: "The brand foundation built for founders who already have a point of view. Find traction faster, hire ahead of your growth curve, scale without losing the thread."
+
+referenceBrand: "Atlas Co"
+
+hero:
+  eyebrow: "For Founders"
+  headline_lead: "Built for who you are."
+  headline_emphasis: "And where you're going."
+  subhead: "StartSuite is the brand foundation for founders who need to plant a flag for their point of view now, and grow into it as they scale."
+  cta_primary: "Request a spot"
+  cta_primary_action: "openModal()"
+  cta_secondary: "See Brand HQ"
+  cta_secondary_href: "/brand-hq"
+  visual_caption: "A real Brand HQ. Built around a real strategy."
+
+tldr:
+  header: "StartSuite for founders, in 30 seconds."
+  body: "StartSuite is a brand foundation built for founders pre-Series A through Series B. We work with you over a few weeks to build Brand HQ, a living system that holds your strategy, audience, competitive context, and live signals. Your team uses it to onboard faster, brief sharper, run experiments with cleaner signal, and show up to investors with a point of view that lands. Built fast. Owned by you. Sharper every month."
+
+empathy:
+  header: "You are the whole company right now."
+  body: "Your product is real. Your team is real, even if it's just you and one other person. Your customers are real, even if there are three of them. Every meeting you take is a brand impression. Every deck you remake at midnight is a brand artifact. Every LinkedIn post you draft and don't ship is a missed beat. The brand work is happening either way. The question is whether it's compounding or whether you're rebuilding it every week."
+
+whyNow:
+  header: "The work that earns its keep at your stage."
+  body: "Most founders think brand is a Series B problem. They're wrong, and the cost of being wrong compounds. Without a cohesive point of view, you can't tell what's working. Every test runs against a different version of your message, every customer conversation lands differently, and you can't separate what's pulling from what's noise. A real foundation lets you learn fast. It establishes the wedge that's actually yours, instead of the watered-down version that emerges when you don't have one."
+  framings:
+    - title: "You learn what's working faster."
+      copy: "A cohesive point of view is the test apparatus. Run it against your audience and the signal cuts through. Without it, every result is ambiguous."
+      visual: "feed"
+    - title: "You build the wedge that's actually yours."
+      copy: "Not a fractional CMO's interpretation. Not an agency's framework. The undeniable thing only you can say, sharpened until it sticks."
+      visual: "canonical"
+    - title: "You move at the speed your stage demands."
+      copy: "No ramp time, no relearning, no waiting on someone else to catch up to your business. The foundation is yours from week one."
+      visual: "decisionlog"
+
+jobs:
+  header: "The jobs Brand HQ does for you."
+  cards:
+    - title: "Pitch with one foundation, not five different decks."
+      copy: "Your strategic narrative lives in Brand HQ. Pull from it for the seed deck, the partnerships pitch, the press conversation. Same story, different cuts. No more rebuilding from scratch every Friday."
+      visual: "narrative"
+    - title: "Hire ahead of your growth curve."
+      copy: "Your next senior hire reads Brand HQ before their first day. They show up to week one fluent in your strategy, your customer, and your competition. The ramp time you used to lose is back."
+      visual: "onboarding"
+    - title: "Brief a contractor in 20 minutes."
+      copy: "Send the relevant section. They produce work that matches your taste because the taste is already in the system. No more 'almost there' deliverables that need a rewrite."
+      visual: "share"
+    - title: "Stop watching your industry from a distance."
+      copy: "Brand HQ tracks the signals that move your category and filters them through your strategy. You walk into investor meetings already current."
+      visual: "competitive"
+    - title: "Launch without losing the thread."
+      copy: "Every campaign, every product launch, every announcement starts from the same foundation. The story compounds instead of resetting."
+      visual: "campaigns"
+
+caseStudy:
+  header: "The foundation, in real life."
+  body: "A pre-Series A healthcare founder came to us with a seven-part origin story he'd been telling investors in different fragments. We organized it into a strategic narrative, built the audience and competitive context around it, and gave his small team a Brand HQ they could pull from. Six weeks later, his pitch was tighter, his first marketing hire ramped in three days instead of three weeks, and his first content brief produced work that didn't have to be redone."
+  quote: "I'm blown away with what we have presented to us. Just how in depth it is, how well thought out it is, how there's such organization to it."
+  attribution: "Co-founder, healthcare brand"
+
+isnt:
+  header: "What this isn't."
+  dont:
+    - "A logo refresh."
+    - "A pitch deck design subscription."
+    - "A content factory."
+    - "A retainer with no end."
+    - "Another tool to learn."
+  do:
+    title: "What this is."
+    items:
+      - "The strategic foundation under all of that."
+      - "A live system your team uses."
+      - "Built fast, owned by you."
+      - "Set up once, sharper every month."
+      - "A creative partner who knows your business."
+
+founderToFounder:
+  header: "Founder-to-founder."
+  body: "StartSuite was built by people who've raised, hired, and launched. 46 Capital is in the room with us. That means strategic work calibrated to how investors actually read founder brands, a network of operators and investors you can tap when the moment calls for it, and a team whose instincts come from having sat on your side of the table."
+  cta: "The full story"
+  href: "/about"
+
+faq:
+  eyebrow: "FAQ"
+  header: "Founder questions, answered."
+  items:
+    - q: "How long does it take to build a Brand HQ?"
+      a: "A few weeks, not a few quarters. We start outside-in, mapping what your audience already sees in the world, then organize the internal knowledge living across decks, drives, and team conversations. Most clients have a working Brand HQ within four to six weeks of kickoff."
+    - q: "What stage is StartSuite designed for?"
+      a: "Founders from pre-Series A through Series B. Earlier-stage founders who already have a clear point of view also work. The common thread is taste, ambition, and a real product, not a specific funding round."
+    - q: "Do I need to have a brand already, or can you build from scratch?"
+      a: "Both work. We've built Brand HQs for founders with a fully-developed brand they wanted organized into a working system, and for founders who came to us with a product, a point of view, and a blank page. The system is the same either way. The work is in the gaps."
+    - q: "How is this different from a brand consultant or a fractional CMO?"
+      a: "A consultant gives you deliverables. A fractional CMO needs to ramp. StartSuite gives you a living system your team uses every day, built fast and owned by you. The system gets sharper the more your team feeds it. No ramp time, no relearning, no waiting on someone else to catch up to your business."
+    - q: "What happens after the first build?"
+      a: "You and your team run the system. We're available when you want us in the room: for new launches, repositioning, content sprints, or strategic moments. Some clients have us in monthly. Some come back twice a year. The system works either way."
+    - q: "Do you replace my existing tools?"
+      a: "No. Brand HQ holds the strategic context that makes your existing tools work better. We bring what you have into Brand HQ on day one, structure it so your team will actually use it, and plug the holes you've been meaning to plug. You keep the tools you like."
+    - q: "How do investors and senior hires interact with Brand HQ?"
+      a: "You can grant them temporary or scoped access. A senior hire reads Brand HQ before their first day and shows up fluent. An investor sees a polished, public Brand Guide that tells your story in a way that's easy to share. Your contractors and freelancers cite it instead of asking you to re-explain."
+    - q: "How does StartSuite handle data, security, and privacy?"
+      a: "We treat your data as yours. No training, no third-party sharing, no aggregation across clients. Hosting, encryption, and authentication are detailed on our Trust page. We're happy to fill out your security questionnaire on request."
+
+finalCta:
+  header: "See if StartSuite is right for what you're building."
+  body: "Tell us about your company and we'll walk you through a Brand HQ for a founder like you. Thirty minutes. No deck. If we're a fit, we'll talk next steps. If not, you'll leave with a clearer view of your brand than you came in with."
+  cta_primary: "Request a spot"
+  cta_primary_action: "openModal()"
+  cta_secondary: "Or send us a note"
+  cta_secondary_action: "openModal()"

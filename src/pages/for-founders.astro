@@ -1,10 +1,444 @@
 ---
 import BaseLayout from '@/layouts/BaseLayout.astro';
-import StubPage from '@/components/StubPage.astro';
+import ffData from '@/data/for-founders.yaml';
+
+const {
+  meta,
+  referenceBrand,
+  hero,
+  tldr,
+  empathy,
+  whyNow,
+  jobs,
+  caseStudy,
+  isnt,
+  founderToFounder,
+  faq,
+  finalCta,
+} = ffData;
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faq.items.map((item: any) => ({
+    "@type": "Question",
+    "name": item.q,
+    "acceptedAnswer": { "@type": "Answer", "text": item.a },
+  })),
+};
 ---
-<BaseLayout title="StartSuite for Founders">
-  <StubPage
-    title="StartSuite for founders"
-    blurb="Look like the company you already are, and will be. Full segment page coming soon."
-  />
+
+<BaseLayout title={meta.title} description={meta.description}>
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)}></script>
+
+  <!-- Pair the isnt/do lists into rows for the alternating treatment -->
+  {(() => {
+    /* no-op block to keep linter happy */
+    return null;
+  })()}
+
+  <!-- ─── HERO ─── -->
+  <section class="ff-hero">
+    <div class="ff-hero-glow" aria-hidden="true"></div>
+    <div class="ff-hero-inner">
+      <div class="ff-hero-text">
+        <p class="ff-eyebrow">{hero.eyebrow}</p>
+        <h1>
+          <span class="ff-hero-lead">{hero.headline_lead}</span>
+          <em>{hero.headline_emphasis}</em>
+        </h1>
+        <p class="ff-hero-sub">{hero.subhead}</p>
+        <div class="ff-hero-ctas">
+          <a class="btn btn-primary btn-lg" onclick={hero.cta_primary_action} style="cursor:pointer">{hero.cta_primary} →</a>
+          <a class="btn btn-outline btn-lg" href={hero.cta_secondary_href}>{hero.cta_secondary} →</a>
+        </div>
+      </div>
+      <div class="ff-hero-visual">
+        <!-- Slot 1: Industry Landscape, animated mock -->
+        <div class="ff-mock ff-mock-industry ff-hero-mock" aria-hidden="true" data-ff-hero-mock>
+          <div class="ff-mock-chrome"><span></span><span></span><span></span><em>{referenceBrand} · Brand HQ · Industry Landscape</em></div>
+          <div class="ff-mock-body">
+            <div class="ff-mock-cap">
+              <span class="ff-mock-pulse"></span>
+              IIJA funding · $1.2B available
+            </div>
+            <h6>Industry Landscape</h6>
+            <div class="ff-mock-states">
+              <div style="--d:0"><span>MN</span><em>4 active</em></div>
+              <div style="--d:1"><span>WI</span><em>2 active</em></div>
+              <div style="--d:2"><span>IA</span><em>1 active</em></div>
+              <div style="--d:3"><span>ND</span><em>3 active</em></div>
+              <div style="--d:4"><span>SD</span><em>2 active</em></div>
+              <div style="--d:5"><span>NE</span><em>1 active</em></div>
+            </div>
+            <div class="ff-mock-pinned">
+              <span class="ff-mock-pin" aria-hidden="true"></span>
+              Pinned: Minneapolis-St. Paul corridor
+            </div>
+          </div>
+        </div>
+        <p class="ff-hero-caption">{hero.visual_caption}</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── TL;DR ─── -->
+  <section class="ff-tldr">
+    <div class="ff-tldr-inner">
+      <p class="ff-section-eyebrow">TL;DR</p>
+      <h2>{tldr.header}</h2>
+      <p>{tldr.body}</p>
+    </div>
+  </section>
+
+  <!-- ─── EMPATHY: You Are the Whole Company ─── -->
+  <section class="ff-empathy">
+    <div class="ff-empathy-inner">
+      <h2>{empathy.header}</h2>
+      <p>{empathy.body}</p>
+    </div>
+  </section>
+
+  <!-- ─── WHY NOW: 3 framings paired with visuals ─── -->
+  <section class="ff-why">
+    <div class="ff-why-header scroll-reveal">
+      <p class="ff-section-eyebrow">Why now</p>
+      <h2>{whyNow.header}</h2>
+      <p class="ff-why-body">{whyNow.body}</p>
+    </div>
+    <div class="ff-why-rows">
+      {whyNow.framings.map((f: any, i: number) => (
+        <article class={`ff-why-row ${i % 2 === 1 ? 'is-flipped' : ''} scroll-reveal`} style={`--i:${i}`}>
+          <div class="ff-why-text">
+            <span class="ff-why-num">{String(i + 1).padStart(2, '0')}</span>
+            <h3>{f.title}</h3>
+            <p>{f.copy}</p>
+          </div>
+          <div class="ff-why-visual">
+            {f.visual === 'feed' && (
+              <div class="ff-mock ff-mock-feed">
+                <div class="ff-mock-chrome"><span></span><span></span><span></span><em>{referenceBrand} · Listening</em></div>
+                <div class="ff-mock-body">
+                  <div class="ff-mock-cap">
+                    <span class="ff-mock-pulse ff-mock-pulse-green"></span>
+                    14 mentions · 2 alerts
+                  </div>
+                  <div class="ff-mock-feed-list">
+                    <div class="ff-mock-mention">
+                      <div class="ff-mock-mention-meta"><span>Forbes</span><em class="pos">positive</em></div>
+                      <p>"...the firm's strategic posture signals a shift in the category..."</p>
+                    </div>
+                    <div class="ff-mock-mention">
+                      <div class="ff-mock-mention-meta"><span>TechCrunch</span><em class="neu">neutral</em></div>
+                      <p>"...new partnership announcement reframes positioning..."</p>
+                    </div>
+                    <div class="ff-mock-mention">
+                      <div class="ff-mock-mention-meta"><span>LinkedIn</span><em class="pos">positive</em></div>
+                      <p>"...team is building something different from the usual playbook..."</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+            {f.visual === 'canonical' && (
+              <div class="ff-mock ff-mock-canonical">
+                <div class="ff-mock-chrome"><span></span><span></span><span></span><em>{referenceBrand} · Brand · Positioning</em></div>
+                <div class="ff-mock-body">
+                  <div class="ff-mock-cap-row">
+                    <span class="ff-mock-badge ff-mock-badge-canonical">Canonical</span>
+                    <em>Reviewed 4 days ago · 12 citations</em>
+                  </div>
+                  <h6 class="ff-mock-quote-h">Positioning</h6>
+                  <p class="ff-mock-positioning-statement">"The brand foundation for founders building category-defining companies."</p>
+                  <div class="ff-mock-cite-list">
+                    <div><span>Cited in</span><em>Seed deck v3</em></div>
+                    <div><span>Cited in</span><em>Series A narrative</em></div>
+                    <div><span>Cited in</span><em>Marketing brief 09</em></div>
+                  </div>
+                </div>
+              </div>
+            )}
+            {f.visual === 'decisionlog' && (
+              <div class="ff-mock ff-mock-decisions">
+                <div class="ff-mock-chrome"><span></span><span></span><span></span><em>{referenceBrand} · Operations · Decision Log</em></div>
+                <div class="ff-mock-body">
+                  <div class="ff-mock-cap">Decision log · last 7 days</div>
+                  <div class="ff-mock-decisions-list">
+                    <div class="ff-mock-decision">
+                      <div class="ff-mock-decision-head">
+                        <strong>Repositioning the seed pitch</strong>
+                        <em>Mar 14</em>
+                      </div>
+                      <p>Tightened the wedge from 'broad infrastructure' to 'category-defining foundation'. Investors leaned in earlier in the deck.</p>
+                    </div>
+                    <div class="ff-mock-decision">
+                      <div class="ff-mock-decision-head">
+                        <strong>Senior hire onboarding flow</strong>
+                        <em>Mar 11</em>
+                      </div>
+                      <p>New hires read canonical layer before week one. Ramp time fell from 3 weeks to 3 days.</p>
+                    </div>
+                    <div class="ff-mock-decision">
+                      <div class="ff-mock-decision-head">
+                        <strong>Voice update for press</strong>
+                        <em>Mar 8</em>
+                      </div>
+                      <p>Pulled forward the founder origin in interviews. Three placements in two weeks.</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- ─── JOBS: 5 paired cards ─── -->
+  <section class="ff-jobs">
+    <div class="ff-jobs-header scroll-reveal">
+      <p class="ff-section-eyebrow">What you get</p>
+      <h2>{jobs.header}</h2>
+    </div>
+    <div class="ff-jobs-grid">
+      {jobs.cards.map((card: any, i: number) => (
+        <article class="ff-job scroll-reveal" style={`--i:${i}`}>
+          <div class="ff-job-visual">
+            {card.visual === 'narrative' && (
+              <div class="ff-mock ff-mock-narrative">
+                <div class="ff-mock-chrome"><span></span><span></span><span></span><em>{referenceBrand} · Strategy · Narrative</em></div>
+                <div class="ff-mock-body">
+                  <div class="ff-mock-cap">Strategic narrative</div>
+                  <div class="ff-mock-narrative-arc">
+                    <div><span>01</span><strong>Why now</strong></div>
+                    <div><span>02</span><strong>What we believe</strong></div>
+                    <div><span>03</span><strong>What we ship</strong></div>
+                    <div><span>04</span><strong>Where we're headed</strong></div>
+                  </div>
+                  <div class="ff-mock-cite-row">
+                    <em>Used by</em>
+                    <span>Seed deck</span>
+                    <span>Press kit</span>
+                    <span>Partner narrative</span>
+                  </div>
+                </div>
+              </div>
+            )}
+            {card.visual === 'onboarding' && (
+              <div class="ff-mock ff-mock-onboarding">
+                <div class="ff-mock-chrome"><span></span><span></span><span></span><em>{referenceBrand} · Onboarding · Day 0</em></div>
+                <div class="ff-mock-body">
+                  <div class="ff-mock-cap">For new hires · read in this order</div>
+                  <ol class="ff-mock-onboarding-list">
+                    <li><span>01</span><div><strong>Positioning</strong><em>Canonical · 4 min</em></div></li>
+                    <li><span>02</span><div><strong>Audience</strong><em>Canonical · 3 min</em></div></li>
+                    <li><span>03</span><div><strong>Voice principles</strong><em>Decided · 2 min</em></div></li>
+                    <li><span>04</span><div><strong>Recent decisions</strong><em>Operations · 4 min</em></div></li>
+                  </ol>
+                </div>
+              </div>
+            )}
+            {card.visual === 'share' && (
+              <div class="ff-mock ff-mock-share">
+                <div class="ff-mock-chrome"><span></span><span></span><span></span><em>{referenceBrand} · Brand · Operating Standards</em></div>
+                <div class="ff-mock-body">
+                  <div class="ff-mock-cap">Ready to brief</div>
+                  <h6 class="ff-mock-quote-h">Operating Standards</h6>
+                  <div class="ff-mock-share-tile">
+                    <div class="ff-mock-share-row">
+                      <span>Share access</span>
+                      <em>Read-only · expires in 30 days</em>
+                    </div>
+                    <div class="ff-mock-share-link">
+                      <code>brand.atlasco.com/standards</code>
+                      <button>Copy</button>
+                    </div>
+                  </div>
+                  <div class="ff-mock-share-meta">
+                    <span>3 contractors with active access</span>
+                    <span>2 agencies briefed this month</span>
+                  </div>
+                </div>
+              </div>
+            )}
+            {card.visual === 'competitive' && (
+              <div class="ff-mock ff-mock-competitive">
+                <div class="ff-mock-chrome"><span></span><span></span><span></span><em>{referenceBrand} · Market · Signals</em></div>
+                <div class="ff-mock-body">
+                  <div class="ff-mock-cap">
+                    <span class="ff-mock-pulse ff-mock-pulse-green"></span>
+                    Filtered by your strategy
+                  </div>
+                  <div class="ff-mock-comp-list">
+                    <div class="ff-mock-comp-row">
+                      <span class="ff-mock-comp-marker high"></span>
+                      <div><strong>Competitor X · Series B</strong><em>Funding · high relevance</em></div>
+                    </div>
+                    <div class="ff-mock-comp-row">
+                      <span class="ff-mock-comp-marker mid"></span>
+                      <div><strong>Category report dropped</strong><em>Industry · medium</em></div>
+                    </div>
+                    <div class="ff-mock-comp-row">
+                      <span class="ff-mock-comp-marker high"></span>
+                      <div><strong>Audience shift in survey data</strong><em>Audience · high</em></div>
+                    </div>
+                    <div class="ff-mock-comp-row">
+                      <span class="ff-mock-comp-marker low"></span>
+                      <div><strong>Adjacent tool launched</strong><em>Adjacent · low</em></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            )}
+            {card.visual === 'campaigns' && (
+              <div class="ff-mock ff-mock-campaigns">
+                <div class="ff-mock-chrome"><span></span><span></span><span></span><em>{referenceBrand} · Strategy · Campaign archive</em></div>
+                <div class="ff-mock-body">
+                  <div class="ff-mock-cap">Strategic POV · all campaigns derive</div>
+                  <div class="ff-mock-pov">
+                    <span class="ff-mock-pov-dot"></span>
+                    Foundation thesis
+                  </div>
+                  <div class="ff-mock-campaign-grid">
+                    <div><strong>Seed launch</strong><em>Q1</em></div>
+                    <div><strong>First customer story</strong><em>Q2</em></div>
+                    <div><strong>Hiring sprint</strong><em>Q2</em></div>
+                    <div><strong>Series A narrative</strong><em>Q3</em></div>
+                    <div><strong>Partnership reveal</strong><em>Q3</em></div>
+                    <div><strong>Year-one review</strong><em>Q4</em></div>
+                  </div>
+                </div>
+              </div>
+            )}
+          </div>
+          <div class="ff-job-text">
+            <span class="ff-job-num">{String(i + 1).padStart(2, '0')}</span>
+            <h3>{card.title}</h3>
+            <p>{card.copy}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <!-- ─── CASE STUDY ─── -->
+  <section class="ff-case section-alt">
+    <div class="ff-case-inner">
+      <header class="ff-case-header scroll-reveal">
+        <p class="ff-section-eyebrow">In practice</p>
+        <h2>{caseStudy.header}</h2>
+      </header>
+      <div class="ff-case-body scroll-reveal">
+        <p class="ff-case-narrative">{caseStudy.body}</p>
+        <figure class="ff-case-quote">
+          <span class="ff-case-glyph" aria-hidden="true">&ldquo;</span>
+          <blockquote>{caseStudy.quote}</blockquote>
+          <figcaption>
+            <span class="ff-case-rule" aria-hidden="true"></span>
+            {caseStudy.attribution}
+          </figcaption>
+        </figure>
+      </div>
+      <div class="ff-case-visual scroll-reveal" aria-hidden="true">
+        <div class="ff-mock ff-mock-overview">
+          <div class="ff-mock-chrome"><span></span><span></span><span></span><em>{referenceBrand} · Brand HQ · Overview</em></div>
+          <div class="ff-mock-body ff-mock-overview-body">
+            <aside class="ff-mock-overview-nav">
+              <span class="is-active">Brand</span>
+              <span>Market</span>
+              <span>Strategy</span>
+              <span>Intelligence</span>
+              <span>Operations</span>
+            </aside>
+            <main class="ff-mock-overview-main">
+              <div class="ff-mock-overview-cap">Brand · Positioning</div>
+              <h6>The brand foundation for founders building category-defining companies.</h6>
+              <div class="ff-mock-overview-bars">
+                <div style="width:82%"></div>
+                <div style="width:64%"></div>
+                <div style="width:74%"></div>
+              </div>
+              <div class="ff-mock-overview-grid">
+                <div><strong>Audience</strong><em>3 personas</em></div>
+                <div><strong>Voice</strong><em>5 principles</em></div>
+                <div><strong>Identity</strong><em>System v2.1</em></div>
+                <div><strong>Standards</strong><em>14 rules</em></div>
+              </div>
+            </main>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── ISN'T / IS ─── -->
+  <section class="ff-isnt">
+    <div class="ff-isnt-inner">
+      <header class="ff-isnt-header scroll-reveal">
+        <h2>{isnt.header}</h2>
+      </header>
+      <div class="ff-isnt-grid">
+        <div class="ff-isnt-col scroll-reveal">
+          <p class="ff-isnt-col-label">What this isn't</p>
+          <ul class="ff-isnt-list ff-isnt-list-dont">
+            {isnt.dont.map((item: string) => <li>{item}</li>)}
+          </ul>
+        </div>
+        <div class="ff-isnt-col scroll-reveal">
+          <p class="ff-isnt-col-label">{isnt.do.title}</p>
+          <ul class="ff-isnt-list ff-isnt-list-do">
+            {isnt.do.items.map((item: string) => <li>{item}</li>)}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FOUNDER TO FOUNDER ─── -->
+  <section class="ff-f2f">
+    <div class="ff-f2f-inner scroll-reveal">
+      <p class="ff-section-eyebrow">From the team</p>
+      <h2>{founderToFounder.header}</h2>
+      <p>{founderToFounder.body}</p>
+      {founderToFounder.cta && (
+        <a class="ff-f2f-link" href={founderToFounder.href}>{founderToFounder.cta} →</a>
+      )}
+    </div>
+  </section>
+
+  <!-- ─── FAQ ─── -->
+  <section class="ff-faq section-alt">
+    <div class="ff-faq-inner">
+      <header class="ff-faq-header scroll-reveal">
+        <p class="ff-section-eyebrow">{faq.eyebrow}</p>
+        <h2>{faq.header}</h2>
+      </header>
+      <div class="ff-faq-list">
+        {faq.items.map((item: any, i: number) => (
+          <details class="ff-faq-item scroll-reveal" style={`--i:${i}`} open={i === 0}>
+            <summary>
+              <span class="ff-faq-q">{item.q}</span>
+              <span class="ff-faq-icon" aria-hidden="true"></span>
+            </summary>
+            <p class="ff-faq-a">{item.a}</p>
+          </details>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ─── FINAL CTA ─── -->
+  <section class="ff-final">
+    <div class="ff-final-glow" aria-hidden="true"></div>
+    <div class="ff-final-inner">
+      <h2 class="scroll-reveal">{finalCta.header}</h2>
+      <p class="scroll-reveal">{finalCta.body}</p>
+      <div class="ff-final-ctas scroll-reveal">
+        <a class="btn btn-primary btn-lg" onclick={finalCta.cta_primary_action} style="cursor:pointer">{finalCta.cta_primary} →</a>
+        <a class="btn btn-ghost btn-lg" onclick={finalCta.cta_secondary_action} style="cursor:pointer">{finalCta.cta_secondary} →</a>
+      </div>
+    </div>
+  </section>
+
 </BaseLayout>
