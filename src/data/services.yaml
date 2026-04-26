@@ -51,14 +51,14 @@ modes:
       cta: "Talk to us about Done For You"
     - id: "both"
       number: "03"
-      name: "Both"
-      claim: "The foundation you own, plus us in the moments that need us."
+      name: "The System + Studio"
+      claim: "The System for your team, plus our studio for the moments that need us."
       forTag: "Most operators, founders, and fund-backed companies"
       whatsInIt:
-        - "Full Brand HQ build, owned by you"
-        - "Your team runs it day-to-day"
-        - "Us on retainer or per-engagement when moments demand"
-      cta: "Talk to us about Both"
+        - "Full Brand HQ build, your team runs it day-to-day"
+        - "We come in as your studio for launches, repositioning, fundraising, and big creative moments"
+        - "On retainer or per-engagement, plus quarterly strategic reviews"
+      cta: "Talk to us about The System + Studio"
       emphasized: true
       emphasisLabel: "Most clients land here"
     - id: "embedded"
@@ -94,7 +94,7 @@ team:
 handoff:
   header: "Everything we build is yours. Some of it we can keep running."
   body: "Brand HQ is your asset, not ours. At the end of every engagement you have a fully owned, fully documented brand operating system. The rows below show what's handed off in every mode, and what we can keep running where the engagement calls for it."
-  modesHeader: ["", "System", "Done For You", "Both", "Embedded"]
+  modesHeader: ["", "System", "Done For You", "System + Studio", "Embedded"]
   rows:
     - { label: "Brand HQ build, owned by you", group: "handoff", values: [true, true, true, true] }
     - { label: "Strategic narrative + research", group: "handoff", values: [true, true, true, true] }
@@ -118,7 +118,7 @@ examples:
     - tag: "Done For You"
       pull: "Sharper at every investor meeting."
       body: "A pre-Series A founder needed senior creative help while he focused on product. We run his pitch decks, content, and launches through the system."
-    - tag: "Both"
+    - tag: "The System + Studio"
       pull: "One brand. Three pivots. Still consistent."
       body: "A venture-backed healthcare brand wanted to own the foundation but knew they'd need help in the rooms that mattered. Quarterly cadence plus event-driven work has carried them through a launch, a leadership transition, and a category shift."
     - tag: "Embedded"
@@ -132,9 +132,9 @@ faq:
     - q: "How do we know which mode is right for us?"
       a: "We figure that out together. Most first conversations include a working sense of which mode fits. Many engagements start in one mode and evolve as the business needs change. The shape isn't locked, the work is."
     - q: "Can we move between modes?"
-      a: "Yes. Most engagements do. Some clients start at The System and add Done For You for a major launch. Some start at Done For You and graduate into Both as their team grows. Some start at Embedded and move into a full build when the moment calls for it."
+      a: "Yes. Most engagements do. Some clients start at The System and add Done For You for a major launch. Some start at Done For You and graduate into The System + Studio as their team grows. Some start at Embedded and move into a full build when the moment calls for it."
     - q: "How long does a typical engagement last?"
-      a: "The build phase is usually four to six weeks. The run phase varies by mode. The System engagements often pause after handoff, with us returning for tune-ups. Done For You and Both engagements run on retainer or per-project terms, often spanning a year or more. Embedded engagements are scoped to the partnership shape."
+      a: "The build phase is usually four to six weeks. The run phase varies by mode. The System engagements often pause after handoff, with us returning for tune-ups. Done For You and The System + Studio engagements run on retainer or per-project terms, often spanning a year or more. Embedded engagements are scoped to the partnership shape."
     - q: "What's the team structure on our engagement?"
       a: "Senior-led from day one. Lucy and Reagan are directly involved in every Brand HQ build. We bring in specialist creative support, designers, writers, strategists, motion experts, when the work calls for it. Your engagement does not have layers of junior creatives executing while seniors collect the brief and disappear."
     - q: "Do we own what you build?"
