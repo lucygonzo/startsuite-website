@@ -29,7 +29,7 @@ const faqSchema = {
 };
 ---
 
-<BaseLayout title={meta.title} description={meta.description}>
+<BaseLayout title={meta.title} description={meta.description} ogTitle={meta.ogTitle} ogDescription={meta.ogDescription}>
   <script is:inline type="application/ld+json" set:html={JSON.stringify(faqSchema)}></script>
 
   <!-- ─── HERO ─── -->
@@ -310,6 +310,7 @@ const faqSchema = {
         <h2>{handoff.header}</h2>
         <p class="sv-handoff-body">{handoff.body}</p>
       </header>
+      <p class="sv-matrix-hint" aria-hidden="true">Swipe to compare modes</p>
       <div class="sv-matrix-wrap scroll-reveal">
         <table class="sv-matrix" role="table">
           <thead>

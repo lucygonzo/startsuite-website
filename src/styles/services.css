@@ -235,10 +235,48 @@
 }
 @media (max-width: 560px){
   .sv-hero{padding:120px 20px 56px}
-  .sv-orbit-node{min-width:108px;padding:9px 11px}
-  .sv-orbit-node strong{font-size:12px}
-  .sv-orbit-core{width:144px;height:144px}
-  .sv-orbit-core strong{font-size:17px}
+}
+
+/* On narrow viewports (≤480px), the absolute-% orbit positioning
+   collapses (Embedded node overlaps the core). Switch to a clean
+   2×2 grid of mode chips below the core — same metaphor (HQ at the
+   center, four modes around it) without the overlap. */
+@media (max-width: 480px){
+  .sv-orbit{
+    aspect-ratio:auto;
+    display:grid;grid-template-columns:1fr 1fr;
+    gap:10px;
+    padding:0 4px;
+  }
+  .sv-orbit-ring{display:none}
+  .sv-orbit-core{
+    grid-column:1 / -1;
+    width:auto;height:auto;
+    border-radius:18px;
+    padding:18px 22px;
+    margin-bottom:6px;
+  }
+  .sv-orbit-core strong{font-size:18px}
+  .sv-orbit-node,
+  .sv-orbit-node-1,
+  .sv-orbit-node-2,
+  .sv-orbit-node-3,
+  .sv-orbit-node-4{
+    position:static;
+    transform:none;
+    min-width:0;width:100%;
+    padding:11px 14px;
+  }
+  .sv-orbit-node-3,
+  .sv-orbit-node-3:hover,
+  .sv-orbit-node-4,
+  .sv-orbit-node-4:hover{transform:none}
+  .sv-orbit-node-3{
+    grid-column:1 / -1;
+    /* Emphasize Both / System + Studio — full width below other three */
+    order:5;
+  }
+  .sv-orbit-node strong{font-size:13px}
 }
 
 /* ── WHY ──────────────────────────────────────────────────────── */
@@ -887,12 +925,38 @@
   font-size:16px;line-height:1.7;color:var(--text-muted);margin:0;
 }
 .sv-matrix-wrap{
+  position:relative;
   background:var(--surface);
   border:1px solid var(--border);
   border-radius:var(--radius-lg);
   padding:8px 8px 18px;
   overflow-x:auto;
   box-shadow:0 16px 48px rgba(0,0,0,0.32);
+  /* Subtle scroll-fade on the right edge to telegraph "more here" on
+     narrow viewports where the matrix is wider than the wrap. */
+  -webkit-mask-image:linear-gradient(90deg,#000 0%,#000 calc(100% - 36px),transparent 100%);
+  mask-image:linear-gradient(90deg,#000 0%,#000 calc(100% - 36px),transparent 100%);
+}
+@media (min-width: 769px){
+  /* Above mobile, content fits — disable the mask so the wrap looks
+     normal at full width. */
+  .sv-matrix-wrap{
+    -webkit-mask-image:none;
+    mask-image:none;
+  }
+}
+/* Swipe hint that appears only when the matrix actually scrolls. */
+.sv-matrix-hint{
+  display:none;
+  text-align:center;margin:0 0 12px;
+  font-family:var(--mono);
+  font-size:9.5px;font-weight:700;letter-spacing:0.16em;
+  text-transform:uppercase;color:var(--purple-light);
+}
+.sv-matrix-hint::before,
+.sv-matrix-hint::after{content:'·';margin:0 8px;color:var(--text-dim)}
+@media (max-width: 768px){
+  .sv-matrix-hint{display:block}
 }
 .sv-matrix{
   width:100%;
@@ -930,6 +994,20 @@
   letter-spacing:-0.012em;line-height:1.45;
   border-bottom:1px solid var(--border);
   white-space:nowrap;
+}
+@media (max-width: 768px){
+  /* Stick the Capability column so users can scroll through modes
+     without losing the row labels. */
+  .sv-matrix-row-head,
+  .sv-matrix thead th:first-child{
+    position:sticky;left:0;z-index:2;
+    background:var(--surface);
+    box-shadow:6px 0 12px -6px rgba(0,0,0,0.4);
+  }
+  .sv-matrix-divider td{
+    position:sticky;left:0;
+    background:var(--surface);
+  }
 }
 .sv-matrix .sv-mat-empty{
   font-family:var(--mono);

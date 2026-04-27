@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Admin and identity
+Disallow: /admin/
+
+Sitemap: https://startsuite.co/sitemap-index.xml
