@@ -3,11 +3,11 @@ import yaml from '@rollup/plugin-yaml';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://startsuite.co',
+  site: 'https://start-suite.com',
   output: 'static',
   integrations: [
     sitemap({
-      filter: (page) => !page.includes('/admin'),
+      filter: (page) => !page.includes('/admin') && !page.includes('/press'),
     }),
   ],
   vite: {
