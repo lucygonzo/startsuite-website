@@ -1,0 +1,383 @@
+---
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import DimLine from '@/components/DimLine.astro';
+
+const PRESS_CONTACT_EMAIL = 'reagan@start-suite.com';
+const FORTY_SIX_CONTACT_NAME = 'Kate Lynn';
+const FORTY_SIX_CONTACT_PHONE = '817-851-8036';
+const REAGAN_PHONE = '903-815-0560';
+const RELEASE_DATE = 'May 5, 2026';
+---
+
+<BaseLayout
+  title="StartSuite Launches Brand HQ · Press Release"
+  description="StartSuite launches Brand HQ, a curation layer for lean teams shipping at scale. Tulsa and Nashville, May 5, 2026."
+  ogTitle="StartSuite Launches Brand HQ"
+  ogDescription="A new category for companies that have outgrown agency retainers but cannot yet afford a full-time CMO. Powered by 46 Capital."
+  noindex={true}
+>
+  <!-- ════════════════════════════════════════════════════════════
+       HERO
+       ════════════════════════════════════════════════════════════ -->
+  <section class="pa-hero">
+    <div class="pa-hero-inner">
+      <div class="pa-hero-meta-top">
+        <a class="pa-back-top" href="/press/">← Press kit</a>
+        <button class="btn btn-primary" id="pa-copy-btn" type="button" data-default="Copy press release" data-copied="Copied">
+          Copy press release
+        </button>
+      </div>
+      <div class="pill">For immediate release</div>
+      <h1>StartSuite Launches Brand HQ, a Curation Layer for Lean Teams Shipping at Scale</h1>
+      <p class="pa-subtitle">{RELEASE_DATE} launch announcement</p>
+    </div>
+  </section>
+
+  <DimLine label="Press release" />
+
+  <!-- ════════════════════════════════════════════════════════════
+       PRESS RELEASE BODY
+       ════════════════════════════════════════════════════════════ -->
+  <section class="pa-body">
+    <div class="pa-body-inner" id="pa-release-text">
+      <p class="pa-deck">
+        A new category for companies that have outgrown agency retainers but cannot yet afford a full-time CMO. Brand decisions, market intelligence, and audience truth become a working record. Powered by 46 Capital.
+      </p>
+
+      <p>
+        <strong>Tulsa and Nashville, {RELEASE_DATE}.</strong> StartSuite today launches Brand HQ, a creative operating system built for companies whose brand has become a context problem, not a content problem. The product is the curation layer where founder taste, market intelligence, and audience truth live as a working record that every team member, agent, and tool can pull from.
+      </p>
+
+      <p>
+        The founding team set out to solve a problem every operator has felt. Brand is the layer underneath everything a company puts into the world, and it is almost always the first thing to break when a company grows. Founders scramble for decks the night before a raise. CMOs inherit brand chaos they did not create. Outside vendors deliver reports that are already stale by the time they land. StartSuite replaces that fragmented workflow with a single record that compounds over time.
+      </p>
+
+      <blockquote class="pa-quote">
+        <p>"Most LLM products treat captured text as truth. Brand HQ doesn't. We separate what your team said from what your team decided. Founders own the curation gate. Agents draft from the canonical record, not the raw transcript. That's the wedge."</p>
+        <footer>Lucy Gonzalez, co-founder of StartSuite</footer>
+      </blockquote>
+
+      <p>
+        Brand HQ delivers a personalized morning briefing before 5:30 AM every day, grounded in the client's specific brand record rather than generic sentiment data. It tracks the competitive landscape continuously, logs every strategic decision, and routes that context into content recommendations, creative briefs, and published assets. Pricing starts at $2,500 per month, a fraction of the cost of the agency retainers and enterprise platforms it displaces.
+      </p>
+
+      <p>
+        StartSuite enters the market with six active clients already operating on the platform, spanning a remarkably broad range of company types. The roster includes a venture capital fund, a pre-Series A consumer company with an audience of more than 300,000, a direct-to-consumer goods startup, a sports and entertainment media organization, a regional industrial operator, and a specialty professional services firm. The breadth of that early traction is the proof point. Brand HQ works for dramatically different kinds of companies because every one of them shares the same underlying problem of fragmented brand ownership.
+      </p>
+
+      <blockquote class="pa-quote">
+        <p>"There was a real gap between the enterprise platforms built for Fortune 500 analyst teams and the self-serve dashboards that just flood marketing leaders with noise. The companies in the middle, the ones trying to punch above their weight on brand with limited time and no dedicated CMO, were getting served by nobody. StartSuite is the first team we have seen build a product specifically for them, and the early client results across categories speak for themselves."</p>
+        <footer>Tracy Poole, 46 Capital</footer>
+      </blockquote>
+
+      <p>
+        StartSuite plans to expand across 2026 into additional verticals including regional healthcare, professional services, agricultural supply, and specialty distribution. All share a common profile: small marketing teams, high reputational stakes, and a marketing leader currently doing brand intelligence manually or not at all.
+      </p>
+
+      <h2 class="pa-section-heading">About StartSuite</h2>
+      <p>
+        StartSuite is a creative operating system for lean teams shipping at scale. Brand HQ is the curation layer where founder taste, market intelligence, and audience truth become a working record. Founded in 2026 by Lucy Gonzalez and Reagan Renfroe, StartSuite is built on a single thesis: brand has become a context problem, not a content problem. Headquartered in Tulsa and Nashville. Powered by 46 Capital. More at start-suite.com.
+      </p>
+
+      <h2 class="pa-section-heading">About 46 Capital</h2>
+      <p>
+        46 Capital is a venture fund invested in pre-Series A founders building companies with operator-level credibility from day one. The fund backs category-defining teams and provides hands-on support through the foundational years of company building. More at 46.capital.
+      </p>
+
+      <h2 class="pa-section-heading">Media contact</h2>
+      <div class="pa-contacts">
+        <div class="pa-contact-block">
+          <p class="pa-contact-label">For StartSuite</p>
+          <p class="pa-contact-name">Reagan Renfroe, Co-Founder</p>
+          <p><a href={`mailto:${PRESS_CONTACT_EMAIL}`}>{PRESS_CONTACT_EMAIL}</a></p>
+          <p class="pa-contact-phone">{REAGAN_PHONE}</p>
+        </div>
+        <div class="pa-contact-block">
+          <p class="pa-contact-label">For 46 Capital</p>
+          <p class="pa-contact-name">{FORTY_SIX_CONTACT_NAME}</p>
+          <p class="pa-contact-phone">{FORTY_SIX_CONTACT_PHONE}</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════
+       BACK TO PRESS KIT
+       ════════════════════════════════════════════════════════════ -->
+  <section class="pa-back-section">
+    <div class="pa-back-inner">
+      <a class="pa-back-link" href="/press/">Back to press kit →</a>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════════════════════════════════
+       Plain-text release for clipboard copy (hidden)
+       ════════════════════════════════════════════════════════════ -->
+  <pre id="pa-release-plaintext" hidden aria-hidden="true">FOR IMMEDIATE RELEASE
+
+StartSuite Launches Brand HQ, a Curation Layer for Lean Teams Shipping at Scale
+
+A new category for companies that have outgrown agency retainers but cannot yet afford a full-time CMO. Brand decisions, market intelligence, and audience truth become a working record. Powered by 46 Capital.
+
+Tulsa and Nashville, {RELEASE_DATE}. StartSuite today launches Brand HQ, a creative operating system built for companies whose brand has become a context problem, not a content problem. The product is the curation layer where founder taste, market intelligence, and audience truth live as a working record that every team member, agent, and tool can pull from.
+
+The founding team set out to solve a problem every operator has felt. Brand is the layer underneath everything a company puts into the world, and it is almost always the first thing to break when a company grows. Founders scramble for decks the night before a raise. CMOs inherit brand chaos they did not create. Outside vendors deliver reports that are already stale by the time they land. StartSuite replaces that fragmented workflow with a single record that compounds over time.
+
+"Most LLM products treat captured text as truth. Brand HQ doesn't," said Lucy Gonzalez, co-founder of StartSuite. "We separate what your team said from what your team decided. Founders own the curation gate. Agents draft from the canonical record, not the raw transcript. That's the wedge."
+
+Brand HQ delivers a personalized morning briefing before 5:30 AM every day, grounded in the client's specific brand record rather than generic sentiment data. It tracks the competitive landscape continuously, logs every strategic decision, and routes that context into content recommendations, creative briefs, and published assets. Pricing starts at $2,500 per month, a fraction of the cost of the agency retainers and enterprise platforms it displaces.
+
+StartSuite enters the market with six active clients already operating on the platform, spanning a remarkably broad range of company types. The roster includes a venture capital fund, a pre-Series A consumer company with an audience of more than 300,000, a direct-to-consumer goods startup, a sports and entertainment media organization, a regional industrial operator, and a specialty professional services firm. The breadth of that early traction is the proof point. Brand HQ works for dramatically different kinds of companies because every one of them shares the same underlying problem of fragmented brand ownership.
+
+"There was a real gap between the enterprise platforms built for Fortune 500 analyst teams and the self-serve dashboards that just flood marketing leaders with noise," said Tracy Poole of 46 Capital. "The companies in the middle, the ones trying to punch above their weight on brand with limited time and no dedicated CMO, were getting served by nobody. StartSuite is the first team we have seen build a product specifically for them, and the early client results across categories speak for themselves."
+
+StartSuite plans to expand across 2026 into additional verticals including regional healthcare, professional services, agricultural supply, and specialty distribution. All share a common profile: small marketing teams, high reputational stakes, and a marketing leader currently doing brand intelligence manually or not at all.
+
+About StartSuite
+
+StartSuite is a creative operating system for lean teams shipping at scale. Brand HQ is the curation layer where founder taste, market intelligence, and audience truth become a working record. Founded in 2026 by Lucy Gonzalez and Reagan Renfroe, StartSuite is built on a single thesis: brand has become a context problem, not a content problem. Headquartered in Tulsa and Nashville. Powered by 46 Capital. More at start-suite.com.
+
+About 46 Capital
+
+46 Capital is a venture fund invested in pre-Series A founders building companies with operator-level credibility from day one. The fund backs category-defining teams and provides hands-on support through the foundational years of company building. More at 46.capital.
+
+Media Contact
+
+For StartSuite:
+Reagan Renfroe, Co-Founder
+{PRESS_CONTACT_EMAIL}
+{REAGAN_PHONE}
+
+For 46 Capital:
+{FORTY_SIX_CONTACT_NAME}
+{FORTY_SIX_CONTACT_PHONE}
+</pre>
+
+  <script is:inline>
+    (function () {
+      var btn = document.getElementById('pa-copy-btn');
+      var src = document.getElementById('pa-release-plaintext');
+      if (!btn || !src) return;
+      var defaultLabel = btn.dataset.default || btn.textContent.trim();
+      var copiedLabel = btn.dataset.copied || 'Copied';
+      var resetTimer = null;
+
+      btn.addEventListener('click', function () {
+        var text = (src.textContent || '').trim();
+        var done = function () {
+          btn.textContent = copiedLabel;
+          btn.classList.add('is-copied');
+          if (resetTimer) clearTimeout(resetTimer);
+          resetTimer = setTimeout(function () {
+            btn.textContent = defaultLabel;
+            btn.classList.remove('is-copied');
+          }, 2400);
+        };
+
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+          navigator.clipboard.writeText(text).then(done).catch(function () {
+            fallback();
+          });
+        } else {
+          fallback();
+        }
+
+        function fallback() {
+          var ta = document.createElement('textarea');
+          ta.value = text;
+          ta.setAttribute('readonly', '');
+          ta.style.position = 'absolute';
+          ta.style.left = '-9999px';
+          document.body.appendChild(ta);
+          ta.select();
+          try { document.execCommand('copy'); done(); } catch (e) { /* noop */ }
+          document.body.removeChild(ta);
+        }
+      });
+    })();
+  </script>
+
+  <!-- ════════════════════════════════════════════════════════════
+       Structured data : NewsArticle
+       ════════════════════════════════════════════════════════════ -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "NewsArticle",
+    "headline": "StartSuite Launches Brand HQ, a Curation Layer for Lean Teams Shipping at Scale",
+    "datePublished": "2026-05-05",
+    "author": [
+      { "@type": "Organization", "name": "StartSuite" }
+    ],
+    "publisher": {
+      "@type": "Organization",
+      "name": "StartSuite",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://start-suite.com/images/logo-full-dark.png"
+      }
+    }
+  })} />
+</BaseLayout>
+
+<style>
+  /* ─── HERO ─────────────────────────────────────────────────── */
+  .pa-hero{
+    padding:140px 48px 60px;
+    position:relative;overflow:hidden;
+  }
+  .pa-hero::before{
+    content:'';position:absolute;top:-180px;left:25%;
+    width:900px;height:600px;pointer-events:none;
+    background:radial-gradient(ellipse,rgba(139,109,181,0.08) 0%,transparent 60%);
+  }
+  .pa-hero-inner{
+    max-width:880px;margin:0 auto;
+    position:relative;z-index:1;
+  }
+  .pa-hero-meta-top{
+    display:flex;align-items:center;justify-content:space-between;
+    gap:16px;margin-bottom:32px;
+  }
+  .pa-back-top{
+    font-family:var(--mono);
+    font-size:11px;font-weight:700;letter-spacing:0.14em;
+    text-transform:uppercase;color:var(--text-dim);
+    text-decoration:none;
+    transition:color var(--duration) var(--ease);
+  }
+  .pa-back-top:hover{color:var(--text)}
+  #pa-copy-btn{
+    cursor:pointer;
+  }
+  #pa-copy-btn.is-copied{
+    background:linear-gradient(135deg,var(--purple-light) 0%,#D4BEE8 100%);
+  }
+  .pa-hero h1{
+    font-size:clamp(32px,4.2vw,52px);
+    background:linear-gradient(160deg,#fff 30%,var(--accent) 100%);
+    -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+    background-clip:text;
+    letter-spacing:-0.035em;line-height:1.08;
+    margin-top:24px;margin-bottom:18px;
+  }
+  .pa-subtitle{
+    font-family:var(--mono);
+    font-size:12px;font-weight:600;letter-spacing:0.16em;
+    text-transform:uppercase;color:var(--purple-light);
+  }
+
+  /* ─── BODY ─────────────────────────────────────────────────── */
+  .pa-body{
+    padding:64px 48px 80px;
+  }
+  .pa-body-inner{
+    max-width:760px;margin:0 auto;
+  }
+  .pa-deck{
+    font-size:18px;line-height:1.7;
+    color:var(--text);
+    font-weight:500;letter-spacing:-0.005em;
+    padding-bottom:28px;margin-bottom:32px;
+    border-bottom:1px solid var(--border);
+  }
+  .pa-body-inner p{
+    font-size:16px;line-height:1.85;
+    color:var(--text-muted);
+    margin-bottom:22px;
+  }
+  .pa-body-inner p strong{color:var(--text);font-weight:600}
+  .pa-quote{
+    margin:36px 0;
+    padding:28px 32px;
+    background:rgba(139,109,181,0.06);
+    border-left:3px solid var(--purple-light);
+    border-radius:0 var(--radius-md) var(--radius-md) 0;
+  }
+  .pa-quote p{
+    font-family:'Georgia','Times New Roman',serif;
+    font-size:19px;line-height:1.55;
+    color:var(--text);
+    font-style:italic;font-weight:400;
+    letter-spacing:-0.005em;
+    margin-bottom:14px;
+  }
+  .pa-quote footer{
+    font-family:var(--mono);
+    font-size:11px;font-weight:600;letter-spacing:0.14em;
+    text-transform:uppercase;color:var(--purple-light);
+  }
+  .pa-section-heading{
+    font-size:20px;font-weight:800;
+    letter-spacing:-0.02em;line-height:1.2;
+    color:var(--text);
+    margin-top:48px;margin-bottom:14px;
+    padding-top:32px;
+    border-top:1px solid var(--border);
+  }
+  .pa-contacts{
+    display:grid;grid-template-columns:1fr 1fr;gap:32px;
+    margin-top:8px;
+  }
+  .pa-contact-block p{margin-bottom:6px;font-size:15px}
+  .pa-contact-label{
+    font-family:var(--mono);
+    font-size:10px;font-weight:700;letter-spacing:0.16em;
+    text-transform:uppercase;color:var(--text-dim);
+    margin-bottom:10px !important;
+  }
+  .pa-contact-name{
+    color:var(--text) !important;font-weight:600;
+  }
+  .pa-contact-phone{
+    font-family:var(--mono);font-size:14px;
+    color:var(--text-muted);
+  }
+  .pa-contact-block a{
+    color:var(--purple-light);text-decoration:none;
+    border-bottom:1px solid rgba(196,169,224,0.3);
+    transition:color var(--duration) var(--ease);
+  }
+  .pa-contact-block a:hover{color:var(--text)}
+
+  /* ─── BACK ─────────────────────────────────────────────────── */
+  .pa-back-section{
+    padding:32px 48px 120px;
+    border-top:1px solid var(--border);
+  }
+  .pa-back-inner{
+    max-width:760px;margin:0 auto;
+    text-align:center;
+  }
+  .pa-back-link{
+    display:inline-block;
+    font-family:var(--mono);
+    font-size:11px;font-weight:700;letter-spacing:0.14em;
+    text-transform:uppercase;color:var(--purple-light);
+    text-decoration:none;
+    padding:12px 22px;border-radius:100px;
+    background:rgba(139,109,181,0.08);
+    border:1px solid rgba(139,109,181,0.22);
+    transition:all var(--duration) var(--ease);
+  }
+  .pa-back-link:hover{
+    background:rgba(139,109,181,0.16);
+    border-color:rgba(196,169,224,0.4);color:#fff;
+    transform:translateY(-2px);
+  }
+
+  /* ─── MOBILE ───────────────────────────────────────────────── */
+  @media (max-width: 900px){
+    .pa-hero{padding:120px 24px 48px}
+    .pa-hero-meta-top{flex-direction:column;align-items:flex-start;gap:12px}
+    .pa-body{padding:48px 24px 64px}
+    .pa-quote{padding:22px 24px;margin:28px 0}
+    .pa-contacts{grid-template-columns:1fr;gap:24px}
+    .pa-back-section{padding:28px 24px 96px}
+  }
+
+  @media (max-width: 480px){
+    .pa-hero h1{font-size:clamp(26px,7vw,34px)}
+    .pa-deck{font-size:16px}
+    .pa-quote p{font-size:17px}
+  }
+</style>

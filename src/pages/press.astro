@@ -30,9 +30,9 @@ const founders = [
 ---
 
 <BaseLayout
-  title="Press Kit — StartSuite"
+  title="Press Kit · StartSuite"
   description="Press materials, founder bios, product facts, and downloadable brand assets for StartSuite. For media inquiries, contact Reagan Renfroe."
-  ogTitle="StartSuite — Press Kit"
+  ogTitle="StartSuite · Press Kit"
   ogDescription="A creative operating system for lean teams shipping at scale. Founder bios, product facts, and downloadable brand assets."
   noindex={true}
 >
@@ -57,8 +57,9 @@ const founders = [
           <span class="pk-meta-label">Press contact</span>
           <a class="pk-meta-value pk-meta-link" href={`mailto:${PRESS_CONTACT_EMAIL}`}>{PRESS_CONTACT_EMAIL}</a>
         </div>
-        <div>
-          <a class="btn btn-primary" href="#assets">Download assets ↓</a>
+        <div class="pk-hero-buttons">
+          <a class="btn btn-primary" href="/press/announcement/">Read announcement →</a>
+          <a class="btn btn-outline" href="#assets">Download assets ↓</a>
         </div>
       </div>
     </div>
@@ -131,7 +132,7 @@ const founders = [
         <li><strong>Five sections per company.</strong> Brand DNA, Verbal Identity, Visual Identity, Audience, Market Intelligence.</li>
         <li><strong>Designed for the human-in-the-loop.</strong> Captured signals (meetings, agents, mentions) enter pending review. Humans decide what becomes canonical.</li>
         <li><strong>Tier-of-authority architecture.</strong> Distinguishes captured-but-not-decided from canonical. AI tools query the canonical layer; the captured layer remains visible for context without polluting the official record.</li>
-        <li>Every brief, every prompt, every plug-in inherits the curated record.</li>
+        <li><strong>Plugs into the AI tools your team already uses.</strong> Every brief, every prompt, every draft inherits the curated record.</li>
         <li><strong>Multi-client by design.</strong> Operators running portfolios get a workspace per company plus a portfolio command center.</li>
         <li><strong>Real-time market intelligence layer.</strong> Connects competitor moves and audience signals to the company's own positioning.</li>
         <li><strong>Living, not static.</strong> Every Brand HQ updates as the company evolves; the record never goes stale.</li>
@@ -205,10 +206,30 @@ const founders = [
     </div>
   </section>
 
+  <DimLine label="Live brand record" />
+
+  <!-- ════════════════════════════════════════════════════════════
+       LIVE BRAND RECORD : hero CTA
+       ════════════════════════════════════════════════════════════ -->
+  <section class="pk-brand-hero">
+    <div class="pk-brand-hero-inner">
+      <div class="pk-brand-hero-eyebrow">Live brand record</div>
+      <h2>View our live brand record.</h2>
+      <p class="pk-brand-hero-body">
+        Color, typography, voice, and the decisions behind them. Current as of today, updated as the brand evolves. This is what running a brand on Brand HQ looks like.
+      </p>
+      <div class="pk-brand-hero-cta-wrap">
+        <a class="btn btn-primary btn-lg" href="https://brandhq-listening-dashboard.vercel.app/startsuite/brand-guide" target="_blank" rel="noopener noreferrer">
+          View Brand Guide →
+        </a>
+      </div>
+    </div>
+  </section>
+
   <DimLine label="Assets" />
 
   <!-- ════════════════════════════════════════════════════════════
-       ASSETS — downloadable
+       ASSETS : downloadable
        ════════════════════════════════════════════════════════════ -->
   <section class="pk-assets section-alt" id="assets">
     <div class="pk-assets-inner">
@@ -218,11 +239,14 @@ const founders = [
 
       <div class="pk-asset-grid">
         <!-- Logo pack -->
-        <div class="pk-asset-card">
+        <div class="pk-asset-card pk-asset-card-soon">
           <div class="pk-asset-head">
             <span class="pk-asset-tag">Logos</span>
             <h3>Logo pack</h3>
-            <p>Logo pack and full asset library coming with launch announcements. For immediate logo file requests, contact <a href={`mailto:${PRESS_CONTACT_EMAIL}`}>{PRESS_CONTACT_EMAIL}</a>.</p>
+            <p>For immediate file requests, contact <a href={`mailto:${PRESS_CONTACT_EMAIL}`}>{PRESS_CONTACT_EMAIL}</a>.</p>
+          </div>
+          <div class="pk-asset-actions">
+            <span class="pk-coming-soon">Coming soon</span>
           </div>
         </div>
 
@@ -242,15 +266,17 @@ const founders = [
         </div>
 
         <!-- Product screenshots -->
-        <div class="pk-asset-card">
+        <div class="pk-asset-card pk-asset-card-soon">
           <div class="pk-asset-head">
             <span class="pk-asset-tag">Product</span>
             <h3>Product screenshots</h3>
-            <p>Product screenshots coming with launch announcements.</p>
+          </div>
+          <div class="pk-asset-actions">
+            <span class="pk-coming-soon">Coming soon</span>
           </div>
         </div>
 
-        <!-- Brand Guide — live preview, external link to Vercel deployment -->
+        <!-- Brand Guide : live preview, external link to Vercel deployment -->
         <a class="pk-asset-card pk-asset-card-link pk-brand-guide" href="https://brandhq-listening-dashboard.vercel.app/startsuite/brand-guide" target="_blank" rel="noopener noreferrer">
           <div class="pk-asset-head">
             <span class="pk-asset-tag">Brand Guide</span>
@@ -265,6 +291,24 @@ const founders = [
             </div>
             <span class="pk-brand-guide-cta">View Brand Guide →</span>
           </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <DimLine label="Read the launch announcement" />
+
+  <!-- ════════════════════════════════════════════════════════════
+       READ THE LAUNCH ANNOUNCEMENT : CTA to /press/announcement/
+       ════════════════════════════════════════════════════════════ -->
+  <section class="pk-announcement-cta">
+    <div class="pk-announcement-cta-inner">
+      <div class="pk-announcement-cta-eyebrow">Read the launch announcement</div>
+      <h2>The full StartSuite launch press release.</h2>
+      <p class="pk-announcement-cta-body">View, copy, or share.</p>
+      <div class="pk-announcement-cta-wrap">
+        <a class="btn btn-primary btn-lg" href="/press/announcement/">
+          Read announcement →
         </a>
       </div>
     </div>
@@ -297,7 +341,7 @@ const founders = [
   </section>
 
   <!-- ════════════════════════════════════════════════════════════
-       Structured data — Organization
+       Structured data : Organization
        ════════════════════════════════════════════════════════════ -->
   <script type="application/ld+json" set:html={JSON.stringify({
     "@context": "https://schema.org",
@@ -636,7 +680,7 @@ const founders = [
     border-bottom-color:rgba(196,169,224,0.4);
   }
 
-  /* Brand Guide card — full-card link variant */
+  /* Brand Guide card : full-card link variant */
   .pk-asset-card-link{
     text-decoration:none;color:inherit;
     cursor:pointer;
@@ -666,6 +710,97 @@ const founders = [
   }
   .pk-asset-card-link:hover .pk-brand-guide-cta{
     color:#fff;transform:translateX(3px);
+  }
+
+  /* ─── HERO BUTTONS ─────────────────────────────────────────── */
+  .pk-hero-buttons{
+    display:flex;gap:12px;flex-wrap:wrap;
+  }
+
+  /* ─── BRAND HERO CTA ───────────────────────────────────────── */
+  .pk-brand-hero{
+    padding:96px 48px 80px;
+    position:relative;overflow:hidden;
+  }
+  .pk-brand-hero::before{
+    content:'';position:absolute;top:-160px;left:50%;
+    transform:translateX(-50%);
+    width:920px;height:520px;pointer-events:none;
+    background:radial-gradient(ellipse,rgba(139,109,181,0.13) 0%,transparent 65%);
+  }
+  .pk-brand-hero-inner{
+    max-width:880px;margin:0 auto;
+    text-align:center;
+    position:relative;z-index:1;
+  }
+  .pk-brand-hero-eyebrow{
+    font-family:var(--mono);
+    font-size:10px;font-weight:700;letter-spacing:0.18em;
+    text-transform:uppercase;color:var(--purple-light);
+    margin-bottom:20px;
+  }
+  .pk-brand-hero h2{
+    font-size:clamp(28px,3.6vw,42px);
+    letter-spacing:-0.03em;line-height:1.15;
+    color:var(--text);
+    margin-bottom:20px;
+  }
+  .pk-brand-hero-body{
+    font-size:17px;line-height:1.7;
+    color:var(--text-muted);
+    max-width:680px;margin:0 auto 32px;
+  }
+  .pk-brand-hero-cta-wrap{
+    display:flex;justify-content:center;
+  }
+
+  /* ─── COMING SOON BADGE ────────────────────────────────────── */
+  .pk-asset-card-soon{
+    opacity:0.78;
+    transition:opacity var(--duration) var(--ease),
+               border-color var(--duration) var(--ease);
+  }
+  .pk-asset-card-soon:hover{
+    opacity:1;
+  }
+  .pk-coming-soon{
+    display:inline-block;
+    font-family:var(--mono);
+    font-size:10px;font-weight:700;letter-spacing:0.16em;
+    text-transform:uppercase;color:var(--text-dim);
+    padding:6px 12px;border-radius:100px;
+    background:rgba(255,255,255,0.04);
+    border:1px solid var(--border);
+    align-self:flex-start;
+  }
+
+  /* ─── ANNOUNCEMENT CTA ─────────────────────────────────────── */
+  .pk-announcement-cta{
+    padding:96px 48px 80px;
+  }
+  .pk-announcement-cta-inner{
+    max-width:780px;margin:0 auto;
+    text-align:center;
+  }
+  .pk-announcement-cta-eyebrow{
+    font-family:var(--mono);
+    font-size:10px;font-weight:700;letter-spacing:0.18em;
+    text-transform:uppercase;color:var(--purple-light);
+    margin-bottom:20px;
+  }
+  .pk-announcement-cta h2{
+    font-size:clamp(28px,3.4vw,40px);
+    letter-spacing:-0.03em;line-height:1.15;
+    color:var(--text);
+    margin-bottom:14px;
+  }
+  .pk-announcement-cta-body{
+    font-size:16px;line-height:1.7;
+    color:var(--text-muted);
+    margin-bottom:32px;
+  }
+  .pk-announcement-cta-wrap{
+    display:flex;justify-content:center;
   }
 
   /* ─── PRESS CONTACT ────────────────────────────────────────── */
@@ -748,6 +883,8 @@ const founders = [
     .pk-assets{padding:80px 28px 72px}
     .pk-asset-grid{grid-template-columns:1fr;gap:16px}
     .pk-asset-card{padding:24px}
+    .pk-brand-hero{padding:72px 28px 60px}
+    .pk-announcement-cta{padding:72px 28px 60px}
     .pk-contact{padding:72px 28px}
     .pk-boilerplate{padding:60px 28px 100px}
   }
